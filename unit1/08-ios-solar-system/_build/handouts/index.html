@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Solar System | Devmountain Foundations</title>
+
+    <link
+      href="_static/pygments.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="_static/devmountain.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+
+    <script src="_static/pdfobject.min.js"></script>
+  </head>
+  <body>
+    <div id="handouts-container">
+      <header id="page-header">
+        <p id="project-title">Devmountain Foundations</p>
+        <p id="page-title">Solar System</p>
+        <p id="backlink">
+          <a href="/"> &laquo; Back to Homepage </a>
+        </p>
+      </header>
+
+      <nav id="page-toc"><ul>
+<li><a class="reference internal" href="#">Solar System</a><ul>
+<li><a class="reference internal" href="#model">Model</a></li>
+<li><a class="reference internal" href="#model-controller">Model Controller</a></li>
+<li><a class="reference internal" href="#master-list-view">Master List View</a></li>
+<li><a class="reference internal" href="#detail-view">Detail View</a></li>
+<li><a class="reference internal" href="#segue">Segue</a></li>
+<li><a class="reference internal" href="#going-further">Going Further</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+
+      <main id="page-content">  <section class="section" id="solar-system">
+<h1>Solar System</h1>
+<p>Students will work with tableviews, learn about computed properties, and implement the UITableViewDataSource and UITableViewDelegate protocol methods to build a Solar System directory.</p>
+<p>Students who complete this project independently are able to:</p>
+<ul class="simple">
+<li><p>Instantiate a UItableViewControler</p></li>
+<li><p>Work with UITableVIewControllers</p></li>
+<li><p>Implement a master-detail interface</p></li>
+<li><p>Instantiate and place UIImages on the screen</p></li>
+<li><p>Use a Model Object Controller to access Model Objects</p></li>
+<li><p>Use computed Properties</p></li>
+</ul>
+<section class="section" id="model">
+<h2>Model</h2>
+<p>Create your Planet Model class that will hold the Name, ImageName, Diameter, Day-length, and MaxMillionKMsFromSun.</p>
+<ol class="arabic simple">
+<li><p>Add a new <code class="docutils literal notranslate"><span class="pre">Planet.swift</span></code> file and define a new <code class="docutils literal notranslate"><span class="pre">Planet</span></code> class.</p></li>
+<li><p>Add your properties choosing the data types carefully. Day length, and maxMillionKMsFromSun will have a decimal point and Diameter will not.</p></li>
+<li><p>Create your memberwise initializer that takes the parameters for each property.</p></li>
+</ol>
+</section>
+<section class="section" id="model-controller">
+<h2>Model Controller</h2>
+<p>Create your <code class="docutils literal notranslate"><span class="pre">PlanetController</span></code> class that will hold your <code class="docutils literal notranslate"><span class="pre">planets</span></code> array. <code class="docutils literal notranslate"><span class="pre">planets</span></code> will receive its value from a computed property.</p>
+<ul class="simple">
+<li><p>Add a new <code class="docutils literal notranslate"><span class="pre">PlanetController.swift</span></code> file.</p></li>
+<li><p>Create a new computed property called <code class="docutils literal notranslate"><span class="pre">planets</span></code> and set it to be of-type an array of <code class="docutils literal notranslate"><span class="pre">Planet</span></code> objects.</p></li>
+<li><p>Create your Planet objects. Here are the details for each planet:</p></li>
+</ul>
+<div class="highlight-swift notranslate"><div class="highlight"><pre><span></span>let mercury = Planet(planetName: “Mercury”, planetImageName: “mercury”, planetDiameter: 4880, planetDayLength: 87.969, maxMillionKMsFromSun: 43.0)
+let venus = Planet(planetName: “Venus”, planetImageName: “venus”, planetDiameter: 12104, planetDayLength: 2802, maxMillionKMsFromSun: 108.2)
+let earth = Planet(planetName: “Earth”, planetImageName: “earth”, planetDiameter: 12756, planetDayLength: 24, maxMillionKMsFromSun: 149.6)
+let mars = Planet(planetName: “Mars”, planetImageName: “mars”, planetDiameter: 6792, planetDayLength: 24.7, maxMillionKMsFromSun: 227.9)
+let jupiter = Planet(planetName: “Jupiter”, planetImageName: “jupiter”, planetDiameter: 42984, planetDayLength: 9.9, maxMillionKMsFromSun: 778.6)
+let saturn = Planet(planetName: “Saturn”, planetImageName: “saturn”, planetDiameter: 120536, planetDayLength: 10.7, maxMillionKMsFromSun: 1433.5)
+let uranus = Planet(planetName: “Uranus”, planetImageName: “uranus”, planetDiameter: 51118, planetDayLength: 17.2, maxMillionKMsFromSun: 2872.5)
+let neptune = Planet(planetName: “Neptune”, planetImageName: “neptune”, planetDiameter: 49528, planetDayLength: 16.1, maxMillionKMsFromSun: 4495.1)
+let pluto = Planet(planetName: “Pluto”, planetImageName: “pluto”, planetDiameter: 2370, planetDayLength: 153.3, maxMillionKMsFromSun: 5906.4)
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Return an array of the planet objects you just created.</p></li>
+<li><p>Set your planets to be <code class="docutils literal notranslate"><span class="pre">static</span></code> so we can access them with an instance of our <code class="docutils literal notranslate"><span class="pre">Planet</span> <span class="pre">Controller</span></code>.</p></li>
+</ul>
+</section>
+<section class="section" id="master-list-view">
+<h2>Master List View</h2>
+<p>Build a view that lists the planets using a <code class="docutils literal notranslate"><span class="pre">UITableViewController</span></code> scene. Implement the <code class="docutils literal notranslate"><span class="pre">UITableViewDataSource</span></code> protocol methods (refer to the documentation for a refresher if needed). Note that one could use a <code class="docutils literal notranslate"><span class="pre">UIViewController</span></code> with a <code class="docutils literal notranslate"><span class="pre">UITableView</span></code> placed on it, but <code class="docutils literal notranslate"><span class="pre">UITableViewController</span></code> implements a full screen <code class="docutils literal notranslate"><span class="pre">UITableView</span></code> by default.</p>
+<img alt="_images/PlanetListVC.png" src="_images/PlanetListVC.png" style="width: 300px;" />
+<p><strong>Step by step process</strong></p>
+<ul class="simple">
+<li><p>Delete the initial view controller that was autogenerated for you in your <code class="docutils literal notranslate"><span class="pre">Main.storyboard</span></code> file.</p></li>
+<li><p>Add a <code class="docutils literal notranslate"><span class="pre">UITableViewController</span></code> as your root <code class="docutils literal notranslate"><span class="pre">ViewController</span></code> in the <code class="docutils literal notranslate"><span class="pre">Main.storyboard</span></code> file. Embed in a UINavigationController.</p></li>
+<li><p>Implement the <code class="docutils literal notranslate"><span class="pre">UITableViewDataSource</span></code> methods using the <code class="docutils literal notranslate"><span class="pre">PlanetController.planets</span></code> array.</p></li>
+<li><p>Don’t forget to manage your <code class="docutils literal notranslate"><span class="pre">resueIdentifer</span></code>.</p></li>
+<li><p>Set up your cells to display the name, image, and index of the planet. Note: Basic <code class="docutils literal notranslate"><span class="pre">UITableView</span> <span class="pre">Cells</span></code> have a <code class="docutils literal notranslate"><span class="pre">UIImage</span></code> by default.</p></li>
+<li><p>Feel free to experiment with the content modes on the cell’s <code class="docutils literal notranslate"><span class="pre">UIImageView</span></code> to display the image in different ways.</p></li>
+</ul>
+<p>Readability: The UITableViewController subclass template comes with a lot of boilerplate and commented code. For readability, please remove all unused boilerplate from your code.</p>
+</section>
+<section class="section" id="detail-view">
+<h2>Detail View</h2>
+<p>Build a <code class="docutils literal notranslate"><span class="pre">UIViewController</span></code> scene in the storyboard that has UI elements to display an image of the planet and the details of a planet, such as distance from the sun, day length, and diameter. Make a planet variable for the tableViewController’s <code class="docutils literal notranslate"><span class="pre">prepare(for</span> <span class="pre">segue:</span> <span class="pre">…)</span></code> function to pass the planet that is tapped on. Create and call a function that updates the UI elements to display the information from the <code class="docutils literal notranslate"><span class="pre">planet</span></code> variable.</p>
+<img alt="_images/PlanetDetail.png" src="_images/PlanetDetail.png" style="width: 300px;" />
+<p><strong>Step by step process:</strong></p>
+<ul class="simple">
+<li><p>Add a new UIViewController scene to Main.storyboard</p></li>
+<li><p>Create a PlanetDetailViewController file as a subclass of UIViewController and set the class of your detail view scene Hint: In the Main.storyboard, click the yellow circle above the new UIViewController scene, then select the Identity Inspector (the third icon from the right) on the top right of the window. In the text field that says “Class:”, type the name of the new UIViewController subclass you just made in the previous step (PlanetDetailViewController)</p></li>
+<li><p>Add a UIImageView and UILabels to display the data note: Experiment with Autolayout automatic constraints or UIStackViews to create an appealing detail view</p></li>
+<li><p>Create outlets from the UIImageView and UILabels to your PlanetDetailViewController class If Xcode won’t let you create the outlets: Make sure that you’ve correctly set the class of the detail view scene from the last step.</p></li>
+<li><p>Add an optional planet property (of type Planet) that will be set by the Master List View when performing the segue</p></li>
+<li><p>Add a new function called updateViews that makes sure a planet was successfully passed to the PlanetDetailViewController’s planet property made in step 5 by unwrapping it, then updates the view controller’s title, UIImageView and UILabels with the planet’s data note: This is an extremely common design pattern. Commit it to memory. If you have a detail view or table view cell template that displays data, use an ‘updateViews’ method takes the model data passed from the previous view controller’s prepareForSegue function, and updates the view’s subviews with it.</p></li>
+<li><p>Update the viewDidLoad() function to call the updateViews function. You can test your view and the update function by setting the detail view as the initial view controller, then in the viewDidLoad, assign self.planet to PlanetController.planets[0], before calling updateViews Be sure to reverse those changes when done checking that the view works, or you may have undesired behavior as you create your segue, though make sure to leave the updateViews function in the viewDidLoad.</p></li>
+</ul>
+</section>
+<section class="section" id="segue">
+<h2>Segue</h2>
+<p>Create a segue between your List View and Detail View that will pass the selected planet to the detail view for display.</p>
+<p><strong>Step by step process:</strong></p>
+<ul class="simple">
+<li><p>Option-drag from your prototype cell in the List View to the Detail View to create a “show” segue.</p></li>
+<li><p>Select the segue and give it an identifier note: As a matter of best practice, the identifier should describe what the segue does, for example <code class="docutils literal notranslate"><span class="pre">toPlanetDetail</span></code>.</p></li>
+<li><p>Add the prepareForSegue function to your PlanetListViewController class note: Remember that prepareForSegue will get called on all segues triggered from the current scene and accompanying view controller class.</p></li>
+<li><p>Implement the <code class="docutils literal notranslate"><span class="pre">prepareForSegue</span></code> method by checking for the correct segue identifier, capturing an instance of the selected planet, capturing an instance of the PlanetDetailViewController, and setting the planet property of the PlanetDetailViewController Hint: Remember, the <code class="docutils literal notranslate"><span class="pre">PlanetDetailViewController</span></code> will use the <code class="docutils literal notranslate"><span class="pre">planet</span></code> property to update itself when it loads to display to the user.</p></li>
+</ul>
+<div class="admonition hint">
+<p class="admonition-title">Need Some Help?</p>
+<details class="admonition-body"><summary></summary><div class="admonition-body docutils container">
+<div class="highlight-swift notranslate"><div class="highlight"><pre><span></span><span class="c1">// Identifier: What segue was triggerd</span>
+
+<span class="k">if</span> <span class="n">segue</span><span class="p">.</span><span class="n">identifier</span> <span class="p">...</span> <span class="p">{</span>
+
+    <span class="c1">// Index: What cell was tapped</span>
+
+    <span class="k">if</span> <span class="kd">let</span> <span class="nv">index</span> <span class="p">=</span> <span class="p">...</span> <span class="p">{</span>
+
+        <span class="c1">// Destination: Where am I going /</span>
+
+        <span class="k">guard</span> <span class="kd">let</span> <span class="nv">destintionVC</span> <span class="p">...</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
+
+        <span class="c1">// Object to send: What Object/Data am I passing?</span>
+
+        <span class="kd">let</span> <span class="nv">objectToSend</span> <span class="p">=</span> <span class="p">...</span>
+
+        <span class="c1">// Reciever Object: What object will catch this data</span>
+
+        <span class="n">destintionVC</span><span class="p">.</span><span class="n">reciever</span> <span class="p">=</span> <span class="p">...</span>
+
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</details></div>
+</section>
+<section class="section" id="going-further">
+<h2>Going Further</h2>
+<p>Add additional model data to the Planet class, update the PlanetController to include it, and update the PlanetDetailViewController to display it</p>
+<ul class="simple">
+<li><p>Add an image of the entire Solar System as a header view to the list UITableView</p></li>
+<li><p>Create a Unit or UITest that verifies the number of cells in the PlanetListViewController</p></li>
+<li><p>Create a Unit or UITest that verifies the values of PlanetController.planets</p></li>
+</ul>
+</section>
+</section>
+ 
+      </main>
+
+      <footer id="page-footer">
+        <p>&copy; 2021 Devmountain</p>
+      </footer>
+    </div>
+
+    <script src="_static/main.js"></script>
+      <script src="_static/jquery.js"></script>
+      <script src="_static/underscore.js"></script>
+      <script src="_static/doctools.js"></script>
+  </body>
+</html>
