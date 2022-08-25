@@ -68,11 +68,14 @@ struct DiagonAlley {
     enum HoneydukesPrices {
         static let fizzingWhizzbees: Double = 2
         static let chocolateFrog: Double = 3
+        static let pixiePuffs: Double = 3
     }
 
     static let owls = [["beak": "brown", "feathers": "white"], ["beak": "black", "feathers": "brown"], ["beak": "black", "feathers": "black"], ["beak": "black", "feathers": "white"]]
     
     static let brooms = [["sponsor": "Chudley Cannons"], ["sponsor": "Falmouth Falcons"], ["sponsor": "The Holyhead Harpies"], ["sponsor": "Bigonville Bombers"]]
+    
+    static let bookPrices = [12, 15, 22, 10, 8, 17]
 
     static func buyWandAtOllivanders(wizard: Wizard, amount: Double) {
         print("You walk into Ollivanders to buy your first wand. The cost is \(amount) galleons.\n")
@@ -144,6 +147,16 @@ struct DiagonAlley {
         }
     }
     
+    static func spendFortuneInPixiePuffs(wizard: Wizard) {
+        print("You realize you still have money in your vault, and it doesn’t do you any good there. So you decide to head back to Honeydukes to load up on as many Pixie Puffs as you can get.\n")
+        
+        let price = HoneydukesPrices.pixiePuffs
+        let totalPixiePuffs = floor(wizard.vaultGoldVolume / price)
+        
+        wizard.spendGold(totalPixiePuffs * price)
+        print("You got \(Int(totalPixiePuffs)) Pixie Puffs!\n")
+    }
+    
     static func chooseOwl(beakColor: String, feathersColor: String) {
         print("I'm looking for an owl with \(beakColor) beak and \(feathersColor) feathers")
         
@@ -162,6 +175,16 @@ struct DiagonAlley {
         for broom in brooms {
             if broom["sponsor"]! == team {
                 print("Brilliant, this broom amazing!\n")
+            }
+        }
+    }
+    
+    static func browseBooks() {
+        for (index, price) in bookPrices.enumerated() {
+            if price < 15 {
+                print("This book isn’t too bad.\(index == bookPrices.count - 1 ? "\n" : "")")
+            } else {
+                print("This book is expensive!\(index == bookPrices.count - 1 ? "\n" : "")")
             }
         }
     }
@@ -188,3 +211,7 @@ DiagonAlley.chooseOwl(beakColor: "black", feathersColor: "white")
 DiagonAlley.chooseBroom(team: "The Holyhead Harpies")
 
 julia.sortingHat()
+
+DiagonAlley.browseBooks()
+
+DiagonAlley.spendFortuneInPixiePuffs(wizard: julia)
