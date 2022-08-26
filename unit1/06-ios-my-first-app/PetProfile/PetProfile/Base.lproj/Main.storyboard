@@ -1,24 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PetProfile" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Name)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0O-7X-k4S">
+                                <rect key="frame" x="41.5" y="84" width="331" height="29"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Title)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lND-ge-VFT">
+                                <rect key="frame" x="41.5" y="137" width="331" height="20"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Age)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CeG-gf-c0m">
+                                <rect key="frame" x="41.5" y="181" width="331" height="20"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RNt-52-JtN">
+                                <rect key="frame" x="124" y="225" width="166" height="165.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="RNt-52-JtN" secondAttribute="height" multiplier="1:1" id="LgV-Jh-rrv"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="100" text="(Bio)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXg-Hn-9eN">
+                                <rect key="frame" x="41.5" y="414.5" width="331" height="423.5"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="NXg-Hn-9eN" firstAttribute="top" secondItem="RNt-52-JtN" secondAttribute="bottom" constant="24" id="AgN-yp-IPw"/>
+                            <constraint firstItem="lND-ge-VFT" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="BxL-dK-OYh"/>
+                            <constraint firstItem="lND-ge-VFT" firstAttribute="top" secondItem="a0O-7X-k4S" secondAttribute="bottom" constant="24" id="M6D-Ty-SuL"/>
+                            <constraint firstItem="NXg-Hn-9eN" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.8" id="NTX-WU-DR6"/>
+                            <constraint firstItem="CeG-gf-c0m" firstAttribute="top" secondItem="lND-ge-VFT" secondAttribute="bottom" constant="24" id="dGn-Ob-Yjh"/>
+                            <constraint firstItem="RNt-52-JtN" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.4" id="jKh-X2-zbh"/>
+                            <constraint firstItem="a0O-7X-k4S" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="lBW-2w-p5h"/>
+                            <constraint firstItem="CeG-gf-c0m" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="lJK-Dn-4Zo"/>
+                            <constraint firstItem="RNt-52-JtN" firstAttribute="top" secondItem="CeG-gf-c0m" secondAttribute="bottom" constant="24" id="pgR-Fl-lrh"/>
+                            <constraint firstItem="RNt-52-JtN" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="qh8-rg-IVw"/>
+                            <constraint firstItem="a0O-7X-k4S" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.8" id="sJX-Mv-gsS"/>
+                            <constraint firstItem="NXg-Hn-9eN" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="tM0-JE-RvB"/>
+                            <constraint firstItem="CeG-gf-c0m" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.8" id="uoB-IV-Jv7"/>
+                            <constraint firstItem="lND-ge-VFT" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.8" id="vSW-di-8VC"/>
+                            <constraint firstItem="a0O-7X-k4S" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="vYa-sa-xgH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="NXg-Hn-9eN" secondAttribute="bottom" constant="24" id="vmG-w2-Tyz"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="20" y="80"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
