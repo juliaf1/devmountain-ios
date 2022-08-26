@@ -4,12 +4,7 @@ enum Trait {
     case brave, loyal, ambitious, intelligent
 }
 
-protocol Gringotes {
-    mutating func spendGold(_ amount: Double)
-    mutating func storeGold(_ amount: Double)
-}
-
-class Wizard: Gringotes {
+class Wizard {
     let firstName: String
     let lastName: String
     var age: Int
@@ -18,6 +13,7 @@ class Wizard: Gringotes {
     var preferredHouse: String
     var trait: Trait
     var tiredOfHarryPotterReferences: Bool
+    
     var vaultGoldVolume: Double {
         didSet {
             print("Now you have \(vaultGoldVolume) galleons.\n")
@@ -54,7 +50,37 @@ class Wizard: Gringotes {
 
         print("\(name), you are a very \(trait) wizard. You belong in \(chosenHouse)!\n")
     }
+}
+
+protocol Gringotes {
+    var vaultGoldVolume: Double { get set }
     
+    mutating func spendGold(_ amount: Double)
+    mutating func storeGold(_ amount: Double)
+    func hasEnoughFundsFor(_ amount: Double) -> Bool
+}
+
+protocol DiagonAlley: Gringotes {
+    var honeydukesPrices: [String: Double] { get }
+    var brooms: [[String: String]] { get }
+    var owls: [[String: String]] { get }
+    var bookPrices: [Int] { get }
+    
+    mutating func buyWandAtOllivanders(amount: Double)
+    mutating func buyRobesAtMadamMalkins(amount: Double)
+    mutating func receiveGoldFromLongLostRelative(amount: Double)
+    mutating func doubleFortunePlayingWizardDice()
+    mutating func buySuspiciousArtefactsAtBorginBurkes(deal: Int)
+    mutating func buyChocolateFrogsAtHoneydukes(units: Int)
+    mutating func buyFizzingWhizzbeesAtHoneydukes(units: Int)
+    mutating func spendFortuneInPixiePuffs()
+
+    func chooseOwl(beakColor: String, feathersColor: String)
+    func chooseBroom(team: String)
+    func browseBooks()
+}
+
+extension Wizard: Gringotes {
     func spendGold(_ amount: Double) {
         vaultGoldVolume -= amount
     }
@@ -62,104 +88,117 @@ class Wizard: Gringotes {
     func storeGold(_ amount: Double) {
         vaultGoldVolume += amount
     }
-}
-
-struct DiagonAlley {
-    enum HoneydukesPrices {
-        static let fizzingWhizzbees: Double = 2
-        static let chocolateFrog: Double = 3
-        static let pixiePuffs: Double = 3
-    }
-
-    static let owls = [["beak": "brown", "feathers": "white"], ["beak": "black", "feathers": "brown"], ["beak": "black", "feathers": "black"], ["beak": "black", "feathers": "white"]]
     
-    static let brooms = [["sponsor": "Chudley Cannons"], ["sponsor": "Falmouth Falcons"], ["sponsor": "The Holyhead Harpies"], ["sponsor": "Bigonville Bombers"]]
-    
-    static let bookPrices = [12, 15, 22, 10, 8, 17]
-
-    static func buyWandAtOllivanders(wizard: Wizard, amount: Double) {
-        print("You walk into Ollivanders to buy your first wand. The cost is \(amount) galleons.\n")
-
-        if hasEnoughFunds(wizard: wizard, amount: amount) {
-            wizard.spendGold(amount)
-            print("Ready to do some magic with this spetacullar wand?\n")
-        }
-    }
-    
-    static func buyRobesAtMadamMalkins(wizard: Wizard, amount: Double) {
-        print("You walk into Madam Malkin’s Robes for All Occasions. You purchase a set of robes that cost you a flat \(amount) galleons.\n")
-
-        if hasEnoughFunds(wizard: wizard, amount: amount) {
-            wizard.spendGold(amount)
-            print("Brilliant! That's a fine set of robes you just got!\n")
-        }
-    }
-    
-    static func receiveGoldFromLongLostRelative(wizard: Wizard, amount: Double) {
-        print("As you walk past Gringotts Wizarding Bank you are stopped by a very excited Goblin who explains that they’ve been waiting for you. A long lost relative left you some gold to be used on your first day. You earned \(amount) galleons.\n")
-
-        wizard.storeGold(amount)
-        print("Oh isn't it a pleasent surprise... Enjoy your gold...\n")
-    }
-    
-    static func receiveGoldPlayingWizardDice(wizard: Wizard) {
-        print("As you move along Diagon Alley you hear some noise down Knockturn Alley. A group of Slytherins are playing Wizard dice. You play a few rounds and double the gold in your purse.\n")
-        
-        wizard.storeGold(wizard.vaultGoldVolume)
-        print("You are either very lucky or incredibly good at this Wizard Dice. Good luck next time.\n")
-    }
-    
-    static func buySuspiciousArtefactsAtBorginBurkes(wizard: Wizard, deal: Int) {
-        print("With your purse bursting at the seams you walk into Borgin and Burkes. You inquire about a pack of bloodstained cards and he says he will give it to you for 1/\(deal) of all the gold in your pocket.\n")
-    
-        wizard.spendGold(wizard.vaultGoldVolume / Double(deal))
-        print("You are lucky you got this rare piece today...\n")
-    }
-    
-    static func hasEnoughFunds(wizard: Wizard, amount: Double) -> Bool {
-        if wizard.vaultGoldVolume < amount {
+    func hasEnoughFundsFor(_ amount: Double) -> Bool {
+        if vaultGoldVolume < amount {
             print("You don't have enough gold to buy this wand...\n")
             return false
         } else {
             return true
         }
     }
-    
-    static func buyChocolateFrogsAtHoneydukes(wizard: Wizard, units: Int) {
-        print("There's no better place than Honeydukes to get your chocolate frogs.\n")
-        
-        let totalPrice = HoneydukesPrices.chocolateFrog * Double(units)
+}
 
-        if hasEnoughFunds(wizard: wizard, amount: totalPrice) {
-            wizard.spendGold(totalPrice)
+extension Wizard: DiagonAlley {
+    var honeydukesPrices: [String : Double] {
+        ["fizzingWhizzbees": 2, "chocolateFrog": 3, "pixiePuffs": 3]
+    }
+    
+    var brooms: [[String : String]] {
+        [
+            ["sponsor": "Chudley Cannons"],
+            ["sponsor": "Falmouth Falcons"],
+            ["sponsor": "The Holyhead Harpies"],
+            ["sponsor": "Bigonville Bombers"]
+        ]
+    }
+    
+    var owls: [[String : String]] {
+        [
+            ["beak": "brown", "feathers": "white"],
+            ["beak": "black", "feathers": "brown"],
+            ["beak": "black", "feathers": "black"],
+            ["beak": "black", "feathers": "white"]
+        ]
+    }
+    
+    var bookPrices: [Int] {
+        [12, 15, 22, 10, 8, 17]
+    }
+    
+    func buyWandAtOllivanders(amount: Double) {
+        print("You walk into Ollivanders to buy your first wand. The cost is \(amount) galleons.\n")
+
+        if hasEnoughFundsFor(amount) {
+            spendGold(amount)
+            print("Ready to do some magic with this spetacullar wand?\n")
+        }
+    }
+    
+    func buyRobesAtMadamMalkins(amount: Double) {
+        print("You walk into Madam Malkin’s Robes for All Occasions. You purchase a set of robes that cost you a flat \(amount) galleons.\n")
+
+        if hasEnoughFundsFor(amount) {
+            spendGold(amount)
+            print("Brilliant! That's a fine set of robes you just got!\n")
+        }
+    }
+    
+    func receiveGoldFromLongLostRelative(amount: Double) {
+        print("As you walk past Gringotts Wizarding Bank you are stopped by a very excited Goblin who explains that they’ve been waiting for you. A long lost relative left you some gold to be used on your first day. You earned \(amount) galleons.\n")
+
+        storeGold(amount)
+        print("Oh isn't it a pleasent surprise... Enjoy your gold...\n")
+    }
+    
+    func doubleFortunePlayingWizardDice() {
+        print("As you move along Diagon Alley you hear some noise down Knockturn Alley. A group of Slytherins are playing Wizard dice. You play a few rounds and double the gold in your purse.\n")
+
+        storeGold(vaultGoldVolume)
+        print("You are either very lucky or incredibly good at this Wizard Dice. Good luck next time.\n")
+    }
+    
+    func buySuspiciousArtefactsAtBorginBurkes(deal: Int) {
+        print("With your purse bursting at the seams you walk into Borgin and Burkes. You inquire about a pack of bloodstained cards and he says he will give it to you for 1/\(deal) of all the gold in your pocket.\n")
+
+        spendGold(vaultGoldVolume / Double(deal))
+        print("You are lucky you got this rare piece today...\n")
+    }
+    
+    func buyChocolateFrogsAtHoneydukes(units: Int) {
+        print("There's no better place than Honeydukes to get your chocolate frogs.\n")
+
+        let totalPrice = honeydukesPrices["chocolateFrog"]! * Double(units)
+
+        if hasEnoughFundsFor(totalPrice) {
+            spendGold(totalPrice)
             print("I bet you got Dumbledore's card!\n")
         }
     }
     
-    static func buyfizzingWhizzbeesAtHoneydukes(wizard: Wizard, units: Int) {
+    func buyFizzingWhizzbeesAtHoneydukes(units: Int) {
         print("The Fizzing Whizzbees at Honeydukes are the best - you can't leave without one of those!\n")
-        
-        let totalPrice = HoneydukesPrices.fizzingWhizzbees * Double(units)
+        let totalPrice = honeydukesPrices["fizzingWhizzbees"]! * Double(units)
 
-        if hasEnoughFunds(wizard: wizard, amount: totalPrice) {
-            wizard.spendGold(totalPrice)
+        if hasEnoughFundsFor(totalPrice) {
+            spendGold(totalPrice)
             print("There you go, have fun with your treat!\n")
         }
     }
     
-    static func spendFortuneInPixiePuffs(wizard: Wizard) {
+    func spendFortuneInPixiePuffs() {
         print("You realize you still have money in your vault, and it doesn’t do you any good there. So you decide to head back to Honeydukes to load up on as many Pixie Puffs as you can get.\n")
-        
-        let price = HoneydukesPrices.pixiePuffs
-        let totalPixiePuffs = floor(wizard.vaultGoldVolume / price)
-        
-        wizard.spendGold(totalPixiePuffs * price)
+
+        let price = honeydukesPrices["pixiePuffs"]!
+        let totalPixiePuffs = floor(vaultGoldVolume / price)
+
+        spendGold(totalPixiePuffs * price)
         print("You got \(Int(totalPixiePuffs)) Pixie Puffs!\n")
     }
     
-    static func chooseOwl(beakColor: String, feathersColor: String) {
+    func chooseOwl(beakColor: String, feathersColor: String) {
         print("I'm looking for an owl with \(beakColor) beak and \(feathersColor) feathers")
-        
+
         for owl in owls {
             if owl["beak"]! == beakColor && owl["feathers"]! == feathersColor {
                 print("This one's mine!\n")
@@ -169,7 +208,7 @@ struct DiagonAlley {
         }
     }
     
-    static func chooseBroom(team: String) {
+    func chooseBroom(team: String) {
         print("I heard that my favorite Quidditch team, \(team), suggests a certain type of Broom. So, I will only buy a broom if it is sponsored by them!")
 
         for broom in brooms {
@@ -179,7 +218,7 @@ struct DiagonAlley {
         }
     }
     
-    static func browseBooks() {
+    func browseBooks() {
         for (index, price) in bookPrices.enumerated() {
             if price < 15 {
                 print("This book isn’t too bad.\(index == bookPrices.count - 1 ? "\n" : "")")
@@ -192,26 +231,15 @@ struct DiagonAlley {
 
 var julia = Wizard(firstName: "Julia", lastName: "Granger", age: 24, birthday: "10/20/1997", preferredWandLength: 12, preferredHouse: "Ravenclaw", trait: .loyal, tiredOfHarryPotterReferences: false, vaultGoldVolume: 150.0)
 
-DiagonAlley.buyWandAtOllivanders(wizard: julia, amount: 24.3)
-
-DiagonAlley.buyRobesAtMadamMalkins(wizard: julia, amount: 45)
-
-DiagonAlley.receiveGoldFromLongLostRelative(wizard: julia, amount: 300)
-
-DiagonAlley.receiveGoldPlayingWizardDice(wizard: julia)
-
-DiagonAlley.buySuspiciousArtefactsAtBorginBurkes(wizard: julia, deal: 10)
-
-DiagonAlley.buyfizzingWhizzbeesAtHoneydukes(wizard: julia, units: 3)
-
-DiagonAlley.buyChocolateFrogsAtHoneydukes(wizard: julia, units: 5)
-
-DiagonAlley.chooseOwl(beakColor: "black", feathersColor: "white")
-
-DiagonAlley.chooseBroom(team: "The Holyhead Harpies")
-
+julia.buyWandAtOllivanders(amount: 24.3)
+julia.buyRobesAtMadamMalkins(amount: 45)
+julia.receiveGoldFromLongLostRelative(amount: 300)
+julia.doubleFortunePlayingWizardDice()
+julia.buySuspiciousArtefactsAtBorginBurkes(deal: 10)
+julia.buyFizzingWhizzbeesAtHoneydukes(units: 3)
+julia.buyChocolateFrogsAtHoneydukes(units: 5)
+julia.chooseOwl(beakColor: "black", feathersColor: "white")
+julia.chooseBroom(team: "The Holyhead Harpies")
 julia.sortingHat()
-
-DiagonAlley.browseBooks()
-
-DiagonAlley.spendFortuneInPixiePuffs(wizard: julia)
+julia.browseBooks()
+julia.spendFortuneInPixiePuffs()
