@@ -15,6 +15,7 @@
 		32857E0C28B96F4000C74723 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32857E0A28B96F4000C74723 /* LaunchScreen.storyboard */; };
 		32857E1428BA782800C74723 /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32857E1328BA782800C74723 /* Planet.swift */; };
 		32857E1928BA7DD500C74723 /* PlanetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32857E1828BA7DD500C74723 /* PlanetController.swift */; };
+		32857E1B28BA83B200C74723 /* PlanetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32857E1A28BA83B100C74723 /* PlanetTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		32857E0D28B96F4000C74723 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32857E1328BA782800C74723 /* Planet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planet.swift; sourceTree = "<group>"; };
 		32857E1828BA7DD500C74723 /* PlanetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetController.swift; sourceTree = "<group>"; };
+		32857E1A28BA83B100C74723 /* PlanetTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				32857E0328B96F3F00C74723 /* ViewController.swift */,
+				32857E1A28BA83B100C74723 /* PlanetTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -171,6 +174,7 @@
 				32857E0428B96F3F00C74723 /* ViewController.swift in Sources */,
 				32857E0028B96F3F00C74723 /* AppDelegate.swift in Sources */,
 				32857E0228B96F3F00C74723 /* SceneDelegate.swift in Sources */,
+				32857E1B28BA83B200C74723 /* PlanetTableViewController.swift in Sources */,
 				32857E1428BA782800C74723 /* Planet.swift in Sources */,
 				32857E1928BA7DD500C74723 /* PlanetController.swift in Sources */,
 			);
