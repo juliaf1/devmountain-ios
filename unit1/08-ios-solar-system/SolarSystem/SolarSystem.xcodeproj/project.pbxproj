@@ -13,6 +13,7 @@
 		32857E0728B96F3F00C74723 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32857E0528B96F3F00C74723 /* Main.storyboard */; };
 		32857E0928B96F4000C74723 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32857E0828B96F4000C74723 /* Assets.xcassets */; };
 		32857E0C28B96F4000C74723 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32857E0A28B96F4000C74723 /* LaunchScreen.storyboard */; };
+		32857E1428BA782800C74723 /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32857E1328BA782800C74723 /* Planet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		32857E0828B96F4000C74723 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		32857E0B28B96F4000C74723 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		32857E0D28B96F4000C74723 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		32857E1328BA782800C74723 /* Planet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +60,38 @@
 			children = (
 				32857DFF28B96F3F00C74723 /* AppDelegate.swift */,
 				32857E0128B96F3F00C74723 /* SceneDelegate.swift */,
-				32857E0328B96F3F00C74723 /* ViewController.swift */,
-				32857E0528B96F3F00C74723 /* Main.storyboard */,
+				32857E1628BA784A00C74723 /* View Controllers */,
+				32857E1528BA784300C74723 /* Models */,
+				32857E1728BA78B700C74723 /* Views */,
 				32857E0828B96F4000C74723 /* Assets.xcassets */,
-				32857E0A28B96F4000C74723 /* LaunchScreen.storyboard */,
 				32857E0D28B96F4000C74723 /* Info.plist */,
 			);
 			path = SolarSystem;
+			sourceTree = "<group>";
+		};
+		32857E1528BA784300C74723 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				32857E1328BA782800C74723 /* Planet.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		32857E1628BA784A00C74723 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				32857E0328B96F3F00C74723 /* ViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		32857E1728BA78B700C74723 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				32857E0528B96F3F00C74723 /* Main.storyboard */,
+				32857E0A28B96F4000C74723 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +168,7 @@
 				32857E0428B96F3F00C74723 /* ViewController.swift in Sources */,
 				32857E0028B96F3F00C74723 /* AppDelegate.swift in Sources */,
 				32857E0228B96F3F00C74723 /* SceneDelegate.swift in Sources */,
+				32857E1428BA782800C74723 /* Planet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
