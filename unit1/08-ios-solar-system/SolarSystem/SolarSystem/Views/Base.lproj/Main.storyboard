@@ -63,10 +63,99 @@
                     <view key="view" contentMode="scaleToFill" id="WkE-kO-hBb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Planet Name)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JgC-cE-SKU">
+                                <rect key="frame" x="41.5" y="128" width="331" height="28.5"/>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8cp-Mx-eWG">
+                                <rect key="frame" x="41.5" y="180.5" width="331" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="UNi-Za-D1I"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P11-iG-VCe">
+                                <rect key="frame" x="41.5" y="332.5" width="331" height="16"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="100" verticalHuggingPriority="251" text="Diameter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EXU-v1-CAN">
+                                        <rect key="frame" x="0.0" y="0.0" width="288.5" height="16"/>
+                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YJG-ct-B9J">
+                                        <rect key="frame" x="288.5" y="0.0" width="42.5" height="16"/>
+                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3oD-Al-Crm">
+                                <rect key="frame" x="41.5" y="356.5" width="331" height="16"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="100" verticalHuggingPriority="251" text="Max Distance From Sun" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tEO-hx-vzx">
+                                        <rect key="frame" x="0.0" y="0.0" width="288.5" height="16"/>
+                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QpJ-Wt-q5c">
+                                        <rect key="frame" x="288.5" y="0.0" width="42.5" height="16"/>
+                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mnP-Wk-JKQ">
+                                <rect key="frame" x="41.5" y="380.5" width="331" height="16"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="100" verticalHuggingPriority="251" text="Day Length" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="POa-Nk-flg">
+                                        <rect key="frame" x="0.0" y="0.0" width="288.5" height="16"/>
+                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iIh-cS-jOt">
+                                        <rect key="frame" x="288.5" y="0.0" width="42.5" height="16"/>
+                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="eu7-0f-BO9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mnP-Wk-JKQ" firstAttribute="width" secondItem="eu7-0f-BO9" secondAttribute="width" multiplier="0.8" id="0aY-fB-ZcJ"/>
+                            <constraint firstItem="P11-iG-VCe" firstAttribute="centerX" secondItem="eu7-0f-BO9" secondAttribute="centerX" id="0gR-Wk-VLE"/>
+                            <constraint firstItem="JgC-cE-SKU" firstAttribute="centerX" secondItem="eu7-0f-BO9" secondAttribute="centerX" id="2Mo-hC-U2R"/>
+                            <constraint firstItem="P11-iG-VCe" firstAttribute="top" secondItem="8cp-Mx-eWG" secondAttribute="bottom" constant="24" id="8Pb-ss-qpK"/>
+                            <constraint firstItem="3oD-Al-Crm" firstAttribute="centerX" secondItem="eu7-0f-BO9" secondAttribute="centerX" id="Eks-QF-hDe"/>
+                            <constraint firstItem="8cp-Mx-eWG" firstAttribute="centerX" secondItem="eu7-0f-BO9" secondAttribute="centerX" id="I9z-dP-oXJ"/>
+                            <constraint firstItem="JgC-cE-SKU" firstAttribute="top" secondItem="eu7-0f-BO9" secondAttribute="top" constant="40" id="ONJ-FO-252"/>
+                            <constraint firstItem="8cp-Mx-eWG" firstAttribute="width" secondItem="eu7-0f-BO9" secondAttribute="width" multiplier="0.8" id="ezn-LC-z6Z"/>
+                            <constraint firstItem="JgC-cE-SKU" firstAttribute="width" secondItem="eu7-0f-BO9" secondAttribute="width" multiplier="0.8" id="g7H-bW-KRV"/>
+                            <constraint firstItem="3oD-Al-Crm" firstAttribute="width" secondItem="eu7-0f-BO9" secondAttribute="width" multiplier="0.8" id="jIw-zr-4B3"/>
+                            <constraint firstItem="mnP-Wk-JKQ" firstAttribute="top" secondItem="3oD-Al-Crm" secondAttribute="bottom" constant="8" id="kpx-Xb-xH9"/>
+                            <constraint firstItem="P11-iG-VCe" firstAttribute="width" secondItem="eu7-0f-BO9" secondAttribute="width" multiplier="0.8" id="sFn-ic-SNd"/>
+                            <constraint firstItem="mnP-Wk-JKQ" firstAttribute="centerX" secondItem="eu7-0f-BO9" secondAttribute="centerX" id="wuL-fc-kog"/>
+                            <constraint firstItem="3oD-Al-Crm" firstAttribute="top" secondItem="P11-iG-VCe" secondAttribute="bottom" constant="8" id="xsy-at-cUt"/>
+                            <constraint firstItem="8cp-Mx-eWG" firstAttribute="top" secondItem="JgC-cE-SKU" secondAttribute="bottom" constant="24" id="zQg-eI-bH6"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="NZO-k8-a5R"/>
+                    <connections>
+                        <outlet property="planetDayLength" destination="iIh-cS-jOt" id="5bJ-j8-f09"/>
+                        <outlet property="planetDiameter" destination="YJG-ct-B9J" id="PGw-iW-8ug"/>
+                        <outlet property="planetDistance" destination="QpJ-Wt-q5c" id="vdF-ig-kki"/>
+                        <outlet property="planetImage" destination="8cp-Mx-eWG" id="LgO-D7-Pfr"/>
+                        <outlet property="planetName" destination="JgC-cE-SKU" id="vsb-HQ-zvh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8dt-XC-hyY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -9,6 +9,11 @@ import UIKit
 
 class PlanetTableViewController: UITableViewController {
     let planets = PlanetController.planets
+//    
+//    override func viewDidLoad() {
+//        self.viewDidLoad()
+//        setUpNavbar()
+//    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         planets.count
@@ -25,13 +30,22 @@ class PlanetTableViewController: UITableViewController {
 
         return cell
     }
+    
+    func setUpNavbar() {
+        self.navigationController?.navigationBar.topItem?.title = "Solar System"
+    }
+
 
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        guard let tappedIndexPath = tableView.indexPathForSelectedRow else { return }
+
+        let planet = planets[tappedIndexPath.row]
+        if let destinationVC = segue.destination as? PlanetDetailViewController {
+            destinationVC.planet = planet
+        }
     }
 
 }
