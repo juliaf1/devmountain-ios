@@ -9,11 +9,6 @@ import UIKit
 
 class PlanetTableViewController: UITableViewController {
     let planets = PlanetController.planets
-//    
-//    override func viewDidLoad() {
-//        self.viewDidLoad()
-//        setUpNavbar()
-//    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         planets.count
@@ -31,8 +26,22 @@ class PlanetTableViewController: UITableViewController {
         return cell
     }
     
-    func setUpNavbar() {
-        self.navigationController?.navigationBar.topItem?.title = "Solar System"
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 100))
+
+        let image = UIImage(named: "solarSystem")
+        let imageView = UIImageView(image: image!)
+        imageView.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 100)
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+
+        headerView.addSubview(imageView)
+        
+        return headerView
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 100
     }
 
 
