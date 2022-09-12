@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Task CoreData | Devmountain Foundations</title>
+
+    <link
+      href="_static/pygments.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="_static/devmountain.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+
+    <script src="_static/pdfobject.min.js"></script>
+  </head>
+  <body>
+    <div id="handouts-container">
+      <header id="page-header">
+        <p id="project-title">Devmountain Foundations</p>
+        <p id="page-title">Task CoreData</p>
+        <p id="backlink">
+          <a href="/"> &laquo; Back to Homepage </a>
+        </p>
+      </header>
+
+      <nav id="page-toc"><ul>
+<li><a class="reference internal" href="#">Task CoreData</a><ul>
+<li><a class="reference internal" href="#project-planning-model-objects-and-controllers-persistence-with-core-data">Project Planning, Model Objects and Controllers, Persistence with Core Data</a><ul>
+<li><a class="reference internal" href="#view-hierarchy">View Hierarchy</a></li>
+<li><a class="reference internal" href="#add-a-core-data-stack">Add a Core Data Stack</a></li>
+<li><a class="reference internal" href="#implement-core-data-model">Implement Core Data Model</a></li>
+<li><a class="reference internal" href="#create-a-taskcontroller">Create a TaskController</a></li>
+<li><a class="reference internal" href="#tasklisttableviewcontroller">TaskListTableViewController</a></li>
+<li><a class="reference internal" href="#taskdetailviewcontroller">TaskDetailViewController</a></li>
+<li><a class="reference internal" href="#custom-table-view-cell">Custom Table View Cell</a></li>
+<li><a class="reference internal" href="#implement-the-update-views-pattern-on-the-tasktableviewcell">Implement the update views pattern on the TaskTableViewCell</a></li>
+<li><a class="reference internal" href="#custom-protocol">Custom Protocol</a></li>
+<li><a class="reference internal" href="#going-further">Going Further</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+
+      <main id="page-content">  <section class="section" id="task-coredata">
+<h1>Task CoreData</h1>
+<p>Please note, this is a 2 day project. The instructions below are for both days. You <strong>do not</strong> need to make it to the end of these instructions in one afternoon.</p>
+<p>Students will build a simple task tracking app to practice project planning, progress tracking, MVC separation, intermediate table view features, and Core Data. Students who complete this project independently are able to:</p>
+<section class="section" id="project-planning-model-objects-and-controllers-persistence-with-core-data">
+<h2>Project Planning, Model Objects and Controllers, Persistence with Core Data</h2>
+<ul class="simple">
+<li><p>identify and build a simple navigation view hierarchy</p></li>
+<li><p>create a model object using Core Data</p></li>
+<li><p>implement the UITableViewDataSource protocol</p></li>
+<li><p>implement a static UITableView</p></li>
+<li><p>create a custom UITableViewCell</p></li>
+<li><p>write a custom delegate protocol</p></li>
+<li><p>use a date picker as a custom input view</p></li>
+<li><p>wire up view controllers to model object controllers</p></li>
+<li><p>add a Core Data stack to a project</p></li>
+<li><p>implement basic data persistence with Core Data</p></li>
+</ul>
+<section class="section" id="view-hierarchy">
+<h3>View Hierarchy</h3>
+<ol class="arabic simple">
+<li><p>Create a <code class="docutils literal notranslate"><span class="pre">UITableViewController</span></code> file called <code class="docutils literal notranslate"><span class="pre">TaskListTableViewController</span></code>.</p></li>
+<li><p>Add a <code class="docutils literal notranslate"><span class="pre">UITableViewController`</span> <span class="pre">scene</span> <span class="pre">to</span> <span class="pre">your</span> <span class="pre">Main.storyboard</span> <span class="pre">that</span> <span class="pre">will</span> <span class="pre">be</span> <span class="pre">used</span> <span class="pre">to</span> <span class="pre">list</span> <span class="pre">tasks.</span> <span class="pre">Class</span> <span class="pre">it</span> <span class="pre">as</span> <span class="pre">a</span> <span class="pre">``TaskListTableViewController</span></code>.</p></li>
+<li><p>Embed the scene in a <code class="docutils literal notranslate"><span class="pre">UINavigationController</span></code> and set it as your app’s initial entry point.</p></li>
+<li><p>In your <code class="docutils literal notranslate"><span class="pre">TaskListTableViewController</span></code>, set your table view’s prototype style to basic (we will change this later to be a custom style).</p></li>
+<li><p>Give your cell a <code class="docutils literal notranslate"><span class="pre">reuseIdentifier</span></code> of <code class="docutils literal notranslate"><span class="pre">taskCell</span></code>.</p></li>
+<li><p>Add an <code class="docutils literal notranslate"><span class="pre">Add</span></code> system bar button item to the navigation bar</p></li>
+<li><p>Create a <code class="docutils literal notranslate"><span class="pre">UIViewController</span></code> file called <code class="docutils literal notranslate"><span class="pre">TaskDetailViewController</span></code>.</p></li>
+<li><p>Add a <code class="docutils literal notranslate"><span class="pre">UIViewController</span></code> scene to your <code class="docutils literal notranslate"><span class="pre">Main.storyboard</span></code> that will be used to view and/or create a task. Class it as a <code class="docutils literal notranslate"><span class="pre">TaskDetailViewController</span></code>.</p></li>
+<li><p>Add a segue from the <code class="docutils literal notranslate"><span class="pre">Add</span></code> bar button item from the first scene to the second scene (This segue will not pass data, and therefore will not need an identifier)</p></li>
+<li><p>Add a segue from the prototype cell in the first scene to the second scene (This segue will pass data, so you must give it an identifier)</p></li>
+<li><p>In your <code class="docutils literal notranslate"><span class="pre">TaskDetailViewController</span></code> scene, and a Save bar button item in the right side of your navigation bar</p></li>
+<li><p>Add the following view elements and constrain them how you would like: <code class="docutils literal notranslate"><span class="pre">UITextField</span></code> (this is where the user will add the task’s name) and give the text field a placeholder text of “Enter task name…”. <code class="docutils literal notranslate"><span class="pre">UITextView</span></code> (this is where the user will add the task’s notes) and replace the default text with “Enter notes here…”. <code class="docutils literal notranslate"><span class="pre">UIDatePicker</span></code> (this is where the user will select the task’s due date).</p></li>
+<li><p>Create the following <code class="docutils literal notranslate"><span class="pre">IBOutlets</span></code> from the above views: <code class="docutils literal notranslate"><span class="pre">taskNameTextField</span></code>, <code class="docutils literal notranslate"><span class="pre">taskNotesTextView</span></code>, <code class="docutils literal notranslate"><span class="pre">taskDueDatePicker</span></code>.</p></li>
+<li><p>Create the following <code class="docutils literal notranslate"><span class="pre">IBActions</span></code> from the above views: <code class="docutils literal notranslate"><span class="pre">saveButtonTapped</span></code>, <code class="docutils literal notranslate"><span class="pre">dueDatePickerDateChanged</span></code>.</p></li>
+</ol>
+</section>
+<section class="section" id="add-a-core-data-stack">
+<h3>Add a Core Data Stack</h3>
+<p>You will add a <code class="docutils literal notranslate"><span class="pre">CoreDataStack</span></code> class that will initialize your persistent store, coordinator, and managed object context. Then you will build your Core Data data model.</p>
+<p>Create a new file called <code class="docutils literal notranslate"><span class="pre">CoreDataStack.swift</span></code>.</p>
+<p>Import <code class="docutils literal notranslate"><span class="pre">CoreData</span></code> and then add the following code to the file:</p>
+<div class="highlight-swift notranslate"><div class="highlight"><pre><span></span><span class="kd">enum</span> <span class="nc">CoreDataStack</span> <span class="p">{</span>
+
+  <span class="kd">static</span> <span class="kd">let</span> <span class="nv">container</span><span class="p">:</span> <span class="bp">NSPersistentContainer</span> <span class="p">=</span> <span class="p">{</span>
+
+      <span class="kd">let</span> <span class="nv">container</span> <span class="p">=</span> <span class="bp">NSPersistentContainer</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">&quot;Task_CoreData&quot;</span><span class="p">)</span>
+      <span class="n">container</span><span class="p">.</span><span class="n">loadPersistentStores</span> <span class="p">{</span> <span class="p">(</span><span class="kc">_</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="k">in</span>
+          <span class="k">if</span> <span class="kd">let</span> <span class="nv">error</span> <span class="p">=</span> <span class="n">error</span> <span class="p">{</span>
+              <span class="bp">fatalError</span><span class="p">(</span><span class="s">&quot;Error loading persistent stores: </span><span class="si">\(</span><span class="n">error</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+          <span class="p">}</span>
+      <span class="p">}</span>
+      <span class="k">return</span> <span class="n">container</span>
+  <span class="p">}()</span>
+
+  <span class="kd">static</span> <span class="kd">var</span> <span class="nv">context</span><span class="p">:</span> <span class="bp">NSManagedObjectContext</span> <span class="p">{</span> <span class="n">container</span><span class="p">.</span><span class="n">viewContext</span> <span class="p">}</span>
+
+  <span class="kd">static</span> <span class="kd">func</span> <span class="nf">saveContext</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="n">context</span><span class="p">.</span><span class="n">hasChanges</span> <span class="p">{</span>
+          <span class="k">do</span> <span class="p">{</span>
+              <span class="k">try</span> <span class="n">context</span><span class="p">.</span><span class="n">save</span><span class="p">()</span>
+          <span class="p">}</span> <span class="k">catch</span> <span class="p">{</span>
+              <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Error saving context: </span><span class="si">\(</span><span class="n">error</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+          <span class="p">}</span>
+      <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Note: You do not need to memorize this, but do your best to understand what is going on in each line of code in your <code class="docutils literal notranslate"><span class="pre">CoreDataStack</span></code>.</p>
+</section>
+<section class="section" id="implement-core-data-model">
+<h3>Implement Core Data Model</h3>
+<ul class="simple">
+<li><p>Add a New Entity called <code class="docutils literal notranslate"><span class="pre">Task</span></code> with attributes for <code class="docutils literal notranslate"><span class="pre">name</span></code> (String), <code class="docutils literal notranslate"><span class="pre">notes</span></code> (String), <code class="docutils literal notranslate"><span class="pre">dueDate</span></code> (Date), and <code class="docutils literal notranslate"><span class="pre">isComplete</span></code> (Bool).</p></li>
+<li><p>Use the Data Model inspector to set <code class="docutils literal notranslate"><span class="pre">notes</span></code> and <code class="docutils literal notranslate"><span class="pre">dueDate</span></code> to optional values and give <code class="docutils literal notranslate"><span class="pre">isComplete</span></code> a default value of <code class="docutils literal notranslate"><span class="pre">false</span></code> (this will be done in your convenience intializer).</p></li>
+</ul>
+<p>Now you need to add a convenience initializer for your <code class="docutils literal notranslate"><span class="pre">Task</span></code> objects that matches what would normally be a member-wise initializer. <code class="docutils literal notranslate"><span class="pre">NSManagedObjects</span></code> have a designated initializer called <code class="docutils literal notranslate"><span class="pre">init(entity:</span> <span class="pre">NSEntityDescription,</span> <span class="pre">insertInto</span> <span class="pre">context:</span> <span class="pre">NSManagedObjectContext?)</span></code> and a convenience initializer called <code class="docutils literal notranslate"><span class="pre">init(context:</span> <span class="pre">NSManagedObjectContext)</span></code>. You will write your own convenience initializer that uses the <code class="docutils literal notranslate"><span class="pre">NSManagedObject</span></code> convenience initializer and sets the properties on a <code class="docutils literal notranslate"><span class="pre">Task</span></code> object.</p>
+<ul>
+<li><p>Create a new file called Task+Convenience.swift.</p></li>
+<li><p>Add an extension to <code class="docutils literal notranslate"><span class="pre">Task</span></code> and create your convenience initializer inside of the extension</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>note: Make sure the initializer has parameters for <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">notes</span></code>, <code class="docutils literal notranslate"><span class="pre">dueDate</span></code>, and <code class="docutils literal notranslate"><span class="pre">context</span></code> and that each parameter takes in the right type (<code class="docutils literal notranslate"><span class="pre">context</span></code> will be of type <code class="docutils literal notranslate"><span class="pre">NSManagedObjectContext</span></code>).</p></li>
+<li><p>note: Remember that <code class="docutils literal notranslate"><span class="pre">notes</span></code> and <code class="docutils literal notranslate"><span class="pre">dueDate</span></code> are optional, therefore, you can give them default values of <code class="docutils literal notranslate"><span class="pre">nil</span></code>. Also, give <code class="docutils literal notranslate"><span class="pre">context`</span> <span class="pre">a</span> <span class="pre">default</span> <span class="pre">value</span> <span class="pre">of</span> <span class="pre">``CoreDataStack.context</span></code>.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Inside the body of the initializer set your <code class="docutils literal notranslate"><span class="pre">Task</span></code> properties and call the <code class="docutils literal notranslate"><span class="pre">NSManagedObject</span></code> convenience initializer and pass in context from your own convenience initializer —&gt; <code class="docutils literal notranslate"><span class="pre">self.init(context:</span> <span class="pre">context)</span></code>.</p></li>
+</ul>
+</section>
+<section class="section" id="create-a-taskcontroller">
+<h3>Create a TaskController</h3>
+<p>Create a <code class="docutils literal notranslate"><span class="pre">TaskController</span></code> model object controller that will manage and serve <a href="#id1"><span class="problematic" id="id2">``</span></a>Task``objects to the rest of the application.</p>
+<ol class="arabic simple">
+<li><p>Create a <code class="docutils literal notranslate"><span class="pre">TaskController.swift</span></code> file and define a new <code class="docutils literal notranslate"><span class="pre">TaskController</span></code> class inside.</p></li>
+<li><p>Create a shared property as a shared instance.</p></li>
+<li><p>Add a tasks property and set it to be an array of <code class="docutils literal notranslate"><span class="pre">Task</span></code> objects, with a default value of empty.</p></li>
+<li><p>Create the following CRUD function signatures: <code class="docutils literal notranslate"><span class="pre">createTaskWith(name:</span> <span class="pre">String,</span> <span class="pre">notes:</span> <span class="pre">String?,</span> <span class="pre">dueDate:</span> <span class="pre">Date?)</span></code>, <code class="docutils literal notranslate"><span class="pre">fetchTasks()</span></code>, <code class="docutils literal notranslate"><span class="pre">update(task:</span> <span class="pre">Task,</span> <span class="pre">name:</span> <span class="pre">String,</span> <span class="pre">notes:</span> <span class="pre">String?,</span> <span class="pre">dueDate:</span> <span class="pre">Date?)</span></code>, <code class="docutils literal notranslate"><span class="pre">toggleIsComplete(task:</span> <span class="pre">Task)</span></code></p></li>
+<li><p>Go through each CRUD function and build out the logic.</p></li>
+<li><p>Create should create a <code class="docutils literal notranslate"><span class="pre">Task</span></code> and then call your <code class="docutils literal notranslate"><span class="pre">CoreDataStack.saveContext()</span></code>. Fetch should go to your <code class="docutils literal notranslate"><span class="pre">CoreDataStack.context</span></code> and fetch all of your <code class="docutils literal notranslate"><span class="pre">Task</span></code> objects. Once you have fetched you tasks, you need to assign them to your array of task objects (source of truth). Update should update the passed in task with the new values that were passed in, and then call your <code class="docutils literal notranslate"><span class="pre">CoreDataStack.saveContext()</span></code>. <code class="docutils literal notranslate"><span class="pre">ToggleIsComplete</span></code> should simply flip the boolean status of a tasks <code class="docutils literal notranslate"><span class="pre">isComplete</span></code> property. Don’t forget to call your <code class="docutils literal notranslate"><span class="pre">CoreDataStack.saveContext()</span></code>.</p></li>
+</ol>
+</section>
+<section class="section" id="tasklisttableviewcontroller">
+<h3>TaskListTableViewController</h3>
+<p>Go to <code class="docutils literal notranslate"><span class="pre">TaskListTableViewController.swift</span></code> and finish setting up your views.</p>
+<ol class="arabic simple">
+<li><p>Implement the <code class="docutils literal notranslate"><span class="pre">UITableViewDataSource</span></code> functions using <code class="docutils literal notranslate"><span class="pre">TaskController.shared.tasks</span></code> as your source of truth.</p></li>
+<li><p>Setup your cells to display the name of the task (We will change this later to be a custom cell).</p></li>
+<li><p>You will want your table view to reload each time it appears, so add the override function <code class="docutils literal notranslate"><span class="pre">viewWillAppear()</span></code> to your code and then call your <code class="docutils literal notranslate"><span class="pre">fetchTasks()</span></code> and tell your table view to reload its data.</p></li>
+</ol>
+<p>Recall that you created two segues from the List View to the Detail View. The segue from the plus button will tell the <code class="docutils literal notranslate"><span class="pre">TaskDetailTableViewController</span></code> that it should create a new task. The segue from a selected cell will tell the <code class="docutils literal notranslate"><span class="pre">TaskDetailTableViewController</span></code> that it should display a previously created task and save any changes made to it.</p>
+<ol class="arabic simple">
+<li><p>Implement the <code class="docutils literal notranslate"><span class="pre">prepare(for</span> <span class="pre">segue:</span> <span class="pre">UIStoryboardSegue,</span> <span class="pre">sender:</span> <span class="pre">Any?)</span></code> function. Be sure to check the identifier of the segue, get the destination of the segue, then get the index path for the selected row and use that index path to pass the selected task to <code class="docutils literal notranslate"><span class="pre">TaskDetailViewController</span></code>. (Hint: To do this, you will need to go to your <code class="docutils literal notranslate"><span class="pre">TaskDetailViewController</span></code> and setup a landing pad property to receive the task)</p></li>
+</ol>
+</section>
+<section class="section" id="taskdetailviewcontroller">
+<h3>TaskDetailViewController</h3>
+<ol class="arabic simple">
+<li><p>If you haven’t already, delete any boiler-plate code, including the navigation section</p></li>
+<li><p>If you haven’t already, create an optional landing pad property to receive a task from your <code class="docutils literal notranslate"><span class="pre">TaskListTableViewController</span></code> (consider naming this task).</p></li>
+<li><p>Add a property, <code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">date:</span> <span class="pre">Date?</span></code>. This will be used to capture the user’s selected due date</p></li>
+<li><p>Build out your <code class="docutils literal notranslate"><span class="pre">saveButtonTapped</span></code> IBAction. Make sure to pop the view controller after your code has been executed. (Note: If your task landing pad is nil, this button should create a new task. If your task has a value, then the save button should update your existing task. Make sure, in both instances, to pass the task name, notes, and date (from the date variable you created).</p></li>
+<li><p>In your <code class="docutils literal notranslate"><span class="pre">dueDatePickerDateChanged</span></code> IBAction, set the date variable you created to the date value of your <code class="docutils literal notranslate"><span class="pre">taskDueDatePicker</span></code>.</p></li>
+</ol>
+<p>Your Detail View should follow the <code class="docutils literal notranslate"><span class="pre">updateViews</span></code> pattern for updating the view elements with the details of a model object.</p>
+<ol class="arabic simple">
+<li><p>Add an <code class="docutils literal notranslate"><span class="pre">updateViews()</span></code> function. In the body of the function, make sure a task exists. If one does, update all the view elements to reflect the necessary data (task name, task notes, task due date)</p></li>
+</ol>
+<p>Give your app a test run. You should be able to create a new task and then see it on your <code class="docutils literal notranslate"><span class="pre">TaskListTableViewController</span></code>. You should also be able to click on a cell to see the details of a task as well as be able to update those details. If you have any issues, spend 20 minutes debugging, and if you are unable to find a resolution, send a message in the queue channel.</p>
+</section>
+<section class="section" id="custom-table-view-cell">
+<h3>Custom Table View Cell</h3>
+<p>Build a custom table view cell to display tasks. The cell should display the task name and have a button that acts as a checkmark to display and toggle the completion status of the task.</p>
+<ol class="arabic simple">
+<li><p>Add a new file called <code class="docutils literal notranslate"><span class="pre">TaskTableViewCell.swift</span></code> as a subclass of <code class="docutils literal notranslate"><span class="pre">UITableViewCell</span></code> (delete the <code class="docutils literal notranslate"><span class="pre">awakeFromNib()</span></code> and <code class="docutils literal notranslate"><span class="pre">setSelected()</span></code> functions).</p></li>
+<li><p>Assign the new class to the prototype cell on the <code class="docutils literal notranslate"><span class="pre">TaskListTableViewController</span></code> Scene in <code class="docutils literal notranslate"><span class="pre">Main.storyboard</span></code>.</p></li>
+<li><p>Change the prototype cell’s style from basic to custom and design the prototype cell with a label on the left and a square button on the right.</p></li>
+<li><p>Remove text from the button, but add an image of an empty checkbox.</p></li>
+<li><p>Create an IBOutlet for the label named <code class="docutils literal notranslate"><span class="pre">taskNameLabel</span></code>.</p></li>
+<li><p>Create an IBOutlet for the button named <code class="docutils literal notranslate"><span class="pre">completionButton</span></code>.</p></li>
+<li><p>Create an IBAction for the button named <code class="docutils literal notranslate"><span class="pre">completionButtonTapped</span></code> which you will implement using a custom protocol in the next step.</p></li>
+</ol>
+</section>
+<section class="section" id="implement-the-update-views-pattern-on-the-tasktableviewcell">
+<h3>Implement the update views pattern on the TaskTableViewCell</h3>
+<ol class="arabic simple">
+<li><p>On your <code class="docutils literal notranslate"><span class="pre">TaskTableViewCell</span></code>, create an optional task variable in order for the <code class="docutils literal notranslate"><span class="pre">TaskListTableViewController</span></code> to pass a specific task to the cell.</p></li>
+<li><p>Add a <code class="docutils literal notranslate"><span class="pre">didSet</span></code> property observer to the <code class="docutils literal notranslate"><span class="pre">task</span></code> variable that you just created (leave the body blank for now).</p></li>
+<li><p>Add an <code class="docutils literal notranslate"><span class="pre">updateViews()</span></code> function. In the body of this function first make sure that you have a task, then assign the task’s name to you <code class="docutils literal notranslate"><span class="pre">taskNameLabel</span></code>, and check you task’s <code class="docutils literal notranslate"><span class="pre">isComplete</span></code> status. If your status is <code class="docutils literal notranslate"><span class="pre">true</span></code>, set the <code class="docutils literal notranslate"><span class="pre">completionButton</span></code> to have a background of the complete image (in your assets). If the status is <code class="docutils literal notranslate"><span class="pre">false</span></code>, set it to have a background of the incomplete image.</p></li>
+<li><p>Go back to the body of your <code class="docutils literal notranslate"><span class="pre">didSet</span></code> on your <code class="docutils literal notranslate"><span class="pre">task</span></code> variable, and call <code class="docutils literal notranslate"><span class="pre">updateViews()</span></code>.</p></li>
+<li><p>We will come back to the <code class="docutils literal notranslate"><span class="pre">completionButtonTapped</span></code> IBAction shortly. For now, update your <code class="docutils literal notranslate"><span class="pre">cellForRowAt</span></code> data source function in your <code class="docutils literal notranslate"><span class="pre">TaskListTableViewController</span></code> to cast your cell as a <code class="docutils literal notranslate"><span class="pre">TaskTableViewCell</span></code>, and then to pass a given task over to the cell.</p></li>
+</ol>
+</section>
+<section class="section" id="custom-protocol">
+<h3>Custom Protocol</h3>
+<p>In this next section, you will write a protocol for the <code class="docutils literal notranslate"><span class="pre">TaskTableViewCell</span></code> to delegate handling a button tap to the <code class="docutils literal notranslate"><span class="pre">TaskListTableViewController</span></code>, adopt the protocol, and use the delegate method to mark the task as complete and reload the cell.</p>
+<ol class="arabic simple">
+<li><p>Add a protocol named <code class="docutils literal notranslate"><span class="pre">TaskCompletionDelegate</span></code> to the top of your <code class="docutils literal notranslate"><span class="pre">TaskTableViewCell.swift</span></code> file (above the class).</p></li>
+<li><p>In the body of your protocol, define a required <code class="docutils literal notranslate"><span class="pre">taskCellButtonTapped(_</span> <span class="pre">sender:</span> <span class="pre">TaskTableViewCell)</span></code> function (keep in mind, you only need a function signature, no body).</p></li>
+<li><p>Add an optional <code class="docutils literal notranslate"><span class="pre">delegate</span></code> property on the <code class="docutils literal notranslate"><span class="pre">TaskTableViewCell</span></code>.</p></li>
+<li><p>Update the <code class="docutils literal notranslate"><span class="pre">completionButtonTapped</span></code> IBAction to check if a delegate is assigned, and if so, call the delegate protocol function.</p></li>
+<li><p>Adopt the protocol in the <code class="docutils literal notranslate"><span class="pre">TaskListTableViewController</span></code> class.</p></li>
+<li><p>Implement the <code class="docutils literal notranslate"><span class="pre">taskCellButtonTapped</span></code> delegate function, guard to make sure you have a task, and then call your <code class="docutils literal notranslate"><span class="pre">toggleIsComplete</span></code> function on your <code class="docutils literal notranslate"><span class="pre">TaskController</span></code>. After that, re-call your <code class="docutils literal notranslate"><span class="pre">updateViews()</span></code> function on the sender.</p></li>
+<li><p>One final step, your cell needs to know who it’s delegate is. To do this, got to your <code class="docutils literal notranslate"><span class="pre">cellForRowAt</span></code> function on your <code class="docutils literal notranslate"><span class="pre">TaskListTableViewController</span></code> and assign the cell’s delegate property to the value of <code class="docutils literal notranslate"><span class="pre">self</span></code>.</p></li>
+</ol>
+<p>At this point you should be able to run your project and toggle tasks directly from the tasks list. Test your app. Make sure there are no bugs. Do not forget to test persistence. If you have any issues, spend 20 minutes debugging, and then send a message via the queue channel.</p>
+</section>
+<section class="section" id="going-further">
+<h3>Going Further</h3>
+<ul class="simple">
+<li><p>Add the ability to delete tasks.</p></li>
+<li><p>Add the task’s due date to your custom cell, and use a <code class="docutils literal notranslate"><span class="pre">dateFormatter</span></code> to make the date readable.</p></li>
+<li><p>Add support for projects (task parent object), or tags (task child object) to categorize your tasks.</p></li>
+<li><p>Add support for due date notifications scheduled to fire when the task is due.</p></li>
+<li><p>Add a segmented control as the title view that toggles whether the table view should display complete or incomplete tasks.</p></li>
+<li><p>Add a <code class="docutils literal notranslate"><span class="pre">UITapGestureRecognizer</span></code> to the <code class="docutils literal notranslate"><span class="pre">TaskDetailTableViewController</span></code> to dismiss the onscreen keyboard when the users taps somewhere on the screen.</p></li>
+<li><p>Add automatic resizing to the table view cell with the notes text view.</p></li>
+</ul>
+</section>
+</section>
+</section>
+ 
+      </main>
+
+      <footer id="page-footer">
+        <p>&copy; 2021 Devmountain</p>
+      </footer>
+    </div>
+
+    <script src="_static/main.js"></script>
+      <script src="_static/jquery.js"></script>
+      <script src="_static/underscore.js"></script>
+      <script src="_static/doctools.js"></script>
+  </body>
+</html>
