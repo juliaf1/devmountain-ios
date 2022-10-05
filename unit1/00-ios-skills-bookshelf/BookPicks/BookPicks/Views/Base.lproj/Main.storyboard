@@ -51,6 +51,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                        <connections>
+                                            <segue destination="lv1-rh-XSD" kind="show" identifier="toBookDetailVC" id="mRC-bi-7bB"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -71,10 +74,29 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lRs-LB-R6E"/>
+                    <connections>
+                        <outlet property="bookTableView" destination="rFH-cU-obE" id="ugs-42-kgL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tma-Y1-Xfh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4331.884057971015" y="57.589285714285708"/>
+            <point key="canvasLocation" x="4062" y="58"/>
+        </scene>
+        <!--Book Detail View Controller-->
+        <scene sceneID="M9a-LU-DLh">
+            <objects>
+                <viewController id="lv1-rh-XSD" customClass="BookDetailViewController" customModule="BookPicks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="srB-xd-8zl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Whh-Q6-wpe"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Fzp-NB-fQG"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e3Q-Yf-Uug" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4867" y="58"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="c0x-ed-b0O">
@@ -96,6 +118,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemGray3Color">
             <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
