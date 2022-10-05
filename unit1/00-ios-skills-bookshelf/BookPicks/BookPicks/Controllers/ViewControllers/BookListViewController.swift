@@ -1,5 +1,5 @@
 //
-//  BookListTableViewController.swift
+//  BookListViewController.swift
 //  BookPicks
 //
 //  Created by Julia Frederico on 05/10/22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BookListTableViewController: UITableViewController {
+class BookListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - Properties
 
@@ -19,11 +19,11 @@ class BookListTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return books.count
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "bookCell", for: indexPath)
 
         let book = books[indexPath.row]
@@ -34,7 +34,7 @@ class BookListTableViewController: UITableViewController {
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 140
     }
 

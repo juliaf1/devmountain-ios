@@ -1,80 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="buw-zI-Zm5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="r8a-RL-MG0">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Book Picks-->
-        <scene sceneID="8u6-x2-eb4">
+        <!--Book List View Controller-->
+        <scene sceneID="LvL-V4-z6x">
             <objects>
-                <tableViewController id="W3r-pL-Hp9" customClass="BookListTableViewController" customModule="BookPicks" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="4Rt-AF-wJR">
+                <viewController id="OKO-IB-4s9" customClass="BookListViewController" customModule="BookPicks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hzT-Re-LJf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemGray6Color"/>
-                        <color key="separatorColor" systemColor="systemGray3Color"/>
-                        <color key="sectionIndexBackgroundColor" systemColor="systemGray6Color"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="bookCell" textLabel="TPU-nn-6O6" detailTextLabel="Snk-ge-CUm" style="IBUITableViewCellStyleSubtitle" id="gQW-Qf-YZV">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="80.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gQW-Qf-YZV" id="Sju-Ok-WK3">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="80.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TPU-nn-6O6">
-                                            <rect key="frame" x="20" y="13" width="53" height="31.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="24"/>
-                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Snk-ge-CUm">
-                                            <rect key="frame" x="20" y="48.5" width="36" height="16.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="14"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Picks" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BBY-HX-ge6">
+                                <rect key="frame" x="16" y="88" width="187.5" height="42"/>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="32"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="rFH-cU-obE">
+                                <rect key="frame" x="0.0" y="154" width="414" height="708"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="W3r-pL-Hp9" id="MqI-CN-t3E"/>
-                            <outlet property="delegate" destination="W3r-pL-Hp9" id="J8f-3h-eJL"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Book Picks" id="Q7C-nu-EIF"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Vln-ZM-vF5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                                <color key="separatorColor" systemColor="systemGray3Color"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="bookCell" textLabel="tcg-Xs-NHQ" detailTextLabel="FqW-Gq-5A0" style="IBUITableViewCellStyleSubtitle" id="GgK-wi-LeA">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="82.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GgK-wi-LeA" id="Wxv-AQ-9ln">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="82.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tcg-Xs-NHQ">
+                                                    <rect key="frame" x="20" y="13" width="44" height="31.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="24"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FqW-Gq-5A0">
+                                                    <rect key="frame" x="20" y="48.5" width="53.5" height="18.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="16"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="OKO-IB-4s9" id="KuQ-Dn-ycn"/>
+                                    <outlet property="delegate" destination="OKO-IB-4s9" id="6xL-EJ-FKn"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="VAr-UX-XlP"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <constraints>
+                            <constraint firstItem="rFH-cU-obE" firstAttribute="top" secondItem="BBY-HX-ge6" secondAttribute="bottom" constant="24" id="EPU-Q9-8E6"/>
+                            <constraint firstItem="BBY-HX-ge6" firstAttribute="top" secondItem="VAr-UX-XlP" secondAttribute="top" id="NuV-Vd-FxD"/>
+                            <constraint firstItem="rFH-cU-obE" firstAttribute="centerX" secondItem="VAr-UX-XlP" secondAttribute="centerX" id="PpI-kp-soB"/>
+                            <constraint firstItem="rFH-cU-obE" firstAttribute="width" secondItem="VAr-UX-XlP" secondAttribute="width" id="a0L-fL-Y2i"/>
+                            <constraint firstItem="VAr-UX-XlP" firstAttribute="bottom" secondItem="rFH-cU-obE" secondAttribute="bottom" id="uaN-fJ-kHG"/>
+                            <constraint firstItem="BBY-HX-ge6" firstAttribute="leading" secondItem="VAr-UX-XlP" secondAttribute="leading" constant="16" id="vbG-Kp-CK1"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="lRs-LB-R6E"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tma-Y1-Xfh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1628" y="48"/>
+            <point key="canvasLocation" x="4331.884057971015" y="57.589285714285708"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="ssw-Wn-nur">
+        <scene sceneID="c0x-ed-b0O">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="buw-zI-Zm5" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="r8a-RL-MG0" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vhr-cF-VHB">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kSG-sf-W9a">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="W3r-pL-Hp9" kind="relationship" relationship="rootViewController" id="ii6-YS-MA5"/>
+                        <segue destination="OKO-IB-4s9" kind="relationship" relationship="rootViewController" id="fJN-fe-09f"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="l48-OG-syF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Eph-Ne-IkR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="801" y="48"/>
+            <point key="canvasLocation" x="3268" y="58"/>
         </scene>
     </scenes>
     <resources>
