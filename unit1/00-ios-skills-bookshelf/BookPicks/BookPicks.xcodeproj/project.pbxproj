@@ -14,6 +14,7 @@
 		326A130228EDD4AD00B487DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 326A130128EDD4AD00B487DB /* Assets.xcassets */; };
 		326A130528EDD4AD00B487DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 326A130328EDD4AD00B487DB /* LaunchScreen.storyboard */; };
 		326A131328EDD60000B487DB /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326A131228EDD60000B487DB /* Book.swift */; };
+		326A131528EDD71E00B487DB /* BookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326A131428EDD71E00B487DB /* BookController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		326A130428EDD4AD00B487DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		326A130628EDD4AD00B487DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		326A131228EDD60000B487DB /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		326A131428EDD71E00B487DB /* BookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 		326A131128EDD55A00B487DB /* ModelControllers */ = {
 			isa = PBXGroup;
 			children = (
+				326A131428EDD71E00B487DB /* BookController.swift */,
 			);
 			path = ModelControllers;
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				326A131328EDD60000B487DB /* Book.swift in Sources */,
+				326A131528EDD71E00B487DB /* BookController.swift in Sources */,
 				326A12FD28EDD4AC00B487DB /* ViewController.swift in Sources */,
 				326A12F928EDD4AC00B487DB /* AppDelegate.swift in Sources */,
 				326A12FB28EDD4AC00B487DB /* SceneDelegate.swift in Sources */,
