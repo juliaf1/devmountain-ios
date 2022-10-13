@@ -22,10 +22,21 @@ class EntryDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        updateViews()
     }
     
     // MARK: - IBActions
 
     @IBAction func clearEntryTitleAndText(_ sender: Any) {
+    }
+    
+    // MARK: - Helpers
+    
+    func updateViews() {
+        guard let entry = entry else { return }
+        
+        titleTextField.text = entry.title
+        bodyTextView.text = entry.text
     }
 }
