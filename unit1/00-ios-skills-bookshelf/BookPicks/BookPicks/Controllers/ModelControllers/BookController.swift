@@ -55,5 +55,19 @@ class BookController {
         
         self.books = [b1, b2, b3, b4, b5, b6]
     }
+    
+    // CRUD Functions
+    
+    func create(bookWithTitle title: String, author: String, description: String, date: String, photo: String, rating: Int) -> Book {
+        let book = Book(title: title, author: author, description: description, stringDate: date, photo: photo, rating: rating)
+        self.books.append(book)
+        return book
+    }
+    
+    func delete(book: Book) -> Bool {
+        guard let index = self.books.firstIndex(where: { $0 == book }) else { return false }
+        books.remove(at: index)
+        return true
+    }
 
 }
