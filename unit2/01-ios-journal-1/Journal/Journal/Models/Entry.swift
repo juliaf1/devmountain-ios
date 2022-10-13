@@ -17,3 +17,9 @@ class Entry {
         self.text = text
     }
 }
+
+extension Entry: Equatable {
+    static func ==(lhs: Entry, rhs: Entry) -> Bool {
+        return lhs.text == rhs.text && lhs.title == rhs.title
+    }
+}
