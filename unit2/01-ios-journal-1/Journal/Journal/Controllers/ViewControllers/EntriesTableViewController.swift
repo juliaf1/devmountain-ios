@@ -43,8 +43,13 @@ class EntriesTableViewController: UITableViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "toEntryDetailVC" {
+            guard let indexPath = tableView.indexPathForSelectedRow,
+                  let destination = segue.destination as? EntryDetailViewController else { return }
+            
+            let entryToSend = entryController.entries[indexPath.row]
+            destination.entry = entryToSend
+        }
     }
 
 }
