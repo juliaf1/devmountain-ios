@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Journal
 //
-//  Created by Cameron Stuart on 12/30/20.
+//  Created by Julia Frederico on 13/10/22.
 //
 
 import UIKit
