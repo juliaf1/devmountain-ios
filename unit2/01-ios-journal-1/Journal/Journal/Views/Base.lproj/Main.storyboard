@@ -39,7 +39,11 @@
                             <outlet property="delegate" destination="lhY-gn-cd2" id="fFk-CY-6Of"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="l4f-wG-CdH"/>
+                    <navigationItem key="navigationItem" id="l4f-wG-CdH">
+                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="VWG-zE-7dD">
+                            <color key="tintColor" red="0.57951982690000003" green="0.71723151409999997" blue="0.49708069999999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S4t-rr-v5E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -65,6 +69,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
