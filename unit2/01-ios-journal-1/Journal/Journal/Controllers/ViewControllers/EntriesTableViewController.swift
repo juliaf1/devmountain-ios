@@ -17,6 +17,7 @@ class EntriesTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        entryController.loadFromPersistentStorage()
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Entry {
+class Entry: Codable {
     var title: String
     var text: String
     var timestamp: Date = Date()
