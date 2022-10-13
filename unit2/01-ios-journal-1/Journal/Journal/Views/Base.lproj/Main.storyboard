@@ -100,7 +100,9 @@
                             <constraint firstItem="jB0-ot-3Xi" firstAttribute="centerX" secondItem="ofH-4Z-SFn" secondAttribute="centerX" id="y1H-3X-zXk"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="8Xn-25-R3H"/>
+                    <navigationItem key="navigationItem" id="8Xn-25-R3H">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="hUG-zS-AWH"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="bodyTextView" destination="guG-1Y-IUP" id="dW0-FA-pdi"/>
                         <outlet property="titleTextField" destination="jB0-ot-3Xi" id="OrP-pr-af8"/>
