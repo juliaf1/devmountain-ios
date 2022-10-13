@@ -33,6 +33,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="oVg-3i-rzR" kind="show" identifier="toEntryDetailVC" id="zqF-jv-4Xn"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -43,6 +46,9 @@
                     <navigationItem key="navigationItem" id="l4f-wG-CdH">
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="VWG-zE-7dD">
                             <color key="tintColor" red="0.57951982690000003" green="0.71723151409999997" blue="0.49708069999999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <segue destination="oVg-3i-rzR" kind="show" id="ccf-IF-gFz"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
@@ -59,12 +65,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter title here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jB0-ot-3Xi">
-                                <rect key="frame" x="41.5" y="60" width="331" height="35.5"/>
+                                <rect key="frame" x="41.5" y="104" width="331" height="35.5"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Write entry here..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="guG-1Y-IUP">
-                                <rect key="frame" x="41.5" y="111.5" width="331" height="703.5"/>
+                                <rect key="frame" x="41.5" y="155.5" width="331" height="659.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
@@ -94,6 +100,7 @@
                             <constraint firstItem="jB0-ot-3Xi" firstAttribute="centerX" secondItem="ofH-4Z-SFn" secondAttribute="centerX" id="y1H-3X-zXk"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="8Xn-25-R3H"/>
                     <connections>
                         <outlet property="bodyTextView" destination="guG-1Y-IUP" id="dW0-FA-pdi"/>
                         <outlet property="titleTextField" destination="jB0-ot-3Xi" id="OrP-pr-af8"/>
@@ -122,6 +129,9 @@
             <point key="canvasLocation" x="-291" y="64"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="zqF-jv-4Xn"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
