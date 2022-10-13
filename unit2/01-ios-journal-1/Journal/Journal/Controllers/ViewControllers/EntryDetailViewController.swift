@@ -11,6 +11,8 @@ class EntryDetailViewController: UIViewController {
     
     // MARK: - Properties
     
+    var entry: Entry?
+    
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
