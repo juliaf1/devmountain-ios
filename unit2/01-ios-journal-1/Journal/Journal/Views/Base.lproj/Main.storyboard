@@ -101,7 +101,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8Xn-25-R3H">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="hUG-zS-AWH"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="hUG-zS-AWH">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="oVg-3i-rzR" id="1s1-gp-Nlg"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="bodyTextView" destination="guG-1Y-IUP" id="dW0-FA-pdi"/>
