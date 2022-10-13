@@ -38,6 +38,16 @@ class PlanetController {
         guard let index = self.planets.firstIndex(where: { $0 == planet }) else { return }
         self.planets.remove(at: index)
     }
+    
+    // Data persistance functions
+    
+    func savePlanetsToDisk() {
+        // save
+    }
+    
+    func loadPlanetsFromDisk() {
+        // load
+    }
 
     /* This is a computed property
     static var planets: [Planet] {
