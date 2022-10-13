@@ -46,3 +46,9 @@ func formatDate(fromDate date: Date) -> String {
     dateFormatter.dateFormat = "dd/MM/yyy"
     return dateFormatter.string(from: date)
 }
+
+extension Book: Equatable {
+    static func ==(rhs: Book, lhs: Book) -> Bool {
+        return rhs.title == lhs.title && rhs.author == lhs.author
+    }
+}
