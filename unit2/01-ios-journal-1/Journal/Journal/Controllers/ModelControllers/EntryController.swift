@@ -19,9 +19,15 @@ class EntryController {
     
     // Functions
     
-    func createEntryWith(title: String, text: String) -> Entry {
+    func create(entryWithTitle title: String, text: String) -> Entry {
         let newEntry = Entry(title: title, text: text)
         self.entries.append(newEntry)
         return newEntry
+    }
+    
+    func delete(entry: Entry) -> Bool {
+        guard let index = entries.firstIndex(where: { $0 == entry }) else { return false }
+        entries.remove(at: index)
+        return true
     }
 }
