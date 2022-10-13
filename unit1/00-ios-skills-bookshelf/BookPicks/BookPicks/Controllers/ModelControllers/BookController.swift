@@ -8,7 +8,9 @@
 import Foundation
 
 class BookController {
-    var books: [Book] {
+    var books: [Book]
+    
+    init() {
         let b1 = Book(title: "Anarquistas Graças a Deus",
                       author: "Zelia Gattai",
                       description: "Filha de anarquistas chegados de Florença, por parte do pai Ernesto, e de católicos originários do Vêneto, da parte da mãe Angelina, a escritora trazia no sangue o calor de seus livros. Trinta e quatro anos depois de se casar com Jorge Amado, a sempre apaixonada Zélia abandona a posição de coadjuvante no mundo literário e experimenta a própria voz para contar a saga de sua família.",
@@ -50,7 +52,8 @@ class BookController {
                       stringDate: "01/04/2007",
                       photo: "flusser",
                       rating: 5)
-
-        return [b1, b2, b3, b4, b5, b6]
+        
+        self.books = [b1, b2, b3, b4, b5, b6]
     }
+
 }

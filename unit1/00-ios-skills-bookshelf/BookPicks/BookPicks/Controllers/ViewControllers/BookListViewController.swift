@@ -15,7 +15,7 @@ class BookListViewController: UIViewController, UITableViewDataSource, UITableVi
 
     // MARK: - Properties
 
-    let books = BookController().books
+    let bookController = BookController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,13 +24,13 @@ class BookListViewController: UIViewController, UITableViewDataSource, UITableVi
     // MARK: - Table view data source
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return books.count
+        return bookController.books.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "bookCell", for: indexPath)
 
-        let book = books[indexPath.row]
+        let book = bookController.books[indexPath.row]
         cell.textLabel?.text = book.title
         cell.detailTextLabel?.text = book.author
         cell.imageView?.image = UIImage(named: book.photo)
@@ -49,7 +49,7 @@ class BookListViewController: UIViewController, UITableViewDataSource, UITableVi
             guard let indexPath = bookTableView.indexPathForSelectedRow,
                   let destination = segue.destination as? BookDetailViewController else { return }
             
-            let bookToSend = books[indexPath.row]
+            let bookToSend = bookController.books[indexPath.row]
             destination.book = bookToSend
         }
     }
