@@ -9,7 +9,11 @@ import UIKit
 
 class EntriesTableViewController: UITableViewController {
     
+    // MARK: - Properties
+    
     let entryController = EntryController.shared
+    
+    // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,14 +34,14 @@ class EntriesTableViewController: UITableViewController {
         return cell
     }
 
-//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        let entry = entryController.entries[indexPath.row]
-//        entryController.delete(entry: entry)
-//    }
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let entry = entryController.entries[indexPath.row]
+        entryController.delete(entry: entry)
+        tableView.reloadData()
+    }
 
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
