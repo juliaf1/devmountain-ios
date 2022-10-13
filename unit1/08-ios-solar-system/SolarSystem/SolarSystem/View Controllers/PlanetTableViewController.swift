@@ -8,16 +8,17 @@
 import UIKit
 
 class PlanetTableViewController: UITableViewController {
-    let planets = PlanetController.planets
+    let planetController = PlanetController()
+    
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        planets.count
+        planetController.planets.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PlanetCell", for: indexPath)
 
-        let planet = planets[indexPath.row]
+        let planet = planetController.planets[indexPath.row]
         
         cell.imageView?.image = UIImage(named: planet.imageName)
         cell.textLabel?.text = planet.name
@@ -51,7 +52,7 @@ class PlanetTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let tappedIndexPath = tableView.indexPathForSelectedRow else { return }
 
-        let planet = planets[tappedIndexPath.row]
+        let planet = planetController.planets[tappedIndexPath.row]
         if let destinationVC = segue.destination as? PlanetDetailViewController {
             destinationVC.planet = planet
         }
