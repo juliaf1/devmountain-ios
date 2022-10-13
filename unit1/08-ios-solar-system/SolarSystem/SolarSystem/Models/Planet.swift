@@ -24,7 +24,7 @@ class Planet {
 }
 
 extension Planet: Equatable {
-    static func == (lhs: Planet, rhs: Planet) -> Bool {
+    static func ==(lhs: Planet, rhs: Planet) -> Bool {
         lhs.name == rhs.name && lhs.imageName == rhs.imageName && lhs.diameter == rhs.diameter && lhs.dayLength == rhs.dayLength && lhs.maxMillionKMsFromSun == rhs.maxMillionKMsFromSun
     }
 }
