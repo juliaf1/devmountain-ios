@@ -10,12 +10,7 @@ import Foundation
 class EntryController {
     static let shared = EntryController()
     
-    var entries: [Entry]
-    
-    init() {
-        let firstEntry = Entry(title: "My first entry", text: "Start here...")
-        self.entries = [firstEntry]
-    }
+    var entries: [Entry] = []
     
     // Functions
     
@@ -25,9 +20,8 @@ class EntryController {
         return newEntry
     }
     
-    func delete(entry: Entry) -> Bool {
-        guard let index = entries.firstIndex(where: { $0 == entry }) else { return false }
+    func delete(entry: Entry) {
+        guard let index = entries.firstIndex(where: { $0 == entry }) else { return }
         entries.remove(at: index)
-        return true
     }
 }
