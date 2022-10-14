@@ -8,25 +8,17 @@
 import Foundation
 
 class EntryController {
-    
-    // MARK: - Properties
-    
-    var journalController: JournalController
-    
-    // MARK: - Inits
-    
-    init(journalController: JournalController) {
-        self.journalController = journalController
-    }
-    
+
     // MARK: - Methods
     
-    func create(entryWithTitle title: String, text: String, journal: Journal) {
+    static func create(entryWithTitle title: String, text: String, journal: Journal) -> Entry {
         let entry = Entry(title: title, text: text)
-        journalController.addEntryTo(journal: journal, entry: entry)
+        JournalController.shared.addEntryTo(journal: journal, entry: entry)
+        return entry
     }
     
-    func delete(entry: Entry, journal: Journal) {
-        journalController.removeEntryFrom(journal: journal, entry: entry)
+    static func delete(entry: Entry, journal: Journal) {
+        JournalController.shared.removeEntryFrom(journal: journal, entry: entry)
     }
+
 }
