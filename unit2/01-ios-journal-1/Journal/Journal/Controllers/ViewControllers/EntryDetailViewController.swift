@@ -25,6 +25,7 @@ class EntryDetailViewController: UIViewController {
         super.viewDidLoad()
 
         // when conforming to text view/field delegates, we need to set up the outlets delegate: bodyTextView.delegate = self
+        bodyTextView.delegate = self
 
         setUpDismissKeyboardTap()
         updateViews()
@@ -71,20 +72,20 @@ class EntryDetailViewController: UIViewController {
     }
 }
 
-/*
-extension EntryDetailViewController: UITextViewDelegate, UITextFieldDelegate {
-    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
-        view.endEditing(true)
-    }
-
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        view.endEditing(true)
+extension EntryDetailViewController: UITextViewDelegate {
+    
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        if textView.text == "Write entry here..." {
+            textView.text = ""
+        }
+        return true
     }
     
+    /*
     func textViewDidChange(_ textView: UITextView) {
         // functions will run for every text view / title field outlet that has its delegate set as this VC
         // check what view/field was triggered by comparing them to the outlets textView == myOutlet
         // print(textView.text)
     }
+    */
 }
-*/
