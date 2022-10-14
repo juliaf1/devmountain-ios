@@ -109,6 +109,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="kYt-sl-5F0"/>
                     <connections>
+                        <outlet property="createNewJournalButton" destination="nTQ-xe-N0q" id="gMo-ck-OtQ"/>
                         <outlet property="journalListTableView" destination="gIA-KF-z4F" id="zyB-U8-4pe"/>
                         <outlet property="journalTitleTextField" destination="2ki-ze-RkU" id="74n-El-GSb"/>
                     </connections>

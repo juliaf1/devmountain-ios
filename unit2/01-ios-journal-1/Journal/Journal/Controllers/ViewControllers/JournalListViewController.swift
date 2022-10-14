@@ -17,16 +17,21 @@ class JournalListViewController: UIViewController, UITableViewDelegate, UITableV
     
     @IBOutlet weak var journalTitleTextField: UITextField!
     @IBOutlet weak var journalListTableView: UITableView!
-
+    @IBOutlet weak var createNewJournalButton: UIButton!
+    
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         journalController.loadFromPersistentStorage()
+        journalTitleTextField.delegate = self
+        setUpDismissKeyboardTap()
+        updateViews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         journalListTableView.reloadData()
+        updateViews()
     }
     
     // MARK: - Table View Data Source
@@ -41,11 +46,11 @@ class JournalListViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = journalListTableView.dequeueReusableCell(withIdentifier: "journalCell", for: indexPath)
-        
+
         let journal = journalController.journals[indexPath.row]
         cell.textLabel?.text = journal.title ?? ""
         cell.detailTextLabel?.text = String(journal.entries.count)
-        
+
         return cell
     }
     
@@ -61,10 +66,35 @@ class JournalListViewController: UIViewController, UITableViewDelegate, UITableV
         guard let title = journalTitleTextField.text else { return }
         journalController.create(journalWithTitle: title)
         journalListTableView.reloadData()
-        journalTitleTextField.text = ""
+        resetJournalTitleTextField()
     }
 
     // MARK: - Helpers
+    
+    func updateViews() {
+        resetJournalTitleTextField()
+        updateCreateJournalButton()
+    }
+    
+    func resetJournalTitleTextField() {
+        journalTitleTextField.text = ""
+    }
+    
+    func updateCreateJournalButton() {
+        let isEnabled = !journalTitleTextField.text!.isEmpty
+        createNewJournalButton.isEnabled = isEnabled
+        createNewJournalButton.backgroundColor = isEnabled ? .black : .lightGray
+    }
+    
+    func setUpDismissKeyboardTap() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 
     // MARK: - Navigation
 
@@ -77,3 +107,19 @@ class JournalListViewController: UIViewController, UITableViewDelegate, UITableV
     }
 
 }
+
+extension JournalListViewController: UITextFieldDelegate {
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == journalTitleTextField {
+            updateCreateJournalButton()
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+
+}
+
