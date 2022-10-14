@@ -39,11 +39,13 @@ class EntryDetailViewController: UIViewController {
     
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         guard let journal = journal else { return }
+        let title = titleTextField.text ?? ""
+        let text = bodyTextView.text ?? ""
         
-        if let _ = entry {
-            print("wip - update entry title, text and timestamp")
+        if let entry = entry {
+            self.entry = EntryController.update(entry: entry, title: title, text: text)
         } else {
-            self.entry = EntryController.create(entryWithTitle: titleTextField.text ?? "", text: bodyTextView.text ?? "", journal: journal)
+            self.entry = EntryController.create(entryWithTitle: title, text: text, journal: journal)
         }
         
         _ = navigationController?.popViewController(animated: true)

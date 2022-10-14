@@ -56,7 +56,7 @@ class JournalController {
         }
     }
     
-    private func saveToPersistentStorage() {
+    func saveToPersistentStorage() {
         let je = JSONEncoder()
         
         do {
