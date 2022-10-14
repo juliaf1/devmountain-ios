@@ -8,14 +8,16 @@
 import Foundation
 
 class Entry: Codable {
+
     var title: String
     var text: String
     var timestamp: Date = Date()
-    
+
     init(title: String, text: String) {
         self.title = title
         self.text = text
     }
+
 }
 
 extension Entry: Equatable {
