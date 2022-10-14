@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Journal List View Controller-->
         <scene sceneID="a0r-EA-5gZ">
             <objects>
-                <viewController id="2Ff-VX-jXS" sceneMemberID="viewController">
+                <viewController id="2Ff-VX-jXS" customClass="JournalListViewController" customModule="Journal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dho-pl-gfG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,6 +35,9 @@
                                                 <buttonConfiguration key="configuration" style="plain" title="Create New Journal">
                                                     <color key="baseForegroundColor" systemColor="systemIndigoColor"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="createNewJournalButtonTapped:" destination="2Ff-VX-jXS" eventType="touchUpInside" id="PUV-Dg-4ns"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -94,6 +97,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="kYt-sl-5F0"/>
+                    <connections>
+                        <outlet property="journalListTableView" destination="gIA-KF-z4F" id="zyB-U8-4pe"/>
+                        <outlet property="journalTitleTextField" destination="2ki-ze-RkU" id="74n-El-GSb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eCy-lx-eD5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -138,7 +145,7 @@
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="VWG-zE-7dD">
                             <color key="tintColor" red="0.57951982690000003" green="0.71723151409999997" blue="0.49708069999999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
-                                <segue destination="oVg-3i-rzR" kind="show" id="ccf-IF-gFz"/>
+                                <segue destination="oVg-3i-rzR" kind="show" identifier="createNewEntry" id="ccf-IF-gFz"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
