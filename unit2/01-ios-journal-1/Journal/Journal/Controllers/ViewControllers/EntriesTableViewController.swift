@@ -37,6 +37,7 @@ class EntriesTableViewController: UITableViewController {
 
         let entry = journal.entries[indexPath.row]
         cell.textLabel?.text = entry.title
+        cell.detailTextLabel?.text = entry.formattedDate
 
         return cell
     }
