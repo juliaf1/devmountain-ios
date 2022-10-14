@@ -25,6 +25,7 @@ class EntryDetailViewController: UIViewController {
         super.viewDidLoad()
 
         // when conforming to text view/field delegates, we need to set up the outlets delegate: bodyTextView.delegate = self
+        titleTextField.delegate = self
         bodyTextView.delegate = self
 
         setUpDismissKeyboardTap()
@@ -72,12 +73,17 @@ class EntryDetailViewController: UIViewController {
     }
 }
 
-extension EntryDetailViewController: UITextViewDelegate {
+extension EntryDetailViewController: UITextViewDelegate, UITextFieldDelegate {
     
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         if textView.text == "Write entry here..." {
             textView.text = ""
         }
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
         return true
     }
     
