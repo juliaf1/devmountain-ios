@@ -82,6 +82,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="2Ff-VX-jXS" id="5Kc-vH-yCy"/>
+                                    <outlet property="delegate" destination="2Ff-VX-jXS" id="LSW-nt-YfS"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qfO-l3-pza"/>
