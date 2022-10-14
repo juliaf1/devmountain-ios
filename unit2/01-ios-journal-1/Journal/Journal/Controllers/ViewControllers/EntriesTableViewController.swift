@@ -11,13 +11,13 @@ class EntriesTableViewController: UITableViewController {
     
     // MARK: - Properties
     
-    let entryController = EntryController.shared
+//    let entryController = EntryController.shared
+    var journal: Journal?
     
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        entryController.loadFromPersistentStorage()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -27,33 +27,42 @@ class EntriesTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return entryController.entries.count
+        let total = journal?.entries.count ?? 0
+        return total
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let journal = journal else { return UITableViewCell() }
         let cell = tableView.dequeueReusableCell(withIdentifier: "entryCell", for: indexPath)
 
-        let entry = entryController.entries[indexPath.row]
+        let entry = journal.entries[indexPath.row]
         cell.textLabel?.text = entry.title
 
         return cell
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        let entry = entryController.entries[indexPath.row]
-        entryController.delete(entry: entry)
+        guard let journal = journal else { return }
+        let entry = journal.entries[indexPath.row]
+        EntryController.delete(entry: entry, journal: journal)
         tableView.reloadData()
     }
 
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let journal = journal else { return }
+
         if segue.identifier == "toEntryDetailVC" {
             guard let indexPath = tableView.indexPathForSelectedRow,
                   let destination = segue.destination as? EntryDetailViewController else { return }
             
-            let entryToSend = entryController.entries[indexPath.row]
+            let entryToSend = journal.entries[indexPath.row]
             destination.entry = entryToSend
+            destination.journal = journal
+        } else if segue.identifier == "createNewEntry" {
+            guard let destination = segue.destination as? EntryDetailViewController else { return }
+            destination.journal = journal
         }
     }
 

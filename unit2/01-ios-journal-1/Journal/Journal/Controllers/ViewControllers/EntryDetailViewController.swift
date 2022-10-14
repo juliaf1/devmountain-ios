@@ -10,10 +10,10 @@ import UIKit
 class EntryDetailViewController: UIViewController {
     
     // MARK: - Properties
-    
-    let entryController = EntryController.shared
+
     var entry: Entry?
-    
+    var journal: Journal?
+
     // MARK: - IBOutlets
     
     @IBOutlet weak var titleTextField: UITextField!
@@ -38,10 +38,12 @@ class EntryDetailViewController: UIViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
+        guard let journal = journal else { return }
+        
         if let _ = entry {
             print("wip - update entry title, text and timestamp")
         } else {
-            self.entry = entryController.create(entryWithTitle: titleTextField.text ?? "", text: bodyTextView.text ?? "")
+            self.entry = EntryController.create(entryWithTitle: titleTextField.text ?? "", text: bodyTextView.text ?? "", journal: journal)
         }
         
         _ = navigationController?.popViewController(animated: true)
