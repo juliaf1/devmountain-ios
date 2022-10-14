@@ -30,6 +30,10 @@ class JournalListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     // MARK: - Table View Data Source
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return journalController.journals.count
