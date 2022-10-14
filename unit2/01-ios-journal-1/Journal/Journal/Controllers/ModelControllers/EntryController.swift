@@ -2,7 +2,7 @@
 //  EntryController.swift
 //  Journal
 //
-//  Created by Julia Frederico on 13/10/22.
+//  Created by Julia Frederico on 14/10/22.
 //
 
 import Foundation
@@ -11,51 +11,22 @@ class EntryController {
     
     // MARK: - Properties
     
-    static let shared = EntryController()
+    var journalController: JournalController
     
-    var entries: [Entry] = []
+    // MARK: - Inits
     
-    // MARK: - Functions
-    
-    func create(entryWithTitle title: String, text: String) -> Entry {
-        let newEntry = Entry(title: title, text: text)
-        self.entries.append(newEntry)
-        saveToPersistentStorage()
-
-        return newEntry
+    init(journalController: JournalController) {
+        self.journalController = journalController
     }
     
-    func delete(entry: Entry) {
-        guard let index = entries.firstIndex(where: { $0 == entry }) else { return }
-        entries.remove(at: index)
-        saveToPersistentStorage()
+    // MARK: - Methods
+    
+    func create(entryWithTitle title: String, text: String, journal: Journal) {
+        let entry = Entry(title: title, text: text)
+        journalController.addEntryTo(journal: journal, entry: entry)
     }
     
-    func loadFromPersistentStorage() {
-        let jd = JSONDecoder()
-        
-        do {
-            let data = try Data(contentsOf: fileURL())
-            self.entries = try jd.decode([Entry].self, from: data)
-        } catch let error {
-            print(error)
-        }
-    }
-    
-    private func saveToPersistentStorage() {
-        let je = JSONEncoder()
-        
-        do {
-            let data = try je.encode(entries)
-            try data.write(to: fileURL())
-        } catch let error {
-            print(error)
-        }
-    }
-    
-    private func fileURL() -> URL {
-        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let documentsDirectoryURL = urls[0].appendingPathComponent("Journal.json")
-        return documentsDirectoryURL
+    func delete(entry: Entry, journal: Journal) {
+        journalController.removeEntryFrom(journal: journal, entry: entry)
     }
 }
