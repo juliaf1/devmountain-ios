@@ -39,10 +39,16 @@ class JournalListViewController: UIViewController, UITableViewDelegate, UITableV
         let cell = journalListTableView.dequeueReusableCell(withIdentifier: "journalCell", for: indexPath)
         
         let journal = journalController.journals[indexPath.row]
-        cell.textLabel?.text = journal.title
+        cell.textLabel?.text = journal.title ?? ""
         cell.detailTextLabel?.text = String(journal.entries.count)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let journal = journalController.journals[indexPath.row]
+        journalController.delete(journal: journal)
+        tableView.reloadData()
     }
     
     // MARK: - Actions
