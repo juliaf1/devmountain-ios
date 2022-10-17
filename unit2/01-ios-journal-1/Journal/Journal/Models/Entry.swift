@@ -12,7 +12,8 @@ class Entry: Codable {
     var title: String
     var text: String
     var timestamp: Date = Date()
-    
+    var tags: [String] = []
+
     var formattedDate: String {
         formatDate(fromDate: timestamp)
     }
@@ -20,6 +21,12 @@ class Entry: Codable {
     init(title: String, text: String) {
         self.title = title
         self.text = text
+    }
+    
+    init(title: String, text: String, tags: [String]) {
+        self.title = title
+        self.text = text
+        self.tags = tags
     }
 
 }
