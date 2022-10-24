@@ -10,10 +10,20 @@ import Foundation
 class Task {
 
     let title: String
+    let deadline: Date
     var completed: Bool = false
     
-    init(title: String) {
+    init(title: String, deadline: Date) {
         self.title = title
+        self.deadline = deadline
+    }
+
+}
+
+extension Task: Equatable {
+    
+    static func ==(rhs: Task, lhs: Task) -> Bool {
+        return rhs.title == lhs.title && rhs.deadline == lhs.deadline
     }
 
 }
