@@ -16,6 +16,7 @@
 		32FD42E32907210100BB1C45 /* TaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FD42E22907210100BB1C45 /* TaskController.swift */; };
 		32FD42E52907260100BB1C45 /* TaskListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FD42E42907260100BB1C45 /* TaskListTableViewController.swift */; };
 		32FD42E92907277700BB1C45 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FD42E82907277700BB1C45 /* TaskTableViewCell.swift */; };
+		32FD42EB290746FC00BB1C45 /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FD42EA290746FC00BB1C45 /* TaskDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		32FD42E22907210100BB1C45 /* TaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskController.swift; sourceTree = "<group>"; };
 		32FD42E42907260100BB1C45 /* TaskListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TaskListTableViewController.swift; path = Task/Controllers/ViewControllers/TaskListTableViewController.swift; sourceTree = SOURCE_ROOT; };
 		32FD42E82907277700BB1C45 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
+		32FD42EA290746FC00BB1C45 /* TaskDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				32FD42E42907260100BB1C45 /* TaskListTableViewController.swift */,
+				32FD42EA290746FC00BB1C45 /* TaskDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32FD42EB290746FC00BB1C45 /* TaskDetailViewController.swift in Sources */,
 				32FD42E1290720E700BB1C45 /* Task.swift in Sources */,
 				32FD42C72907207200BB1C45 /* AppDelegate.swift in Sources */,
 				32FD42E92907277700BB1C45 /* TaskTableViewCell.swift in Sources */,

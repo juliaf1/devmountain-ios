@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -58,6 +59,7 @@
                                 <connections>
                                     <outlet property="isCompletedButton" destination="76a-LB-z7V" id="X72-wH-cHi"/>
                                     <outlet property="titleLabel" destination="BIL-hB-iNq" id="8J7-FN-DgM"/>
+                                    <segue destination="43t-sp-GB9" kind="show" identifier="toTaskDetailVC" id="NT4-9P-lT5"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -67,8 +69,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="JbO-zB-5ab">
+                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="0Vh-pU-D63">
+                            <connections>
+                                <action selector="didPressEditButton:" destination="GTL-en-QiM" id="ZpV-6A-X9s"/>
+                                <segue destination="43t-sp-GB9" kind="show" id="mJP-u5-Ihg"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="g1k-IY-rhp">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="didPressEditButton:" destination="GTL-en-QiM" id="trG-3y-h3C"/>
                             </connections>
@@ -78,6 +85,61 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tsx-68-aC6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="492.75362318840581" y="77.678571428571431"/>
+        </scene>
+        <!--Task Detail View Controller-->
+        <scene sceneID="d23-v9-abL">
+            <objects>
+                <viewController id="43t-sp-GB9" customClass="TaskDetailViewController" customModule="Task" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GKX-zZ-9P0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="2J1-cJ-1zp">
+                                <rect key="frame" x="16" y="88" width="382" height="774"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Task title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KJg-Mz-4jn">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="34.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter notes..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Nhl-Ap-haK">
+                                        <rect key="frame" x="0.0" y="54.5" width="382" height="480.5"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="r7A-K9-Q6d">
+                                        <rect key="frame" x="0.0" y="555" width="382" height="219"/>
+                                    </datePicker>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="5CV-3J-uo2"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2J1-cJ-1zp" firstAttribute="top" secondItem="5CV-3J-uo2" secondAttribute="top" id="2q4-rB-Vdx"/>
+                            <constraint firstItem="2J1-cJ-1zp" firstAttribute="leading" secondItem="5CV-3J-uo2" secondAttribute="leading" constant="16" id="2w7-9j-pVI"/>
+                            <constraint firstItem="5CV-3J-uo2" firstAttribute="bottom" secondItem="2J1-cJ-1zp" secondAttribute="bottom" id="TC4-dT-UEy"/>
+                            <constraint firstItem="5CV-3J-uo2" firstAttribute="trailing" secondItem="2J1-cJ-1zp" secondAttribute="trailing" constant="16" id="Wpa-3W-jgp"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Iq1-0S-YUz">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="YcB-8O-ifu">
+                            <connections>
+                                <action selector="saveTaskButtonPressed:" destination="43t-sp-GB9" id="tk2-K4-8BA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="taskDeadlineDatePicker" destination="r7A-K9-Q6d" id="nVL-ew-4vN"/>
+                        <outlet property="taskNotesTextView" destination="Nhl-Ap-haK" id="zHC-zO-cfT"/>
+                        <outlet property="taskTitleTextField" destination="KJg-Mz-4jn" id="oxi-eD-iE8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PN0-0M-obs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1291" y="78"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0C0-D5-DKf">
@@ -98,8 +160,14 @@
             <point key="canvasLocation" x="-262" y="78"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="NT4-9P-lT5"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="incomplete" width="512" height="512"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
