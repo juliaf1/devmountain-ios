@@ -13,7 +13,7 @@ class TaskController {
 
     static let shared = TaskController()
 
-    var tasks = [Task(title: "clean up the plates"), Task(title: "walk the dogs")] //[Task]()
+    var tasks = [Task]()
 
     // MARK: - CRUD
     
