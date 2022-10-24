@@ -21,7 +21,7 @@ class TaskController {
         let task = Task(title: title, notes: notes, deadline: deadline)
         tasks.append(task)
     }
-    
+
     func update(task: Task, title: String, notes: String?, deadline: Date?) {
         task.title = title
         task.notes = notes

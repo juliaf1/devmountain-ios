@@ -9,25 +9,25 @@
 /* Begin PBXBuildFile section */
 		32FD42C72907207200BB1C45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FD42C62907207200BB1C45 /* AppDelegate.swift */; };
 		32FD42C92907207200BB1C45 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FD42C82907207200BB1C45 /* SceneDelegate.swift */; };
-		32FD42CB2907207200BB1C45 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FD42CA2907207200BB1C45 /* ViewController.swift */; };
 		32FD42CE2907207200BB1C45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32FD42CC2907207200BB1C45 /* Main.storyboard */; };
 		32FD42D02907207200BB1C45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32FD42CF2907207200BB1C45 /* Assets.xcassets */; };
 		32FD42D32907207200BB1C45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32FD42D12907207200BB1C45 /* LaunchScreen.storyboard */; };
 		32FD42E1290720E700BB1C45 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FD42E0290720E700BB1C45 /* Task.swift */; };
 		32FD42E32907210100BB1C45 /* TaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FD42E22907210100BB1C45 /* TaskController.swift */; };
+		32FD42E52907260100BB1C45 /* TaskListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FD42E42907260100BB1C45 /* TaskListTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		32FD42C32907207200BB1C45 /* Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Task.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32FD42C62907207200BB1C45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32FD42C82907207200BB1C45 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		32FD42CA2907207200BB1C45 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		32FD42CD2907207200BB1C45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		32FD42CF2907207200BB1C45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		32FD42D22907207200BB1C45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		32FD42D42907207200BB1C45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32FD42E0290720E700BB1C45 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		32FD42E22907210100BB1C45 /* TaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskController.swift; sourceTree = "<group>"; };
+		32FD42E42907260100BB1C45 /* TaskListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TaskListTableViewController.swift; path = Task/Controllers/ViewControllers/TaskListTableViewController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +99,7 @@
 		32FD42DD2907209E00BB1C45 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				32FD42CA2907207200BB1C45 /* ViewController.swift */,
+				32FD42E42907260100BB1C45 /* TaskListTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -193,10 +193,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				32FD42E1290720E700BB1C45 /* Task.swift in Sources */,
-				32FD42CB2907207200BB1C45 /* ViewController.swift in Sources */,
 				32FD42C72907207200BB1C45 /* AppDelegate.swift in Sources */,
 				32FD42E32907210100BB1C45 /* TaskController.swift in Sources */,
 				32FD42C92907207200BB1C45 /* SceneDelegate.swift in Sources */,
+				32FD42E52907260100BB1C45 /* TaskListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
