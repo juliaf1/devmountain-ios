@@ -11,6 +11,14 @@ class TaskListTableViewController: UITableViewController {
     
     // MARK: - Properties and Outlets
     
+    let dummyData = [Task(title: "clean up the plates", notes: nil, deadline: nil)]
+    
+    let taskController = TaskController.shared
+    
+    var tasks: [Task] {
+        dummyData
+    }
+
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
@@ -22,18 +30,20 @@ class TaskListTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return tasks.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath)
 
-        // Configure the cell...
+        if let cell = cell as? TaskTableViewCell {
+            let task = tasks[indexPath.row]
+            cell.titleLabel.text = task.title
+            cell.isCompletedButton.setBackgroundImage(UIImage(named: task.completed ? "complete" : "incomplete"), for: .normal)
+        }
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.

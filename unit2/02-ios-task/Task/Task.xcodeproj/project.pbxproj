@@ -15,6 +15,7 @@
 		32FD42E1290720E700BB1C45 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FD42E0290720E700BB1C45 /* Task.swift */; };
 		32FD42E32907210100BB1C45 /* TaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FD42E22907210100BB1C45 /* TaskController.swift */; };
 		32FD42E52907260100BB1C45 /* TaskListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FD42E42907260100BB1C45 /* TaskListTableViewController.swift */; };
+		32FD42E92907277700BB1C45 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FD42E82907277700BB1C45 /* TaskTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		32FD42E0290720E700BB1C45 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		32FD42E22907210100BB1C45 /* TaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskController.swift; sourceTree = "<group>"; };
 		32FD42E42907260100BB1C45 /* TaskListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TaskListTableViewController.swift; path = Task/Controllers/ViewControllers/TaskListTableViewController.swift; sourceTree = SOURCE_ROOT; };
+		32FD42E82907277700BB1C45 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,10 +117,19 @@
 		32FD42DF290720A700BB1C45 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				32FD42E72907276200BB1C45 /* CustomViews */,
 				32FD42CC2907207200BB1C45 /* Main.storyboard */,
 				32FD42D12907207200BB1C45 /* LaunchScreen.storyboard */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		32FD42E72907276200BB1C45 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				32FD42E82907277700BB1C45 /* TaskTableViewCell.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +205,7 @@
 			files = (
 				32FD42E1290720E700BB1C45 /* Task.swift in Sources */,
 				32FD42C72907207200BB1C45 /* AppDelegate.swift in Sources */,
+				32FD42E92907277700BB1C45 /* TaskTableViewCell.swift in Sources */,
 				32FD42E32907210100BB1C45 /* TaskController.swift in Sources */,
 				32FD42C92907207200BB1C45 /* SceneDelegate.swift in Sources */,
 				32FD42E52907260100BB1C45 /* TaskListTableViewController.swift in Sources */,

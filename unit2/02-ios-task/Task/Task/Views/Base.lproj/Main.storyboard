@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,13 +17,48 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="z9Q-LZ-CsB">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskCell" rowHeight="69" id="z9Q-LZ-CsB" customClass="TaskTableViewCell" customModule="Task" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="69"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z9Q-LZ-CsB" id="S58-Fl-hGA">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="69"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ig0-0B-ZbR">
+                                            <rect key="frame" x="20" y="11" width="374" height="47"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Task Titlte" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BIL-hB-iNq">
+                                                    <rect key="frame" x="0.0" y="13.5" width="78" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="76a-LB-z7V">
+                                                    <rect key="frame" x="344" y="8.5" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="76a-LB-z7V" secondAttribute="height" multiplier="1:1" id="0Bf-pp-Zq7"/>
+                                                        <constraint firstAttribute="width" constant="30" id="mlB-3I-JPq"/>
+                                                    </constraints>
+                                                    <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                                    <state key="normal" backgroundImage="incomplete"/>
+                                                    <connections>
+                                                        <action selector="didToggleCompleteButton:" destination="z9Q-LZ-CsB" eventType="touchUpInside" id="3VC-DZ-Z20"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="ig0-0B-ZbR" firstAttribute="leading" secondItem="S58-Fl-hGA" secondAttribute="leadingMargin" id="AfO-Oz-fxN"/>
+                                        <constraint firstItem="ig0-0B-ZbR" firstAttribute="top" secondItem="S58-Fl-hGA" secondAttribute="topMargin" id="bRh-am-Qot"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="ig0-0B-ZbR" secondAttribute="bottom" id="jPV-6N-bdj"/>
+                                        <constraint firstItem="ig0-0B-ZbR" firstAttribute="trailing" secondItem="S58-Fl-hGA" secondAttribute="trailingMargin" id="qbP-iZ-nIU"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="isCompletedButton" destination="76a-LB-z7V" id="X72-wH-cHi"/>
+                                    <outlet property="titleLabel" destination="BIL-hB-iNq" id="8J7-FN-DgM"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -34,7 +70,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tsx-68-aC6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="493" y="78"/>
+            <point key="canvasLocation" x="492.75362318840581" y="77.678571428571431"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0C0-D5-DKf">
@@ -56,6 +92,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="incomplete" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
