@@ -23,6 +23,11 @@ class TaskDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        taskTitleTextField.delegate = self
+        taskNotesTextView.delegate = self
+        
+        setUpDismissKeyboardTap()
+    
         updateViews()
     }
 
@@ -44,9 +49,35 @@ class TaskDetailViewController: UIViewController {
     
     func updateViews() {
         guard let task = task else { return }
+        let notes = task.notes == nil || task.notes!.isEmpty ? "Enter notes..." : task.notes!
         taskTitleTextField.text = task.title
-        taskNotesTextView.text = task.notes ?? "Enter notes..."
+        taskNotesTextView.text = notes
         taskDeadlineDatePicker.date = task.deadline ?? Date()
     }
 
+    func setUpDismissKeyboardTap() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+
+}
+
+extension TaskDetailViewController: UITextFieldDelegate, UITextViewDelegate {
+    
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        if textView.text == "Enter notes..." {
+            textView.text = ""
+        }
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
 }
