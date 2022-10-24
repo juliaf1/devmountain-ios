@@ -13,6 +13,8 @@
 		32FD42CE2907207200BB1C45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32FD42CC2907207200BB1C45 /* Main.storyboard */; };
 		32FD42D02907207200BB1C45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32FD42CF2907207200BB1C45 /* Assets.xcassets */; };
 		32FD42D32907207200BB1C45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32FD42D12907207200BB1C45 /* LaunchScreen.storyboard */; };
+		32FD42E1290720E700BB1C45 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FD42E0290720E700BB1C45 /* Task.swift */; };
+		32FD42E32907210100BB1C45 /* TaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FD42E22907210100BB1C45 /* TaskController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		32FD42CF2907207200BB1C45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		32FD42D22907207200BB1C45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		32FD42D42907207200BB1C45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		32FD42E0290720E700BB1C45 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		32FD42E22907210100BB1C45 /* TaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +60,65 @@
 		32FD42C52907207200BB1C45 /* Task */ = {
 			isa = PBXGroup;
 			children = (
-				32FD42C62907207200BB1C45 /* AppDelegate.swift */,
-				32FD42C82907207200BB1C45 /* SceneDelegate.swift */,
-				32FD42CA2907207200BB1C45 /* ViewController.swift */,
-				32FD42CC2907207200BB1C45 /* Main.storyboard */,
-				32FD42CF2907207200BB1C45 /* Assets.xcassets */,
-				32FD42D12907207200BB1C45 /* LaunchScreen.storyboard */,
-				32FD42D42907207200BB1C45 /* Info.plist */,
+				32FD42DA2907209400BB1C45 /* Resources */,
+				32FD42DB2907209900BB1C45 /* Models */,
+				32FD42DC2907209C00BB1C45 /* Controllers */,
+				32FD42DF290720A700BB1C45 /* Views */,
 			);
 			path = Task;
+			sourceTree = "<group>";
+		};
+		32FD42DA2907209400BB1C45 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				32FD42C62907207200BB1C45 /* AppDelegate.swift */,
+				32FD42C82907207200BB1C45 /* SceneDelegate.swift */,
+				32FD42CF2907207200BB1C45 /* Assets.xcassets */,
+				32FD42D42907207200BB1C45 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		32FD42DB2907209900BB1C45 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				32FD42E0290720E700BB1C45 /* Task.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		32FD42DC2907209C00BB1C45 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				32FD42DE290720A200BB1C45 /* ModelControllers */,
+				32FD42DD2907209E00BB1C45 /* ViewControllers */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		32FD42DD2907209E00BB1C45 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				32FD42CA2907207200BB1C45 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		32FD42DE290720A200BB1C45 /* ModelControllers */ = {
+			isa = PBXGroup;
+			children = (
+				32FD42E22907210100BB1C45 /* TaskController.swift */,
+			);
+			path = ModelControllers;
+			sourceTree = "<group>";
+		};
+		32FD42DF290720A700BB1C45 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				32FD42CC2907207200BB1C45 /* Main.storyboard */,
+				32FD42D12907207200BB1C45 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +192,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32FD42E1290720E700BB1C45 /* Task.swift in Sources */,
 				32FD42CB2907207200BB1C45 /* ViewController.swift in Sources */,
 				32FD42C72907207200BB1C45 /* AppDelegate.swift in Sources */,
+				32FD42E32907210100BB1C45 /* TaskController.swift in Sources */,
 				32FD42C92907207200BB1C45 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,7 +345,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B2Z3KD59GR;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Task/Info.plist;
+				INFOPLIST_FILE = Task/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -317,7 +373,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B2Z3KD59GR;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Task/Info.plist;
+				INFOPLIST_FILE = Task/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
