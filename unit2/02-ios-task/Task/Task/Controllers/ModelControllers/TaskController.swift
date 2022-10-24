@@ -8,13 +8,13 @@
 import Foundation
 
 class TaskController {
-    
+
     // MARK: - Properties and Shared Instance
-    
+
     static let shared = TaskController()
-    
-    var tasks = [Task]()
-    
+
+    var tasks = [Task(title: "clean up the plates", notes: nil, deadline: nil)] //[Task]()
+
     // MARK: - CRUD
     
     func create(taskWithTitle title: String, notes: String?, deadline: Date?) {
@@ -22,19 +22,19 @@ class TaskController {
         tasks.append(task)
     }
 
-    func update(task: Task, title: String, notes: String?, deadline: Date?) {
+    func update(_ task: Task, title: String, notes: String?, deadline: Date?) {
         task.title = title
         task.notes = notes
         task.deadline = deadline
-    }
-
-    func toggleIsComplete(_ task: Task) {
-        task.completed = !task.completed
     }
     
     func delete(_ task: Task) {
         guard let index = tasks.firstIndex(of: task) else { return }
         tasks.remove(at: index)
+    }
+
+    func toggleIsComplete(for task: Task) {
+        task.completed = !task.completed
     }
     
     // MARK: - Persistence Methods

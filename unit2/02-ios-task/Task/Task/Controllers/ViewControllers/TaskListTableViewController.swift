@@ -10,13 +10,11 @@ import UIKit
 class TaskListTableViewController: UITableViewController {
     
     // MARK: - Properties and Outlets
-    
-    let dummyData = [Task(title: "clean up the plates", notes: nil, deadline: nil)]
-    
+
     let taskController = TaskController.shared
-    
+
     var tasks: [Task] {
-        dummyData
+        taskController.tasks
     }
 
     // MARK: - Lifecycle
@@ -40,6 +38,7 @@ class TaskListTableViewController: UITableViewController {
             let task = tasks[indexPath.row]
             cell.titleLabel.text = task.title
             cell.isCompletedButton.setBackgroundImage(UIImage(named: task.completed ? "complete" : "incomplete"), for: .normal)
+            cell.delegate = self
         }
 
         return cell
@@ -91,5 +90,16 @@ class TaskListTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+
+}
+
+extension TaskListTableViewController: TaskTableViewCellDelegate {
+
+    func didToggleCompleteButton(for cell: TaskTableViewCell) {
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        let task = tasks[indexPath.row]
+        taskController.toggleIsComplete(for: task)
+        tableView.reloadData()
+    }
 
 }

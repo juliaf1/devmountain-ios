@@ -8,7 +8,7 @@
 import UIKit
 
 protocol TaskTableViewCellDelegate {
-    func didToggleCompleteButton()
+    func didToggleCompleteButton(for cell: TaskTableViewCell)
 }
 
 class TaskTableViewCell: UITableViewCell {
@@ -23,7 +23,7 @@ class TaskTableViewCell: UITableViewCell {
     // MARK: - Actions
 
     @IBAction func didToggleCompleteButton(_ sender: UIButton) {
-        delegate?.didToggleCompleteButton()
+        delegate?.didToggleCompleteButton(for: self)
     }
 
 }
