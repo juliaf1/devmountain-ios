@@ -17,13 +17,19 @@ class TaskController {
     
     // MARK: - CRUD
     
-    func create(taskWithTitle title: String, deadline: Date) {
-        let task = Task(title: title, deadline: deadline)
+    func create(taskWithTitle title: String, notes: String?, deadline: Date?) {
+        let task = Task(title: title, notes: notes, deadline: deadline)
         tasks.append(task)
     }
     
-    func complete(_ task: Task) {
-        task.completed = true
+    func update(task: Task, title: String, notes: String?, deadline: Date?) {
+        task.title = title
+        task.notes = notes
+        task.deadline = deadline
+    }
+
+    func toggleIsComplete(_ task: Task) {
+        task.completed = !task.completed
     }
     
     func delete(_ task: Task) {

@@ -9,12 +9,14 @@ import Foundation
 
 class Task: Codable {
 
-    let title: String
-    let deadline: Date
+    var title: String
+    var notes: String?
+    var deadline: Date?
     var completed: Bool = false
-    
-    init(title: String, deadline: Date) {
+
+    init(title: String, notes: String?, deadline: Date?) {
         self.title = title
+        self.notes = notes
         self.deadline = deadline
     }
 
