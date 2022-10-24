@@ -7,17 +7,23 @@
 
 import UIKit
 
+protocol TaskTableViewCellDelegate {
+    func didToggleCompleteButton()
+}
+
 class TaskTableViewCell: UITableViewCell {
 
     // MARK: - Properties
 
+    var delegate: TaskTableViewCellDelegate?
+
     @IBOutlet weak var titleLabel: UILabel!
-    
     @IBOutlet weak var isCompletedButton: UIButton!
-    
+
     // MARK: - Actions
-    
+
     @IBAction func didToggleCompleteButton(_ sender: UIButton) {
+        delegate?.didToggleCompleteButton()
     }
-    
+
 }
