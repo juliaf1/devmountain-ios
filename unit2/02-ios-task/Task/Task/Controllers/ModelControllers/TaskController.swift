@@ -9,4 +9,12 @@ import Foundation
 
 class TaskController {
     
+    // MARK: - Properties and Shared Instance
+    
+    static let shared = TaskController()
+    
+    var tasks = [Task]()
+    
+    // MARK: - CRUD
+    
 }
