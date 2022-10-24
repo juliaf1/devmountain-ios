@@ -25,6 +25,15 @@ class TaskListTableViewController: UITableViewController {
     
     // MARK: - Actions
 
+    @IBAction func didPressEditButton(_ sender: UIBarButtonItem) {
+        tableView.setEditing(!tableView.isEditing, animated: true)
+    
+        if tableView.isEditing {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didPressEditButton(_:)))
+        } else {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(didPressEditButton(_:)))
+        }
+    }
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

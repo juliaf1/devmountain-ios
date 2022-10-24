@@ -66,7 +66,14 @@
                             <outlet property="delegate" destination="GTL-en-QiM" id="UYw-Vz-rAA"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="JbO-zB-5ab"/>
+                    <navigationItem key="navigationItem" id="JbO-zB-5ab">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="g1k-IY-rhp">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="didPressEditButton:" destination="GTL-en-QiM" id="trG-3y-h3C"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tsx-68-aC6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
