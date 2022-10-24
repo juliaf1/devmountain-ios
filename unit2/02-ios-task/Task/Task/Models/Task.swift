@@ -8,5 +8,12 @@
 import Foundation
 
 class Task {
+
+    let title: String
+    var completed: Bool = false
     
+    init(title: String) {
+        self.title = title
+    }
+
 }
