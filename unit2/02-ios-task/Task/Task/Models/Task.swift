@@ -14,7 +14,7 @@ class Task: Codable {
     var deadline: Date?
     var completed: Bool = false
 
-    init(title: String, notes: String?, deadline: Date?) {
+    init(title: String, notes: String? = nil, deadline: Date? = nil) {
         self.title = title
         self.notes = notes
         self.deadline = deadline
