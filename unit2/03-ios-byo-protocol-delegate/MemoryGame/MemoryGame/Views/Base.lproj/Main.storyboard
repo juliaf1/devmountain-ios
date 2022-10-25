@@ -60,6 +60,10 @@
                                         <constraint firstAttribute="trailing" secondItem="zMa-Ez-mks" secondAttribute="trailing" id="xUY-hZ-NkP"/>
                                     </constraints>
                                 </collectionViewCellContentView>
+                                <connections>
+                                    <outlet property="cardLabel" destination="q4i-Gu-5MK" id="VbQ-Jw-d1X"/>
+                                    <outlet property="cardView" destination="zMa-Ez-mks" id="kxh-1V-myv"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
