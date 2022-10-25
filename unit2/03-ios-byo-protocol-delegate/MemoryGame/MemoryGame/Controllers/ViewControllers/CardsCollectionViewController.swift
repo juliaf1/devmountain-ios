@@ -7,22 +7,6 @@
 
 import UIKit
 
-enum GameLevel {
-    case beginner
-    case intermediate
-    case advanced
-    case master
-    
-    var pairs: Int {
-        switch self {
-        case .beginner: return 5
-        case .intermediate: return 10
-        case .advanced: return 15
-        case .master: return 30
-        }
-    }
-}
-
 class CardsCollectionViewController: UICollectionViewController {
 
     // MARK: - Properties and Outlets
@@ -43,12 +27,15 @@ class CardsCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        reloadGame()
+        resetGame()
+        updateView()
     }
 
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let destination = segue.destination as? GameLevelViewController else { return }
+        destination.delegate = self
     }
 
     // MARK: UICollectionViewDataSource
@@ -74,30 +61,22 @@ class CardsCollectionViewController: UICollectionViewController {
     // MARK: UICollectionViewDelegate
 
     override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        // If there are 2 cards selected OR card was already selected, don't allow selection
-        if selectedIndexes.firstIndex(of: indexPath.row) != nil || selectedIndexes.count >= 2 { return false }
+        // Guarding for:
+        //  - card index isn't already selected
+        //  - less than two card indexes are selected
+        guard selectedIndexes.firstIndex(of: indexPath.row) == nil,
+              selectedIndexes.count < 2 else { return false }
 
-        // If there are 0 or 1 cards selected, add card index to array and reload data
         selectedIndexes.append(indexPath.row)
         collectionView.reloadData()
-        
+
         if self.selectedIndexes.count == 2 {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { // in seconds
-                // If there are 2 cards selected and they match
-                // remove cards from gameCards, reset selected indexes and increase score
                 if self.selectedCardsMatch() {
-                    let maxIndex = self.selectedIndexes.max()!
-                    let minIndex = self.selectedIndexes.min()!
-                    self.gameCards.remove(at: maxIndex)
-                    self.gameCards.remove(at: minIndex)
-                    self.score += 2
-                    self.updateScore()
-                    self.collectionView.deleteItems(at: [IndexPath(row: maxIndex, section: 0), IndexPath(row: minIndex, section: 0)])
+                    self.updateScore(with: self.score + 2)
                 }
-
-                // Reset selected indexes and reload data
-                self.selectedIndexes = []
-                collectionView.reloadData()
+    
+                self.archiveSelectedCards()
             }
         }
 
@@ -112,20 +91,60 @@ class CardsCollectionViewController: UICollectionViewController {
         // Duplicate items in the gameCards array and shuffle their order
         gameCards = Array([gameCards, gameCards].joined()).shuffled()
     }
-    
-    func reloadGame() {
-        selectedIndexes = [] // Reset selected indexes to empty array
+
+    func resetGame() {
+        score = 0 // Reset score
+        selectedIndexes = [] // Reset selected indexes
         shuffleGameCards() // Shuffle cards
-        collectionView.reloadData() // Reload data
     }
     
-    func updateScore() {
-        scoreBarButtonItem.title = "Score: \(score)"
+    func archiveSelectedCards() {
+        if selectedCardsMatch() {
+            // Remove matched cards from gameCards
+            let maxIndex = selectedIndexes.max()!
+            let minIndex = selectedIndexes.min()!
+            gameCards.remove(at: maxIndex)
+            gameCards.remove(at: minIndex)
+            
+            // Reset selected indexes
+            selectedIndexes = []
+            
+            // Update view
+            collectionView.deleteItems(at: [IndexPath(row: maxIndex, section: 0), IndexPath(row: minIndex, section: 0)])
+        } else {
+            // Reset selected indexes
+            selectedIndexes = []
+            
+            // Update view
+            collectionView.reloadData()
+        }
     }
     
     func selectedCardsMatch() -> Bool {
         guard selectedIndexes.count == 2 else { return false }
-        return gameCards[selectedIndexes[0]] == gameCards[selectedIndexes[1]]
+        let firstCard = gameCards[selectedIndexes[0]]
+        let secondCard = gameCards[selectedIndexes[1]]
+        return firstCard == secondCard
+    }
+
+    func updateScore(with newScore: Int? = nil) {
+        if let newScore = newScore { score = newScore }
+        scoreBarButtonItem.title = "Score: \(score)"
+    }
+
+    func updateView() {
+        updateScore()
+        collectionView.reloadData()
+    }
+
+}
+
+extension CardsCollectionViewController: GameLevelDelegate {
+
+    func didSetGameLevel(to level: GameLevel) {
+        gameLevel = level
+        resetGame()
+        updateView()
     }
 
 }
