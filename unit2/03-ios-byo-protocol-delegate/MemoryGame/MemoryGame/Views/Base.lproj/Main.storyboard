@@ -75,6 +75,9 @@
                         <leftBarButtonItems>
                             <barButtonItem systemItem="refresh" id="S59-b2-M8A">
                                 <color key="tintColor" systemColor="systemIndigoColor"/>
+                                <connections>
+                                    <action selector="didPressResetButton:" destination="hSP-5e-WzV" id="QTk-L4-SUf"/>
+                                </connections>
                             </barButtonItem>
                             <barButtonItem title="Score: 0" id="cF7-Jh-kQf">
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

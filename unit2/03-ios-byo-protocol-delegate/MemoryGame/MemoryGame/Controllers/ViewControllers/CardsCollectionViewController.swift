@@ -30,6 +30,14 @@ class CardsCollectionViewController: UICollectionViewController {
         resetGame()
         updateView()
     }
+    
+    // MARK: - Actions
+    
+    @IBAction func didPressResetButton(_ sender: UIBarButtonItem) {
+        resetGame()
+        updateView()
+    }
+    
 
     // MARK: - Navigation
 
