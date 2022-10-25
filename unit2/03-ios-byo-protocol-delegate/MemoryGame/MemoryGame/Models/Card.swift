@@ -18,3 +18,11 @@ class Card {
     }
 
 }
+
+extension Card: Equatable {
+
+    static func ==(rhs: Card, lhs: Card) -> Bool {
+        return rhs.name == lhs.name && rhs.emoji == lhs.emoji
+    }
+
+}
