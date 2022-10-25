@@ -96,10 +96,10 @@
             </objects>
             <point key="canvasLocation" x="66.666666666666671" y="56.919642857142854"/>
         </scene>
-        <!--View Controller-->
+        <!--Game Level View Controller-->
         <scene sceneID="zUt-TP-wfJ">
             <objects>
-                <viewController id="pl8-EK-aGE" sceneMemberID="viewController">
+                <viewController id="pl8-EK-aGE" customClass="GameLevelViewController" customModule="MemoryGame" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rwf-0r-qZe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -134,6 +134,9 @@
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="didPressBeginnerButton:" destination="pl8-EK-aGE" eventType="touchUpInside" id="NE1-Uv-LpT"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -161,6 +164,9 @@
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="didPressIntermediateButton:" destination="pl8-EK-aGE" eventType="touchUpInside" id="aSB-hg-0fl"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -188,6 +194,9 @@
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="didPressAdvancedButton:" destination="pl8-EK-aGE" eventType="touchUpInside" id="8hk-yC-1df"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -215,6 +224,9 @@
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="didPressMasterButton:" destination="pl8-EK-aGE" eventType="touchUpInside" id="7hA-V2-wpN"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>

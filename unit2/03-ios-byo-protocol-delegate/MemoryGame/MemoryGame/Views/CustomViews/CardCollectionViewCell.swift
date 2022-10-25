@@ -23,4 +23,5 @@ class CardCollectionViewCell: UICollectionViewCell {
         cardLabel.text = "🙈"
         cardLabel.font = cardLabel.font.withSize(12)
     }
+
 }
