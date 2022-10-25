@@ -6,3 +6,15 @@
 //
 
 import Foundation
+
+class Card {
+
+    let name: String
+    let emoji: String
+
+    init(name: String, emoji: String) {
+        self.name = name
+        self.emoji = emoji
+    }
+
+}
