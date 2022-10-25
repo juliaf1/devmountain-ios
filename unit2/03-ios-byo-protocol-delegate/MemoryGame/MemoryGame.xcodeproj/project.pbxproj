@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		328273F629083E5E000AD491 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328273F529083E5E000AD491 /* CardCollectionViewCell.swift */; };
 		32B174022908215900AA8A51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B174012908215900AA8A51 /* AppDelegate.swift */; };
 		32B174042908215900AA8A51 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B174032908215900AA8A51 /* SceneDelegate.swift */; };
 		32B174092908215900AA8A51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32B174072908215900AA8A51 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		328273F529083E5E000AD491 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		32B173FE2908215900AA8A51 /* MemoryGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoryGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32B174012908215900AA8A51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32B174032908215900AA8A51 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +43,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		328273F429083E4A000AD491 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				328273F529083E5E000AD491 /* CardCollectionViewCell.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
 		32B173F52908215900AA8A51 = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +109,7 @@
 		32B1741829082AB500AA8A51 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				328273F429083E4A000AD491 /* CustomViews */,
 				32B174072908215900AA8A51 /* Main.storyboard */,
 				32B1740C2908215900AA8A51 /* LaunchScreen.storyboard */,
 			);
@@ -196,6 +207,7 @@
 				32B1741E29082B3A00AA8A51 /* CardController.swift in Sources */,
 				32B1741C29082B2E00AA8A51 /* Card.swift in Sources */,
 				32B174042908215900AA8A51 /* SceneDelegate.swift in Sources */,
+				328273F629083E5E000AD491 /* CardCollectionViewCell.swift in Sources */,
 				32B1742029082B5800AA8A51 /* CardsCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

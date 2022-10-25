@@ -21,15 +21,44 @@
                             <size key="itemSize" width="128" height="128"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CardCell" id="MKc-wM-0BT">
-                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CardCell" id="MKc-wM-0BT" customClass="CardCollectionViewCell" customModule="MemoryGame" customModuleProvider="target">
+                                <rect key="frame" x="10" y="10" width="128" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="MEF-fJ-1s4">
                                     <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zMa-Ez-mks">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🙈" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q4i-Gu-5MK">
+                                                    <rect key="frame" x="55.5" y="57" width="17" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                            <constraints>
+                                                <constraint firstItem="q4i-Gu-5MK" firstAttribute="centerY" secondItem="zMa-Ez-mks" secondAttribute="centerY" id="7Ji-la-DH4"/>
+                                                <constraint firstItem="q4i-Gu-5MK" firstAttribute="centerX" secondItem="zMa-Ez-mks" secondAttribute="centerX" id="Zhl-lH-fne"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="8"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="zMa-Ez-mks" secondAttribute="bottom" id="ARt-2Y-H8C"/>
+                                        <constraint firstItem="zMa-Ez-mks" firstAttribute="top" secondItem="MEF-fJ-1s4" secondAttribute="top" id="HqK-8y-1cG"/>
+                                        <constraint firstItem="zMa-Ez-mks" firstAttribute="leading" secondItem="MEF-fJ-1s4" secondAttribute="leading" id="boD-O0-X3n"/>
+                                        <constraint firstAttribute="trailing" secondItem="zMa-Ez-mks" secondAttribute="trailing" id="xUY-hZ-NkP"/>
+                                    </constraints>
                                 </collectionViewCellContentView>
                             </collectionViewCell>
                         </cells>
@@ -52,7 +81,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="siC-67-ASR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="67" y="57"/>
+            <point key="canvasLocation" x="66.666666666666671" y="56.919642857142854"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="zUt-TP-wfJ">

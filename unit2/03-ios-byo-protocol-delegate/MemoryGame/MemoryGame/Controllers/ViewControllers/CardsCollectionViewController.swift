@@ -50,7 +50,7 @@ class CardsCollectionViewController: UICollectionViewController {
     // MARK: UICollectionViewDataSource
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return gameLevel.pairs * 2
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -72,6 +72,15 @@ class CardsCollectionViewController: UICollectionViewController {
         gameCards = cards
         // Duplicate items in the gameCards array and shuffle their order
         gameCards = Array([gameCards, gameCards].joined()).shuffled()
+    }
+
+}
+
+extension CardsCollectionViewController: UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = view.frame.width / 2
+        return CGSize(width: width - 18, height: width - 18)
     }
 
 }
