@@ -8,12 +8,8 @@
 import Foundation
 
 class CardController {
-    
-    // MARK: - Properties and Shared Instance
-    
-    let shared = CardController()
-    
-    var countryCards = [
+
+    static var countryCards = [
         Card(name: "Brasil", emoji: "🇧🇷"),
         Card(name: "Argentina", emoji: "🇦🇷"),
         Card(name: "Australia", emoji: "🇦🇺"),
@@ -47,9 +43,5 @@ class CardController {
         Card(name: "Uruguay", emoji: "🇺🇾"),
         Card(name: "England", emoji: "🏴󠁧󠁢󠁥󠁮󠁧󠁿"),
     ]
-    
-    // MARK: - Methods
-    
-    
 
 }
