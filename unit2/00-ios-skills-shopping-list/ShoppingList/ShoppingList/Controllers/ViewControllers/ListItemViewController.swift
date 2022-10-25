@@ -45,6 +45,10 @@ class ListItemViewController: UIViewController, UITableViewDelegate, UITableView
 
     // MARK: - Table view datasource
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 40
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
@@ -58,6 +62,22 @@ class ListItemViewController: UIViewController, UITableViewDelegate, UITableView
         cell.updateView(for: item)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+        case .delete:
+            let item = items[indexPath.row]
+            listController.delete(item)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            break
+        case .insert:
+            break
+        case .none:
+            break
+        default:
+            break
+        }
     }
 
 }
