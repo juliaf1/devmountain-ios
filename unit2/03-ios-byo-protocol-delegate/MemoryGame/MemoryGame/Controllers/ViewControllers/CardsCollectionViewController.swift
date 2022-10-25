@@ -15,12 +15,13 @@ class CardsCollectionViewController: UICollectionViewController {
 
     var totalCards = 4
     var gameCards = [Card]()
-    let selectedCards = [Card]()
+    var selectedCards = [Card]()
 
     var cards: [Card] {
-        CardController.countryCards.shuffled()
+        let shuffledCards = CardController.countryCards.shuffled().prefix(totalCards)
+        return Array(shuffledCards)
     }
-    
+
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
@@ -48,6 +49,15 @@ class CardsCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         return true
+    }
+    
+    // MARK: - Helpers
+    
+    func shuffleGameCards() {
+        // Assign gameCards to the result of the cards computed property (which returns a shuffled Cards array)
+        gameCards = cards
+        // Duplicate items in the gameCards array and shuffle their order
+        gameCards = Array([gameCards, gameCards].joined()).shuffled()
     }
 
 }
