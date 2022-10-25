@@ -15,6 +15,7 @@
 		324E148E2908924E0020D044 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324E148D2908924E0020D044 /* ListItem.swift */; };
 		324E14902908927C0020D044 /* ListItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324E148F2908927C0020D044 /* ListItemController.swift */; };
 		324E1492290894FA0020D044 /* ListItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324E1491290894FA0020D044 /* ListItemTableViewCell.swift */; };
+		324E14952908A1ED0020D044 /* ListItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324E14942908A1ED0020D044 /* ListItemViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		324E148D2908924E0020D044 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
 		324E148F2908927C0020D044 /* ListItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemController.swift; sourceTree = "<group>"; };
 		324E1491290894FA0020D044 /* ListItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemTableViewCell.swift; sourceTree = "<group>"; };
+		324E14942908A1ED0020D044 /* ListItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 		324E1489290891B80020D044 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				324E14942908A1ED0020D044 /* ListItemViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				324E1492290894FA0020D044 /* ListItemTableViewCell.swift in Sources */,
+				324E14952908A1ED0020D044 /* ListItemViewController.swift in Sources */,
 				324E148E2908924E0020D044 /* ListItem.swift in Sources */,
 				324E146B290879990020D044 /* AppDelegate.swift in Sources */,
 				324E14902908927C0020D044 /* ListItemController.swift in Sources */,

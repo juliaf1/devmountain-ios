@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--List Item View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ShoppingList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ListItemViewController" customModule="ShoppingList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -37,7 +37,10 @@
                                                             </constraints>
                                                             <color key="tintColor" red="0.92128556969999997" green="0.37390739049999999" blue="0.34168085059999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <state key="normal" title="Button"/>
-                                                            <buttonConfiguration key="configuration" style="plain" image="checkmark.circle" catalog="system"/>
+                                                            <buttonConfiguration key="configuration" style="plain" image="circle" catalog="system" title=""/>
+                                                            <connections>
+                                                                <action selector="didPressCheckButton:" destination="e7Z-GI-jKd" eventType="touchUpInside" id="glA-Y6-th4"/>
+                                                            </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vlc-Bb-5gp">
                                                             <rect key="frame" x="56.5" y="0.0" width="285.5" height="40.5"/>
@@ -59,6 +62,10 @@
                                                 <constraint firstItem="U0o-eV-JMC" firstAttribute="top" secondItem="b7c-i5-Yw7" secondAttribute="topMargin" id="jRq-sP-iX4"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="checkButton" destination="9rn-Zu-3gJ" id="A7e-VD-0bB"/>
+                                            <outlet property="listItemLabel" destination="vlc-Bb-5gp" id="hJ8-7s-LFt"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -86,6 +93,9 @@
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.clipsToBounds" value="YES"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didPressSaveItemButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nzy-9J-EZi"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -102,6 +112,10 @@
                             <constraint firstItem="c37-eJ-zTr" firstAttribute="top" secondItem="dV2-TT-Ckc" secondAttribute="bottom" constant="16" id="obu-hI-laN"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="listItemNameLabel" destination="Sjv-Nf-mZp" id="wEN-fr-fmY"/>
+                        <outlet property="tableView" destination="c37-eJ-zTr" id="42v-V2-lY4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -109,7 +123,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="checkmark.circle" catalog="system" width="128" height="121"/>
+        <image name="circle" catalog="system" width="128" height="121"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
