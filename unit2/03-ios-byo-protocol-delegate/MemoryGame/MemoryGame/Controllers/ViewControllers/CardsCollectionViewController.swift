@@ -7,18 +7,32 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
+enum GameLevel {
+    case beginner
+    case intermediate
+    case advanced
+    case master
+    
+    var pairs: Int {
+        switch self {
+        case .beginner: return 5
+        case .intermediate: return 10
+        case .advanced: return 15
+        case .master: return 30
+        }
+    }
+}
 
 class CardsCollectionViewController: UICollectionViewController {
-    
+
     // MARK: - Properties and Outlets
 
-    var totalCards = 4
+    var gameLevel = GameLevel.beginner
     var gameCards = [Card]()
     var selectedCards = [Card]()
 
     var cards: [Card] {
-        let shuffledCards = CardController.countryCards.shuffled().prefix(totalCards)
+        let shuffledCards = CardController.countryCards.shuffled().prefix(gameLevel.pairs)
         return Array(shuffledCards)
     }
 
@@ -40,7 +54,7 @@ class CardsCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCell", for: indexPath)
     
         return cell
     }
