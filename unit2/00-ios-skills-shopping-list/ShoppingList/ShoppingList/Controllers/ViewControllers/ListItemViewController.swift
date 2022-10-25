@@ -27,6 +27,7 @@ class ListItemViewController: UIViewController, UITableViewDelegate, UITableView
         
         listController.loadFromPersistentStorage()
         
+        listItemNameLabel.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -70,4 +71,13 @@ extension ListItemViewController: ListItemCellDelegate {
         tableView.reloadData()
     }
     
+}
+
+extension ListItemViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+
 }
