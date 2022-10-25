@@ -29,7 +29,7 @@ class CardsCollectionViewController: UICollectionViewController {
 
     var gameLevel = GameLevel.beginner
     var gameCards = [Card]()
-    var selectedCards = [Card]()
+    var selectedIndexes = [Int]()
 
     var cards: [Card] {
         let shuffledCards = CardController.countryCards.shuffled().prefix(gameLevel.pairs)
@@ -40,6 +40,7 @@ class CardsCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        reloadGame()
     }
 
     // MARK: - Navigation
@@ -72,6 +73,12 @@ class CardsCollectionViewController: UICollectionViewController {
         gameCards = cards
         // Duplicate items in the gameCards array and shuffle their order
         gameCards = Array([gameCards, gameCards].joined()).shuffled()
+    }
+    
+    func reloadGame() {
+        selectedIndexes = [] // Reset selected indexes to empty array
+        shuffleGameCards() // Shuffle cards
+        collectionView.reloadData() // Reload data
     }
 
 }
