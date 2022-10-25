@@ -160,8 +160,8 @@ extension CardsCollectionViewController: GameLevelDelegate {
 extension CardsCollectionViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = view.frame.width / 2
-        return CGSize(width: width - 18, height: width - 18)
+        let width = view.frame.width / 4
+        return CGSize(width: width - 15, height: width - 15)
     }
 
 }
