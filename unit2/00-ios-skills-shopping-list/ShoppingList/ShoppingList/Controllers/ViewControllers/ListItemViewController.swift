@@ -48,8 +48,7 @@ class ListItemViewController: UIViewController, UITableViewDelegate, UITableView
               !name.isEmpty else { return }
 
         listItemNameLabel.text = ""
-        listController.add(ListItem(name: name))
-        tableView.reloadData()
+        presentNewItemAlert(for: name)
     }
 
     // MARK: - Table view datasource
@@ -125,6 +124,28 @@ class ListItemViewController: UIViewController, UITableViewDelegate, UITableView
         default:
             break
         }
+    }
+    
+    // MARK: - Helpers
+    
+    func presentNewItemAlert(for ingredientName: String) {
+        let alert = UIAlertController(title: "Add \(ingredientName.capitalized) to list", message: "Please describe the amount", preferredStyle: .alert)
+        
+        alert.addTextField { textField in
+            textField.placeholder = "Quantity for \(ingredientName)"
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        let confirmAction = UIAlertAction(title: "Save", style: .default) { _ in
+            let textField = alert.textFields![0]
+            self.listController.add(ListItem(name: ingredientName, amount: textField.text))
+            self.tableView.reloadData()
+        }
+        
+        [confirmAction, cancelAction].forEach { alert.addAction($0) }
+        
+        present(alert, animated: true, completion: nil)
     }
 
 }

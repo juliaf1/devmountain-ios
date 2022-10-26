@@ -11,9 +11,11 @@ class ListItem: Codable {
     
     var name: String
     var checked: Bool = false
+    var amount: String?
     
-    init(name: String) {
+    init(name: String, amount: String? = nil) {
         self.name = name
+        self.amount = amount
     }
     
 }
