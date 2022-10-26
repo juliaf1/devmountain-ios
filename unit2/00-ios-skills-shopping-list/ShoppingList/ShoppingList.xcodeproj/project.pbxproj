@@ -12,10 +12,12 @@
 		324E1472290879990020D044 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 324E1470290879990020D044 /* Main.storyboard */; };
 		324E14742908799C0020D044 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 324E14732908799C0020D044 /* Assets.xcassets */; };
 		324E14772908799C0020D044 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 324E14752908799C0020D044 /* LaunchScreen.storyboard */; };
-		324E148E2908924E0020D044 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324E148D2908924E0020D044 /* ListItem.swift */; };
 		324E14902908927C0020D044 /* ListItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324E148F2908927C0020D044 /* ListItemController.swift */; };
 		324E1492290894FA0020D044 /* ListItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324E1491290894FA0020D044 /* ListItemTableViewCell.swift */; };
 		324E14952908A1ED0020D044 /* ListItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324E14942908A1ED0020D044 /* ListItemViewController.swift */; };
+		32BF664E290971AA00BB3C48 /* ShoppingList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 32BF664C290971AA00BB3C48 /* ShoppingList.xcdatamodeld */; };
+		32BF66502909728600BB3C48 /* ListItem+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BF664F2909728600BB3C48 /* ListItem+Convenience.swift */; };
+		32BF66522909736800BB3C48 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BF66512909736800BB3C48 /* CoreDataStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,10 +28,12 @@
 		324E14732908799C0020D044 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		324E14762908799C0020D044 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		324E14782908799C0020D044 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		324E148D2908924E0020D044 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
 		324E148F2908927C0020D044 /* ListItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemController.swift; sourceTree = "<group>"; };
 		324E1491290894FA0020D044 /* ListItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemTableViewCell.swift; sourceTree = "<group>"; };
 		324E14942908A1ED0020D044 /* ListItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemViewController.swift; sourceTree = "<group>"; };
+		32BF664D290971AA00BB3C48 /* ShoppingList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ShoppingList.xcdatamodel; sourceTree = "<group>"; };
+		32BF664F2909728600BB3C48 /* ListItem+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListItem+Convenience.swift"; sourceTree = "<group>"; };
+		32BF66512909736800BB3C48 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +112,9 @@
 		324E148B290891C20020D044 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				324E148D2908924E0020D044 /* ListItem.swift */,
+				32BF664C290971AA00BB3C48 /* ShoppingList.xcdatamodeld */,
+				32BF664F2909728600BB3C48 /* ListItem+Convenience.swift */,
+				32BF66512909736800BB3C48 /* CoreDataStack.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -203,12 +209,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32BF66502909728600BB3C48 /* ListItem+Convenience.swift in Sources */,
 				324E1492290894FA0020D044 /* ListItemTableViewCell.swift in Sources */,
 				324E14952908A1ED0020D044 /* ListItemViewController.swift in Sources */,
-				324E148E2908924E0020D044 /* ListItem.swift in Sources */,
 				324E146B290879990020D044 /* AppDelegate.swift in Sources */,
 				324E14902908927C0020D044 /* ListItemController.swift in Sources */,
+				32BF664E290971AA00BB3C48 /* ShoppingList.xcdatamodeld in Sources */,
 				324E146D290879990020D044 /* SceneDelegate.swift in Sources */,
+				32BF66522909736800BB3C48 /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +434,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		32BF664C290971AA00BB3C48 /* ShoppingList.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				32BF664D290971AA00BB3C48 /* ShoppingList.xcdatamodel */,
+			);
+			currentVersion = 32BF664D290971AA00BB3C48 /* ShoppingList.xcdatamodel */;
+			path = ShoppingList.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 324E145F290879990020D044 /* Project object */;
 }

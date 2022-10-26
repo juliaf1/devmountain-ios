@@ -34,8 +34,6 @@ class ListItemViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        listController.loadFromPersistentStorage()
-        
         listItemNameLabel.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
