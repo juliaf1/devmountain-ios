@@ -17,4 +17,8 @@ extension Entry {
         self.timestamp = Date()
     }
 
+    var formattedDate: String {
+        DateFormatter.entryTimestamp.string(from: timestamp ?? Date())
+    }
+
 }

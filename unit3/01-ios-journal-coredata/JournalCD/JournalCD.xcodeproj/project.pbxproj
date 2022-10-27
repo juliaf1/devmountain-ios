@@ -17,6 +17,7 @@
 		321C0603290B3C2600CE66DE /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C0602290B3C2600CE66DE /* Strings.swift */; };
 		321C0607290B3CBB00CE66DE /* Entry+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C0606290B3CBB00CE66DE /* Entry+Convenience.swift */; };
 		321C0609290B3CC200CE66DE /* Journal+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C0608290B3CC200CE66DE /* Journal+Convenience.swift */; };
+		321C060B290B3E1200CE66DE /* Dates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C060A290B3E1200CE66DE /* Dates.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		321C0602290B3C2600CE66DE /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		321C0606290B3CBB00CE66DE /* Entry+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entry+Convenience.swift"; sourceTree = "<group>"; };
 		321C0608290B3CC200CE66DE /* Journal+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Journal+Convenience.swift"; sourceTree = "<group>"; };
+		321C060A290B3E1200CE66DE /* Dates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dates.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				321C0602290B3C2600CE66DE /* Strings.swift */,
+				321C060A290B3E1200CE66DE /* Dates.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 				321C05E1290B389C00CE66DE /* SceneDelegate.swift in Sources */,
 				321C0607290B3CBB00CE66DE /* Entry+Convenience.swift in Sources */,
 				321C05FF290B3B0200CE66DE /* CoreDataStack.swift in Sources */,
+				321C060B290B3E1200CE66DE /* Dates.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
