@@ -14,5 +14,10 @@ extension Journal {
         self.id = UUID().uuidString
         self.title = title
     }
-    
+
+    var mutableEntries: [Entry] {
+        guard let entries = self.mutableArrayValue(forKey: Strings.entriesKey) as? Array<Entry> else { return [] }
+        return entries
+    }
+
 }

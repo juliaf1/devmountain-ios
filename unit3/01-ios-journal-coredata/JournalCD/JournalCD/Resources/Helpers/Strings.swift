@@ -11,4 +11,6 @@ enum Strings {
     static let appName = "JournalCD"
     static let entryEntityName = "Entry"
     static let journalEntityName = "Journal"
+    static let entriesKey = "entries"
+    static let journalKey = "journal"
 }
