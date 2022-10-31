@@ -15,6 +15,7 @@
 		3245916B29107F3600AEE504 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3245916929107F3600AEE504 /* LaunchScreen.storyboard */; };
 		3245917B2910840500AEE504 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3245917A2910840500AEE504 /* CoreDataStack.swift */; };
 		3245917E2910845800AEE504 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3245917D2910845800AEE504 /* Strings.swift */; };
+		324591802910851900AEE504 /* Task+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3245917F2910851900AEE504 /* Task+Convenience.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		3245916C29107F3600AEE504 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3245917A2910840500AEE504 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		3245917D2910845800AEE504 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		3245917F2910851900AEE504 /* Task+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+Convenience.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				32459175291083A700AEE504 /* CoreData */,
+				3245917F2910851900AEE504 /* Task+Convenience.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 			files = (
 				3245916629107F3600AEE504 /* TaskCD.xcdatamodeld in Sources */,
 				3245915C29107F3600AEE504 /* AppDelegate.swift in Sources */,
+				324591802910851900AEE504 /* Task+Convenience.swift in Sources */,
 				3245917E2910845800AEE504 /* Strings.swift in Sources */,
 				3245915E29107F3600AEE504 /* SceneDelegate.swift in Sources */,
 				3245917B2910840500AEE504 /* CoreDataStack.swift in Sources */,
