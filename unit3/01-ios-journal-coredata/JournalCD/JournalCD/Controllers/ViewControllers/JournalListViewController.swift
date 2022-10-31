@@ -14,21 +14,29 @@ class JournalListViewController: UIViewController {
     let journalController = JournalController.shared
 
     var journals: [Journal] { journalController.journals }
+
+    @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
     // MARK: - Actions
+    
+    
+    @IBAction func didPressAddJournalButton(_ sender: UIButton) {
+    }
     
 
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
     }
 
 }
@@ -44,7 +52,14 @@ extension JournalListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = tableView.dequeueReusableCell(withIdentifier: "JournalCell", for: indexPath)
+        
+        let journal = journals[indexPath.row]
+        
+        cell.textLabel?.text = journal.title
+        cell.detailTextLabel?.text = "\(journal.entries?.count ?? 0) entries"
+        
+        return cell
     }
 
 }

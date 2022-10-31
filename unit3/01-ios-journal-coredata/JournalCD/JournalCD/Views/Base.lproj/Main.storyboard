@@ -60,6 +60,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Create new journal">
                                     <fontDescription key="titleFontDescription" type="system" weight="light" pointSize="18"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="didPressAddJournalButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="15D-5B-3jK"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -75,6 +78,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="SU8-uV-WqU"/>
+                    <connections>
+                        <outlet property="tableView" destination="OXm-ub-ovg" id="Ide-ks-Ro0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
