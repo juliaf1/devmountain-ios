@@ -16,8 +16,8 @@ extension Journal {
     }
 
     var mutableEntries: [Entry] {
-        guard let entries = self.mutableArrayValue(forKey: Strings.entriesKey) as? Array<Entry> else { return [] }
-        return entries
+        let entries = self.entries as? Set<Entry> ?? []
+        return Array(entries)
     }
 
 }

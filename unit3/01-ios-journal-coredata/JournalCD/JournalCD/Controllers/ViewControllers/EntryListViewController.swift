@@ -13,10 +13,15 @@ class EntryListViewController: UIViewController {
     
     var journal: Journal?
     
+    @IBOutlet weak var tableView: UITableView!
+
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.dataSource = self
+        tableView.delegate = self
         
         updateView()
     }
@@ -38,4 +43,31 @@ class EntryListViewController: UIViewController {
         title = journal.title
     }
 
+}
+
+extension EntryListViewController: UITableViewDelegate {
+    
+}
+
+extension EntryListViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let journal = journal else { return 0 }
+        
+        return journal.mutableEntries.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let journal = journal else { return UITableViewCell() }
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "EntryCell", for: indexPath)
+        
+        let entry = journal.mutableEntries[indexPath.row]
+        
+        cell.textLabel?.text = entry.title
+        cell.detailTextLabel?.text = entry.formattedDate
+        
+        return cell
+    }
+    
 }
