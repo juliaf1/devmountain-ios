@@ -80,10 +80,10 @@
             </objects>
             <point key="canvasLocation" x="681" y="125"/>
         </scene>
-        <!--View Controller-->
+        <!--Entry List View Controller-->
         <scene sceneID="duk-E6-f0X">
             <objects>
-                <viewController id="GZY-rK-uzN" sceneMemberID="viewController">
+                <viewController id="GZY-rK-uzN" customClass="EntryListViewController" customModule="JournalCD" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dc1-pl-hIG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -143,10 +143,10 @@
             </objects>
             <point key="canvasLocation" x="1461" y="125"/>
         </scene>
-        <!--View Controller-->
+        <!--Entry Detail View Controller-->
         <scene sceneID="rwF-bR-JlY">
             <objects>
-                <viewController id="T1O-gk-7CS" sceneMemberID="viewController">
+                <viewController id="T1O-gk-7CS" customClass="EntryDetailViewController" customModule="JournalCD" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ikD-kk-UaM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

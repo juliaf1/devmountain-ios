@@ -18,6 +18,8 @@
 		321C0607290B3CBB00CE66DE /* Entry+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C0606290B3CBB00CE66DE /* Entry+Convenience.swift */; };
 		321C0609290B3CC200CE66DE /* Journal+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C0608290B3CC200CE66DE /* Journal+Convenience.swift */; };
 		321C060B290B3E1200CE66DE /* Dates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C060A290B3E1200CE66DE /* Dates.swift */; };
+		3245914C29104CA700AEE504 /* EntryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3245914B29104CA700AEE504 /* EntryListViewController.swift */; };
+		3245914E29104CC100AEE504 /* EntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3245914D29104CC100AEE504 /* EntryDetailViewController.swift */; };
 		3277F3B4290B403B0096CFCF /* JournalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3277F3B3290B403B0096CFCF /* JournalController.swift */; };
 		3277F3B6290B43950096CFCF /* EntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3277F3B5290B43950096CFCF /* EntryController.swift */; };
 		3277F3B8290B705E0096CFCF /* JournalListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3277F3B7290B705E0096CFCF /* JournalListViewController.swift */; };
@@ -37,6 +39,8 @@
 		321C0606290B3CBB00CE66DE /* Entry+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entry+Convenience.swift"; sourceTree = "<group>"; };
 		321C0608290B3CC200CE66DE /* Journal+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Journal+Convenience.swift"; sourceTree = "<group>"; };
 		321C060A290B3E1200CE66DE /* Dates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dates.swift; sourceTree = "<group>"; };
+		3245914B29104CA700AEE504 /* EntryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryListViewController.swift; sourceTree = "<group>"; };
+		3245914D29104CC100AEE504 /* EntryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailViewController.swift; sourceTree = "<group>"; };
 		3277F3B3290B403B0096CFCF /* JournalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalController.swift; sourceTree = "<group>"; };
 		3277F3B5290B43950096CFCF /* EntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryController.swift; sourceTree = "<group>"; };
 		3277F3B7290B705E0096CFCF /* JournalListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalListViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +136,8 @@
 			isa = PBXGroup;
 			children = (
 				3277F3B7290B705E0096CFCF /* JournalListViewController.swift */,
+				3245914B29104CA700AEE504 /* EntryListViewController.swift */,
+				3245914D29104CC100AEE504 /* EntryDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -239,6 +245,8 @@
 				3277F3B4290B403B0096CFCF /* JournalController.swift in Sources */,
 				3277F3B6290B43950096CFCF /* EntryController.swift in Sources */,
 				321C05DF290B389C00CE66DE /* AppDelegate.swift in Sources */,
+				3245914E29104CC100AEE504 /* EntryDetailViewController.swift in Sources */,
+				3245914C29104CA700AEE504 /* EntryListViewController.swift in Sources */,
 				321C0603290B3C2600CE66DE /* Strings.swift in Sources */,
 				321C0609290B3CC200CE66DE /* Journal+Convenience.swift in Sources */,
 				321C05E1290B389C00CE66DE /* SceneDelegate.swift in Sources */,
