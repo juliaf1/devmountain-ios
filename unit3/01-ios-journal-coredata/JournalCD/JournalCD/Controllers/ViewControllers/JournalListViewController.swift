@@ -61,6 +61,14 @@ class JournalListViewController: UIViewController {
 
 extension JournalListViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let journal = journals[indexPath.row]
+            journalController.delete(journal)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
 }
 
 extension JournalListViewController: UITableViewDataSource {
