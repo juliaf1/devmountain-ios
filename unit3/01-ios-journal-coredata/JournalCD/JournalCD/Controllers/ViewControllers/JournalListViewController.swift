@@ -30,6 +30,24 @@ class JournalListViewController: UIViewController {
     
     
     @IBAction func didPressAddJournalButton(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Add new journal", message: "Please insert your new journal title", preferredStyle: .alert)
+        
+        alert.addTextField { textField in
+            textField.placeholder = "Title"
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let confirmAction = UIAlertAction(title: "Save", style: .default) { _ in
+            guard let textField = alert.textFields?[0],
+                  let title = textField.text,
+                  !title.isEmpty else { return }
+            self.journalController.create(title: title)
+            self.tableView.reloadData()
+        }
+        
+        [confirmAction, cancelAction].forEach { alert.addAction($0) }
+        
+        present(alert, animated: true)
     }
     
 
