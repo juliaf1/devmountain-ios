@@ -54,7 +54,10 @@ class JournalListViewController: UIViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        guard let destination = segue.destination as? EntryListViewController,
+              let indexPath = tableView.indexPathForSelectedRow else { return }
+
+        destination.journal = journals[indexPath.row]
     }
 
 }
