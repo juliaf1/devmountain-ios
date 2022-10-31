@@ -11,4 +11,6 @@ enum Strings {
     
     static let appName = "TaskCD"
     
+    static let taskEntityName = "Task"
+    
 }

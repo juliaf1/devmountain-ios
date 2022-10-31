@@ -16,6 +16,7 @@
 		3245917B2910840500AEE504 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3245917A2910840500AEE504 /* CoreDataStack.swift */; };
 		3245917E2910845800AEE504 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3245917D2910845800AEE504 /* Strings.swift */; };
 		324591802910851900AEE504 /* Task+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3245917F2910851900AEE504 /* Task+Convenience.swift */; };
+		32459182291085D900AEE504 /* TaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32459181291085D900AEE504 /* TaskController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		3245917A2910840500AEE504 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		3245917D2910845800AEE504 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		3245917F2910851900AEE504 /* Task+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+Convenience.swift"; sourceTree = "<group>"; };
+		32459181291085D900AEE504 /* TaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 		32459179291083CB00AEE504 /* ModelControllers */ = {
 			isa = PBXGroup;
 			children = (
+				32459181291085D900AEE504 /* TaskController.swift */,
 			);
 			path = ModelControllers;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32459182291085D900AEE504 /* TaskController.swift in Sources */,
 				3245916629107F3600AEE504 /* TaskCD.xcdatamodeld in Sources */,
 				3245915C29107F3600AEE504 /* AppDelegate.swift in Sources */,
 				324591802910851900AEE504 /* Task+Convenience.swift in Sources */,
