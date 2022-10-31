@@ -20,6 +20,7 @@
 		321C060B290B3E1200CE66DE /* Dates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321C060A290B3E1200CE66DE /* Dates.swift */; };
 		3277F3B4290B403B0096CFCF /* JournalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3277F3B3290B403B0096CFCF /* JournalController.swift */; };
 		3277F3B6290B43950096CFCF /* EntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3277F3B5290B43950096CFCF /* EntryController.swift */; };
+		3277F3B8290B705E0096CFCF /* JournalListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3277F3B7290B705E0096CFCF /* JournalListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		321C060A290B3E1200CE66DE /* Dates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dates.swift; sourceTree = "<group>"; };
 		3277F3B3290B403B0096CFCF /* JournalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalController.swift; sourceTree = "<group>"; };
 		3277F3B5290B43950096CFCF /* EntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryController.swift; sourceTree = "<group>"; };
+		3277F3B7290B705E0096CFCF /* JournalListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 		321C05FC290B397E00CE66DE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				3277F3B7290B705E0096CFCF /* JournalListViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				321C05E9290B389C00CE66DE /* JournalCD.xcdatamodeld in Sources */,
+				3277F3B8290B705E0096CFCF /* JournalListViewController.swift in Sources */,
 				3277F3B4290B403B0096CFCF /* JournalController.swift in Sources */,
 				3277F3B6290B43950096CFCF /* EntryController.swift in Sources */,
 				321C05DF290B389C00CE66DE /* AppDelegate.swift in Sources */,
