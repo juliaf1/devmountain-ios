@@ -64,6 +64,14 @@ class EntryListViewController: UIViewController {
 
 extension EntryListViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let entry = entries[indexPath.row]
+            EntryController.delete(entry: entry)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
 }
 
 extension EntryListViewController: UITableViewDataSource {

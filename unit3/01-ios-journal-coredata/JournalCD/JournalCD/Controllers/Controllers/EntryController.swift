@@ -21,7 +21,7 @@ class EntryController {
         CoreDataStack.saveContext()
     }
 
-    static func remove(entry: Entry) {
+    static func delete(entry: Entry) {
         CoreDataStack.context.delete(entry)
         CoreDataStack.saveContext()
     }
