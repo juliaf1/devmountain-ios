@@ -29,8 +29,13 @@ class EntryListViewController: UIViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        guard let destination = segue.destination as? EntryDetailViewController,
+              let indexPath = tableView.indexPathForSelectedRow,
+              let journal = journal else { return }
+        
+        let entry = journal.mutableEntries[indexPath.row]
+        
+        destination.entry = entry
     }
     
     // MARK: - Helpers

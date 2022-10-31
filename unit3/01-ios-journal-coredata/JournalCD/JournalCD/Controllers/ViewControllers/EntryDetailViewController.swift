@@ -8,22 +8,27 @@
 import UIKit
 
 class EntryDetailViewController: UIViewController {
+    
+    // MARK: Properties and outlets
+    
+    var entry: Entry?
+    
+    // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        updateView()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: - Actions
+    
+    // MARK: - Helpers
+    
+    func updateView() {
+        guard let entry = entry else { return }
+        
+        title = entry.title
     }
-    */
 
 }
