@@ -15,9 +15,4 @@ extension Journal {
         self.title = title
     }
 
-    var mutableEntries: [Entry] {
-        let entries = self.entries as? Set<Entry> ?? []
-        return Array(entries)
-    }
-
 }

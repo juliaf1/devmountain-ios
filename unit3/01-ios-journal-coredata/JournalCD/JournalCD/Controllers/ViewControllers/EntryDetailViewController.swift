@@ -33,8 +33,7 @@ class EntryDetailViewController: UIViewController {
         
         if let entry = entry {
             EntryController.update(entry: entry, withTitle: title, text: entryTextView.text ?? "")
-        } else {
-            guard let journal = journal else { return }
+        } else if let journal = journal {
             EntryController.addEntry(to: journal, withTitle: title, text: entryTextView.text ?? "")
         }
         
