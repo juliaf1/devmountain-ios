@@ -29,7 +29,8 @@ class EntryListViewController: UIViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let destination = segue.destination as? EntryDetailViewController,
+        guard segue.identifier == "ToEntryDetailVC",
+              let destination = segue.destination as? EntryDetailViewController,
               let indexPath = tableView.indexPathForSelectedRow,
               let journal = journal else { return }
         
