@@ -23,6 +23,12 @@ class EntryDetailViewController: UIViewController {
         super.viewDidLoad()
         
         updateView()
+        
+        entryTitleTextField.delegate = self
+        entryTextView.delegate = self
+        
+        setUpDismissKeyboardTap()
+
     }
     
     // MARK: - Actions
@@ -43,10 +49,52 @@ class EntryDetailViewController: UIViewController {
     // MARK: - Helpers
     
     func updateView() {
-        guard let entry = entry else { return }
+        guard let entry = entry,
+              let notes = entry.text else { return }
 
         entryTitleTextField.text = entry.title
-        entryTextView.text = entry.text
+        
+        if notes.isEmpty {
+            entryTextView.text = "Notes"
+            entryTextView.textColor = .lightGray
+        } else {
+            entryTextView.text = notes
+            entryTextView.textColor = .darkGray
+        }
     }
+    
+    func setUpDismissKeyboardTap() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+
+}
+
+
+extension EntryDetailViewController: UITextViewDelegate, UITextFieldDelegate {
+
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        if textView.text == "Notes" {
+            textView.text = ""
+            textView.textColor = .darkGray
+        }
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+//    func textViewDidEndEditing(_ textView: UITextView) {
+//        if textView.text == "" {
+//            textView.text = "Notes"
+//            textView.textColor = .lightGray
+//        }
+//    }
 
 }
