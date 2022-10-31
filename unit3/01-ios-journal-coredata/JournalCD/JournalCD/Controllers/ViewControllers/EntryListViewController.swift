@@ -37,6 +37,7 @@ class EntryListViewController: UIViewController {
         let entry = journal.mutableEntries[indexPath.row]
         
         destination.entry = entry
+        destination.journal = journal
     }
     
     // MARK: - Helpers

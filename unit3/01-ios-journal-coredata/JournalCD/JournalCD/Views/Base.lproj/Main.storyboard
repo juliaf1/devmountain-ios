@@ -187,8 +187,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="YSi-fn-Nbw">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Ttt-x8-bNm"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Ttt-x8-bNm">
+                            <connections>
+                                <action selector="didPressSaveButton:" destination="T1O-gk-7CS" id="qin-hh-LGk"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="entryTextView" destination="lNP-kC-uPU" id="MjG-iY-0rg"/>
+                        <outlet property="entryTitleTextField" destination="ICX-xD-6GT" id="zTv-JF-CTf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R64-M8-Ke3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -214,7 +222,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="DBe-sS-12T"/>
+        <segue reference="yp7-RI-u5w"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">

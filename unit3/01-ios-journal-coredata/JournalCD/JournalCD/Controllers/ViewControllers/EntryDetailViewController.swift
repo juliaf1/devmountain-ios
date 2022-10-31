@@ -12,6 +12,10 @@ class EntryDetailViewController: UIViewController {
     // MARK: Properties and outlets
     
     var entry: Entry?
+    var journal: Journal?
+    
+    @IBOutlet weak var entryTitleTextField: UITextField!
+    @IBOutlet weak var entryTextView: UITextView!
     
     // MARK: - Lifecycle
 
@@ -22,13 +26,28 @@ class EntryDetailViewController: UIViewController {
     }
     
     // MARK: - Actions
+
+    @IBAction func didPressSaveButton(_ sender: UIBarButtonItem) {
+        guard let title = entryTitleTextField.text,
+                  !title.isEmpty else { return }
+        
+        if let entry = entry {
+            EntryController.update(entry: entry, withTitle: title, text: entryTextView.text ?? "")
+        } else {
+            guard let journal = journal else { return }
+            EntryController.addEntry(to: journal, withTitle: title, text: entryTextView.text ?? "")
+        }
+        
+        navigationController?.popViewController(animated: true)
+    }
     
     // MARK: - Helpers
     
     func updateView() {
         guard let entry = entry else { return }
-        
-        title = entry.title
+
+        entryTitleTextField.text = entry.title
+        entryTextView.text = entry.text
     }
 
 }
