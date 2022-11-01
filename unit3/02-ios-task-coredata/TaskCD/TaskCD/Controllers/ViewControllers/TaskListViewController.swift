@@ -73,7 +73,18 @@ extension TaskListViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as? TaskTableViewCell else { return UITableViewCell() }
         
         let task = tasks[indexPath.row]
+        cell.delegate = self
+        cell.task = task
         cell.updateView(with: task)
         return cell
     }
+}
+
+extension TaskListViewController: TaskCellDelegate {
+    
+    func toggleCompleteTask(for task: Task) {
+        controller.toggleCompleted(for: task)
+        tableView.reloadData()
+    }
+    
 }
