@@ -21,6 +21,8 @@ class TaskDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        updateView()
     }
     
     // MARK: - Actions
@@ -32,5 +34,13 @@ class TaskDetailViewController: UIViewController {
     }
     
     // MARK: - Helpers
+    
+    func updateView() {
+        guard let task = task else { return }
+        
+        taskNameTextField.text = task.name
+        taskNotesTextView.text = task.notes
+        taskDueDatePicker.date = task.dueDate ?? Date()
+    }
 
 }

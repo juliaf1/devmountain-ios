@@ -32,7 +32,13 @@ class TaskListViewController: UIViewController {
 
     // MARK: - Navigation
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {}
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "ToTaskDetailVC",
+              let destination = segue.destination as? TaskDetailViewController,
+              let indexPath = tableView.indexPathForSelectedRow else { return }
+        
+        destination.task = tasks[indexPath.row]
+    }
     
     // MARK: - Helpers
 
