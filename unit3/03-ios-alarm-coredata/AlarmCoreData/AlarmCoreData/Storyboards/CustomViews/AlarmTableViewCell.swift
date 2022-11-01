@@ -8,14 +8,13 @@
 import UIKit
 
 protocol AlarmCellDelegate: AnyObject {
-    func didToggleEnabled(for alarm: Alarm)
+    func didToggleEnabled(for cell: AlarmTableViewCell)
 }
 
 class AlarmTableViewCell: UITableViewCell {
 
     // MARK: - Properties and outlets
-    
-    var alarm: Alarm?
+
     weak var delegate: AlarmCellDelegate?
     
     @IBOutlet weak var alarmTitleLabel: UILabel!
@@ -25,8 +24,7 @@ class AlarmTableViewCell: UITableViewCell {
     // MARK: - Actions
 
     @IBAction func didToggleAlarmEnabledSwitch(_ sender: UISwitch) {
-        guard let alarm = alarm else { return }
-        delegate?.didToggleEnabled(for: alarm)
+        delegate?.didToggleEnabled(for: self)
     }
     
     // MARK: - Helpers

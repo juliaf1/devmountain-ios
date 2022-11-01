@@ -13,6 +13,8 @@
 		3274B0D3291192DB00500D80 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3274B0D2291192DB00500D80 /* Strings.swift */; };
 		3274B0D62911941900500D80 /* AlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3274B0D52911941900500D80 /* AlarmTableViewCell.swift */; };
 		3274B0D92911953C00500D80 /* Dates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3274B0D82911953C00500D80 /* Dates.swift */; };
+		3274B0DC2911971D00500D80 /* AlarmListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3274B0DB2911971D00500D80 /* AlarmListTableViewController.swift */; };
+		3274B0E02911975600500D80 /* AlarmDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3274B0DF2911975600500D80 /* AlarmDetailTableViewController.swift */; };
 		FBF66FDA25B755D40038F7AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF66FD925B755D40038F7AC /* AppDelegate.swift */; };
 		FBF66FDC25B755D40038F7AC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF66FDB25B755D40038F7AC /* SceneDelegate.swift */; };
 		FBF66FE125B755D40038F7AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBF66FDF25B755D40038F7AC /* Main.storyboard */; };
@@ -28,6 +30,8 @@
 		3274B0D2291192DB00500D80 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		3274B0D52911941900500D80 /* AlarmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTableViewCell.swift; sourceTree = "<group>"; };
 		3274B0D82911953C00500D80 /* Dates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dates.swift; sourceTree = "<group>"; };
+		3274B0DB2911971D00500D80 /* AlarmListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmListTableViewController.swift; sourceTree = "<group>"; };
+		3274B0DF2911975600500D80 /* AlarmDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDetailTableViewController.swift; sourceTree = "<group>"; };
 		FBF66FD625B755D40038F7AC /* AlarmCoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlarmCoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBF66FD925B755D40038F7AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBF66FDB25B755D40038F7AC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				3274B0CF291191FE00500D80 /* ModelControllers */,
+				3274B0DA291196FE00500D80 /* ViewControllers */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -89,6 +94,15 @@
 				3274B0D82911953C00500D80 /* Dates.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		3274B0DA291196FE00500D80 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3274B0DB2911971D00500D80 /* AlarmListTableViewController.swift */,
+				3274B0DF2911975600500D80 /* AlarmDetailTableViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		FBF66FCD25B755D40038F7AC = {
@@ -223,9 +237,11 @@
 				FBF66FDA25B755D40038F7AC /* AppDelegate.swift in Sources */,
 				FBF66FE425B755D40038F7AC /* AlarmCoreData.xcdatamodeld in Sources */,
 				3274B0D62911941900500D80 /* AlarmTableViewCell.swift in Sources */,
+				3274B0E02911975600500D80 /* AlarmDetailTableViewController.swift in Sources */,
 				FBF66FDC25B755D40038F7AC /* SceneDelegate.swift in Sources */,
 				3274B0CA291190A700500D80 /* Alarm+Convenience.swift in Sources */,
 				3274B0D92911953C00500D80 /* Dates.swift in Sources */,
+				3274B0DC2911971D00500D80 /* AlarmListTableViewController.swift in Sources */,
 				3274B0D12911920900500D80 /* AlarmController.swift in Sources */,
 				3274B0D3291192DB00500D80 /* Strings.swift in Sources */,
 			);

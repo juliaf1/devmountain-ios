@@ -12,7 +12,7 @@
         <!--Alarms-->
         <scene sceneID="ZdB-n9-9EU">
             <objects>
-                <tableViewController id="qwM-Ez-7B9" sceneMemberID="viewController">
+                <tableViewController id="qwM-Ez-7B9" customClass="AlarmListTableViewController" customModule="AlarmCoreData" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="g9u-l5-PpP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -85,10 +85,10 @@
             </objects>
             <point key="canvasLocation" x="359" y="94"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Alarm Detail Table View Controller-->
         <scene sceneID="4Fk-oz-p2w">
             <objects>
-                <tableViewController id="QS6-gl-Qhw" sceneMemberID="viewController">
+                <tableViewController id="QS6-gl-Qhw" customClass="AlarmDetailTableViewController" customModule="AlarmCoreData" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="OQh-rE-GE9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
