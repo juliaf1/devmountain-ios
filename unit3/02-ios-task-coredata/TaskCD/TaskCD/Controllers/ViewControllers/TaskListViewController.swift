@@ -28,6 +28,10 @@ class TaskListViewController: UIViewController {
         tableView.dataSource = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
     // MARK: - Actions
 
     // MARK: - Navigation
