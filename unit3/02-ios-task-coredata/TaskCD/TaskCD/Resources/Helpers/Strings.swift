@@ -10,7 +10,10 @@ import Foundation
 enum Strings {
     
     static let appName = "TaskCD"
-    
+
     static let taskEntityName = "Task"
+
+    static let incompleteTaskImageName = "square"
+    static let completeTaskImageName = "checkmark.square"
     
 }
