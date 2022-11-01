@@ -39,7 +39,7 @@ class TaskDetailViewController: UIViewController {
         guard let task = task else { return }
         
         taskNameTextField.text = task.name
-        taskNotesTextView.text = task.notes
+        taskNotesTextView.text = task.notes ?? "Notes"
         taskDueDatePicker.date = task.dueDate ?? Date()
     }
 

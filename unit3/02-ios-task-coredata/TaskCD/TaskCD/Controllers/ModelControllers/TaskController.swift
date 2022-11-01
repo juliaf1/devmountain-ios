@@ -38,12 +38,14 @@ class TaskController {
     func createTask(name: String, notes: String?, dueDate: Date?) {
         let task = Task(name: name, notes: notes, dueDate: dueDate)
         incompleteTasks.append(task)
+        CoreDataStack.saveContext()
     }
     
     func update(_ task: Task, name: String, notes: String?, dueDate: Date?) {
         task.name = name
         task.notes = notes
         task.dueDate = dueDate
+        CoreDataStack.saveContext()
     }
     
     func delete(_ task: Task) {
@@ -52,10 +54,13 @@ class TaskController {
         } else if let index = incompleteTasks.firstIndex(of: task) {
             incompleteTasks.remove(at: index)
         }
+        CoreDataStack.context.delete(task)
+        CoreDataStack.saveContext()
     }
     
     func toggleCompleted(for task: Task) {
         task.completed = !task.completed
+        CoreDataStack.saveContext()
     }
     
 }
