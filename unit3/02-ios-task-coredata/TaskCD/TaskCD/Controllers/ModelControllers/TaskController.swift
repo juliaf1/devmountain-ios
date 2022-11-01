@@ -60,6 +60,13 @@ class TaskController {
     
     func toggleCompleted(for task: Task) {
         task.completed = !task.completed
+        if let index = completedTasks.firstIndex(of: task) {
+            completedTasks.remove(at: index)
+            incompleteTasks.append(task)
+        } else if let index = incompleteTasks.firstIndex(of: task) {
+            incompleteTasks.remove(at: index)
+            completedTasks.append(task)
+        }
         CoreDataStack.saveContext()
     }
     

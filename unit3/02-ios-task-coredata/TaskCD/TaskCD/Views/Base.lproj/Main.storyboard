@@ -73,11 +73,26 @@
                         <constraints>
                             <constraint firstItem="c2H-aH-ntY" firstAttribute="leading" secondItem="RJo-pn-j1g" secondAttribute="leading" id="9dA-bH-yva"/>
                             <constraint firstItem="RJo-pn-j1g" firstAttribute="trailing" secondItem="c2H-aH-ntY" secondAttribute="trailing" id="BxX-E6-bs9"/>
+                            <constraint firstItem="c2H-aH-ntY" firstAttribute="top" secondItem="RJo-pn-j1g" secondAttribute="top" id="JqB-6b-kp5"/>
                             <constraint firstItem="RJo-pn-j1g" firstAttribute="bottom" secondItem="c2H-aH-ntY" secondAttribute="bottom" id="fyv-uU-wuy"/>
-                            <constraint firstItem="c2H-aH-ntY" firstAttribute="top" secondItem="RJo-pn-j1g" secondAttribute="top" id="oFF-5W-cA1"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="UDy-QC-uhH">
+                        <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" style="done" id="Il0-Sf-y8p">
+                            <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="IWc-Ke-yhn">
+                                <rect key="frame" x="20" y="5.5" width="233" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="All"/>
+                                    <segment title="To Dos"/>
+                                    <segment title="Done"/>
+                                </segments>
+                                <connections>
+                                    <action selector="didChangeSegmentValue:" destination="QNa-eI-Uyf" eventType="valueChanged" id="TT1-4e-cXi"/>
+                                </connections>
+                            </segmentedControl>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="TDx-UO-1lB">
                             <connections>
                                 <segue destination="xmQ-cE-NVo" kind="show" id="IPd-1E-00M"/>
@@ -90,7 +105,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aFT-kL-sSC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1629" y="53"/>
+            <point key="canvasLocation" x="1628.985507246377" y="52.901785714285715"/>
         </scene>
         <!--Task Detail View Controller-->
         <scene sceneID="2AQ-Qb-qCp">

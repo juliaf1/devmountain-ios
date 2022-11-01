@@ -9,12 +9,27 @@ import UIKit
 
 class TaskListViewController: UIViewController {
     
+    enum TaskFilter: Int {
+        case all
+        case incomplete
+        case complete
+    }
+    
     // MARK: - Properties and outlets
     
     let controller = TaskController.shared
+    var taskType = TaskFilter.all
     
     var tasks: [Task] {
-        return controller.incompleteTasks + controller.completedTasks
+        switch taskType {
+        case .all:
+            return (controller.incompleteTasks + controller.completedTasks).sorted { $0.name! > $1.name! }
+        case .incomplete:
+            return controller.incompleteTasks.sorted { $0.name! > $1.name! }
+        case .complete:
+            return controller.completedTasks.sorted { $0.name! > $1.name! }
+        }
+        
     }
     
     @IBOutlet weak var tableView: UITableView!
@@ -33,6 +48,11 @@ class TaskListViewController: UIViewController {
     }
     
     // MARK: - Actions
+    
+    @IBAction func didChangeSegmentValue(_ sender: UISegmentedControl) {
+        taskType = TaskFilter(rawValue: sender.selectedSegmentIndex) ?? TaskFilter.all
+        tableView.reloadData()
+    }
 
     // MARK: - Navigation
 
@@ -43,8 +63,6 @@ class TaskListViewController: UIViewController {
         
         destination.task = tasks[indexPath.row]
     }
-    
-    // MARK: - Helpers
 
 }
 
