@@ -38,6 +38,9 @@
                                                     <buttonConfiguration key="configuration" style="plain">
                                                         <imageReference key="image" image="square" catalog="system" symbolScale="large"/>
                                                     </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="didPressCompleteTaskButton:" destination="Lbi-vQ-Kmh" eventType="touchUpInside" id="7Jp-yV-zVU"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[Name]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aX6-SS-xxp">
                                                     <rect key="frame" x="28" y="19" width="289" height="61"/>
@@ -57,6 +60,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="taskCompleteButton" destination="32E-64-Piq" id="h6R-QJ-Gdf"/>
+                                            <outlet property="taskNameLabel" destination="aX6-SS-xxp" id="Lid-2g-efb"/>
                                             <segue destination="xmQ-cE-NVo" kind="show" identifier="ToTaskDetailVC" id="kPb-zu-Xrr"/>
                                         </connections>
                                     </tableViewCell>
@@ -79,6 +84,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="c2H-aH-ntY" id="HXP-tc-2XY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aFT-kL-sSC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -109,6 +117,9 @@
                             </textView>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="YOh-3w-wl1">
                                 <rect key="frame" x="8" y="296" width="398" height="31"/>
+                                <connections>
+                                    <action selector="didChangeDateValue:" destination="xmQ-cE-NVo" eventType="valueChanged" id="gqX-4o-Wbg"/>
+                                </connections>
                             </datePicker>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZHo-us-gy1"/>
@@ -126,8 +137,17 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Xs2-KJ-NdD">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Bbw-D1-rgE"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Bbw-D1-rgE">
+                            <connections>
+                                <action selector="didPressSaveButton:" destination="xmQ-cE-NVo" id="kxs-3A-grN"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="taskDueDatePicker" destination="YOh-3w-wl1" id="xEe-H3-N8G"/>
+                        <outlet property="taskNameTextField" destination="cks-b7-c7m" id="AX9-Ao-NHL"/>
+                        <outlet property="taskNotesTextView" destination="C2V-Z1-QF8" id="F9I-KH-A6K"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qN9-E4-NYK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
