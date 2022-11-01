@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="97" id="1fH-FI-HqM">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="97" id="1fH-FI-HqM" customClass="AlarmTableViewCell" customModule="AlarmCoreData" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="97"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1fH-FI-HqM" id="cew-Vi-iha">
@@ -46,6 +46,9 @@
                                             <rect key="frame" x="361" y="33" width="51" height="31"/>
                                             <color key="onTintColor" red="0.102625601" green="0.14047515390000001" blue="0.1764756143" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <color key="thumbTintColor" red="0.24140208960000001" green="0.76744514699999999" blue="0.6584148407" alpha="0.90199593320000004" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <connections>
+                                                <action selector="didToggleAlarmEnabledSwitch:" destination="1fH-FI-HqM" eventType="valueChanged" id="Ell-C6-9YT"/>
+                                            </connections>
                                         </switch>
                                     </subviews>
                                     <constraints>
@@ -58,6 +61,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="alarmEnabledSwitch" destination="mmr-pP-LoS" id="tdn-sX-5xY"/>
+                                    <outlet property="alarmFireDateLabel" destination="qIJ-ov-6cd" id="Q5d-ew-0fN"/>
+                                    <outlet property="alarmTitleLabel" destination="T08-Bw-pbp" id="4DD-Yj-Whq"/>
                                     <segue destination="QS6-gl-Qhw" kind="show" identifier="ToAlarmDetailVC" id="Abf-EX-AXH"/>
                                 </connections>
                             </tableViewCell>
