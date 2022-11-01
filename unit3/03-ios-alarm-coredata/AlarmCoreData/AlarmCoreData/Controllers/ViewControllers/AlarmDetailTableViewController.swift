@@ -33,6 +33,18 @@ class AlarmDetailTableViewController: UITableViewController {
     }
     
     @IBAction func didTapSaveButton(_ sender: UIBarButtonItem) {
+        guard let title = alarmTitleField.text,
+              !title.isEmpty else { return }
+        
+        let date = alarmFireDatePicker.date
+        
+        if let alarm = alarm {
+            AlarmController.shared.update(alarm, title: title, fireDate: date, enabled: alarmEnabled)
+        } else {
+            AlarmController.shared.createAlarm(withTitle: title, fireDate: date, enabled: alarmEnabled)
+        }
+        
+        navigationController?.popViewController(animated: true)
     }
     
     // MARK: - Helpers
