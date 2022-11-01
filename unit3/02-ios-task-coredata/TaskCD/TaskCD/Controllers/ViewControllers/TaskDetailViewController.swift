@@ -11,6 +11,12 @@ class TaskDetailViewController: UIViewController {
     
     // MARK: - Properties and outlets
     
+    var task: Task?
+    
+    @IBOutlet weak var taskNameTextField: UITextField!
+    @IBOutlet weak var taskNotesTextView: UITextView!
+    @IBOutlet weak var taskDueDatePicker: UIDatePicker!
+
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
@@ -18,6 +24,12 @@ class TaskDetailViewController: UIViewController {
     }
     
     // MARK: - Actions
+    
+    @IBAction func didPressSaveButton(_ sender: UIBarButtonItem) {
+    }
+
+    @IBAction func didChangeDateValue(_ sender: UIDatePicker) {
+    }
     
     // MARK: - Helpers
 
