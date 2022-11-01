@@ -38,6 +38,11 @@ class AlarmListTableViewController: UITableViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "ToAlarmDetailVC",
+              let destination = segue.destination as? AlarmDetailTableViewController,
+              let indexPath = tableView.indexPathForSelectedRow else { return }
+        
+        destination.alarm = controller.alarms[indexPath.row]
     }
 
 }
