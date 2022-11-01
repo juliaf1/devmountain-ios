@@ -35,12 +35,12 @@ class TaskController {
         incompleteTasks = tasks.filter { task in !task.completed }
     }
     
-    func createTask(name: String, notes: String, dueDate: Date) {
+    func createTask(name: String, notes: String?, dueDate: Date?) {
         let task = Task(name: name, notes: notes, dueDate: dueDate)
         incompleteTasks.append(task)
     }
     
-    func update(_ task: Task, name: String, notes: String, dueDate: Date) {
+    func update(_ task: Task, name: String, notes: String?, dueDate: Date?) {
         task.name = name
         task.notes = notes
         task.dueDate = dueDate

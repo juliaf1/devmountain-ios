@@ -38,7 +38,20 @@ class TaskListViewController: UIViewController {
 
 }
 
-extension TaskListViewController: UITableViewDelegate {}
+extension TaskListViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+        case .delete:
+            let task = tasks[indexPath.row]
+            controller.delete(task)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        default:
+            break
+        }
+    }
+    
+}
 
 extension TaskListViewController: UITableViewDataSource {
 
@@ -47,6 +60,10 @@ extension TaskListViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as? TaskTableViewCell else { return UITableViewCell() }
+        
+        let task = tasks[indexPath.row]
+        cell.updateView(with: task)
+        return cell
     }
 }
