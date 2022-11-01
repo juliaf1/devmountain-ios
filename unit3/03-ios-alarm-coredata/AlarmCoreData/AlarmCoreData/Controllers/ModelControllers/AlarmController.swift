@@ -31,12 +31,29 @@ class AlarmController {
         alarms = (try? CoreDataStack.context.fetch(fetchRequest)) ?? []
     }
     
-    func createAlarm(withTitle title: String, fireDate: Date, enabled: Bool) {}
+    func createAlarm(withTitle title: String, fireDate: Date, enabled: Bool) {
+        let alarm = Alarm(title: title, fireDate: fireDate, enabled: enabled)
+        alarms.append(alarm)
+        CoreDataStack.saveContext()
+    }
     
-    func update(_ alarm: Alarm, title: String, fireDate: Date, enabled: Bool) {}
+    func update(_ alarm: Alarm, title: String, fireDate: Date, enabled: Bool) {
+        alarm.title = title
+        alarm.fireDate = fireDate
+        alarm.enabled = enabled
+        CoreDataStack.saveContext()
+    }
     
-    func delete(_ alarm: Alarm) {}
+    func delete(_ alarm: Alarm) {
+        guard let index = alarms.firstIndex(of: alarm) else { return }
+        alarms.remove(at: index)
+        CoreDataStack.context.delete(alarm)
+        CoreDataStack.saveContext()
+    }
     
-    func toggleEnabled(for alarm: Alarm) {}
+    func toggleEnabled(for alarm: Alarm) {
+        alarm.enabled = !alarm.enabled
+        CoreDataStack.saveContext()
+    }
     
 }
