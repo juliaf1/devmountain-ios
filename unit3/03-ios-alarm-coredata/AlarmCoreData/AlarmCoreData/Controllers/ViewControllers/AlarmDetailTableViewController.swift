@@ -23,6 +23,7 @@ class AlarmDetailTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateView()
+        NotificationManager().requestPermission()
     }
     
     // MARK: - Actions
