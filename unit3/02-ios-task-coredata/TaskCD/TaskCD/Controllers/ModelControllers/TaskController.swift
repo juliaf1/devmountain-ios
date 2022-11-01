@@ -11,7 +11,7 @@ class TaskController {
     
     // MARK: - Properties and shared instance
     
-    let shared = TaskController()
+    static let shared = TaskController()
     
     var completedTasks: [Task] = []
     var incompleteTasks: [Task] = []
