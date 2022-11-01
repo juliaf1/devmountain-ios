@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3274B0CA291190A700500D80 /* Alarm+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3274B0C9291190A700500D80 /* Alarm+Convenience.swift */; };
+		3274B0CC2911915700500D80 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3274B0CB2911915700500D80 /* CoreDataStack.swift */; };
 		FBF66FDA25B755D40038F7AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF66FD925B755D40038F7AC /* AppDelegate.swift */; };
 		FBF66FDC25B755D40038F7AC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF66FDB25B755D40038F7AC /* SceneDelegate.swift */; };
 		FBF66FE125B755D40038F7AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBF66FDF25B755D40038F7AC /* Main.storyboard */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3274B0C9291190A700500D80 /* Alarm+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alarm+Convenience.swift"; sourceTree = "<group>"; };
+		3274B0CB2911915700500D80 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		FBF66FD625B755D40038F7AC /* AlarmCoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlarmCoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBF66FD925B755D40038F7AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBF66FDB25B755D40038F7AC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +41,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3274B0CD2911915E00500D80 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				FBF66FE225B755D40038F7AC /* AlarmCoreData.xcdatamodeld */,
+				3274B0CB2911915700500D80 /* CoreDataStack.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		FBF66FCD25B755D40038F7AC = {
 			isa = PBXGroup;
 			children = (
@@ -56,8 +69,8 @@
 		FBF66FD825B755D40038F7AC /* AlarmCoreData */ = {
 			isa = PBXGroup;
 			children = (
-				FBF66FF525B756350038F7AC /* Model */,
 				FBF66FF225B7561B0038F7AC /* Supporting Files */,
+				FBF66FF525B756350038F7AC /* Model */,
 				FBF66FF425B7562C0038F7AC /* Storyboards */,
 			);
 			path = AlarmCoreData;
@@ -86,7 +99,8 @@
 		FBF66FF525B756350038F7AC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FBF66FE225B755D40038F7AC /* AlarmCoreData.xcdatamodeld */,
+				3274B0CD2911915E00500D80 /* CoreData */,
+				3274B0C9291190A700500D80 /* Alarm+Convenience.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -161,9 +175,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3274B0CC2911915700500D80 /* CoreDataStack.swift in Sources */,
 				FBF66FDA25B755D40038F7AC /* AppDelegate.swift in Sources */,
 				FBF66FE425B755D40038F7AC /* AlarmCoreData.xcdatamodeld in Sources */,
 				FBF66FDC25B755D40038F7AC /* SceneDelegate.swift in Sources */,
+				3274B0CA291190A700500D80 /* Alarm+Convenience.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
