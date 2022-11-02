@@ -25,7 +25,7 @@ class AlarmDetailTableViewController: UITableViewController {
         updateView()
         NotificationManager().requestPermission()
     }
-    
+
     // MARK: - Actions
     
     @IBAction func didTapAlarmEnabledButton(_ sender: UIButton) {
