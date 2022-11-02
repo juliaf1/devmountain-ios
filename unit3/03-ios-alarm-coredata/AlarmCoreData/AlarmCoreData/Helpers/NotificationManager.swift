@@ -8,27 +8,21 @@
 import UserNotifications
 
 class NotificationManager: NSObject {
-    
-//    override init() {
-//        super.init()
-//        UNUserNotificationCenter.current().delegate = self
-//    }
 
-    func requestPermission() {
+    static func requestPermission() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
             if !granted {
-                print("Notification access has been denied", String(describing: error))
+                print("Notification access denied", String(describing: error))
             }
         }
     }
 
 }
 
-//extension NotificationManager: UNUserNotificationCenterDelegate {
-//    
-//    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-//        print("gets here lol")
-//        completionHandler([.banner, .badge, .sound])
-//    }
-//
-//}
+extension NotificationManager: UNUserNotificationCenterDelegate {
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.banner, .badge, .sound])
+    }
+
+}
