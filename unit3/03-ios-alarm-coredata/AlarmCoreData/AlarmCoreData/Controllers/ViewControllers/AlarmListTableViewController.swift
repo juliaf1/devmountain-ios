@@ -40,6 +40,19 @@ class AlarmListTableViewController: UITableViewController {
         
         return cell
     }
+    
+    // MARK: - Table view delegate
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+        case .delete:
+            let alarm = controller.alarms[indexPath.row]
+            controller.delete(alarm)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        default:
+            break
+        }
+    }
 
     // MARK: - Navigation
 

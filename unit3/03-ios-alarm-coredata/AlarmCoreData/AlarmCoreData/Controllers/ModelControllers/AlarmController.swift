@@ -52,10 +52,11 @@ class AlarmController: AlarmScheduler {
     func delete(_ alarm: Alarm) {
         guard let index = alarms.firstIndex(of: alarm) else { return }
         alarms.remove(at: index)
-        CoreDataStack.context.delete(alarm)
-        CoreDataStack.saveContext()
 
         cancelUserNotifications(for: alarm)
+        
+        CoreDataStack.context.delete(alarm)
+        CoreDataStack.saveContext()
     }
     
     func toggleEnabled(for alarm: Alarm) {
