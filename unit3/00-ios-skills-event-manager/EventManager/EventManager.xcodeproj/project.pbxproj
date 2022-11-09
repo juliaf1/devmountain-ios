@@ -17,6 +17,7 @@
 		32404501291BFE94008771EA /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32404500291BFE94008771EA /* EventListViewController.swift */; };
 		32404504291C035C008771EA /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32404503291C035C008771EA /* UIViewExtension.swift */; };
 		32404506291C0546008771EA /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32404505291C0546008771EA /* DateExtension.swift */; };
+		32404508291C4240008771EA /* Event+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32404507291C4240008771EA /* Event+Convenience.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		32404500291BFE94008771EA /* EventListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
 		32404503291C035C008771EA /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		32404505291C0546008771EA /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		32404507291C4240008771EA /* Event+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Event+Convenience.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				324044F8291BFC72008771EA /* CoreData */,
+				32404507291C4240008771EA /* Event+Convenience.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 				324044DF291BFC26008771EA /* AppDelegate.swift in Sources */,
 				32404506291C0546008771EA /* DateExtension.swift in Sources */,
 				32404501291BFE94008771EA /* EventListViewController.swift in Sources */,
+				32404508291C4240008771EA /* Event+Convenience.swift in Sources */,
 				324044E9291BFC26008771EA /* EventManager.xcdatamodeld in Sources */,
 				324044FF291BFDDC008771EA /* Strings.swift in Sources */,
 				32404504291C035C008771EA /* UIViewExtension.swift in Sources */,
