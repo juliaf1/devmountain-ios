@@ -14,6 +14,7 @@
 		324044EE291BFC28008771EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 324044EC291BFC28008771EA /* LaunchScreen.storyboard */; };
 		324044FC291BFD8C008771EA /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324044FB291BFD8C008771EA /* CoreDataStack.swift */; };
 		324044FF291BFDDC008771EA /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324044FE291BFDDC008771EA /* Strings.swift */; };
+		32404501291BFE94008771EA /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32404500291BFE94008771EA /* EventListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		324044EF291BFC28008771EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		324044FB291BFD8C008771EA /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		324044FE291BFDDC008771EA /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		32404500291BFE94008771EA /* EventListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 		324044F9291BFCA2008771EA /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				32404500291BFE94008771EA /* EventListViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				324044DF291BFC26008771EA /* AppDelegate.swift in Sources */,
+				32404501291BFE94008771EA /* EventListViewController.swift in Sources */,
 				324044E9291BFC26008771EA /* EventManager.xcdatamodeld in Sources */,
 				324044FF291BFDDC008771EA /* Strings.swift in Sources */,
 				324044E1291BFC26008771EA /* SceneDelegate.swift in Sources */,
