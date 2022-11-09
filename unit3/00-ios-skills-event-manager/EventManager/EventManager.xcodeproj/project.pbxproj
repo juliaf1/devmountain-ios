@@ -15,6 +15,7 @@
 		324044FC291BFD8C008771EA /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324044FB291BFD8C008771EA /* CoreDataStack.swift */; };
 		324044FF291BFDDC008771EA /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324044FE291BFDDC008771EA /* Strings.swift */; };
 		32404501291BFE94008771EA /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32404500291BFE94008771EA /* EventListViewController.swift */; };
+		32404504291C035C008771EA /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32404503291C035C008771EA /* UIViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		324044FB291BFD8C008771EA /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		324044FE291BFDDC008771EA /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		32404500291BFE94008771EA /* EventListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
+		32404503291C035C008771EA /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 		324044F7291BFC69008771EA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				32404502291C0341008771EA /* Extensions */,
 				324044FD291BFDD6008771EA /* Helpers */,
 				324044EC291BFC28008771EA /* LaunchScreen.storyboard */,
 				324044DE291BFC26008771EA /* AppDelegate.swift */,
@@ -127,6 +130,14 @@
 				324044FE291BFDDC008771EA /* Strings.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		32404502291C0341008771EA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				32404503291C035C008771EA /* UIViewExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,6 +214,7 @@
 				32404501291BFE94008771EA /* EventListViewController.swift in Sources */,
 				324044E9291BFC26008771EA /* EventManager.xcdatamodeld in Sources */,
 				324044FF291BFDDC008771EA /* Strings.swift in Sources */,
+				32404504291C035C008771EA /* UIViewExtension.swift in Sources */,
 				324044E1291BFC26008771EA /* SceneDelegate.swift in Sources */,
 				324044FC291BFD8C008771EA /* CoreDataStack.swift in Sources */,
 			);
