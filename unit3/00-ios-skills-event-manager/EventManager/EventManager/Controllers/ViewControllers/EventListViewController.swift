@@ -11,25 +11,48 @@ class EventListViewController: UIViewController {
     
     // MARK: - Properties
     
+    var safeArea: UILayoutGuide {
+        return self.view.safeAreaLayoutGuide
+    }
+    
     // MARK: - Lifecycle
     
     override func loadView() {
         super.loadView()
 
-        self.view.backgroundColor = .systemIndigo
+        setUpViews()
+        setUpNavigationBar()
+        
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setUpTableView()
+
+        configureTableView()
     }
     
     // MARK: - Actions
     
     // MARK: - Helpers
     
-    func setUpTableView() {
+    func setUpViews() {
+        self.view.backgroundColor = .systemGray6
+
+        self.view.addSubview(tableView)
+        
+        constraintTableView()
+    }
+    
+    func setUpNavigationBar() {
+        self.navigationItem.title = "Events"
+        self.navigationItem.setRightBarButton(addEventButton, animated: true)
+    }
+
+    func constraintTableView() {
+        tableView.anchor(top: safeArea.topAnchor, bottom: safeArea.bottomAnchor, leading: safeArea.leadingAnchor, trailing: safeArea.trailingAnchor, marginTop: 0, marginBottom: 0, marginLeft: 0, marginRight: 0)
+    }
+    
+    func configureTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         // configure and register cell
@@ -45,7 +68,14 @@ class EventListViewController: UIViewController {
     
     var tableView: UITableView = {
         let tableView = UITableView()
+        tableView.backgroundColor = .systemGray6
         return tableView
+    }()
+    
+    var addEventButton: UIBarButtonItem = {
+       let button = UIBarButtonItem()
+        button.title = "🔥"
+        return button
     }()
 
 }
