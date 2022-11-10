@@ -12,4 +12,6 @@ enum Strings {
     static let appName = "EventManager"
     static let eventEntityName = "Event"
     
+    static let eventCellIdentifier = "eventCell"
+    
 }

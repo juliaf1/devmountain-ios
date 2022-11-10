@@ -11,6 +11,8 @@ class EventListViewController: UIViewController {
     
     // MARK: - Properties
     
+    let eventController = EventController.shared
+    
     var safeArea: UILayoutGuide {
         return self.view.safeAreaLayoutGuide
     }
@@ -55,7 +57,7 @@ class EventListViewController: UIViewController {
     func configureTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        // configure and register cell
+        tableView.register(EventTableViewCell.self, forCellReuseIdentifier: Strings.eventCellIdentifier)
     }
 
     // MARK: - Navigation
@@ -82,12 +84,44 @@ class EventListViewController: UIViewController {
 
 extension EventListViewController: UITableViewDataSource, UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if let eventSection = EventSections(rawValue: section) {
+            return eventSection.title
+        } else {
+            return ""
+        }
     }
-    
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch EventSections(rawValue: section) {
+        case .attending:
+            return eventController.attendingEvents.count
+        case .notAttending:
+            return eventController.notAttendingEvents.count
+        case .none:
+            return 0
+        }
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Strings.eventCellIdentifier, for: indexPath) as? EventTableViewCell else { return UITableViewCell() }
+        
+        switch EventSections(rawValue: indexPath.section) {
+        case .attending:
+            let event = eventController.attendingEvents[indexPath.row]
+            cell.updateView(with: event)
+        case .notAttending:
+            let event = eventController.notAttendingEvents[indexPath.row]
+            cell.updateView(with: event)
+        case .none:
+            break
+        }
+        
+        return cell
     }
     
 }

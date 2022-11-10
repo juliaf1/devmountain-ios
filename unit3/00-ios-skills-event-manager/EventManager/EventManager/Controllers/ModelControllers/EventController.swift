@@ -7,6 +7,20 @@
 
 import CoreData
 
+enum EventSections: Int {
+    case attending
+    case notAttending
+    
+    var title: String {
+        switch self {
+        case .attending:
+            return "Attending Events"
+        case .notAttending:
+            return "Not Attending Events"
+        }
+    }
+}
+
 class EventController {
     
     // MARK: - Properties
