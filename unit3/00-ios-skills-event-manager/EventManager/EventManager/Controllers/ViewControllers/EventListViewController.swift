@@ -45,12 +45,17 @@ class EventListViewController: UIViewController {
     
     func setUpNavigationBar() {
         self.navigationItem.title = "Events"
-        self.navigationItem.setRightBarButton(addEventButton, animated: true)
+        self.navigationItem.rightBarButtonItem = addEventButton
     }
 
     func constraintTableView() {
         tableView.anchor(top: safeArea.topAnchor, bottom: safeArea.bottomAnchor, leading: safeArea.leadingAnchor, trailing: safeArea.trailingAnchor, marginTop: 0, marginBottom: 0, marginLeft: 0, marginRight: 0)
     }
+    
+//    func constraintNavigationBar() {
+//        addEventButton.widthAnchor.constraint(equalToConstant: Spacings.largeHeight).isActive = true
+//        addEventButton.heightAnchor.constraint(equalToConstant: Spacings.largeHeight).isActive = true
+//    }
     
     func configureTableView() {
         tableView.delegate = self
@@ -60,10 +65,10 @@ class EventListViewController: UIViewController {
     
     func configureAddEventButton() {
         addEventButton.target = self
-        addEventButton.action = #selector(didPressAddEventButton(sender:))
+        addEventButton.action = #selector(didPressAddEventButton)
     }
     
-    @objc func didPressAddEventButton(sender: UIBarButtonItem) {
+    @objc func didPressAddEventButton() {
         let newVC = EventDetailViewController()
         self.navigationController?.pushViewController(newVC, animated: true)
     }
@@ -77,8 +82,14 @@ class EventListViewController: UIViewController {
     }()
     
     var addEventButton: UIBarButtonItem = {
+//        let button = UIButton()
+//        button.setImage(UIImage(named: Strings.fireFillImageName), for: .normal)
+//        let barButtonItem = UIBarButtonItem(customView: button)
+//        return barButtonItem
+        
         let button = UIBarButtonItem()
         button.title = "🔥"
+        
         return button
     }()
 
