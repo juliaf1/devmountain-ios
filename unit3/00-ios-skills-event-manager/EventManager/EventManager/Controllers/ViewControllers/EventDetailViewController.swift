@@ -11,7 +11,11 @@ class EventDetailViewController: UIViewController {
     
     // MARK: - Properties
     
-    var event: Event?
+    var event: Event? {
+        didSet {
+            updateViews()
+        }
+    }
     
     var safeArea: UILayoutGuide {
         return self.view.safeAreaLayoutGuide
@@ -52,6 +56,13 @@ class EventDetailViewController: UIViewController {
     
     func constraintEventDatePicker() {
         eventDatePicker.anchor(top: eventNameTextField.bottomAnchor, bottom: safeArea.bottomAnchor, leading: safeArea.leadingAnchor, trailing: safeArea.trailingAnchor, marginTop: Spacings.mediumSpacing, marginBottom: Spacings.mediumSpacing, marginLeft: Spacings.mediumSpacing, marginRight: Spacings.mediumSpacing)
+    }
+    
+    func updateViews() {
+        guard let event = event else { return }
+        
+        eventNameTextField.text = event.name
+        eventDatePicker.date = event.date ?? Date()
     }
     
     // MARK: - Views
