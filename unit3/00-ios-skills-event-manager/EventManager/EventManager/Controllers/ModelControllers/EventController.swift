@@ -72,6 +72,9 @@ class EventController {
         CoreDataStack.saveContext()
     }
     
-    func toggleAttendance(of event: Event) {}
+    func toggleAttendance(of event: Event) {
+        event.attending = !event.attending
+        CoreDataStack.saveContext()
+    }
     
 }
