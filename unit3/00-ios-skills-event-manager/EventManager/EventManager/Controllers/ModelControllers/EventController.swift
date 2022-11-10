@@ -56,7 +56,15 @@ class EventController {
         CoreDataStack.saveContext()
     }
     
-    func delete(event: Event) {}
+    func delete(event: Event) {
+        if let index = attendingEvents.firstIndex(of: event) {
+            attendingEvents.remove(at: index)
+        } else if let index = notAttendingEvents.firstIndex(of: event) {
+            notAttendingEvents.remove(at: index)
+        }
+        CoreDataStack.context.delete(event)
+        CoreDataStack.saveContext()
+    }
     
     func update(event: Event, name: String, date: Date) {}
     
