@@ -67,12 +67,6 @@ class EventListViewController: UIViewController {
         let newVC = EventDetailViewController()
         self.navigationController?.pushViewController(newVC, animated: true)
     }
-
-    // MARK: - Navigation
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // todo
-    }
     
     // MARK: - Views
     
@@ -91,6 +85,23 @@ class EventListViewController: UIViewController {
 }
 
 extension EventListViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailVC = EventDetailViewController()
+
+        switch EventSections(rawValue: indexPath.section) {
+        case .attending:
+            let event = eventController.attendingEvents[indexPath.row]
+            detailVC.event = event
+        case .notAttending:
+            let event = eventController.notAttendingEvents[indexPath.row]
+            detailVC.event = event
+        case .none:
+            break
+        }
+
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return Spacings.largeHeight + (2 * Spacings.mediumSpacing)
