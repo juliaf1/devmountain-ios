@@ -32,6 +32,8 @@ class EventDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configureSaveButton()
     }
     
     // MARK: - Helpers
@@ -64,6 +66,15 @@ class EventDetailViewController: UIViewController {
         
         eventNameTextField.text = event.name
         eventDatePicker.date = event.date ?? Date()
+    }
+    
+    func configureSaveButton() {
+        saveButtonItem.target = self
+        saveButtonItem.action = #selector(didPressSaveButton)
+    }
+    
+    @objc func didPressSaveButton() {
+        // todo create new event or update event
     }
     
     // MARK: - Views
