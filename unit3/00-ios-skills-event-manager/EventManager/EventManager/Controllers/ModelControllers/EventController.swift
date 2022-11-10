@@ -39,12 +39,12 @@ class EventController {
     // MARK: - Initializer
     
     private init() {
-        fetchAlarms()
+        fetchEvents()
     }
     
     // MARK: - CRUD
     
-    func fetchAlarms() {
+    func fetchEvents() {
         let events = (try? CoreDataStack.context.fetch(fetchRequest)) ?? []
         attendingEvents = events.filter { $0.attending }
         notAttendingEvents = events.filter { !$0.attending }
@@ -53,6 +53,7 @@ class EventController {
     func create(eventWithName name: String, date: Date) {
         let event = Event(name: name, date: date)
         attendingEvents.append(event)
+        sortEvents()
         CoreDataStack.saveContext()
     }
     
@@ -62,6 +63,7 @@ class EventController {
         } else if let index = notAttendingEvents.firstIndex(of: event) {
             notAttendingEvents.remove(at: index)
         }
+        sortEvents()
         CoreDataStack.context.delete(event)
         CoreDataStack.saveContext()
     }
@@ -81,7 +83,15 @@ class EventController {
             attendingEvents.append(event)
         }
         event.attending = !event.attending
+        sortEvents()
         CoreDataStack.saveContext()
+    }
+    
+    // MARK: - Helpers
+    
+    func sortEvents() {
+        attendingEvents.sort { $0.date! > $1.date! }
+        notAttendingEvents.sort { $0.date! > $1.date! }
     }
     
 }
