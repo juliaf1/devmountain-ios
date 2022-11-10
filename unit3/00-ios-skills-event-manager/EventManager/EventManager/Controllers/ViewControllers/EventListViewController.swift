@@ -68,17 +68,6 @@ class EventListViewController: UIViewController {
         self.navigationController?.pushViewController(newVC, animated: true)
     }
     
-    func event(withIndexPath indexPath: IndexPath) -> Event? {
-        switch EventSections(rawValue: indexPath.section) {
-        case .attending:
-            return eventController.attendingEvents[indexPath.row]
-        case .notAttending:
-            return eventController.notAttendingEvents[indexPath.row]
-        case .none:
-            return nil
-        }
-    }
-    
     // MARK: - Views
     
     var tableView: UITableView = {
@@ -96,6 +85,8 @@ class EventListViewController: UIViewController {
 }
 
 extension EventListViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    // MARK: - Delegate and Datasource
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailVC = EventDetailViewController()
@@ -142,6 +133,19 @@ extension EventListViewController: UITableViewDataSource, UITableViewDelegate {
         cell.delegate = self
 
         return cell
+    }
+    
+    // MARK: - Delegate and Datasource Helpers
+    
+    func event(withIndexPath indexPath: IndexPath) -> Event? {
+        switch EventSections(rawValue: indexPath.section) {
+        case .attending:
+            return eventController.attendingEvents[indexPath.row]
+        case .notAttending:
+            return eventController.notAttendingEvents[indexPath.row]
+        case .none:
+            return nil
+        }
     }
     
 }
