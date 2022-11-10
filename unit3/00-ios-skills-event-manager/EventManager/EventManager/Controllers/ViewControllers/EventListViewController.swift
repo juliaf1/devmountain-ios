@@ -84,6 +84,10 @@ class EventListViewController: UIViewController {
 
 extension EventListViewController: UITableViewDataSource, UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return Spacings.largeHeight + (2 * Spacings.mediumSpacing)
+    }
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if let eventSection = EventSections(rawValue: section) {
             return eventSection.title

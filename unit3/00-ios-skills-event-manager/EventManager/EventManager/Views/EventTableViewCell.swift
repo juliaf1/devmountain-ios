@@ -28,6 +28,9 @@ class EventTableViewCell: UITableViewCell {
     // MARK: - Helpers
     
     func setUpSubviews() {
+        self.backgroundColor = .systemGray6
+        self.selectionStyle = .none
+        
         self.addSubview(eventNameLabel)
         self.addSubview(attendingButton)
         
@@ -46,18 +49,18 @@ class EventTableViewCell: UITableViewCell {
     }
     
     func constraintEventNameLabel() {
-        eventNameLabel.anchor(top: self.contentView.topAnchor, bottom: self.contentView.bottomAnchor, leading: self.contentView.leadingAnchor, trailing: attendingButton.leadingAnchor, marginTop: 8, marginBottom: 8, marginLeft: 8, marginRight: 4)
+        eventNameLabel.anchor(top: self.contentView.topAnchor, bottom: self.contentView.bottomAnchor, leading: self.contentView.leadingAnchor, trailing: nil, marginTop: Spacings.mediumSpacing, marginBottom: Spacings.mediumSpacing, marginLeft: Spacings.mediumSpacing, marginRight: 0, height: Spacings.largeHeight)
     }
     
     func constraintAttendingButton() {
-        attendingButton.anchor(top: self.contentView.topAnchor, bottom: self.contentView.bottomAnchor, leading: nil, trailing: self.contentView.trailingAnchor, marginTop: 8, marginBottom: 8, marginLeft: 0, marginRight: 8)
+        attendingButton.anchor(top: self.contentView.topAnchor, bottom: self.contentView.bottomAnchor, leading: nil, trailing: self.contentView.trailingAnchor, marginTop: Spacings.mediumSpacing, marginBottom: Spacings.mediumSpacing, marginLeft: 0, marginRight: Spacings.mediumSpacing, width: Spacings.largeHeight, height: Spacings.largeHeight)
     }
     
     // MARK: - Views
     
     let eventNameLabel: UILabel = {
         let label = UILabel()
-        label.setContentHuggingPriority(.defaultLow, for: .horizontal)
+//        label.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         
         return label
     }()
@@ -65,7 +68,8 @@ class EventTableViewCell: UITableViewCell {
     let attendingButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: Strings.fireOutlineImageName), for: .normal)
-        button.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+//        button.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        button.contentMode = .scaleToFill
         
         return button
     }()
