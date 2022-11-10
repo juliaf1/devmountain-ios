@@ -121,4 +121,9 @@ class EventDetailViewController: UIViewController {
 
 extension EventDetailViewController: UITextFieldDelegate {
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
 }
