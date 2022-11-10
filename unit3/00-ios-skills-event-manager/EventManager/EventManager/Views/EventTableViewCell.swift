@@ -29,35 +29,42 @@ class EventTableViewCell: UITableViewCell {
         super.layoutSubviews()
         
         setUpSubviews()
+        configureAttendingButton()
     }
-    
+
     // MARK: - Helpers
-    
+
     func setUpSubviews() {
         self.backgroundColor = .systemGray6
         self.selectionStyle = .none
-        
-        self.addSubview(eventNameLabel)
+
+        setUpEventStackView()
+
+        self.addSubview(eventDetailStackView)
         self.addSubview(attendingButton)
         
-        constraintEventNameLabel()
+        constraintEventStackView()
         constraintAttendingButton()
-        
-        configureAttendingButton()
+    }
+    
+    func setUpEventStackView() {
+        eventDetailStackView.addArrangedSubview(eventNameLabel)
+        eventDetailStackView.addArrangedSubview(eventDateLabel)
     }
     
     func updateViews() {
         guard let event = event else { return }
         
         eventNameLabel.text = event.name
+        eventDateLabel.text = event.date?.toString()
 
         let imageName = event.attending ? Strings.fireFillImageName : Strings.fireOutlineImageName
         let image = UIImage(named: imageName)
         attendingButton.setImage(image, for: .normal)
     }
     
-    func constraintEventNameLabel() {
-        eventNameLabel.anchor(top: self.topAnchor, bottom: self.bottomAnchor, leading: self.leadingAnchor, trailing: nil, marginTop: Spacings.mediumSpacing, marginBottom: Spacings.mediumSpacing, marginLeft: Spacings.mediumSpacing, marginRight: 0, height: Spacings.largeHeight)
+    func constraintEventStackView() {
+        eventDetailStackView.anchor(top: self.topAnchor, bottom: self.bottomAnchor, leading: self.leadingAnchor, trailing: attendingButton.leadingAnchor, marginTop: Spacings.mediumSpacing, marginBottom: Spacings.mediumSpacing, marginLeft: Spacings.mediumSpacing, marginRight: 0)
     }
     
     func constraintAttendingButton() {
@@ -79,14 +86,33 @@ class EventTableViewCell: UITableViewCell {
     
     let eventNameLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont(name: "Futura", size: Spacings.largeHeight)
         label.setContentHuggingPriority(.defaultLow, for: .horizontal)
         
         return label
+    }()
+    
+    let eventDateLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: Spacings.smallHeight, weight: .light)
+        label.textColor = .darkGray
+        
+        return label
+    }()
+    
+    let eventDetailStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.distribution = .fillProportionally
+        stackView.spacing = Spacings.smallSpacing
+        
+        return stackView
     }()
 
     let attendingButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: Strings.fireOutlineImageName), for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
         button.setContentHuggingPriority(.defaultHigh, for: .horizontal) // the view with a higher horizontal content hugging priority will not grow beyond its content size
         
         return button
