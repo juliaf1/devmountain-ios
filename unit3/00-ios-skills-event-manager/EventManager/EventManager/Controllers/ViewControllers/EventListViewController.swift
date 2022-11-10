@@ -32,6 +32,12 @@ class EventListViewController: UIViewController {
         configureTableView()
         configureAddEventButton()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
+    }
 
     // MARK: - Helpers
 
