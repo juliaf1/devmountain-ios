@@ -43,7 +43,7 @@ class EventTableViewCell: UITableViewCell {
         constraintEventNameLabel()
         constraintAttendingButton()
         
-        activateAttendingButton()
+        configureAttendingButton()
     }
     
     func updateViews() {
@@ -66,7 +66,7 @@ class EventTableViewCell: UITableViewCell {
         // QUESTION: Why using self.contentView.trailingAnchor generates a bug?
     }
     
-    func activateAttendingButton() {
+    func configureAttendingButton() {
         attendingButton.addTarget(self, action: #selector(didPressAttendingButton(sender:)), for: .touchUpInside)
     }
     

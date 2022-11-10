@@ -24,19 +24,17 @@ class EventListViewController: UIViewController {
 
         setUpSubviews()
         setUpNavigationBar()
-        
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         configureTableView()
+        configureAddEventButton()
     }
-    
-    // MARK: - Actions
-    
+
     // MARK: - Helpers
-    
+
     func setUpSubviews() {
         self.view.backgroundColor = .systemGray6
 
@@ -58,6 +56,15 @@ class EventListViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(EventTableViewCell.self, forCellReuseIdentifier: Strings.eventCellIdentifier)
+    }
+    
+    func configureAddEventButton() {
+        addEventButton.target = self
+        addEventButton.action = #selector(didPressAddEventButton(sender:))
+    }
+    
+     @objc func didPressAddEventButton(sender: UIBarButtonItem) {
+        
     }
 
     // MARK: - Navigation
