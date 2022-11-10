@@ -77,7 +77,7 @@ class EventListViewController: UIViewController {
     }()
     
     var addEventButton: UIBarButtonItem = {
-       let button = UIBarButtonItem()
+        let button = UIBarButtonItem()
         button.title = "🔥"
         return button
     }()

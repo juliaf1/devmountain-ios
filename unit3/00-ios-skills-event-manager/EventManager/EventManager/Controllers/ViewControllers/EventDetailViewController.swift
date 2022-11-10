@@ -14,6 +14,13 @@ class EventDetailViewController: UIViewController {
     var event: Event?
     
     // MARK: - Lifecycle
+    
+    override func loadView() {
+        super.loadView()
+        
+        setUpSubviews()
+        setUpNavigationBar()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +28,20 @@ class EventDetailViewController: UIViewController {
     
     // MARK: - Helpers
     
+    func setUpSubviews() {
+        self.view.backgroundColor = .systemGray6
+    }
+    
+    func setUpNavigationBar() {
+        self.navigationController?.navigationBar.tintColor = .darkGray
+    }
+    
     // MARK: - Views
+    
+    var backButtonItem: UIBarButtonItem = {
+        let button = UIBarButtonItem()
+        
+        return button
+    }()
 
 }
