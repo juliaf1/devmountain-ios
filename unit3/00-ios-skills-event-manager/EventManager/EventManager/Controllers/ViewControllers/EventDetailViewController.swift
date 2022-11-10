@@ -48,6 +48,7 @@ class EventDetailViewController: UIViewController {
     
     func setUpNavigationBar() {
         self.navigationController?.navigationBar.tintColor = .darkGray
+        self.navigationItem.rightBarButtonItem = saveButtonItem
     }
     
     func constraintEventNameTextField() {
@@ -69,6 +70,13 @@ class EventDetailViewController: UIViewController {
     
     let backButtonItem: UIBarButtonItem = {
         let button = UIBarButtonItem()
+        
+        return button
+    }()
+    
+    let saveButtonItem: UIBarButtonItem = {
+        let button = UIBarButtonItem()
+        button.title = "Save"
         
         return button
     }()
