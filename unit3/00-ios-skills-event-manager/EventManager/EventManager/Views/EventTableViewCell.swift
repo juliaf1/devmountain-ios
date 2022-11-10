@@ -40,8 +40,9 @@ class EventTableViewCell: UITableViewCell {
         
         eventNameLabel.text = event.name
 
-        let imageName = event.attending ? "square" : "square.checkmark"
-        attendingButton.setImage(UIImage(systemName: imageName), for: .normal)
+        let imageName = event.attending ? Strings.fireFillImageName : Strings.fireOutlineImageName
+        let image = UIImage(named: imageName)
+        attendingButton.setImage(image, for: .normal)
     }
     
     func constraintEventNameLabel() {
@@ -63,8 +64,7 @@ class EventTableViewCell: UITableViewCell {
 
     let attendingButton: UIButton = {
         let button = UIButton()
-        let image = UIImage(systemName: "square")
-        button.setImage(image, for: .normal)
+        button.setImage(UIImage(named: Strings.fireOutlineImageName), for: .normal)
         button.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         
         return button

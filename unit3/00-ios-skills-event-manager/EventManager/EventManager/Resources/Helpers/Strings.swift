@@ -14,4 +14,7 @@ enum Strings {
     
     static let eventCellIdentifier = "eventCell"
     
+    static let fireOutlineImageName = "fire"
+    static let fireFillImageName = "fire-fill"
+    
 }
