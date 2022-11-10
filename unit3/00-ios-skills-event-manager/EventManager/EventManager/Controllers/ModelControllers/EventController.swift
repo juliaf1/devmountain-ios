@@ -50,4 +50,16 @@ class EventController {
         notAttendingEvents = events.filter { !$0.attending }
     }
     
+    func create(eventWithName name: String, date: Date = Date()) {
+        let event = Event(name: name, date: date)
+        attendingEvents.append(event)
+        CoreDataStack.saveContext()
+    }
+    
+    func delete(event: Event) {}
+    
+    func update(event: Event, name: String, date: Date) {}
+    
+    func toggleAttendance(of event: Event) {}
+    
 }
