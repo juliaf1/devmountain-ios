@@ -105,6 +105,14 @@ extension EventListViewController: UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - Delegate and Datasource
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            guard let event = event(withIndexPath: indexPath) else { return }
+            eventController.delete(event: event)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailVC = EventDetailViewController()
 

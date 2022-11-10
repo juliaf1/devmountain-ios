@@ -64,11 +64,11 @@ class EventTableViewCell: UITableViewCell {
     }
     
     func constraintEventStackView() {
-        eventDetailStackView.anchor(top: self.topAnchor, bottom: self.bottomAnchor, leading: self.leadingAnchor, trailing: attendingButton.leadingAnchor, marginTop: Spacings.mediumSpacing, marginBottom: Spacings.mediumSpacing, marginLeft: Spacings.mediumSpacing, marginRight: 0)
+        eventDetailStackView.anchor(top: self.topAnchor, bottom: self.bottomAnchor, leading: self.leadingAnchor, trailing: nil, marginTop: Spacings.mediumSpacing, marginBottom: Spacings.mediumSpacing, marginLeft: Spacings.mediumSpacing, marginRight: 0)
     }
     
     func constraintAttendingButton() {
-        attendingButton.anchor(top: self.topAnchor, bottom: self.bottomAnchor, leading: nil, trailing: self.trailingAnchor, marginTop: Spacings.mediumSpacing, marginBottom: Spacings.mediumSpacing, marginLeft: 0, marginRight: Spacings.mediumSpacing, width: Spacings.largeHeight)
+        attendingButton.anchor(top: self.topAnchor, bottom: self.bottomAnchor, leading: nil, trailing: self.trailingAnchor, marginTop: 0, marginBottom: 0, marginLeft: 0, marginRight: Spacings.mediumSpacing, width: Spacings.largeHeight + Spacings.smallSpacing)
         
         // QUESTION: Why using self.contentView.trailingAnchor generates a bug?
     }
