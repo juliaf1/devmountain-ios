@@ -22,7 +22,7 @@ class EventListViewController: UIViewController {
     override func loadView() {
         super.loadView()
 
-        setUpViews()
+        setUpSubviews()
         setUpNavigationBar()
         
     }
@@ -37,7 +37,7 @@ class EventListViewController: UIViewController {
     
     // MARK: - Helpers
     
-    func setUpViews() {
+    func setUpSubviews() {
         self.view.backgroundColor = .systemGray6
 
         self.view.addSubview(tableView)
@@ -113,10 +113,10 @@ extension EventListViewController: UITableViewDataSource, UITableViewDelegate {
         switch EventSections(rawValue: indexPath.section) {
         case .attending:
             let event = eventController.attendingEvents[indexPath.row]
-            cell.updateView(with: event)
+            cell.event = event
         case .notAttending:
             let event = eventController.notAttendingEvents[indexPath.row]
-            cell.updateView(with: event)
+            cell.event = event
         case .none:
             break
         }
