@@ -34,6 +34,7 @@ class EventDetailViewController: UIViewController {
         super.viewDidLoad()
         
         configureSaveButton()
+        configureEventNameTextField()
     }
     
     // MARK: - Helpers
@@ -66,6 +67,10 @@ class EventDetailViewController: UIViewController {
         
         eventNameTextField.text = event.name
         eventDatePicker.date = event.date ?? Date()
+    }
+    
+    func configureEventNameTextField() {
+        eventNameTextField.delegate = self
     }
     
     func configureSaveButton() {
@@ -112,4 +117,8 @@ class EventDetailViewController: UIViewController {
         return datePicker
     }()
 
+}
+
+extension EventDetailViewController: UITextFieldDelegate {
+    
 }
