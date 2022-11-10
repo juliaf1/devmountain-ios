@@ -66,7 +66,11 @@ class EventController {
         CoreDataStack.saveContext()
     }
     
-    func update(event: Event, name: String, date: Date) {}
+    func update(event: Event, name: String, date: Date) {
+        event.name = name
+        event.date = date
+        CoreDataStack.saveContext()
+    }
     
     func toggleAttendance(of event: Event) {}
     
