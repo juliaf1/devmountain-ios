@@ -63,8 +63,9 @@ class EventListViewController: UIViewController {
         addEventButton.action = #selector(didPressAddEventButton(sender:))
     }
     
-     @objc func didPressAddEventButton(sender: UIBarButtonItem) {
-        
+    @objc func didPressAddEventButton(sender: UIBarButtonItem) {
+        let newVC = EventDetailViewController()
+        self.navigationController?.pushViewController(newVC, animated: true)
     }
 
     // MARK: - Navigation

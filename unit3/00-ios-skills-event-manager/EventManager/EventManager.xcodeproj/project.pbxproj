@@ -21,6 +21,7 @@
 		3240450A291C429F008771EA /* EventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32404509291C429F008771EA /* EventController.swift */; };
 		3240450D291C76EF008771EA /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3240450C291C76EF008771EA /* EventTableViewCell.swift */; };
 		32D0CD59291D519E00210B26 /* Spacings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D0CD58291D519E00210B26 /* Spacings.swift */; };
+		32D0CD5B291D666200210B26 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D0CD5A291D666200210B26 /* EventDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		32404509291C429F008771EA /* EventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventController.swift; sourceTree = "<group>"; };
 		3240450C291C76EF008771EA /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		32D0CD58291D519E00210B26 /* Spacings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacings.swift; sourceTree = "<group>"; };
+		32D0CD5A291D666200210B26 /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				32404500291BFE94008771EA /* EventListViewController.swift */,
+				32D0CD5A291D666200210B26 /* EventDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 				324044DF291BFC26008771EA /* AppDelegate.swift in Sources */,
 				32D0CD59291D519E00210B26 /* Spacings.swift in Sources */,
 				3240450D291C76EF008771EA /* EventTableViewCell.swift in Sources */,
+				32D0CD5B291D666200210B26 /* EventDetailViewController.swift in Sources */,
 				32404506291C0546008771EA /* DateExtension.swift in Sources */,
 				3240450A291C429F008771EA /* EventController.swift in Sources */,
 				32404501291BFE94008771EA /* EventListViewController.swift in Sources */,
