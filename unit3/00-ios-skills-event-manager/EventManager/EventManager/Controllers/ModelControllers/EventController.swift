@@ -73,6 +73,13 @@ class EventController {
     }
     
     func toggleAttendance(of event: Event) {
+        if let index = attendingEvents.firstIndex(of: event) {
+            attendingEvents.remove(at: index)
+            notAttendingEvents.append(event)
+        } else if let index = notAttendingEvents.firstIndex(of: event) {
+            notAttendingEvents.remove(at: index)
+            attendingEvents.append(event)
+        }
         event.attending = !event.attending
         CoreDataStack.saveContext()
     }
