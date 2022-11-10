@@ -79,7 +79,16 @@ class EventDetailViewController: UIViewController {
     }
     
     @objc func didPressSaveButton() {
-        // todo create new event or update event
+        guard let eventName = eventNameTextField.text,
+              !eventName.isEmpty else { return }
+        
+        if let event = event {
+            EventController.shared.update(event: event, name: eventName, date: eventDatePicker.date)
+        } else {
+            EventController.shared.create(eventWithName: eventName, date: eventDatePicker.date)
+        }
+        
+        self.navigationController?.popViewController(animated: true)
     }
     
     // MARK: - Views
