@@ -38,10 +38,16 @@ class EventDetailViewController: UIViewController {
     
     // MARK: - Views
     
-    var backButtonItem: UIBarButtonItem = {
+    let backButtonItem: UIBarButtonItem = {
         let button = UIBarButtonItem()
         
         return button
+    }()
+    
+    let eventNameTextField: UITextField = {
+        let textField = UITextField()
+        
+        return textField
     }()
 
 }

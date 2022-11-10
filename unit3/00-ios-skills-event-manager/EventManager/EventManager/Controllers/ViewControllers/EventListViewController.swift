@@ -75,13 +75,13 @@ class EventListViewController: UIViewController {
     
     // MARK: - Views
     
-    var tableView: UITableView = {
+    let tableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = .systemGray6
         return tableView
     }()
     
-    var addEventButton: UIBarButtonItem = {
+    let addEventButton: UIBarButtonItem = {
 //        let button = UIButton()
 //        button.setImage(UIImage(named: Strings.fireFillImageName), for: .normal)
 //        let barButtonItem = UIBarButtonItem(customView: button)
