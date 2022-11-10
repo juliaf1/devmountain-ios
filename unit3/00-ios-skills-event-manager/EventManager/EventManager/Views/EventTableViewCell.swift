@@ -31,21 +31,32 @@ class EventTableViewCell: UITableViewCell {
         self.addSubview(eventNameLabel)
         self.addSubview(attendingButton)
         
-        // constraint views
+        constraintEventNameLabel()
+        constraintAttendingButton()
     }
     
     func updateViews() {
         guard let event = event else { return }
         
         eventNameLabel.text = event.name
+
         let imageName = event.attending ? "square" : "square.checkmark"
         attendingButton.setImage(UIImage(systemName: imageName), for: .normal)
+    }
+    
+    func constraintEventNameLabel() {
+        eventNameLabel.anchor(top: self.contentView.topAnchor, bottom: self.contentView.bottomAnchor, leading: self.contentView.leadingAnchor, trailing: attendingButton.leadingAnchor, marginTop: 8, marginBottom: 8, marginLeft: 8, marginRight: 4)
+    }
+    
+    func constraintAttendingButton() {
+        attendingButton.anchor(top: self.contentView.topAnchor, bottom: self.contentView.bottomAnchor, leading: nil, trailing: self.contentView.trailingAnchor, marginTop: 8, marginBottom: 8, marginLeft: 0, marginRight: 8)
     }
     
     // MARK: - Views
     
     let eventNameLabel: UILabel = {
         let label = UILabel()
+        label.setContentHuggingPriority(.defaultLow, for: .horizontal)
         
         return label
     }()
@@ -54,6 +65,7 @@ class EventTableViewCell: UITableViewCell {
         let button = UIButton()
         let image = UIImage(systemName: "square")
         button.setImage(image, for: .normal)
+        button.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         
         return button
     }()
