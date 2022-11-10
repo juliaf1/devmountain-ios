@@ -49,18 +49,20 @@ class EventTableViewCell: UITableViewCell {
     }
     
     func constraintEventNameLabel() {
-        eventNameLabel.anchor(top: self.contentView.topAnchor, bottom: self.contentView.bottomAnchor, leading: self.contentView.leadingAnchor, trailing: nil, marginTop: Spacings.mediumSpacing, marginBottom: Spacings.mediumSpacing, marginLeft: Spacings.mediumSpacing, marginRight: 0, height: Spacings.largeHeight)
+        eventNameLabel.anchor(top: self.topAnchor, bottom: self.bottomAnchor, leading: self.leadingAnchor, trailing: nil, marginTop: Spacings.mediumSpacing, marginBottom: Spacings.mediumSpacing, marginLeft: Spacings.mediumSpacing, marginRight: 0, height: Spacings.largeHeight)
     }
     
     func constraintAttendingButton() {
-        attendingButton.anchor(top: self.contentView.topAnchor, bottom: self.contentView.bottomAnchor, leading: nil, trailing: self.contentView.trailingAnchor, marginTop: Spacings.mediumSpacing, marginBottom: Spacings.mediumSpacing, marginLeft: 0, marginRight: Spacings.mediumSpacing, width: Spacings.largeHeight, height: Spacings.largeHeight)
+        attendingButton.anchor(top: self.topAnchor, bottom: self.bottomAnchor, leading: nil, trailing: self.trailingAnchor, marginTop: Spacings.mediumSpacing, marginBottom: Spacings.mediumSpacing, marginLeft: 0, marginRight: Spacings.mediumSpacing, width: Spacings.largeHeight, height: Spacings.largeHeight)
+        
+        // QUESTION: Why using self.contentView.trailingAnchor generates a bug?
     }
     
     // MARK: - Views
     
     let eventNameLabel: UILabel = {
         let label = UILabel()
-//        label.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        label.setContentHuggingPriority(.defaultLow, for: .horizontal)
         
         return label
     }()
@@ -68,8 +70,7 @@ class EventTableViewCell: UITableViewCell {
     let attendingButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: Strings.fireOutlineImageName), for: .normal)
-//        button.setContentHuggingPriority(.defaultLow, for: .horizontal)
-        button.contentMode = .scaleToFill
+        button.setContentHuggingPriority(.defaultHigh, for: .horizontal) // the view with a higher horizontal content hugging priority will not grow beyond its content size
         
         return button
     }()
