@@ -68,6 +68,17 @@ class EventListViewController: UIViewController {
         self.navigationController?.pushViewController(newVC, animated: true)
     }
     
+    func event(withIndexPath indexPath: IndexPath) -> Event? {
+        switch EventSections(rawValue: indexPath.section) {
+        case .attending:
+            return eventController.attendingEvents[indexPath.row]
+        case .notAttending:
+            return eventController.notAttendingEvents[indexPath.row]
+        case .none:
+            return nil
+        }
+    }
+    
     // MARK: - Views
     
     var tableView: UITableView = {
@@ -89,15 +100,8 @@ extension EventListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailVC = EventDetailViewController()
 
-        switch EventSections(rawValue: indexPath.section) {
-        case .attending:
-            let event = eventController.attendingEvents[indexPath.row]
+        if let event = event(withIndexPath: indexPath) {
             detailVC.event = event
-        case .notAttending:
-            let event = eventController.notAttendingEvents[indexPath.row]
-            detailVC.event = event
-        case .none:
-            break
         }
 
         self.navigationController?.pushViewController(detailVC, animated: true)
@@ -131,20 +135,12 @@ extension EventListViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Strings.eventCellIdentifier, for: indexPath) as? EventTableViewCell else { return UITableViewCell() }
-        
-        switch EventSections(rawValue: indexPath.section) {
-        case .attending:
-            let event = eventController.attendingEvents[indexPath.row]
-            cell.event = event
-        case .notAttending:
-            let event = eventController.notAttendingEvents[indexPath.row]
-            cell.event = event
-        case .none:
-            break
-        }
-        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Strings.eventCellIdentifier, for: indexPath) as? EventTableViewCell,
+              let event = event(withIndexPath: indexPath) else { return UITableViewCell() }
+
+        cell.event = event
         cell.delegate = self
+
         return cell
     }
     
