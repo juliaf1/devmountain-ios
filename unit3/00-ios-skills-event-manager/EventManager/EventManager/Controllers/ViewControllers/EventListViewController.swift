@@ -135,6 +135,7 @@ extension EventListViewController: EventTableViewCellDelegate {
     
     func toggleAttendance(of event: Event) {
         eventController.toggleAttendance(of: event)
+        tableView.reloadData()
     }
     
 }
