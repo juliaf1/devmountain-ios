@@ -125,7 +125,16 @@ extension EventListViewController: UITableViewDataSource, UITableViewDelegate {
             break
         }
         
+        cell.delegate = self
         return cell
+    }
+    
+}
+
+extension EventListViewController: EventTableViewCellDelegate {
+    
+    func toggleAttendance(for event: Event) {
+        
     }
     
 }
