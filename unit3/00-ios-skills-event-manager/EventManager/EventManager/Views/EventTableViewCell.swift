@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol EventTableViewCellDelegate {
+    func toggleAttendance(for cell: EventTableViewCell)
+}
+
 class EventTableViewCell: UITableViewCell {
     
     // MARK: - Properties
@@ -16,6 +20,8 @@ class EventTableViewCell: UITableViewCell {
             updateViews()
         }
     }
+    
+    var delegate: EventTableViewCellDelegate?
     
     // MARK: - Lifecycle
     
