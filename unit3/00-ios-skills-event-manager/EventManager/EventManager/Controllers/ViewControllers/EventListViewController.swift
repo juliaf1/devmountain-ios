@@ -116,7 +116,7 @@ extension EventListViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return Spacings.largeHeight + Spacings.smallHeight + Spacings.smallSpacing + (2 * Spacings.mediumSpacing)
+        return Spacings.largeHeight + Spacings.smallHeight + (3 * Spacings.mediumSpacing)
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
