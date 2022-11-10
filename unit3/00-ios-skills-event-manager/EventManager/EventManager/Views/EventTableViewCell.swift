@@ -8,7 +8,7 @@
 import UIKit
 
 protocol EventTableViewCellDelegate {
-    func toggleAttendance(for event: Event)
+    func toggleAttendance(of event: Event)
 }
 
 class EventTableViewCell: UITableViewCell {
@@ -72,7 +72,7 @@ class EventTableViewCell: UITableViewCell {
     
     @objc func didPressAttendingButton(sender: UIButton) {
         guard let event = event else { return }
-        delegate?.toggleAttendance(for: event)
+        delegate?.toggleAttendance(of: event)
     }
     
     // MARK: - Views
