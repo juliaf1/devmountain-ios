@@ -58,9 +58,7 @@ class EventTableViewCell: UITableViewCell {
         eventNameLabel.text = event.name
         eventDateLabel.text = event.date?.toString()
 
-        let imageName = event.attending ? Strings.fireFillImageName : Strings.fireOutlineImageName
-        let image = UIImage(named: imageName)
-        attendingButton.setImage(image, for: .normal)
+        attendingButton.setBackgroundImage(attendingImage(for: event), for: .normal)
     }
     
     func constraintEventStackView() {
@@ -68,7 +66,9 @@ class EventTableViewCell: UITableViewCell {
     }
     
     func constraintAttendingButton() {
-        attendingButton.anchor(top: self.topAnchor, bottom: self.bottomAnchor, leading: nil, trailing: self.trailingAnchor, marginTop: 0, marginBottom: 0, marginLeft: 0, marginRight: Spacings.mediumSpacing, width: Spacings.largeHeight + Spacings.smallSpacing)
+        attendingButton.anchor(top: self.topAnchor, bottom: self.bottomAnchor, leading: nil, trailing: self.trailingAnchor, marginTop: Spacings.largeSpacing, marginBottom: Spacings.largeSpacing, marginLeft: 0, marginRight: Spacings.largeSpacing)
+        
+        attendingButton.heightAnchor.constraint(equalTo: attendingButton.widthAnchor, multiplier: 1/1).isActive = true
         
         // QUESTION: Why using self.contentView.trailingAnchor generates a bug?
     }
@@ -77,6 +77,11 @@ class EventTableViewCell: UITableViewCell {
         attendingButton.addTarget(self, action: #selector(didPressAttendingButton(sender:)), for: .touchUpInside)
     }
     
+    func attendingImage(for event: Event) -> UIImage? {
+        let imageName = event.attending ? Strings.fireFillImageName : Strings.fireOutlineImageName
+        return UIImage(named: imageName)
+    }
+
     @objc func didPressAttendingButton(sender: UIButton) {
         guard let event = event else { return }
         delegate?.toggleAttendance(of: event)
@@ -87,7 +92,6 @@ class EventTableViewCell: UITableViewCell {
     let eventNameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Futura", size: Spacings.largeHeight)
-        label.setContentHuggingPriority(.defaultLow, for: .horizontal)
         
         return label
     }()
@@ -105,14 +109,16 @@ class EventTableViewCell: UITableViewCell {
         stackView.axis = .vertical
         stackView.distribution = .fillProportionally
         stackView.spacing = Spacings.smallSpacing
+        stackView.setContentHuggingPriority(.defaultLow, for: .horizontal)
         
         return stackView
     }()
 
     let attendingButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: Strings.fireOutlineImageName), for: .normal)
-        button.imageView?.contentMode = .scaleAspectFit
+        let image = UIImage(named: Strings.fireFillImageName)
+        button.setBackgroundImage(image, for: .normal)
+        button.contentMode = .scaleAspectFill
         button.setContentHuggingPriority(.defaultHigh, for: .horizontal) // the view with a higher horizontal content hugging priority will not grow beyond its content size
         
         return button

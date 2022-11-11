@@ -109,6 +109,7 @@ extension EventListViewController: UITableViewDataSource, UITableViewDelegate {
         if editingStyle == .delete {
             guard let event = event(withIndexPath: indexPath) else { return }
             eventController.delete(event: event)
+//            tableView.reloadData()
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
