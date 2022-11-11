@@ -28,6 +28,8 @@ class EventTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
+//        self.contentView.subviews.forEach { $0.removeFromSuperview() }
+        
         setUpSubviews()
         configureAttendingButton()
     }
@@ -62,13 +64,13 @@ class EventTableViewCell: UITableViewCell {
     }
     
     func constraintEventStackView() {
-        eventDetailStackView.anchor(top: self.topAnchor, bottom: self.bottomAnchor, leading: self.leadingAnchor, trailing: nil, marginTop: Spacings.mediumSpacing, marginBottom: Spacings.mediumSpacing, marginLeft: Spacings.mediumSpacing, marginRight: 0)
+        eventDetailStackView.anchor(top: self.topAnchor, bottom: self.bottomAnchor, leading: self.leadingAnchor, trailing: attendingButton.leadingAnchor, marginTop: Spacings.mediumSpacing, marginBottom: Spacings.mediumSpacing, marginLeft: Spacings.mediumSpacing, marginRight: Spacings.smallSpacing, height: Spacings.largeHeight + Spacings.smallHeight + Spacings.mediumSpacing)
     }
     
     func constraintAttendingButton() {
         attendingButton.anchor(top: self.topAnchor, bottom: self.bottomAnchor, leading: nil, trailing: self.trailingAnchor, marginTop: Spacings.largeSpacing, marginBottom: Spacings.largeSpacing, marginLeft: 0, marginRight: Spacings.largeSpacing)
         
-        attendingButton.heightAnchor.constraint(equalTo: attendingButton.widthAnchor, multiplier: 1/1).isActive = true
+        attendingButton.aspectRatio(multiplier: 1/1)
         
         // QUESTION: Why using self.contentView.trailingAnchor generates a bug?
     }
@@ -91,14 +93,14 @@ class EventTableViewCell: UITableViewCell {
     
     let eventNameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Futura", size: Spacings.largeHeight)
+        label.font = UIFont(name: "Futura", size: 22)
         
         return label
     }()
     
     let eventDateLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: Spacings.smallHeight, weight: .light)
+        label.font = UIFont.systemFont(ofSize: 12, weight: .light)
         label.textColor = .darkGray
         
         return label

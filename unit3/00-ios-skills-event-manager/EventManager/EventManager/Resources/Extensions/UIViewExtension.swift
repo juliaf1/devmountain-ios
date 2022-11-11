@@ -38,5 +38,9 @@ extension UIView {
         }
 
     }
+    
+    func aspectRatio(multiplier: CGFloat) {
+        self.heightAnchor.constraint(equalTo: self.widthAnchor, multiplier: multiplier).isActive = true
+    }
 
 }
