@@ -28,8 +28,6 @@ class EventTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-//        self.contentView.subviews.forEach { $0.removeFromSuperview() }
-        
         setUpSubviews()
         configureAttendingButton()
     }
@@ -94,6 +92,7 @@ class EventTableViewCell: UITableViewCell {
     let eventNameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Futura", size: 22)
+        label.setContentHuggingPriority(.defaultLow, for: .vertical)
         
         return label
     }()
@@ -102,6 +101,7 @@ class EventTableViewCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12, weight: .light)
         label.textColor = .darkGray
+        label.setContentHuggingPriority(.defaultHigh, for: .vertical)
         
         return label
     }()
