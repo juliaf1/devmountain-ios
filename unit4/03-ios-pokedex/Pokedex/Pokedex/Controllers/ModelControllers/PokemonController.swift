@@ -11,27 +11,26 @@ class PokemonController {
 
     // MARK: - Properties
     
-    static let baseURL = URL(string: "https://pokeapi.co/api/v2/")
-    static let pokemonEP = "pokemon"
+    static let baseURL = URL(string: Strings.baseURL)
+    static let pokemonEP = Strings.pokemonEndpoint
     
     // MARK: - URL Session
     
-    // Every fetch will either SUCCEED or FAIL, returning a success/error result:
-    // Result<Pokemon, Error> // or PokemonError for a custom Error
+    static func pokemonURL(for searchTerm: String) -> URL? {
+        guard let baseURL = baseURL else { return nil }
+        
+        let pokemonURL = baseURL.appendingPathComponent(pokemonEP).appendingPathComponent(searchTerm)
+    
+        return pokemonURL
+    }
     
     static func fetchPokemon(searchTerm: String, completion: @escaping (Result<Pokemon, PokemonError>) -> Void) {
-        
-        // @escaping - gives completion handler permission to run after call to internet is complete
 
         // 1. URL
-        guard let baseURL = baseURL else { return completion(.failure(.invalidURL)) }
-        let pokemonURL = baseURL.appendingPathComponent(pokemonEP)
-        let finalURL = pokemonURL.appendingPathComponent(searchTerm.lowercased())
-
-        print(finalURL)
+        guard let pokemonURL = pokemonURL(for: searchTerm) else { return completion(.failure(.invalidURL)) }
         
         // 2. URL Session Data Task
-        URLSession.shared.dataTask(with: finalURL) { data, _, error in
+        URLSession.shared.dataTask(with: pokemonURL) { data, _, error in
 
             // 3. Error Handling
             if let error = error {
