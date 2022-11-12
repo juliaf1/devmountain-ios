@@ -52,7 +52,9 @@ class CardController {
             }
             
             do {
-                let card = try JSONDecoder().decode(Card.self, from: data)
+                let cardResponse = try JSONDecoder().decode(CardResponse.self, from: data)
+                guard let card = cardResponse.cards.first else { return completion(.failure(.noData)) }
+
                 return completion(.success(card))
             } catch {
                 return completion(.failure(.thrownError(error)))

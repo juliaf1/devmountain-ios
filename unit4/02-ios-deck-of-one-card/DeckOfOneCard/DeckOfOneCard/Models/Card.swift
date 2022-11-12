@@ -7,18 +7,20 @@
 
 import Foundation
 
+struct CardResponse: Decodable {
+    let cards: [Card]
+}
+
 struct Card: Decodable {
-
-    let data: CardData
-
-    struct CardData: Decodable {
-        let imageURL: URL
-        let value: String
-        let suit: String
-    }
     
+    let imageURL: URL
+    let value: String
+    let suit: String
+
     enum CodingKeys: String, CodingKey {
-        case data = "cards"
+        case imageURL = "image"
+        case value
+        case suit
     }
 
 }

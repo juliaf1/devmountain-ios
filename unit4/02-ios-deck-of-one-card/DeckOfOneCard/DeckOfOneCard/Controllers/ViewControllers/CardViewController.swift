@@ -26,6 +26,8 @@ class CardViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        fetchCard()
     }
     
     // MARK: - Actions
@@ -54,7 +56,7 @@ class CardViewController: UIViewController {
             return
         }
         
-        cardNameLabel.text = "\(card.data.value) of \(card.data.suit)".capitalized
+        cardNameLabel.text = "\(card.value) of \(card.suit)".capitalized
         // update photo
     }
 
