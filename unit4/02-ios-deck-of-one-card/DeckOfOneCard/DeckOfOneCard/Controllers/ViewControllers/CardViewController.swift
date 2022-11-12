@@ -13,14 +13,6 @@ class CardViewController: UIViewController {
     
     @IBOutlet weak var cardImageView: UIImageView!
     @IBOutlet weak var cardNameLabel: UILabel!
-
-    // MARK: - Propreties
-    
-    var card: Card? {
-        didSet {
-            updateViews()
-        }
-    }
     
     // MARK: - Lifecycle
 
@@ -42,7 +34,8 @@ class CardViewController: UIViewController {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let card):
-                    self.card = card
+                    self.cardNameLabel.text = "\(card.value) of \(card.suit)".capitalized
+                    self.fetchImage(for: card.imageURL)
                 case .failure(let error):
                     print(error)
                     // push alert
@@ -51,13 +44,17 @@ class CardViewController: UIViewController {
         }
     }
     
-    func updateViews() {
-        guard let card = card else {
-            return
+    func fetchImage(for url: URL) {
+        CardController.fetchCardImage(for: url) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let image):
+                    self.cardImageView.image = image
+                case .failure(let error):
+                    print(error)
+                }
+            }
         }
-        
-        cardNameLabel.text = "\(card.value) of \(card.suit)".capitalized
-        // update photo
     }
 
 }

@@ -88,7 +88,7 @@ class CardController {
             }
             
             return completion(.success(image))
-        }
+        }.resume()
         
     }
     
