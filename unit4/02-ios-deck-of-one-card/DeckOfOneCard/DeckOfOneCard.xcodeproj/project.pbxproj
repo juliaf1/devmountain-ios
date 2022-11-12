@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		32EFC16C291FFC0D003E1334 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EFC16B291FFC0D003E1334 /* AppDelegate.swift */; };
 		32EFC16E291FFC0D003E1334 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EFC16D291FFC0D003E1334 /* SceneDelegate.swift */; };
-		32EFC170291FFC0D003E1334 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EFC16F291FFC0D003E1334 /* ViewController.swift */; };
 		32EFC173291FFC0D003E1334 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32EFC171291FFC0D003E1334 /* Main.storyboard */; };
 		32EFC175291FFC0F003E1334 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32EFC174291FFC0F003E1334 /* Assets.xcassets */; };
 		32EFC178291FFC0F003E1334 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32EFC176291FFC0F003E1334 /* LaunchScreen.storyboard */; };
@@ -19,7 +18,6 @@
 		32EFC168291FFC0D003E1334 /* DeckOfOneCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeckOfOneCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32EFC16B291FFC0D003E1334 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32EFC16D291FFC0D003E1334 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		32EFC16F291FFC0D003E1334 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		32EFC172291FFC0D003E1334 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		32EFC174291FFC0F003E1334 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		32EFC177291FFC0F003E1334 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -56,15 +54,54 @@
 		32EFC16A291FFC0D003E1334 /* DeckOfOneCard */ = {
 			isa = PBXGroup;
 			children = (
-				32EFC16B291FFC0D003E1334 /* AppDelegate.swift */,
-				32EFC16D291FFC0D003E1334 /* SceneDelegate.swift */,
-				32EFC16F291FFC0D003E1334 /* ViewController.swift */,
-				32EFC171291FFC0D003E1334 /* Main.storyboard */,
-				32EFC174291FFC0F003E1334 /* Assets.xcassets */,
-				32EFC176291FFC0F003E1334 /* LaunchScreen.storyboard */,
-				32EFC179291FFC0F003E1334 /* Info.plist */,
+				32EFC183292004A6003E1334 /* Resources */,
+				32EFC1822920049E003E1334 /* Helpers + Extensions */,
+				32EFC1812920049A003E1334 /* Models */,
+				32EFC18029200495003E1334 /* Controllers */,
+				32EFC17F29200490003E1334 /* Views */,
 			);
 			path = DeckOfOneCard;
+			sourceTree = "<group>";
+		};
+		32EFC17F29200490003E1334 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				32EFC171291FFC0D003E1334 /* Main.storyboard */,
+				32EFC176291FFC0F003E1334 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		32EFC18029200495003E1334 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		32EFC1812920049A003E1334 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		32EFC1822920049E003E1334 /* Helpers + Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Helpers + Extensions";
+			sourceTree = "<group>";
+		};
+		32EFC183292004A6003E1334 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				32EFC16B291FFC0D003E1334 /* AppDelegate.swift */,
+				32EFC16D291FFC0D003E1334 /* SceneDelegate.swift */,
+				32EFC174291FFC0F003E1334 /* Assets.xcassets */,
+				32EFC179291FFC0F003E1334 /* Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +175,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32EFC170291FFC0D003E1334 /* ViewController.swift in Sources */,
 				32EFC16C291FFC0D003E1334 /* AppDelegate.swift in Sources */,
 				32EFC16E291FFC0D003E1334 /* SceneDelegate.swift in Sources */,
 			);
@@ -289,7 +325,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B2Z3KD59GR;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = DeckOfOneCard/Info.plist;
+				INFOPLIST_FILE = DeckOfOneCard/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -317,7 +353,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B2Z3KD59GR;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = DeckOfOneCard/Info.plist;
+				INFOPLIST_FILE = DeckOfOneCard/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
