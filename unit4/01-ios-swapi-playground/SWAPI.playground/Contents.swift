@@ -92,5 +92,16 @@ enum SwapiError: LocalizedError {
     case invalidURL
     case noData
     case thrownError(Error)
-    
+
+}
+
+// MARK: - Usage
+
+SwapiService.fetchPerson(for: 1) { result in
+    switch result {
+    case .success(let person):
+        print(person)
+    case .failure(let error):
+        print(error)
+    }
 }
