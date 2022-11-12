@@ -35,8 +35,27 @@ class CardViewController: UIViewController {
     
     // MARK: - Helpers
     
+    func fetchCard() {
+        CardController.fetchOneCard { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let card):
+                    self.card = card
+                case .failure(let error):
+                    print(error)
+                    // push alert
+                }
+            }
+        }
+    }
+    
     func updateViews() {
+        guard let card = card else {
+            return
+        }
         
+        cardNameLabel.text = "\(card.data.value) of \(card.data.suit)".capitalized
+        // update photo
     }
 
 }
