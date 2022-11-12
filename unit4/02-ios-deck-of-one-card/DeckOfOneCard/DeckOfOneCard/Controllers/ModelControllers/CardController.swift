@@ -5,7 +5,7 @@
 //  Created by Julia Frederico on 12/11/22.
 //
 
-import Foundation
+import UIKit
 
 class CardController {
     
@@ -61,6 +61,34 @@ class CardController {
             }
                     
         }.resume()
+        
+    }
+    
+    static func fetchCardImage(for url: URL, completion: @escaping (Result<UIImage, CardError>) -> Void) {
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            
+            if let error = error {
+                return completion(.failure(.thrownError(error)))
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                let status = response.statusCode
+                if status != 200 {
+                    print("STATUS CODE for \(#function): \(status)")
+                }
+            }
+            
+            guard let data = data else {
+                return completion(.failure(.noData))
+            }
+            
+            guard let image = UIImage(data: data) else {
+                return completion(.failure(.imageDecodeError))
+            }
+            
+            return completion(.success(image))
+        }
         
     }
     
