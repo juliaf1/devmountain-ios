@@ -116,6 +116,7 @@ class PokemonController {
                     }
                 }
                 
+                print("poke list", pokemons) // BUG: its not waiting for pokemon loop to finish
                 return completion(.success(pokemons))
             } catch {
                 return completion(.failure(.thrownError(error)))
