@@ -13,6 +13,7 @@
 		32EFC175291FFC0F003E1334 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32EFC174291FFC0F003E1334 /* Assets.xcassets */; };
 		32EFC178291FFC0F003E1334 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32EFC176291FFC0F003E1334 /* LaunchScreen.storyboard */; };
 		32EFC18529200502003E1334 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EFC18429200502003E1334 /* Card.swift */; };
+		32EFC189292005A7003E1334 /* CardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EFC188292005A6003E1334 /* CardController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		32EFC177291FFC0F003E1334 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		32EFC179291FFC0F003E1334 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32EFC18429200502003E1334 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		32EFC188292005A6003E1334 /* CardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,8 @@
 		32EFC18029200495003E1334 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				32EFC1872920059D003E1334 /* ModelControllers */,
+				32EFC18629200595003E1334 /* ViewControllers */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -105,6 +109,21 @@
 				32EFC179291FFC0F003E1334 /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		32EFC18629200595003E1334 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		32EFC1872920059D003E1334 /* ModelControllers */ = {
+			isa = PBXGroup;
+			children = (
+				32EFC188292005A6003E1334 /* CardController.swift */,
+			);
+			path = ModelControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,6 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				32EFC16C291FFC0D003E1334 /* AppDelegate.swift in Sources */,
+				32EFC189292005A7003E1334 /* CardController.swift in Sources */,
 				32EFC18529200502003E1334 /* Card.swift in Sources */,
 				32EFC16E291FFC0D003E1334 /* SceneDelegate.swift in Sources */,
 			);
