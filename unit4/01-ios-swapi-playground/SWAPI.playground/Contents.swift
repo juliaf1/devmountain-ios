@@ -81,6 +81,38 @@ class SwapiService {
     
     static func fetchFilm(for url: URL, completion: @escaping (Result<Film, SwapiError>) -> Void) {
         
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            
+            // Error & Response Handling
+            
+            if let error = error {
+                return completion(.failure(.thrownError(error)))
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                let status = response.statusCode
+                if status != 200 {
+                    print("Status code for \(#function): \(status)")
+                }
+            }
+            
+            // Data Unwrapping
+            
+            guard let data = data else {
+                return completion(.failure(.noData))
+            }
+            
+            // Data Decoding
+            
+            do {
+                let film = try JSONDecoder().decode(Film.self, from: data)
+                return completion(.success(film))
+            } catch {
+                return completion(.failure(.thrownError(error)))
+            }
+            
+        }.resume()
+        
     }
     
 }
@@ -97,10 +129,24 @@ enum SwapiError: LocalizedError {
 
 // MARK: - Usage
 
+func fetchAndPrintFilm(for url: URL) {
+    SwapiService.fetchFilm(for: url) { result in
+        switch result {
+        case .success(let film):
+            print(film)
+        case .failure(let error):
+            print(error)
+        }
+    }
+}
+
 SwapiService.fetchPerson(for: 1) { result in
     switch result {
     case .success(let person):
         print(person)
+        for filmURL in person.films {
+            fetchAndPrintFilm(for: filmURL)
+        }
     case .failure(let error):
         print(error)
     }
