@@ -25,6 +25,7 @@ class CardViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func didPressDrawCardButton(_ sender: UIButton) {
+        fetchCard()
     }
     
     // MARK: - Helpers
@@ -34,11 +35,11 @@ class CardViewController: UIViewController {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let card):
-                    self.cardNameLabel.text = "\(card.value) of \(card.suit)".capitalized
                     self.fetchImage(for: card.imageURL)
+                    self.cardNameLabel.text = "\(card.value) of \(card.suit)".capitalized
                 case .failure(let error):
                     print(error)
-                    // push alert
+                    self.presentErrorToUser(error: error)
                 }
             }
         }
@@ -52,6 +53,7 @@ class CardViewController: UIViewController {
                     self.cardImageView.image = image
                 case .failure(let error):
                     print(error)
+                    self.presentErrorToUser(error: error)
                 }
             }
         }

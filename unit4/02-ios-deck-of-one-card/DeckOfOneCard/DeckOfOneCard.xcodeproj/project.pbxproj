@@ -16,6 +16,7 @@
 		32EFC189292005A7003E1334 /* CardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EFC188292005A6003E1334 /* CardController.swift */; };
 		32EFC18B2920078B003E1334 /* CardError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EFC18A2920078B003E1334 /* CardError.swift */; };
 		32EFC18D29200DC5003E1334 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EFC18C29200DC5003E1334 /* CardViewController.swift */; };
+		32EFC18F292012BC003E1334 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EFC18E292012BC003E1334 /* UIViewControllerExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		32EFC188292005A6003E1334 /* CardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardController.swift; sourceTree = "<group>"; };
 		32EFC18A2920078B003E1334 /* CardError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardError.swift; sourceTree = "<group>"; };
 		32EFC18C29200DC5003E1334 /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
+		32EFC18E292012BC003E1334 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				32EFC18A2920078B003E1334 /* CardError.swift */,
+				32EFC18E292012BC003E1334 /* UIViewControllerExtension.swift */,
 			);
 			path = "Helpers + Extensions";
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 				32EFC18D29200DC5003E1334 /* CardViewController.swift in Sources */,
 				32EFC18529200502003E1334 /* Card.swift in Sources */,
 				32EFC18B2920078B003E1334 /* CardError.swift in Sources */,
+				32EFC18F292012BC003E1334 /* UIViewControllerExtension.swift in Sources */,
 				32EFC16E291FFC0D003E1334 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
