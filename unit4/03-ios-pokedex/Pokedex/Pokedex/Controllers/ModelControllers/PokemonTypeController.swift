@@ -53,7 +53,35 @@ class PokemonTypeController {
         }.resume()
     }
     
-    
+    static func fetchPokemons(for pokeType: PokemonType, completion: @escaping (Result<[Pokemon], PokemonError>) -> Void) {
+        
+        URLSession.shared.dataTask(with: pokeType.url) { data, response, error in
+            
+            if let error = error {
+                return completion(.failure(.thrownError(error)))
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                let status = response.statusCode
+                if status != 200 {
+                    print("STATUS CODE in \(#function): \(status)")
+                }
+            }
+            
+            guard let data = data else {
+                return completion(.failure(.noData))
+            }
+            
+            do {
+                
+            } catch {
+                
+            }
+            
+        }
+        
+        
+    }
     
     
 }

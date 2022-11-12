@@ -8,18 +8,40 @@
 import Foundation
 
 struct PokemonTypeResponse: Decodable {
-    
-    let types: [PokemonType]
 
     enum CodingKeys: String, CodingKey {
         case types = "results"
     }
 
+    let types: [PokemonType]
+
+    struct PokemonType: Decodable {
+        let name: String
+        let url: URL
+    }
+
 }
 
-struct PokemonType: Decodable {
+struct PokemonTypeDetailResponse: Decodable {
     
-    let name: String
-    let url: URL
+    enum CodingKeys: String, CodingKey {
+        case pokemonList = "pokemon"
+    }
+
+    let pokemonList: [PokemonInfo]
+    
+    struct PokemonInfo: Decodable {
+
+        enum CodingKeys: String, CodingKey {
+            case data = "pokemon"
+        }
+
+        let data: Data
+
+        struct Data: Decodable {
+            let name: String
+            let url: URL
+        }
+    }
 
 }
