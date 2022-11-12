@@ -53,9 +53,9 @@ class PokemonTypeController {
         }.resume()
     }
     
-    static func fetchPokemons(for pokeType: PokemonType, completion: @escaping (Result<[Pokemon], PokemonError>) -> Void) {
+    static func fetchPokemons(for type: PokemonType, completion: @escaping (Result<[PokemonInfo], PokemonError>) -> Void) {
         
-        URLSession.shared.dataTask(with: pokeType.url) { data, response, error in
+        URLSession.shared.dataTask(with: type.url) { data, response, error in
             
             if let error = error {
                 return completion(.failure(.thrownError(error)))
@@ -73,15 +73,15 @@ class PokemonTypeController {
             }
             
             do {
-                
+                let pokemonTypeDetailResponse = try JSONDecoder().decode(PokemonTypeDetailResponse.self, from: data)
+                let pokemons = pokemonTypeDetailResponse.pokemonList
+                return completion(.success(pokemons))
             } catch {
-                
+                return completion(.failure(.thrownError(error)))
             }
             
-        }
-        
+        }.resume()
         
     }
-    
     
 }
