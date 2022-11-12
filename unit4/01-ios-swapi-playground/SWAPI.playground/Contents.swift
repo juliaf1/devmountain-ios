@@ -1,5 +1,7 @@
 import Foundation
 
+// MARK: - Models
+
 struct Person: Decodable {
 
     let name: String
@@ -18,5 +20,27 @@ struct Film: Decodable {
     let title: String
     let openingCrawl: String
     let releaseDate: String
+    
+}
+
+// MARK: - Controllers
+
+class SwapiService {
+    
+    // MARK: - Properties
+    
+    static let baseURL = "https://swapi.dev/api"
+    static let personEP = "people"
+    static let filmEP = "films"
+    
+    // MARK: - Methods
+    
+    static func fetchPerson(for id: Int, completion: @escaping () -> Void) {
+        
+    }
+    
+    static func fetchFilm(for url: URL, completion: @escaping () -> Void) {
+        
+    }
     
 }
