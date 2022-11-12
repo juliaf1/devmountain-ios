@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Pokemon View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="PokemonViewController" customModule="Pokedex" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="Pokemon Name" translatesAutoresizingMaskIntoConstraints="NO" id="grJ-hc-RIf">
+                                <rect key="frame" x="0.0" y="44" width="414" height="51"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KZu-5F-wx4">
+                                <rect key="frame" x="0.0" y="95" width="414" height="414"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="KZu-5F-wx4" secondAttribute="height" multiplier="1:1" id="ekX-RJ-yjp"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="fjR-Qy-hVi">
+                                <rect key="frame" x="96" y="549" width="222.5" height="54"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Poke Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ElC-fB-kI5">
+                                        <rect key="frame" x="26.5" y="0.0" width="169.5" height="24"/>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W7" family="Hiragino Sans" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Look for your favorite Pokemon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2KI-C1-5Ef">
+                                        <rect key="frame" x="0.0" y="40" width="222.5" height="14"/>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="14"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fjR-Qy-hVi" firstAttribute="top" secondItem="KZu-5F-wx4" secondAttribute="bottom" constant="40" id="1td-UY-p8e"/>
+                            <constraint firstItem="grJ-hc-RIf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="MFk-FT-TWa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KZu-5F-wx4" secondAttribute="trailing" id="Q3J-lV-CXQ"/>
+                            <constraint firstItem="grJ-hc-RIf" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="SHm-DT-O68"/>
+                            <constraint firstItem="grJ-hc-RIf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="b95-3U-Gi2"/>
+                            <constraint firstItem="fjR-Qy-hVi" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="rji-Wd-CHA"/>
+                            <constraint firstItem="KZu-5F-wx4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="tm6-Jw-TJV"/>
+                            <constraint firstItem="KZu-5F-wx4" firstAttribute="top" secondItem="grJ-hc-RIf" secondAttribute="bottom" id="y5j-tu-Irj"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pokeIdLabel" destination="2KI-C1-5Ef" id="8MB-AJ-RVK"/>
+                        <outlet property="pokeImageView" destination="KZu-5F-wx4" id="gqS-8n-uxF"/>
+                        <outlet property="pokeNameLabel" destination="ElC-fB-kI5" id="uNn-ba-V3P"/>
+                        <outlet property="searchBar" destination="grJ-hc-RIf" id="wg0-cZ-iD1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="35" y="66"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
