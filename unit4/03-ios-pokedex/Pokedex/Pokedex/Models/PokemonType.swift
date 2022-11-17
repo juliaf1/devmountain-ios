@@ -45,3 +45,9 @@ struct PokemonInfo: Decodable {
         let url: URL
     }
 }
+
+extension PokemonType: Equatable {
+    static func ==(lhs: PokemonType, rhs: PokemonType) -> Bool {
+        return lhs.name == rhs.name && lhs.url == rhs.url
+    }
+}

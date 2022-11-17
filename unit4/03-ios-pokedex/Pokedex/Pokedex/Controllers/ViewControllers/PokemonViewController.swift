@@ -17,7 +17,7 @@ class PokemonViewController: UIViewController {
         }
     }
 
-    var pokemonType: PokemonType?
+    var selectedPokemonType: PokemonType?
     
     @IBOutlet weak var pokemonTypesTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -105,9 +105,30 @@ extension PokemonViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "pokeTypeCell", for: indexPath) as? PokemonTypeTableViewCell else { return UITableViewCell() }
 
         let type = pokemonTypes[indexPath.row]
-        cell.type = type
+        cell.updateView(with: type, isSelected: selectedPokemonType == type)
+        cell.delegate = self
 
         return cell
+    }
+    
+}
+
+extension PokemonViewController: PokemonTypeTableViewCellDelegate {
+    
+    func didSelectPokemonType(for cell: PokemonTypeTableViewCell) {
+        guard let indexPath = pokemonTypesTableView.indexPath(for: cell) else { return }
+        let type = pokemonTypes[indexPath.row]
+        
+        if selectedPokemonType == type {
+            selectedPokemonType = nil
+        } else {
+            selectedPokemonType = type
+        }
+
+        pokemonTypesTableView.reloadData()
+        
+        // search for pokemon info and then search for pokemons of that type
+        // update pokemons table view
     }
     
 }

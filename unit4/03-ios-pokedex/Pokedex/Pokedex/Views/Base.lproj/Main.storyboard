@@ -47,7 +47,7 @@
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
-                                                        <action selector="didPressTypeButton:" destination="Bgq-FI-XeL" eventType="touchUpInside" id="TOC-Pl-zCN"/>
+                                                        <action selector="didPressTypeButton:" destination="wQc-Tj-8SQ" eventType="touchUpInside" id="d9c-Ad-Fhj"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -113,7 +113,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <exit id="Bgq-FI-XeL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="34.782608695652179" y="65.625"/>
         </scene>

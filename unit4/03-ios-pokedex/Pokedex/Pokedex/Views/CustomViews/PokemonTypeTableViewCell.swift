@@ -7,28 +7,31 @@
 
 import UIKit
 
+protocol PokemonTypeTableViewCellDelegate {
+    func didSelectPokemonType(for cell: PokemonTypeTableViewCell)
+}
+
 class PokemonTypeTableViewCell: UITableViewCell {
     
     // MARK: - Propreties and Outlets
     
-    var type: PokemonType? {
-        didSet {
-            updateView()
-        }
-    }
+    var delegate: PokemonTypeTableViewCellDelegate?
 
     @IBOutlet weak var typeButton: UIButton!
     
     // MARK: - Actions
-
+    
     @IBAction func didPressTypeButton(_ sender: UIButton) {
+        delegate?.didSelectPokemonType(for: self)
     }
     
     // MARK: - Helpers
     
-    func updateView() {
-        guard let type = type else { return }
+    func updateView(with type: PokemonType, isSelected: Bool) {
         typeButton.setTitle(type.name.capitalized, for: .normal)
+        
+        let color: UIColor? = isSelected ? UIColor(named: "GrayPurple") : .systemIndigo
+        typeButton.backgroundColor = color
     }
     
 }
