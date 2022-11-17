@@ -5,7 +5,7 @@
 //  Created by Julia Frederico on 17/11/22.
 //
 
-import Foundation
+import UIKit
 
 class MovieController {
     
@@ -75,6 +75,33 @@ class MovieController {
                 return completion(.failure(.thrownError(error)))
             }
         }.resume()
+    }
+    
+    static func fetchImage(for url: URL, completion: @escaping (Result<UIImage, MovieError>) -> Void) {
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if let error = error {
+                return completion(.failure(.thrownError(error)))
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                let statusCode = response.statusCode
+                if statusCode != 200 {
+                    print("STATUS CODE for \(#function): \(statusCode)")
+                }
+            }
+            
+            guard let data = data else {
+                return completion(.failure(.noData))
+            }
+            
+            guard let image = UIImage(data: data) else {
+                return completion(.failure(.invalidImage))
+            }
+            
+            return completion(.success(image))
+        }.resume()
+        
     }
     
 }

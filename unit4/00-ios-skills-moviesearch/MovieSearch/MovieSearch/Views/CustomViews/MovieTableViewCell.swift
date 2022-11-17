@@ -13,13 +13,7 @@ class MovieTableViewCell: UITableViewCell {
     
     var movie: Movie? {
         didSet {
-            updateView()
-        }
-    }
-    
-    var moviePoster: UIImage? {
-        didSet {
-            posterImageView.image = moviePoster
+            updateViews()
         }
     }
     
@@ -33,7 +27,7 @@ class MovieTableViewCell: UITableViewCell {
     
     // MARK: - Helpers
     
-    func updateView() {
+    func updateViews() {
         guard let movie = movie else {
             return
         }
@@ -41,6 +35,25 @@ class MovieTableViewCell: UITableViewCell {
         movieTitleLabel.text = movie.title
         movieRatingLabel.text = "Rating: \(movie.rating)"
         movieOverviewLabel.text = movie.overview
+        
+        fetchAndUpdatePosterImage(for: movie)
+    }
+    
+    func fetchAndUpdatePosterImage(for movie: Movie) {
+        guard let posterURL = movie.posterURL else {
+            return
+        }
+
+        MovieController.fetchImage(for: posterURL) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let image):
+                    self.posterImageView.image = image
+                case .failure(let error):
+                    print("Error fetching image for \(movie)", error)
+                }
+            }
+        }
     }
     
 }
