@@ -70,17 +70,19 @@
                                     <constraint firstAttribute="width" secondItem="KZu-5F-wx4" secondAttribute="height" multiplier="1:1" id="ekX-RJ-yjp"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Poke Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ElC-fB-kI5">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Poke Search" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ElC-fB-kI5">
                                 <rect key="frame" x="122.5" y="542" width="169.5" height="24"/>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W7" family="Hiragino Sans" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search for your favorite Pokemon or select a type to draw a random Pokemon" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2KI-C1-5Ef">
-                                <rect key="frame" x="41.5" y="582" width="331" height="28"/>
+                                <rect key="frame" x="41.5" y="586" width="331" height="28"/>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="14"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -98,7 +100,7 @@
                             <constraint firstItem="grJ-hc-RIf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="b95-3U-Gi2"/>
                             <constraint firstItem="2KI-C1-5Ef" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ddA-Jd-bID"/>
                             <constraint firstItem="zMJ-gz-kk9" firstAttribute="top" secondItem="grJ-hc-RIf" secondAttribute="bottom" id="hXd-PH-71q"/>
-                            <constraint firstItem="2KI-C1-5Ef" firstAttribute="top" secondItem="ElC-fB-kI5" secondAttribute="bottom" constant="16" id="mAe-W6-Z7q"/>
+                            <constraint firstItem="2KI-C1-5Ef" firstAttribute="top" secondItem="ElC-fB-kI5" secondAttribute="bottom" constant="20" id="mAe-W6-Z7q"/>
                             <constraint firstItem="KZu-5F-wx4" firstAttribute="top" secondItem="zMJ-gz-kk9" secondAttribute="bottom" constant="20" id="y5j-tu-Irj"/>
                         </constraints>
                     </view>
