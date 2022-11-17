@@ -48,6 +48,10 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="LBE-gd-pkp" secondAttribute="bottom" id="lJB-RE-d3m"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="movieListTableView" destination="LBE-gd-pkp" id="9PR-Yf-Ep1"/>
+                        <outlet property="movieSearchBar" destination="2Ju-ZX-2Ek" id="dFL-RO-Gp0"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="35" y="66"/>

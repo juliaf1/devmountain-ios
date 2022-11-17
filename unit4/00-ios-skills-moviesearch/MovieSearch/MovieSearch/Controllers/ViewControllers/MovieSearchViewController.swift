@@ -13,14 +13,29 @@ class MovieSearchViewController: UIViewController {
     
     // MARK: - Outlets
     
+    @IBOutlet weak var movieSearchBar: UISearchBar!
+    @IBOutlet weak var movieListTableView: UITableView!
+
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        movieSearchBar.delegate = self
+        movieListTableView.delegate = self
+        movieListTableView.dataSource = self
     }
     
     // MARK: - Helpers
 
+}
+
+extension MovieSearchViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
 }
 
 extension MovieSearchViewController: UITableViewDelegate, UITableViewDataSource {
