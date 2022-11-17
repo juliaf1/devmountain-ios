@@ -9,21 +9,21 @@
 /* Begin PBXBuildFile section */
 		3275DC7529269FB700FAE1DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3275DC7429269FB700FAE1DB /* AppDelegate.swift */; };
 		3275DC7729269FB700FAE1DB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3275DC7629269FB700FAE1DB /* SceneDelegate.swift */; };
-		3275DC7929269FB700FAE1DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3275DC7829269FB700FAE1DB /* ViewController.swift */; };
 		3275DC7C29269FB700FAE1DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3275DC7A29269FB700FAE1DB /* Main.storyboard */; };
 		3275DC7E29269FB800FAE1DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3275DC7D29269FB800FAE1DB /* Assets.xcassets */; };
 		3275DC8129269FB800FAE1DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3275DC7F29269FB800FAE1DB /* LaunchScreen.storyboard */; };
+		3275DC912926A0C100FAE1DB /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3275DC902926A0C100FAE1DB /* Strings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3275DC7129269FB700FAE1DB /* MovieSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3275DC7429269FB700FAE1DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3275DC7629269FB700FAE1DB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3275DC7829269FB700FAE1DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3275DC7B29269FB700FAE1DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3275DC7D29269FB800FAE1DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3275DC8029269FB800FAE1DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3275DC8229269FB800FAE1DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3275DC902926A0C100FAE1DB /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +56,71 @@
 		3275DC7329269FB700FAE1DB /* MovieSearch */ = {
 			isa = PBXGroup;
 			children = (
-				3275DC7429269FB700FAE1DB /* AppDelegate.swift */,
-				3275DC7629269FB700FAE1DB /* SceneDelegate.swift */,
-				3275DC7829269FB700FAE1DB /* ViewController.swift */,
-				3275DC7A29269FB700FAE1DB /* Main.storyboard */,
-				3275DC7D29269FB800FAE1DB /* Assets.xcassets */,
-				3275DC7F29269FB800FAE1DB /* LaunchScreen.storyboard */,
-				3275DC8229269FB800FAE1DB /* Info.plist */,
+				3275DC8F2926A0A900FAE1DB /* Resources */,
+				3275DC8E2926A0A400FAE1DB /* Helpers + Extensions */,
+				3275DC8D2926A0A200FAE1DB /* Models */,
+				3275DC892926A08800FAE1DB /* Controllers */,
+				3275DC882926A08500FAE1DB /* Views */,
 			);
 			path = MovieSearch;
+			sourceTree = "<group>";
+		};
+		3275DC882926A08500FAE1DB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3275DC7A29269FB700FAE1DB /* Main.storyboard */,
+				3275DC7F29269FB800FAE1DB /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3275DC892926A08800FAE1DB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3275DC8C2926A09E00FAE1DB /* ModelControllers */,
+				3275DC8B2926A09B00FAE1DB /* ViewControllers */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3275DC8B2926A09B00FAE1DB /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		3275DC8C2926A09E00FAE1DB /* ModelControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ModelControllers;
+			sourceTree = "<group>";
+		};
+		3275DC8D2926A0A200FAE1DB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3275DC8E2926A0A400FAE1DB /* Helpers + Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3275DC902926A0C100FAE1DB /* Strings.swift */,
+			);
+			path = "Helpers + Extensions";
+			sourceTree = "<group>";
+		};
+		3275DC8F2926A0A900FAE1DB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3275DC7429269FB700FAE1DB /* AppDelegate.swift */,
+				3275DC7629269FB700FAE1DB /* SceneDelegate.swift */,
+				3275DC7D29269FB800FAE1DB /* Assets.xcassets */,
+				3275DC8229269FB800FAE1DB /* Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +194,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3275DC7929269FB700FAE1DB /* ViewController.swift in Sources */,
 				3275DC7529269FB700FAE1DB /* AppDelegate.swift in Sources */,
+				3275DC912926A0C100FAE1DB /* Strings.swift in Sources */,
 				3275DC7729269FB700FAE1DB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,7 +345,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B2Z3KD59GR;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MovieSearch/Info.plist;
+				INFOPLIST_FILE = MovieSearch/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -317,7 +373,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B2Z3KD59GR;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MovieSearch/Info.plist;
+				INFOPLIST_FILE = MovieSearch/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
