@@ -10,9 +10,14 @@ import UIKit
 class PokemonTypeTableViewCell: UITableViewCell {
     
     // MARK: - Propreties and Outlets
-
-    @IBAction func typeButton(_ sender: UIButton) {
+    
+    var type: PokemonType? {
+        didSet {
+            updateView()
+        }
     }
+
+    @IBOutlet weak var typeButton: UIButton!
     
     // MARK: - Actions
 
@@ -20,5 +25,10 @@ class PokemonTypeTableViewCell: UITableViewCell {
     }
     
     // MARK: - Helpers
+    
+    func updateView() {
+        guard let type = type else { return }
+        typeButton.setTitle(type.name, for: .normal)
+    }
     
 }

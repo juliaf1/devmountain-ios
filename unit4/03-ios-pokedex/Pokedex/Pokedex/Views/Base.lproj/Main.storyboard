@@ -27,7 +27,7 @@
                                     <constraint firstAttribute="height" constant="200" id="UYA-sN-qDp"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="pokeTypeCell" rowHeight="50" id="wQc-Tj-8SQ">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="pokeTypeCell" rowHeight="50" id="wQc-Tj-8SQ" customClass="PokemonTypeTableViewCell" customModule="Pokedex" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wQc-Tj-8SQ" id="UBa-rQ-JNi">
@@ -42,7 +42,6 @@
                                                     <buttonConfiguration key="configuration" style="plain" title="Earth"/>
                                                     <connections>
                                                         <action selector="didPressTypeButton:" destination="Bgq-FI-XeL" eventType="touchUpInside" id="TOC-Pl-zCN"/>
-                                                        <action selector="typeButton:" destination="Bgq-FI-XeL" eventType="touchUpInside" id="XWl-Jx-1OU"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -53,6 +52,9 @@
                                                 <constraint firstAttribute="bottom" secondItem="Tss-JG-IWu" secondAttribute="bottom" constant="8" id="oUq-VU-MB1"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="typeButton" destination="Tss-JG-IWu" id="dSu-ei-vMk"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -100,6 +102,7 @@
                         <outlet property="pokeIdLabel" destination="2KI-C1-5Ef" id="8MB-AJ-RVK"/>
                         <outlet property="pokeImageView" destination="KZu-5F-wx4" id="gqS-8n-uxF"/>
                         <outlet property="pokeNameLabel" destination="ElC-fB-kI5" id="uNn-ba-V3P"/>
+                        <outlet property="pokemonTypesTableView" destination="zMJ-gz-kk9" id="9hl-Ui-7dA"/>
                         <outlet property="searchBar" destination="grJ-hc-RIf" id="wg0-cZ-iD1"/>
                     </connections>
                 </viewController>

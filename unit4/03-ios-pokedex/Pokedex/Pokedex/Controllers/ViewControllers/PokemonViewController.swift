@@ -18,7 +18,8 @@ class PokemonViewController: UIViewController {
     }
 
     var pokemonType: PokemonType?
-
+    
+    @IBOutlet weak var pokemonTypesTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var pokeImageView: UIImageView!
     @IBOutlet weak var pokeNameLabel: UILabel!
@@ -29,6 +30,8 @@ class PokemonViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        pokemonTypesTableView.delegate = self
+        pokemonTypesTableView.dataSource = self
         searchBar.delegate = self
         
         fetchPokemonTypes()
@@ -88,6 +91,23 @@ extension PokemonViewController: UISearchBarDelegate {
                 }
             }
         }
+    }
+    
+}
+
+extension PokemonViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return pokemonTypes.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "pokeTypeCell", for: indexPath) as? PokemonTypeTableViewCell else { return UITableViewCell() }
+
+        let type = pokemonTypes[indexPath.row]
+        cell.type = type
+
+        return cell
     }
     
 }
