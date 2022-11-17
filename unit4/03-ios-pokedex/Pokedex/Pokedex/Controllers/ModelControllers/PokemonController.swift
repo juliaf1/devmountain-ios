@@ -19,7 +19,7 @@ class PokemonController {
     static func pokemonURL(for searchTerm: String) -> URL? {
         guard let baseURL = baseURL else { return nil }
         
-        let pokemonURL = baseURL.appendingPathComponent(pokemonEP).appendingPathComponent(searchTerm)
+        let pokemonURL = baseURL.appendingPathComponent(pokemonEP).appendingPathComponent(searchTerm.lowercased())
     
         return pokemonURL
     }
