@@ -50,8 +50,7 @@ extension MovieSearchViewController: UISearchBarDelegate {
                 case .success(let movies):
                     self.movies = movies
                 case .failure(let error):
-                    // present error modal
-                    break
+                    self.presentErrorToUser(error: error)
                 }
             }
         }
