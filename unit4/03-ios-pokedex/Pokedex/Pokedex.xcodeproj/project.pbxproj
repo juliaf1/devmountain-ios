@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32900252292687D7007D773F /* PokemonTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32900251292687D7007D773F /* PokemonTypeTableViewCell.swift */; };
 		32AFCF95291EB4B8005CBBEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AFCF94291EB4B8005CBBEF /* AppDelegate.swift */; };
 		32AFCF97291EB4B8005CBBEF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AFCF96291EB4B8005CBBEF /* SceneDelegate.swift */; };
 		32AFCF99291EB4B8005CBBEF /* PokemonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AFCF98291EB4B8005CBBEF /* PokemonViewController.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		32900251292687D7007D773F /* PokemonTypeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTypeTableViewCell.swift; sourceTree = "<group>"; };
 		32AFCF91291EB4B8005CBBEF /* Pokedex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokedex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32AFCF94291EB4B8005CBBEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32AFCF96291EB4B8005CBBEF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +53,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		32900250292687C1007D773F /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				32900251292687D7007D773F /* PokemonTypeTableViewCell.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
 		32AFCF88291EB4B8005CBBEF = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +104,7 @@
 		32AFCFA9291EB4D8005CBBEF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				32900250292687C1007D773F /* CustomViews */,
 				32AFCF9A291EB4B8005CBBEF /* Main.storyboard */,
 				32AFCF9F291EB4BA005CBBEF /* LaunchScreen.storyboard */,
 			);
@@ -223,6 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32900252292687D7007D773F /* PokemonTypeTableViewCell.swift in Sources */,
 				32EFC1932920218D003E1334 /* PokemonTypeController.swift in Sources */,
 				32AFCF99291EB4B8005CBBEF /* PokemonViewController.swift in Sources */,
 				32EFC195292021A6003E1334 /* Strings.swift in Sources */,
