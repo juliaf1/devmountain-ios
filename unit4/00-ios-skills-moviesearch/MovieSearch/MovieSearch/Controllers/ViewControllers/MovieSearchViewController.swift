@@ -11,7 +11,11 @@ class MovieSearchViewController: UIViewController {
     
     // MARK: - Properties
     
-    var movies: [Movie] = []
+    var movies: [Movie] = [] {
+        didSet {
+            movieListTableView.reloadData()
+        }
+    }
     
     // MARK: - Outlets
     
@@ -36,6 +40,21 @@ extension MovieSearchViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
+        
+        guard let searchTerm = searchBar.text,
+              !searchTerm.isEmpty else { return }
+        
+        MovieController.fetchSearchResults(searchTerm: searchTerm) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let movies):
+                    self.movies = movies
+                case .failure(let error):
+                    // present error modal
+                    break
+                }
+            }
+        }
     }
     
 }
