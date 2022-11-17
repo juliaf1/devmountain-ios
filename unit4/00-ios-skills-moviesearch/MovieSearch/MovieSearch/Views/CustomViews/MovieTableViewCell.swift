@@ -9,4 +9,20 @@ import UIKit
 
 class MovieTableViewCell: UITableViewCell {
 
+    // MARK: - Properties
+    
+    var movie: Movie? {
+        didSet {
+            updateView()
+        }
+    }
+    
+    // MARK: - Outlets
+    
+    // MARK: - Helpers
+    
+    func updateView() {
+        
+    }
+    
 }
