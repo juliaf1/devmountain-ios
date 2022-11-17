@@ -28,7 +28,7 @@ class PokemonTypeTableViewCell: UITableViewCell {
     
     func updateView() {
         guard let type = type else { return }
-        typeButton.setTitle(type.name, for: .normal)
+        typeButton.setTitle(type.name.capitalized, for: .normal)
     }
     
 }

@@ -13,7 +13,7 @@ class PokemonViewController: UIViewController {
 
     var pokemonTypes: [PokemonType] = [] {
         didSet {
-            updatePokemonTypesTableView()
+            pokemonTypesTableView.reloadData()
         }
     }
 
@@ -67,10 +67,6 @@ class PokemonViewController: UIViewController {
         }
     }
 
-    func updatePokemonTypesTableView() {
-        // update table view cells with button with type name
-    }
-
 }
 
 extension PokemonViewController: UISearchBarDelegate {
@@ -96,6 +92,10 @@ extension PokemonViewController: UISearchBarDelegate {
 }
 
 extension PokemonViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 56
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return pokemonTypes.count

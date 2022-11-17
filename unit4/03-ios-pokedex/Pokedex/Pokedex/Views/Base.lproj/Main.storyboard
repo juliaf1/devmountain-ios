@@ -35,21 +35,27 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tss-JG-IWu">
-                                                    <rect key="frame" x="8" y="8" width="398" height="34"/>
+                                                    <rect key="frame" x="16" y="8" width="382" height="42"/>
                                                     <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                                     <color key="tintColor" systemColor="systemGray6Color"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="Earth"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="didPressTypeButton:" destination="Bgq-FI-XeL" eventType="touchUpInside" id="TOC-Pl-zCN"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Tss-JG-IWu" firstAttribute="leading" secondItem="UBa-rQ-JNi" secondAttribute="leading" constant="8" id="RJG-Yd-rxS"/>
+                                                <constraint firstItem="Tss-JG-IWu" firstAttribute="leading" secondItem="UBa-rQ-JNi" secondAttribute="leading" constant="16" id="RJG-Yd-rxS"/>
                                                 <constraint firstItem="Tss-JG-IWu" firstAttribute="top" secondItem="UBa-rQ-JNi" secondAttribute="top" constant="8" id="mlB-kX-d73"/>
-                                                <constraint firstAttribute="trailing" secondItem="Tss-JG-IWu" secondAttribute="trailing" constant="8" id="ngC-BU-A57"/>
-                                                <constraint firstAttribute="bottom" secondItem="Tss-JG-IWu" secondAttribute="bottom" constant="8" id="oUq-VU-MB1"/>
+                                                <constraint firstAttribute="trailing" secondItem="Tss-JG-IWu" secondAttribute="trailing" constant="16" id="ngC-BU-A57"/>
+                                                <constraint firstAttribute="bottom" secondItem="Tss-JG-IWu" secondAttribute="bottom" id="oUq-VU-MB1"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
