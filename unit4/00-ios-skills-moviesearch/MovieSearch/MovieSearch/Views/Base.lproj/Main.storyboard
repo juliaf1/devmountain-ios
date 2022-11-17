@@ -40,23 +40,23 @@
                                                         <constraint firstAttribute="width" secondItem="Uzg-cc-v8z" secondAttribute="height" multiplier="2:3" id="uYQ-uA-V1B"/>
                                                     </constraints>
                                                 </imageView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Qk9-nc-9Id">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Qk9-nc-9Id">
                                                     <rect key="frame" x="146.5" y="8" width="259.5" height="196"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[Movie Title]" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X5W-q1-9cz">
-                                                            <rect key="frame" x="0.0" y="0.0" width="259.5" height="55"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="[Movie Title]" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X5W-q1-9cz">
+                                                            <rect key="frame" x="0.0" y="0.0" width="259.5" height="147.5"/>
                                                             <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="16"/>
                                                             <color key="textColor" red="0.074812940140845052" green="0.074812940140845052" blue="0.074812940140845052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating: 7.9" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zvd-3j-jUv">
-                                                            <rect key="frame" x="0.0" y="63" width="259.5" height="48"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating: 7.9" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zvd-3j-jUv">
+                                                            <rect key="frame" x="0.0" y="155.5" width="259.5" height="16.5"/>
                                                             <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="14"/>
                                                             <color key="textColor" red="0.074812940140000006" green="0.074812940140000006" blue="0.074812940140000006" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[Overview]" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vux-kh-2aL">
-                                                            <rect key="frame" x="0.0" y="119" width="259.5" height="77"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="[Overview]" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vux-kh-2aL">
+                                                            <rect key="frame" x="0.0" y="180" width="259.5" height="16"/>
                                                             <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="14"/>
                                                             <color key="textColor" red="0.074812940140000006" green="0.074812940140000006" blue="0.074812940140000006" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <nil key="highlightedColor"/>
