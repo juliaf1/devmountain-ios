@@ -13,4 +13,6 @@ enum Strings {
     static let apiBaseURL = "https://api.themoviedb.org/3"
     static let imageBaseURL = "https://image.tmdb.org/t/p/w500"
     
+    static let searchMovieEndpoint = "/search/movie"
+    
 }
