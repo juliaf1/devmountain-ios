@@ -74,6 +74,12 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                        <connections>
+                                            <outlet property="movieOverviewLabel" destination="Vux-kh-2aL" id="DGg-ex-h19"/>
+                                            <outlet property="movieRatingLabel" destination="Zvd-3j-jUv" id="AxT-Ry-xq8"/>
+                                            <outlet property="movieTitleLabel" destination="X5W-q1-9cz" id="jK2-0c-sXU"/>
+                                            <outlet property="posterImageView" destination="Uzg-cc-v8z" id="PfM-C5-nPU"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

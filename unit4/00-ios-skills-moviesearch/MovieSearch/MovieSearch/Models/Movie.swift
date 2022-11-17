@@ -18,7 +18,7 @@ struct Movie: Decodable {
         case posterPath = "poster_path"
         case backdropPath = "backdrop_path"
         case votes = "vote_count"
-        case voteAverage = "vote_average"
+        case rating = "vote_average"
     }
 
     // MARK: - Stored Properties
@@ -36,7 +36,7 @@ struct Movie: Decodable {
 
     // Voting Details
     var votes: Int
-    var voteAverage: Double
+    var rating: Double
 
     // MARK: - Computed Properties
 
