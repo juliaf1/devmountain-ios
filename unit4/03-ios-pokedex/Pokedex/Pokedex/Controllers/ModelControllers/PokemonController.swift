@@ -14,7 +14,7 @@ class PokemonController {
     static let baseURL = URL(string: Strings.baseURL)
     static let pokemonEP = Strings.pokemonEndpoint
     
-    // MARK: - URL Session
+    // MARK: - URLs
     
     static func pokemonURL(for searchTerm: String) -> URL? {
         guard let baseURL = baseURL else { return nil }
@@ -23,6 +23,8 @@ class PokemonController {
     
         return pokemonURL
     }
+    
+    // MARK: - HTTPs Requests
     
     static func fetchPokemon(searchTerm: String, completion: @escaping (Result<Pokemon, PokemonError>) -> Void) {
 
@@ -79,7 +81,7 @@ class PokemonController {
 
     }
     
-    static func fetchPokemons(of type: PokemonType, completion: @escaping (Result<[Pokemon], PokemonError>) -> Void) {
+    static func fetchPokemons(of type: PokemonType, completion: @escaping (Result<[PokemonInfo], PokemonError>) -> Void) {
         
         URLSession.shared.dataTask(with: type.url) { data, response, error in
             
@@ -100,24 +102,8 @@ class PokemonController {
             
             do {
                 let pokemonTypeDetailResponse = try JSONDecoder().decode(PokemonTypeDetailResponse.self, from: data)
-                
-                let pokemonsInfo = pokemonTypeDetailResponse.pokemonList
-                
-                var pokemons: [Pokemon] = []
-                
-                for pokemonInfo in pokemonsInfo {
-                    fetchPokemon(url: pokemonInfo.data.url) { result in
-                        switch result {
-                        case .success(let pokemon):
-                            pokemons.append(pokemon)
-                        case .failure:
-                            break
-                        }
-                    }
-                }
-                
-                print("poke list", pokemons) // BUG: its not waiting for pokemon loop to finish
-                return completion(.success(pokemons))
+        
+                return completion(.success(pokemonTypeDetailResponse.pokemonList))
             } catch {
                 return completion(.failure(.thrownError(error)))
             }

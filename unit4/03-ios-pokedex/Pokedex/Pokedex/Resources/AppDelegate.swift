@@ -15,25 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        // TODO: DELETE AFTER TESTING!
-        PokemonTypeController.fetchAllPokemonTypes { result in
-            switch result {
-            case .success(let list):
-                guard let type = list.first else { break }
-                print(type)
-                PokemonController.fetchPokemons(of: type) { result in
-                    switch result {
-                    case .success(let list):
-                        print(list)
-                    case .failure(let error):
-                        print(error)
-                    }
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
-        
         return true
     }
 

@@ -14,7 +14,7 @@ enum PokemonError: LocalizedError {
     case noData
     case imageDecodeError
     
-    var errorDescription: String? {
+    var localizedDescription: String? {
         switch self {
         case .invalidURL:
             return "Unable to reach PokeAPI.co"

@@ -8,9 +8,17 @@
 import UIKit
 
 class PokemonViewController: UIViewController {
-    
+
     // MARK: - Properties and outlets
-    
+
+    var pokemonTypes: [PokemonType] = [] {
+        didSet {
+            updatePokemonTypesTableView()
+        }
+    }
+
+    var pokemonType: PokemonType?
+
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var pokeImageView: UIImageView!
     @IBOutlet weak var pokeNameLabel: UILabel!
@@ -22,6 +30,8 @@ class PokemonViewController: UIViewController {
         super.viewDidLoad()
         
         searchBar.delegate = self
+        
+        fetchPokemonTypes()
     }
     
     // MARK: - Methods
@@ -39,6 +49,23 @@ class PokemonViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    func fetchPokemonTypes() {
+        PokemonTypeController.fetchAllPokemonTypes { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let types):
+                    self.pokemonTypes = types
+                case .failure(let error):
+                    self.presentErrorToUser(localizedError: error)
+                }
+            }
+        }
+    }
+
+    func updatePokemonTypesTableView() {
+        // update table view cells with button with type name
     }
 
 }
