@@ -31,8 +31,8 @@ struct Movie: Decodable {
     let genres: [Int]
     
     // Images Paths
-    let posterPath: String
-    let backdropPath: String
+    let posterPath: String?
+    let backdropPath: String?
 
     // Voting Details
     var votes: Int
@@ -41,13 +41,15 @@ struct Movie: Decodable {
     // MARK: - Computed Properties
 
     var posterURL: URL? {
-        guard let baseURL = URL(string: Strings.imageBaseURL) else { return nil }
-        return baseURL.appendingPathComponent(posterPath)
+        guard let baseURL = URL(string: Strings.imageBaseURL),
+              let poster = posterPath else { return nil }
+        return baseURL.appendingPathComponent(poster)
     }
     
     var backdropURL: URL? {
-        guard let baseURL = URL(string: Strings.imageBaseURL) else { return nil }
-        return baseURL.appendingPathComponent(backdropPath)
+        guard let baseURL = URL(string: Strings.imageBaseURL),
+              let backdrop = backdropPath else { return nil }
+        return baseURL.appendingPathComponent(backdrop)
     }
     
 }
