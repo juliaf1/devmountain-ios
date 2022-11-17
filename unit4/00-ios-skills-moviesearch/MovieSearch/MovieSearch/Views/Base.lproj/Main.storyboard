@@ -25,12 +25,52 @@
                                 <rect key="frame" x="0.0" y="95" width="414" height="767"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCell" id="LaI-eP-3eE" customClass="MovieTableViewCell" customModule="MovieSearch" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCell" rowHeight="212" id="LaI-eP-3eE" customClass="MovieTableViewCell" customModule="MovieSearch" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="212"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LaI-eP-3eE" id="pwi-9k-mCo">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="212"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Uzg-cc-v8z">
+                                                    <rect key="frame" x="8" y="8" width="130.5" height="196"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="Uzg-cc-v8z" secondAttribute="height" multiplier="2:3" id="uYQ-uA-V1B"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Qk9-nc-9Id">
+                                                    <rect key="frame" x="146.5" y="8" width="259.5" height="196"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[Movie Title]" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X5W-q1-9cz">
+                                                            <rect key="frame" x="0.0" y="0.0" width="259.5" height="55"/>
+                                                            <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="16"/>
+                                                            <color key="textColor" red="0.074812940140845052" green="0.074812940140845052" blue="0.074812940140845052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating: 7.9" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zvd-3j-jUv">
+                                                            <rect key="frame" x="0.0" y="63" width="259.5" height="48"/>
+                                                            <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="14"/>
+                                                            <color key="textColor" red="0.074812940140000006" green="0.074812940140000006" blue="0.074812940140000006" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[Overview]" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vux-kh-2aL">
+                                                            <rect key="frame" x="0.0" y="119" width="259.5" height="77"/>
+                                                            <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="14"/>
+                                                            <color key="textColor" red="0.074812940140000006" green="0.074812940140000006" blue="0.074812940140000006" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Uzg-cc-v8z" firstAttribute="top" secondItem="pwi-9k-mCo" secondAttribute="top" constant="8" id="0a3-1L-73E"/>
+                                                <constraint firstAttribute="bottom" secondItem="Qk9-nc-9Id" secondAttribute="bottom" constant="8" id="63A-Tm-4E2"/>
+                                                <constraint firstItem="Uzg-cc-v8z" firstAttribute="leading" secondItem="pwi-9k-mCo" secondAttribute="leading" constant="8" id="LyN-LI-C3F"/>
+                                                <constraint firstItem="Qk9-nc-9Id" firstAttribute="leading" secondItem="Uzg-cc-v8z" secondAttribute="trailing" constant="8" id="UwA-tB-nWV"/>
+                                                <constraint firstAttribute="bottom" secondItem="Uzg-cc-v8z" secondAttribute="bottom" constant="8" id="eAW-ws-GQb"/>
+                                                <constraint firstItem="Qk9-nc-9Id" firstAttribute="top" secondItem="pwi-9k-mCo" secondAttribute="top" constant="8" id="pQu-UC-DOp"/>
+                                                <constraint firstAttribute="trailing" secondItem="Qk9-nc-9Id" secondAttribute="trailing" constant="8" id="t8w-Ac-lZv"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -54,7 +94,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="35" y="66"/>
+            <point key="canvasLocation" x="34.782608695652179" y="65.625"/>
         </scene>
     </scenes>
     <resources>

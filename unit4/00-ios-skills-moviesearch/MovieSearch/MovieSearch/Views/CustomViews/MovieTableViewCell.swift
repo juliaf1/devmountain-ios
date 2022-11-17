@@ -19,6 +19,8 @@ class MovieTableViewCell: UITableViewCell {
     
     // MARK: - Outlets
     
+    
+    
     // MARK: - Helpers
     
     func updateView() {
