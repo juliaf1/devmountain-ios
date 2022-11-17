@@ -66,6 +66,37 @@ class PokemonViewController: UIViewController {
             }
         }
     }
+    
+    func fetchRandomPokemonForSelectedType() {
+        guard let selectedPokemonType = selectedPokemonType else {
+            return
+        }
+
+        PokemonController.fetchPokemons(of: selectedPokemonType) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let pokeInfoList):
+                    guard let randomPokeInfo = pokeInfoList.randomElement() else { return }
+                    self.fetchPokemon(for: randomPokeInfo)
+                case .failure(let error):
+                    self.presentErrorToUser(localizedError: error)
+                }
+            }
+        }
+    }
+    
+    func fetchPokemon(for pokeInfo: PokemonInfo) {
+        PokemonController.fetchPokemon(url: pokeInfo.data.url) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let pokemon):
+                    self.fetchSpriteAndUpdateViews(pokemon: pokemon)
+                case .failure(let error):
+                    self.presentErrorToUser(localizedError: error)
+                }
+            }
+        }
+    }
 
 }
 
@@ -126,9 +157,7 @@ extension PokemonViewController: PokemonTypeTableViewCellDelegate {
         }
 
         pokemonTypesTableView.reloadData()
-        
-        // search for pokemon info and then search for pokemons of that type
-        // update pokemons table view
+        fetchRandomPokemonForSelectedType()
     }
     
 }
