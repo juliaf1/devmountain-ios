@@ -8,7 +8,7 @@
 import UIKit
 
 protocol PokemonTypeTableViewCellDelegate {
-    func didSelectPokemonType(for cell: PokemonTypeTableViewCell)
+    func didSelectPokemonType(for cell: PokemonTypeTableViewCell) async
 }
 
 class PokemonTypeTableViewCell: UITableViewCell {
@@ -22,7 +22,9 @@ class PokemonTypeTableViewCell: UITableViewCell {
     // MARK: - Actions
     
     @IBAction func didPressTypeButton(_ sender: UIButton) {
-        delegate?.didSelectPokemonType(for: self)
+        Task {
+            await delegate?.didSelectPokemonType(for: self)
+        }
     }
     
     // MARK: - Helpers

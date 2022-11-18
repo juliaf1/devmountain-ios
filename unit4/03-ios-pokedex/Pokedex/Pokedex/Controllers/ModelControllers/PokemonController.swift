@@ -81,8 +81,7 @@ class PokemonController {
 
     }
     
-    static func fetchPokemons(of type: PokemonType, completion: @escaping (Result<[PokemonInfo], PokemonError>) -> Void) {
-        
+    static func fetchPokemons(of type: PokemonType, completion: @escaping (Result<[Pokemon], PokemonError>) -> Void) {
         URLSession.shared.dataTask(with: type.url) { data, response, error in
             
             if let error = error {
@@ -102,14 +101,65 @@ class PokemonController {
             
             do {
                 let pokemonTypeDetailResponse = try JSONDecoder().decode(PokemonTypeDetailResponse.self, from: data)
-        
-                return completion(.success(pokemonTypeDetailResponse.pokemonList))
+                
+                let group = DispatchGroup()
+                var pokemons: [Pokemon] = []
+                
+                for pokemonInfo in pokemonTypeDetailResponse.pokemonList {
+                    group.enter()
+                    
+                    fetchPokemon(url: pokemonInfo.data.url) { result in
+                        switch result {
+                        case .success(let pokemon):
+                            pokemons.append(pokemon)
+                        case .failure:
+                            break
+                        }
+                        group.leave()
+                    }
+                }
+                
+                group.notify(queue: .main) {
+                    return completion(.success(pokemons))
+                }
             } catch {
                 return completion(.failure(.thrownError(error)))
             }
             
         }.resume()
+    }
+    
+    static func fetchPokemonInfo(of type: PokemonType) async throws -> [PokemonInfo] {
         
+        return try await withCheckedThrowingContinuation { continuation in
+            URLSession.shared.dataTask(with: type.url) { data, response, error in
+                
+                if let error = error {
+                    return continuation.resume(with: .failure(PokemonError.thrownError(error)))
+                }
+                
+                if let response = response as? HTTPURLResponse {
+                    let status = response.statusCode
+                    if status != 200 {
+                        print("STATUS CODE in \(#function): \(status)")
+                    }
+                }
+                
+                guard let data1 = data else {
+                    return continuation.resume(with: .failure(PokemonError.noData))
+                }
+                
+                do {
+                    let pokemonTypeDetailResponse = try JSONDecoder().decode(PokemonTypeDetailResponse.self, from: data1)
+                    
+                    return continuation.resume(with: .success(pokemonTypeDetailResponse.pokemonList))
+                } catch {
+                    return continuation.resume(with: .failure(PokemonError.thrownError(error)))
+                }
+                
+            }.resume()
+            
+        }
     }
     
     static func fetchPokemon(url: URL, completion: @escaping (Result<Pokemon, PokemonError>) -> Void) {

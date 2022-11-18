@@ -67,21 +67,17 @@ class PokemonViewController: UIViewController {
         }
     }
     
-    func fetchRandomPokemonForSelectedType() {
+    func fetchRandomPokemonForSelectedType() async {
         guard let selectedPokemonType = selectedPokemonType else {
             return
         }
 
-        PokemonController.fetchPokemons(of: selectedPokemonType) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let pokeInfoList):
-                    guard let randomPokeInfo = pokeInfoList.randomElement() else { return }
-                    self.fetchPokemon(for: randomPokeInfo)
-                case .failure(let error):
-                    self.presentErrorToUser(localizedError: error)
-                }
-            }
+        do {
+            let pokeInfos = try await PokemonController.fetchPokemonInfo(of: selectedPokemonType)
+            guard let randomPokeInfo = pokeInfos.randomElement() else { return }
+            fetchPokemon(for: randomPokeInfo)
+        } catch {
+            print(error)
         }
     }
     
@@ -146,7 +142,7 @@ extension PokemonViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension PokemonViewController: PokemonTypeTableViewCellDelegate {
     
-    func didSelectPokemonType(for cell: PokemonTypeTableViewCell) {
+    func didSelectPokemonType(for cell: PokemonTypeTableViewCell) async {
         guard let indexPath = pokemonTypesTableView.indexPath(for: cell) else { return }
         let type = pokemonTypes[indexPath.row]
         
@@ -157,7 +153,7 @@ extension PokemonViewController: PokemonTypeTableViewCellDelegate {
         }
 
         pokemonTypesTableView.reloadData()
-        fetchRandomPokemonForSelectedType()
+        await fetchRandomPokemonForSelectedType()
     }
     
 }
