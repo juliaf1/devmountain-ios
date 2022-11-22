@@ -36,10 +36,9 @@ class Entry {
     convenience init?(ckRecord: CKRecord) {
         guard let title = ckRecord[EntryKeys.title] as? String,
               let detail = ckRecord[EntryKeys.detail] as? String,
-              let timestamp = ckRecord[EntryKeys.timestamp] as? Date,
-              let recordID = ckRecord[EntryKeys.recordID] as? CKRecord.ID else { return nil }
+              let timestamp = ckRecord[EntryKeys.timestamp] as? Date else { return nil }
         
-        self.init(title: title, detail: detail, timestamp: timestamp, recordID: recordID)
+        self.init(title: title, detail: detail, timestamp: timestamp, recordID: ckRecord.recordID)
     }
 
 }
@@ -60,8 +59,7 @@ extension CKRecord {
         self.setValuesForKeys([
             EntryKeys.title: entry.title,
             EntryKeys.detail: entry.detail,
-            EntryKeys.timestamp: entry.timestamp,
-            EntryKeys.recordID: entry.recordID,
+            EntryKeys.timestamp: entry.timestamp
         ])
         
     }

@@ -13,7 +13,7 @@ enum EntryError: LocalizedError {
     case notFoundError
     case thrownError(Error)
     
-    func description() -> String {
+    var description: String {
         switch self {
         case .saveError:
             return "Ops, there was a problem saving the record."

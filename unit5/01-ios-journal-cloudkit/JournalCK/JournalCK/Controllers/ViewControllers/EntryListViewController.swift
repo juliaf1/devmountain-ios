@@ -28,6 +28,7 @@ class EntryListViewController: UIViewController {
         super.viewDidLoad()
 
         configureViews()
+        loadData()
     }
     
     // MARK: - Helper Methods
@@ -49,6 +50,22 @@ class EntryListViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(EntryTableViewCell.self, forCellReuseIdentifier: Strings.entryCellIdentifier)
+    }
+    
+    func updateViews() {
+        tableView.reloadData()
+    }
+    
+    func loadData() {
+        EntryController.shared.fetchAllEntries { error in
+            DispatchQueue.main.async {
+                if let error = error {
+                    self.presentErrorToUser(error)
+                } else {
+                    self.tableView.reloadData()
+                }
+            }
+        }
     }
     
     // MARK: - Views
