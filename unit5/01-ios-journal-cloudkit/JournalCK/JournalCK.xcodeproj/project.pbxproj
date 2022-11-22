@@ -20,6 +20,7 @@
 		32B8ED82292D44B900DA6867 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B8ED81292D44B900DA6867 /* DateExtension.swift */; };
 		32B8ED84292D4CAD00DA6867 /* EntryError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B8ED83292D4CAD00DA6867 /* EntryError.swift */; };
 		32B8ED86292D56E000DA6867 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B8ED85292D56DF00DA6867 /* UIViewExtension.swift */; };
+		32B8ED88292D57AF00DA6867 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B8ED87292D57AF00DA6867 /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		32B8ED81292D44B900DA6867 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		32B8ED83292D4CAD00DA6867 /* EntryError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryError.swift; sourceTree = "<group>"; };
 		32B8ED85292D56DF00DA6867 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		32B8ED87292D57AF00DA6867 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				32B8ED81292D44B900DA6867 /* DateExtension.swift */,
 				32B8ED83292D4CAD00DA6867 /* EntryError.swift */,
 				32B8ED85292D56DF00DA6867 /* UIViewExtension.swift */,
+				32B8ED87292D57AF00DA6867 /* Colors.swift */,
 			);
 			path = "Helpers+Extensions";
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				32B8ED86292D56E000DA6867 /* UIViewExtension.swift in Sources */,
+				32B8ED88292D57AF00DA6867 /* Colors.swift in Sources */,
 				3228A3A5292D2B0B00369AA6 /* Entry.swift in Sources */,
 				32B8ED82292D44B900DA6867 /* DateExtension.swift in Sources */,
 				3223FF99292D29DC00688A0D /* AppDelegate.swift in Sources */,

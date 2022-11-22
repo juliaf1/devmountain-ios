@@ -7,9 +7,6 @@
 
 import UIKit
 
-// Refactor colors to helper file
-let brandColor = #colorLiteral(red: 1, green: 0.2706922889, blue: 0.2406029403, alpha: 1)
-
 class EntryListViewController: UIViewController {
     
     // MARK: - Properties
@@ -65,7 +62,7 @@ class EntryListViewController: UIViewController {
     
     let addEntryButton: UIBarButtonItem = {
         let button = UIBarButtonItem()
-        button.tintColor = brandColor
+        button.tintColor = Colors.brandPrimary
         button.image = UIImage(systemName: "plus")
 
         return button
