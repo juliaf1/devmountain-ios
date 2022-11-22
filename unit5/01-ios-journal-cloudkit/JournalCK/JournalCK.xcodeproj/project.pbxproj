@@ -17,6 +17,7 @@
 		3228A3A7292D2B1300369AA6 /* EntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3228A3A6292D2B1300369AA6 /* EntryController.swift */; };
 		3228A3AB292D2B4800369AA6 /* EntryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3228A3AA292D2B4800369AA6 /* EntryListViewController.swift */; };
 		3228A3AD292D2B5100369AA6 /* EntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3228A3AC292D2B5100369AA6 /* EntryDetailViewController.swift */; };
+		3228A3AF292D2BAA00369AA6 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3228A3AE292D2BAA00369AA6 /* UIViewControllerExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		3228A3A6292D2B1300369AA6 /* EntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryController.swift; sourceTree = "<group>"; };
 		3228A3AA292D2B4800369AA6 /* EntryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryListViewController.swift; sourceTree = "<group>"; };
 		3228A3AC292D2B5100369AA6 /* EntryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailViewController.swift; sourceTree = "<group>"; };
+		3228A3AE292D2BAA00369AA6 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 		3228A3A2292D2AEA00369AA6 /* Helpers+Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				3228A3AE292D2BAA00369AA6 /* UIViewControllerExtension.swift */,
 			);
 			path = "Helpers+Extensions";
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 				3228A3AB292D2B4800369AA6 /* EntryListViewController.swift in Sources */,
 				3228A3A7292D2B1300369AA6 /* EntryController.swift in Sources */,
 				3228A3AD292D2B5100369AA6 /* EntryDetailViewController.swift in Sources */,
+				3228A3AF292D2BAA00369AA6 /* UIViewControllerExtension.swift in Sources */,
 				3223FF9B292D29DC00688A0D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
