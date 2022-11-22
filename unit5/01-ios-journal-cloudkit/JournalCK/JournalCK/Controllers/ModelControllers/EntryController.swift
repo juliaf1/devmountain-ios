@@ -27,9 +27,7 @@ class EntryController {
     
     // MARK: - CRUD Methods
     
-    func fetchAllEntries() {
-        // TODO: Include completion
-        
+    func fetchAllEntries(completion: @escaping (Error?) -> Void) {
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: EntryKeys.recordType, predicate: predicate)
         
@@ -45,8 +43,9 @@ class EntryController {
                     }
                 }
                 self.entries = entries
+                return completion(nil)
             case .failure(let error):
-                print(error)
+                return completion(error)
             }
         }
     }
