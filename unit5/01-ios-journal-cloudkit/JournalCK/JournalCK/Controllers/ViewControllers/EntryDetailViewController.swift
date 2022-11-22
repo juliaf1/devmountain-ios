@@ -24,6 +24,7 @@ class EntryDetailViewController: UIViewController {
         
         setupViews()
         constraintViews()
+        configureViews()
     }
 
     override func viewDidLoad() {
@@ -44,6 +45,26 @@ class EntryDetailViewController: UIViewController {
     func constraintViews() {
         titleTextField.anchor(top: safeArea.topAnchor, bottom: nil, leading: safeArea.leadingAnchor, trailing: safeArea.trailingAnchor, marginTop: 16, marginBottom: 0, marginLeft: 16, marginRight: 16, height: 40)
         detailTextView.anchor(top: titleTextField.bottomAnchor, bottom: safeArea.bottomAnchor, leading: safeArea.leadingAnchor, trailing: safeArea.trailingAnchor, marginTop: 8, marginBottom: 16, marginLeft: 16, marginRight: 16)
+    }
+    
+    func configureViews() {
+        saveEntryButton.target = self
+        saveEntryButton.action = #selector(didPressSaveEntryButton)
+    }
+    
+    @objc func didPressSaveEntryButton() {
+        guard let title = titleTextField.text,
+              !title.isEmpty else { return }
+
+        EntryController.shared.createEntry(title: title, detail: detailTextView.text ?? "") { error in
+            DispatchQueue.main.async {
+                if let error = error {
+                    self.presentErrorToUser(error)
+                } else {
+                    self.navigationController?.popViewController(animated: true)
+                }
+            }
+        }
     }
     
     // MARK: - Views

@@ -21,7 +21,7 @@ class EntryTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
+
         setupViews()
         constraintViews()
     }
