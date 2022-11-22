@@ -48,6 +48,7 @@ class EntryListViewController: UIViewController {
     func configureViews() {
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.register(EntryTableViewCell.self, forCellReuseIdentifier: Strings.entryCellIdentifier)
     }
     
     // MARK: - Views
@@ -55,7 +56,8 @@ class EntryListViewController: UIViewController {
     let tableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = .systemGray6
-        tableView.separatorStyle = .none
+        tableView.separatorInset = .zero
+        tableView.separatorColor = Colors.brandPrimaryTransparent
 
         return tableView
     }()
@@ -72,12 +74,21 @@ class EntryListViewController: UIViewController {
 
 extension EntryListViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return EntryController.shared.entries.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Strings.entryCellIdentifier, for: indexPath) as? EntryTableViewCell else { return UITableViewCell() }
+        
+        let entry = EntryController.shared.entries[indexPath.row]
+        cell.entry = entry
+        
+        return cell
     }
     
 }

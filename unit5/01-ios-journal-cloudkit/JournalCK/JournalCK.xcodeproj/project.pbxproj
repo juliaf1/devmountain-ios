@@ -21,6 +21,8 @@
 		32B8ED84292D4CAD00DA6867 /* EntryError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B8ED83292D4CAD00DA6867 /* EntryError.swift */; };
 		32B8ED86292D56E000DA6867 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B8ED85292D56DF00DA6867 /* UIViewExtension.swift */; };
 		32B8ED88292D57AF00DA6867 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B8ED87292D57AF00DA6867 /* Colors.swift */; };
+		32B8ED8A292D58E500DA6867 /* EntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B8ED89292D58E500DA6867 /* EntryTableViewCell.swift */; };
+		32B8ED8C292D593200DA6867 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B8ED8B292D593200DA6867 /* Strings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,8 @@
 		32B8ED83292D4CAD00DA6867 /* EntryError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryError.swift; sourceTree = "<group>"; };
 		32B8ED85292D56DF00DA6867 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		32B8ED87292D57AF00DA6867 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		32B8ED89292D58E500DA6867 /* EntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTableViewCell.swift; sourceTree = "<group>"; };
+		32B8ED8B292D593200DA6867 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				3223FFA3292D29DD00688A0D /* LaunchScreen.storyboard */,
+				32B8ED89292D58E500DA6867 /* EntryTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -126,6 +131,7 @@
 				32B8ED83292D4CAD00DA6867 /* EntryError.swift */,
 				32B8ED85292D56DF00DA6867 /* UIViewExtension.swift */,
 				32B8ED87292D57AF00DA6867 /* Colors.swift */,
+				32B8ED8B292D593200DA6867 /* Strings.swift */,
 			);
 			path = "Helpers+Extensions";
 			sourceTree = "<group>";
@@ -228,12 +234,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32B8ED8A292D58E500DA6867 /* EntryTableViewCell.swift in Sources */,
 				32B8ED86292D56E000DA6867 /* UIViewExtension.swift in Sources */,
 				32B8ED88292D57AF00DA6867 /* Colors.swift in Sources */,
 				3228A3A5292D2B0B00369AA6 /* Entry.swift in Sources */,
 				32B8ED82292D44B900DA6867 /* DateExtension.swift in Sources */,
 				3223FF99292D29DC00688A0D /* AppDelegate.swift in Sources */,
 				3228A3AB292D2B4800369AA6 /* EntryListViewController.swift in Sources */,
+				32B8ED8C292D593200DA6867 /* Strings.swift in Sources */,
 				32B8ED84292D4CAD00DA6867 /* EntryError.swift in Sources */,
 				3228A3A7292D2B1300369AA6 /* EntryController.swift in Sources */,
 				3228A3AD292D2B5100369AA6 /* EntryDetailViewController.swift in Sources */,
