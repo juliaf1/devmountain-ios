@@ -59,14 +59,24 @@ class EntryDetailViewController: UIViewController {
     @objc func didPressSaveEntryButton() {
         guard let title = titleTextField.text,
               !title.isEmpty else { return }
-
-        EntryController.shared.createEntry(title: title, detail: detailTextView.text ?? "") { error in
-            DispatchQueue.main.async {
-                if let error = error {
-                    self.presentErrorToUser(error)
-                } else {
-                    self.navigationController?.popViewController(animated: true)
-                }
+        
+        if let entry = entry {
+            EntryController.shared.update(entry, title: title, detail: detailTextView.text ?? "") { error in
+                self.handleControllerResponse(error: error)
+            }
+        } else {
+            EntryController.shared.createEntry(title: title, detail: detailTextView.text ?? "") { error in
+                self.handleControllerResponse(error: error)
+            }
+        }
+    }
+    
+    func handleControllerResponse(error: EntryError?) {
+        DispatchQueue.main.async {
+            if let error = error {
+                self.presentErrorToUser(error)
+            } else {
+                self.navigationController?.popViewController(animated: true)
             }
         }
     }

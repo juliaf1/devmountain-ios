@@ -33,6 +33,12 @@ class EntryListViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: didSetEntriesNotificationName, object: nil)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        updateViews()
+    }
+    
     // MARK: - Helper Methods
     
     func setupViews() {

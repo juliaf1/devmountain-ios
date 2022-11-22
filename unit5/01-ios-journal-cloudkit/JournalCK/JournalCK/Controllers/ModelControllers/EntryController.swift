@@ -73,6 +73,9 @@ class EntryController {
     }
     
     func update(_ entry: Entry, title: String, detail: String, completion: @escaping (EntryError?) -> Void) {
+        entry.title = title
+        entry.detail = detail
+
         let record = CKRecord(entry: entry)
         let operation = CKModifyRecordsOperation(recordsToSave: [record], recordIDsToDelete: nil)
 
