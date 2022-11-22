@@ -16,6 +16,7 @@
 		32CE6097292D2D3500688B6C /* Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CE6096292D2D3500688B6C /* Placeholder.swift */; };
 		32CE6099292D2D3A00688B6C /* Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CE6098292D2D3A00688B6C /* Placeholder.swift */; };
 		32CE609B292D2D4200688B6C /* Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CE609A292D2D4200688B6C /* Placeholder.swift */; };
+		32CE609F292D2D7600688B6C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32CE609E292D2D7600688B6C /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,8 @@
 		32CE6096292D2D3500688B6C /* Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
 		32CE6098292D2D3A00688B6C /* Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
 		32CE609A292D2D4200688B6C /* Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
+		32CE609C292D2D7300688B6C /* Continuum.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Continuum.entitlements; sourceTree = "<group>"; };
+		32CE609E292D2D7600688B6C /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32CE609F292D2D7600688B6C /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,6 +52,7 @@
 			children = (
 				32CE607A292D2CF400688B6C /* Continuum */,
 				32CE6079292D2CF400688B6C /* Products */,
+				32CE609D292D2D7600688B6C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +67,7 @@
 		32CE607A292D2CF400688B6C /* Continuum */ = {
 			isa = PBXGroup;
 			children = (
+				32CE609C292D2D7300688B6C /* Continuum.entitlements */,
 				32CE6093292D2D0D00688B6C /* Resources */,
 				32CE6092292D2D0500688B6C /* Helpers + Extensions */,
 				32CE6091292D2D0000688B6C /* Models */,
@@ -130,6 +136,14 @@
 				32CE6096292D2D3500688B6C /* Placeholder.swift */,
 			);
 			path = ModelControllers;
+			sourceTree = "<group>";
+		};
+		32CE609D292D2D7600688B6C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				32CE609E292D2D7600688B6C /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -353,6 +367,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Continuum/Continuum.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B2Z3KD59GR;
@@ -381,6 +396,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Continuum/Continuum.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B2Z3KD59GR;
