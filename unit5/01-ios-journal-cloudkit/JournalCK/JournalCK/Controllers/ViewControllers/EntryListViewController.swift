@@ -50,6 +50,9 @@ class EntryListViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(EntryTableViewCell.self, forCellReuseIdentifier: Strings.entryCellIdentifier)
+        
+        addEntryButton.target = self
+        addEntryButton.action = #selector(didPressAddEntryButton)
     }
     
     func updateViews() {
@@ -66,6 +69,11 @@ class EntryListViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    @objc func didPressAddEntryButton() {
+        let detailVC = EntryDetailViewController()
+        self.navigationController?.pushViewController(detailVC, animated: true)
     }
     
     // MARK: - Views

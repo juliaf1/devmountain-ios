@@ -23,6 +23,7 @@
 		32B8ED88292D57AF00DA6867 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B8ED87292D57AF00DA6867 /* Colors.swift */; };
 		32B8ED8A292D58E500DA6867 /* EntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B8ED89292D58E500DA6867 /* EntryTableViewCell.swift */; };
 		32B8ED8C292D593200DA6867 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B8ED8B292D593200DA6867 /* Strings.swift */; };
+		32B8ED90292D6C6700DA6867 /* PaddingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B8ED8F292D6C6700DA6867 /* PaddingTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		32B8ED87292D57AF00DA6867 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		32B8ED89292D58E500DA6867 /* EntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTableViewCell.swift; sourceTree = "<group>"; };
 		32B8ED8B292D593200DA6867 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		32B8ED8F292D6C6700DA6867 /* PaddingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 				32B8ED85292D56DF00DA6867 /* UIViewExtension.swift */,
 				32B8ED87292D57AF00DA6867 /* Colors.swift */,
 				32B8ED8B292D593200DA6867 /* Strings.swift */,
+				32B8ED8F292D6C6700DA6867 /* PaddingTextField.swift */,
 			);
 			path = "Helpers+Extensions";
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 				3228A3AB292D2B4800369AA6 /* EntryListViewController.swift in Sources */,
 				32B8ED8C292D593200DA6867 /* Strings.swift in Sources */,
 				32B8ED84292D4CAD00DA6867 /* EntryError.swift in Sources */,
+				32B8ED90292D6C6700DA6867 /* PaddingTextField.swift in Sources */,
 				3228A3A7292D2B1300369AA6 /* EntryController.swift in Sources */,
 				3228A3AD292D2B5100369AA6 /* EntryDetailViewController.swift in Sources */,
 				3228A3AF292D2BAA00369AA6 /* UIViewControllerExtension.swift in Sources */,

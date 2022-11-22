@@ -55,7 +55,7 @@ class EntryTableViewCell: UITableViewCell {
     
     let entryTitleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Futura", size: 16)
+        label.font = UIFont(name: "Helvetica Bold", size: 16)
         label.setContentHuggingPriority(.defaultLow, for: .horizontal)
         
         return label
@@ -63,7 +63,7 @@ class EntryTableViewCell: UITableViewCell {
     
     let entryTimestampLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Futura", size: 12)
+        label.font = UIFont(name: "Helvetica", size: 12)
         label.textColor = .darkGray
         label.setContentHuggingPriority(.defaultHigh, for: .horizontal)
 
