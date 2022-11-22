@@ -44,6 +44,14 @@ class Entry {
 
 }
 
+extension Entry: Equatable {
+    
+    static func ==(lhs: Entry, rhs: Entry) -> Bool {
+        return lhs.recordID == rhs.recordID
+    }
+    
+}
+
 extension CKRecord {
     
     convenience init(entry: Entry) {

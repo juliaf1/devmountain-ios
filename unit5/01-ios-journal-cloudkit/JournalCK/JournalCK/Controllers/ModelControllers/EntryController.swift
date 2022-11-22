@@ -89,4 +89,24 @@ class EntryController {
         privateDB.add(operation)
     }
     
+    func delete(_ entry: Entry, completion: @escaping (EntryError?) -> Void) {
+        guard let index = entries.firstIndex(of: entry) else { return completion(.notFoundError) }
+        
+        let operation = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: [entry.recordID])
+        operation.savePolicy = .changedKeys
+        operation.qualityOfService = .userInteractive
+        
+        operation.modifyRecordsResultBlock = { result in
+            switch result {
+            case .success:
+                self.entries.remove(at: index)
+                return completion(nil)
+            case .failure(let error):
+                return completion(.thrownError(error))
+            }
+        }
+        
+        privateDB.add(operation)
+    }
+    
 }
