@@ -70,4 +70,23 @@ class EntryController {
         }
     }
     
+    func update(_ entry: Entry, title: String, detail: String, completion: @escaping (EntryError?) -> Void) {
+        let record = CKRecord(entry: entry)
+        let operation = CKModifyRecordsOperation(recordsToSave: [record], recordIDsToDelete: nil)
+
+        operation.savePolicy = .changedKeys
+        operation.qualityOfService = .userInteractive
+
+        operation.modifyRecordsResultBlock = { result in
+            switch result {
+            case .success:
+                return completion(nil)
+            case .failure(let error):
+                return completion(.thrownError(error))
+            }
+        }
+        
+        privateDB.add(operation)
+    }
+    
 }
