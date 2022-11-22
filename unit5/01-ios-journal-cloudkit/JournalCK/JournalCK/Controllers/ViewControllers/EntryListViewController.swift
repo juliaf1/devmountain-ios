@@ -14,12 +14,17 @@ class EntryListViewController: UIViewController {
     
     // MARK: - Properties
     
+    var safeArea: UILayoutGuide {
+        return self.view.safeAreaLayoutGuide
+    }
+    
     // MARK: - Lifecycle
     
     override func loadView() {
         super.loadView()
         
         setupViews()
+        constraintTableView()
     }
 
     override func viewDidLoad() {
@@ -35,6 +40,12 @@ class EntryListViewController: UIViewController {
         
         self.navigationItem.title = "Entries"
         self.navigationItem.rightBarButtonItem = addEntryButton
+        
+        self.view.addSubview(tableView)
+    }
+    
+    func constraintTableView() {
+        tableView.anchor(top: safeArea.topAnchor, bottom: safeArea.bottomAnchor, leading: safeArea.leadingAnchor, trailing: safeArea.trailingAnchor, marginTop: 0, marginBottom: 0, marginLeft: 0, marginRight: 0)
     }
     
     func configureViews() {
@@ -46,6 +57,9 @@ class EntryListViewController: UIViewController {
     
     let tableView: UITableView = {
         let tableView = UITableView()
+        tableView.backgroundColor = .systemGray6
+        tableView.separatorStyle = .none
+
         return tableView
     }()
     
