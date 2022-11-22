@@ -13,10 +13,10 @@
 		32CE6083292D2CF400688B6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32CE6081292D2CF400688B6C /* Main.storyboard */; };
 		32CE6085292D2CF500688B6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32CE6084292D2CF500688B6C /* Assets.xcassets */; };
 		32CE6088292D2CF500688B6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32CE6086292D2CF500688B6C /* LaunchScreen.storyboard */; };
-		32CE6097292D2D3500688B6C /* Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CE6096292D2D3500688B6C /* Placeholder.swift */; };
-		32CE6099292D2D3A00688B6C /* Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CE6098292D2D3A00688B6C /* Placeholder.swift */; };
-		32CE609B292D2D4200688B6C /* Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CE609A292D2D4200688B6C /* Placeholder.swift */; };
 		32CE609F292D2D7600688B6C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32CE609E292D2D7600688B6C /* CloudKit.framework */; };
+		32DC11F2292D2ED600469AB3 /* PlaceholderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DC11F1292D2ED600469AB3 /* PlaceholderModel.swift */; };
+		32DC11F4292D2EE000469AB3 /* PlaceholderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DC11F3292D2EE000469AB3 /* PlaceholderController.swift */; };
+		32DC11F6292D2EE600469AB3 /* PlaceholderHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DC11F5292D2EE600469AB3 /* PlaceholderHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,11 +28,11 @@
 		32CE6084292D2CF500688B6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		32CE6087292D2CF500688B6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		32CE6089292D2CF500688B6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		32CE6096292D2D3500688B6C /* Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
-		32CE6098292D2D3A00688B6C /* Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
-		32CE609A292D2D4200688B6C /* Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
 		32CE609C292D2D7300688B6C /* Continuum.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Continuum.entitlements; sourceTree = "<group>"; };
 		32CE609E292D2D7600688B6C /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		32DC11F1292D2ED600469AB3 /* PlaceholderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderModel.swift; sourceTree = "<group>"; };
+		32DC11F3292D2EE000469AB3 /* PlaceholderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderController.swift; sourceTree = "<group>"; };
+		32DC11F5292D2EE600469AB3 /* PlaceholderHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +98,7 @@
 		32CE6091292D2D0000688B6C /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				32CE6098292D2D3A00688B6C /* Placeholder.swift */,
+				32DC11F1292D2ED600469AB3 /* PlaceholderModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -106,7 +106,7 @@
 		32CE6092292D2D0500688B6C /* Helpers + Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				32CE609A292D2D4200688B6C /* Placeholder.swift */,
+				32DC11F5292D2EE600469AB3 /* PlaceholderHelper.swift */,
 			);
 			path = "Helpers + Extensions";
 			sourceTree = "<group>";
@@ -133,7 +133,7 @@
 		32CE6095292D2D1F00688B6C /* ModelControllers */ = {
 			isa = PBXGroup;
 			children = (
-				32CE6096292D2D3500688B6C /* Placeholder.swift */,
+				32DC11F3292D2EE000469AB3 /* PlaceholderController.swift */,
 			);
 			path = ModelControllers;
 			sourceTree = "<group>";
@@ -217,12 +217,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32DC11F4292D2EE000469AB3 /* PlaceholderController.swift in Sources */,
 				32CE6080292D2CF400688B6C /* ViewController.swift in Sources */,
-				32CE6099292D2D3A00688B6C /* Placeholder.swift in Sources */,
+				32DC11F2292D2ED600469AB3 /* PlaceholderModel.swift in Sources */,
+				32DC11F6292D2EE600469AB3 /* PlaceholderHelper.swift in Sources */,
 				32CE607C292D2CF400688B6C /* AppDelegate.swift in Sources */,
 				32CE607E292D2CF400688B6C /* SceneDelegate.swift in Sources */,
-				32CE6097292D2D3500688B6C /* Placeholder.swift in Sources */,
-				32CE609B292D2D4200688B6C /* Placeholder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
