@@ -30,7 +30,8 @@ class EntryListViewController: UIViewController {
         configureViews()
         loadData()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: didSetEntriesNotificationName, object: nil)
+        //NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: didSetEntriesNotificationName, object: nil)
+        // Removing notification observer because it reload views before deleting rows, causing break!
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -138,6 +139,24 @@ extension EntryListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let entry = EntryController.shared.entries[indexPath.row]
         navigateToDetailVC(with: entry)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+
+        if editingStyle == .delete {
+            let entry = EntryController.shared.entries[indexPath.row]
+
+            EntryController.shared.delete(entry) { error in
+                DispatchQueue.main.async {
+                    if let error = error {
+                        self.presentErrorToUser(error)
+                    } else {
+                        self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                    }
+                }
+            }
+        }
+
     }
     
 }

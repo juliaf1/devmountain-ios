@@ -17,11 +17,11 @@ class EntryController {
     
     let privateDB = CKContainer.default().privateCloudDatabase
     
-    var entries: [Entry] = [] {
+    var entries: [Entry] = [] /*{
         didSet {
             NotificationCenter.default.post(name: didSetEntriesNotificationName, object: self)
         }
-    }
+    }*/
     
     // MARK: - Initializers
     
