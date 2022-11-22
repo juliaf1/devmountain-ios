@@ -16,6 +16,7 @@
 		32DC1220292D2F7900469AB3 /* PlaceholderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DC121F292D2F7900469AB3 /* PlaceholderController.swift */; };
 		32DC1222292D2F7E00469AB3 /* ModelPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DC1221292D2F7E00469AB3 /* ModelPlaceholder.swift */; };
 		32DC1224292D2F8300469AB3 /* HelperPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DC1223292D2F8300469AB3 /* HelperPlaceholder.swift */; };
+		32DC1228292D2FBD00469AB3 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32DC1227292D2FBD00469AB3 /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,8 @@
 		32DC121F292D2F7900469AB3 /* PlaceholderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderController.swift; sourceTree = "<group>"; };
 		32DC1221292D2F7E00469AB3 /* ModelPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelPlaceholder.swift; sourceTree = "<group>"; };
 		32DC1223292D2F8300469AB3 /* HelperPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HelperPlaceholder.swift; path = Contacts/Models/HelperPlaceholder.swift; sourceTree = SOURCE_ROOT; };
+		32DC1225292D2FBA00469AB3 /* Contacts.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Contacts.entitlements; sourceTree = "<group>"; };
+		32DC1227292D2FBD00469AB3 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32DC1228292D2FBD00469AB3 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,6 +52,7 @@
 			children = (
 				32DC1202292D2F3200469AB3 /* Contacts */,
 				32DC1201292D2F3200469AB3 /* Products */,
+				32DC1226292D2FBD00469AB3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +67,7 @@
 		32DC1202292D2F3200469AB3 /* Contacts */ = {
 			isa = PBXGroup;
 			children = (
+				32DC1225292D2FBA00469AB3 /* Contacts.entitlements */,
 				32DC121D292D2F6200469AB3 /* Resources */,
 				32DC121C292D2F5D00469AB3 /* Helpers + Extensions */,
 				32DC121A292D2F5400469AB3 /* Models */,
@@ -130,6 +136,14 @@
 				32DC121F292D2F7900469AB3 /* PlaceholderController.swift */,
 			);
 			path = ModelControllers;
+			sourceTree = "<group>";
+		};
+		32DC1226292D2FBD00469AB3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				32DC1227292D2FBD00469AB3 /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -353,6 +367,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Contacts/Contacts.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B2Z3KD59GR;
@@ -381,6 +396,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Contacts/Contacts.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B2Z3KD59GR;
