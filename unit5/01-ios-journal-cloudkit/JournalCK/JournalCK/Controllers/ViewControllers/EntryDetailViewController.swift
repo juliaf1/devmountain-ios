@@ -15,7 +15,11 @@ class EntryDetailViewController: UIViewController {
         return self.view.safeAreaLayoutGuide
     }
     
-    var entry: Entry?
+    var entry: Entry? {
+        didSet {
+            updateViewData()
+        }
+    }
     
     // MARK: - Lifecycle
     
@@ -64,6 +68,13 @@ class EntryDetailViewController: UIViewController {
                     self.navigationController?.popViewController(animated: true)
                 }
             }
+        }
+    }
+    
+    func updateViewData() {
+        if let entry = entry {
+            titleTextField.text = entry.title
+            detailTextView.text = entry.detail
         }
     }
     

@@ -76,7 +76,16 @@ class EntryListViewController: UIViewController {
     }
     
     @objc func didPressAddEntryButton() {
+        navigateToDetailVC(with: nil)
+    }
+    
+    func navigateToDetailVC(with entry: Entry?) {
         let detailVC = EntryDetailViewController()
+        
+        if let entry = entry {
+            detailVC.entry = entry
+        }
+        
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
     
@@ -118,6 +127,11 @@ extension EntryListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.entry = entry
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let entry = EntryController.shared.entries[indexPath.row]
+        navigateToDetailVC(with: entry)
     }
     
 }
