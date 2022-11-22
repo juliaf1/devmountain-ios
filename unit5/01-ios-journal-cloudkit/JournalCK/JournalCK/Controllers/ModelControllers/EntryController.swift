@@ -7,6 +7,8 @@
 
 import CloudKit
 
+let didSetEntriesNotificationName = Notification.Name("didSetEntries")
+
 class EntryController {
     
     // MARK: - Properties
@@ -17,7 +19,7 @@ class EntryController {
     
     var entries: [Entry] = [] {
         didSet {
-            // TODO: send entries were set notification
+            NotificationCenter.default.post(name: didSetEntriesNotificationName, object: self)
         }
     }
     

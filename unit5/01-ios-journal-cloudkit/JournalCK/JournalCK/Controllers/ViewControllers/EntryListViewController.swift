@@ -29,6 +29,8 @@ class EntryListViewController: UIViewController {
 
         configureViews()
         loadData()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: didSetEntriesNotificationName, object: nil)
     }
     
     // MARK: - Helper Methods
@@ -55,8 +57,10 @@ class EntryListViewController: UIViewController {
         addEntryButton.action = #selector(didPressAddEntryButton)
     }
     
-    func updateViews() {
-        tableView.reloadData()
+    @objc func updateViews() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     func loadData() {
