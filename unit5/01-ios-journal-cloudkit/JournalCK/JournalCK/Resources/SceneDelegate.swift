@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         
         let navController = UINavigationController()
-        navController.viewControllers = [EntryListViewController(), EntryDetailViewController()]
+        navController.viewControllers = [EntryListViewController()]
         
         let window = UIWindow(windowScene: scene)
         window.rootViewController = navController
