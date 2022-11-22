@@ -27,7 +27,7 @@ class EntryController {
     
     // MARK: - CRUD Methods
     
-    func fetchAllEntries(completion: @escaping (Error?) -> Void) {
+    func fetchAllEntries(completion: @escaping (EntryError?) -> Void) {
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: EntryKeys.recordType, predicate: predicate)
         
@@ -45,11 +45,29 @@ class EntryController {
                 self.entries = entries
                 return completion(nil)
             case .failure(let error):
-                return completion(error)
+                return completion(.thrownError(error))
             }
         }
     }
     
-    func createEntry(title: String, detail: String) {}
+    func createEntry(title: String, detail: String, completion: @escaping (EntryError?) -> Void) {
+        let entry = Entry(title: title, detail: detail)
+        let record = CKRecord(entry: entry)
+        
+        privateDB.save(record) { record, error in
+            if let error = error {
+                return completion(.thrownError(error))
+            }
+            
+            guard let record = record,
+                  let savedEntry = Entry(ckRecord: record)
+            else {
+                return completion(.saveError)
+            }
+            
+            self.entries.append(savedEntry)
+            return completion(nil)
+        }
+    }
     
 }

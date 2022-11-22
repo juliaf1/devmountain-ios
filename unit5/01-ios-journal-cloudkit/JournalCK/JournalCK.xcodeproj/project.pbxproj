@@ -18,6 +18,7 @@
 		3228A3AD292D2B5100369AA6 /* EntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3228A3AC292D2B5100369AA6 /* EntryDetailViewController.swift */; };
 		3228A3AF292D2BAA00369AA6 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3228A3AE292D2BAA00369AA6 /* UIViewControllerExtension.swift */; };
 		32B8ED82292D44B900DA6867 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B8ED81292D44B900DA6867 /* DateExtension.swift */; };
+		32B8ED84292D4CAD00DA6867 /* EntryError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B8ED83292D4CAD00DA6867 /* EntryError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		3228A3AC292D2B5100369AA6 /* EntryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailViewController.swift; sourceTree = "<group>"; };
 		3228A3AE292D2BAA00369AA6 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		32B8ED81292D44B900DA6867 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		32B8ED83292D4CAD00DA6867 /* EntryError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 			children = (
 				3228A3AE292D2BAA00369AA6 /* UIViewControllerExtension.swift */,
 				32B8ED81292D44B900DA6867 /* DateExtension.swift */,
+				32B8ED83292D4CAD00DA6867 /* EntryError.swift */,
 			);
 			path = "Helpers+Extensions";
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 				32B8ED82292D44B900DA6867 /* DateExtension.swift in Sources */,
 				3223FF99292D29DC00688A0D /* AppDelegate.swift in Sources */,
 				3228A3AB292D2B4800369AA6 /* EntryListViewController.swift in Sources */,
+				32B8ED84292D4CAD00DA6867 /* EntryError.swift in Sources */,
 				3228A3A7292D2B1300369AA6 /* EntryController.swift in Sources */,
 				3228A3AD292D2B5100369AA6 /* EntryDetailViewController.swift in Sources */,
 				3228A3AF292D2BAA00369AA6 /* UIViewControllerExtension.swift in Sources */,
