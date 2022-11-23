@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32C1444F292D9E5600CAD5E6 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C1444E292D9E5600CAD5E6 /* Contact.swift */; };
 		32DC1204292D2F3200469AB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DC1203292D2F3200469AB3 /* AppDelegate.swift */; };
 		32DC1206292D2F3200469AB3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DC1205292D2F3200469AB3 /* SceneDelegate.swift */; };
 		32DC1208292D2F3200469AB3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DC1207292D2F3200469AB3 /* ViewController.swift */; };
@@ -14,12 +15,12 @@
 		32DC120D292D2F3300469AB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32DC120C292D2F3300469AB3 /* Assets.xcassets */; };
 		32DC1210292D2F3300469AB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32DC120E292D2F3300469AB3 /* LaunchScreen.storyboard */; };
 		32DC1220292D2F7900469AB3 /* PlaceholderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DC121F292D2F7900469AB3 /* PlaceholderController.swift */; };
-		32DC1222292D2F7E00469AB3 /* ModelPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DC1221292D2F7E00469AB3 /* ModelPlaceholder.swift */; };
 		32DC1224292D2F8300469AB3 /* HelperPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DC1223292D2F8300469AB3 /* HelperPlaceholder.swift */; };
 		32DC1228292D2FBD00469AB3 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32DC1227292D2FBD00469AB3 /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		32C1444E292D9E5600CAD5E6 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		32DC1200292D2F3200469AB3 /* Contacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32DC1203292D2F3200469AB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32DC1205292D2F3200469AB3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -29,7 +30,6 @@
 		32DC120F292D2F3300469AB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		32DC1211292D2F3300469AB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32DC121F292D2F7900469AB3 /* PlaceholderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderController.swift; sourceTree = "<group>"; };
-		32DC1221292D2F7E00469AB3 /* ModelPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelPlaceholder.swift; sourceTree = "<group>"; };
 		32DC1223292D2F8300469AB3 /* HelperPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HelperPlaceholder.swift; path = Contacts/Models/HelperPlaceholder.swift; sourceTree = SOURCE_ROOT; };
 		32DC1225292D2FBA00469AB3 /* Contacts.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Contacts.entitlements; sourceTree = "<group>"; };
 		32DC1227292D2FBD00469AB3 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
@@ -106,7 +106,7 @@
 		32DC121A292D2F5400469AB3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				32DC1221292D2F7E00469AB3 /* ModelPlaceholder.swift */,
+				32C1444E292D9E5600CAD5E6 /* Contact.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -217,11 +217,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32C1444F292D9E5600CAD5E6 /* Contact.swift in Sources */,
 				32DC1208292D2F3200469AB3 /* ViewController.swift in Sources */,
 				32DC1220292D2F7900469AB3 /* PlaceholderController.swift in Sources */,
 				32DC1204292D2F3200469AB3 /* AppDelegate.swift in Sources */,
 				32DC1206292D2F3200469AB3 /* SceneDelegate.swift in Sources */,
-				32DC1222292D2F7E00469AB3 /* ModelPlaceholder.swift in Sources */,
 				32DC1224292D2F8300469AB3 /* HelperPlaceholder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
