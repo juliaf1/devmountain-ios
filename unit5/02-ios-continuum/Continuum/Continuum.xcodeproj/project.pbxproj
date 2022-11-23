@@ -12,14 +12,14 @@
 		32A1E015292EC2A40071AE0E /* AddPostTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A1E014292EC2A40071AE0E /* AddPostTableViewController.swift */; };
 		32A1E017292EC4BC0071AE0E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A1E016292EC4BC0071AE0E /* Post.swift */; };
 		32A1E019292EC6DB0071AE0E /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A1E018292EC6DB0071AE0E /* Comment.swift */; };
+		32A1E01B292EC7390071AE0E /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A1E01A292EC7390071AE0E /* PostController.swift */; };
+		32A1E01D292EC79D0071AE0E /* PostError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A1E01C292EC79D0071AE0E /* PostError.swift */; };
 		32CE607C292D2CF400688B6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CE607B292D2CF400688B6C /* AppDelegate.swift */; };
 		32CE607E292D2CF400688B6C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CE607D292D2CF400688B6C /* SceneDelegate.swift */; };
 		32CE6083292D2CF400688B6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32CE6081292D2CF400688B6C /* Main.storyboard */; };
 		32CE6085292D2CF500688B6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32CE6084292D2CF500688B6C /* Assets.xcassets */; };
 		32CE6088292D2CF500688B6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32CE6086292D2CF500688B6C /* LaunchScreen.storyboard */; };
 		32CE609F292D2D7600688B6C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32CE609E292D2D7600688B6C /* CloudKit.framework */; };
-		32DC11F4292D2EE000469AB3 /* PlaceholderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DC11F3292D2EE000469AB3 /* PlaceholderController.swift */; };
-		32DC11F6292D2EE600469AB3 /* PlaceholderHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DC11F5292D2EE600469AB3 /* PlaceholderHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +28,8 @@
 		32A1E014292EC2A40071AE0E /* AddPostTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostTableViewController.swift; sourceTree = "<group>"; };
 		32A1E016292EC4BC0071AE0E /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		32A1E018292EC6DB0071AE0E /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		32A1E01A292EC7390071AE0E /* PostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
+		32A1E01C292EC79D0071AE0E /* PostError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostError.swift; sourceTree = "<group>"; };
 		32CE6078292D2CF400688B6C /* Continuum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Continuum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32CE607B292D2CF400688B6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32CE607D292D2CF400688B6C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,8 +39,6 @@
 		32CE6089292D2CF500688B6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32CE609C292D2D7300688B6C /* Continuum.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Continuum.entitlements; sourceTree = "<group>"; };
 		32CE609E292D2D7600688B6C /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
-		32DC11F3292D2EE000469AB3 /* PlaceholderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderController.swift; sourceTree = "<group>"; };
-		32DC11F5292D2EE600469AB3 /* PlaceholderHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,7 +113,7 @@
 		32CE6092292D2D0500688B6C /* Helpers + Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				32DC11F5292D2EE600469AB3 /* PlaceholderHelper.swift */,
+				32A1E01C292EC79D0071AE0E /* PostError.swift */,
 			);
 			path = "Helpers + Extensions";
 			sourceTree = "<group>";
@@ -142,7 +142,7 @@
 		32CE6095292D2D1F00688B6C /* ModelControllers */ = {
 			isa = PBXGroup;
 			children = (
-				32DC11F3292D2EE000469AB3 /* PlaceholderController.swift */,
+				32A1E01A292EC7390071AE0E /* PostController.swift */,
 			);
 			path = ModelControllers;
 			sourceTree = "<group>";
@@ -226,12 +226,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32DC11F4292D2EE000469AB3 /* PlaceholderController.swift in Sources */,
 				32A1E015292EC2A40071AE0E /* AddPostTableViewController.swift in Sources */,
-				32DC11F6292D2EE600469AB3 /* PlaceholderHelper.swift in Sources */,
+				32A1E01D292EC79D0071AE0E /* PostError.swift in Sources */,
 				32A1E017292EC4BC0071AE0E /* Post.swift in Sources */,
 				32A1E011292EC1740071AE0E /* PostListTableViewController.swift in Sources */,
 				32CE607C292D2CF400688B6C /* AppDelegate.swift in Sources */,
+				32A1E01B292EC7390071AE0E /* PostController.swift in Sources */,
 				32CE607E292D2CF400688B6C /* SceneDelegate.swift in Sources */,
 				32A1E019292EC6DB0071AE0E /* Comment.swift in Sources */,
 				32A1E013292EC23C0071AE0E /* PostDetailTableViewController.swift in Sources */,
