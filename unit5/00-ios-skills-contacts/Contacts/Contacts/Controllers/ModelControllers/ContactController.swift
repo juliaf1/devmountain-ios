@@ -54,11 +54,13 @@ class ContactController {
                 return completion(.thrownError(error))
             }
             
-            if let record = record {
-                guard let contact = Contact(ckRecord: record) else { return completion(.saveError) }
-                self.contacts.append(contact)
-                return completion(nil)
+            guard let record = record,
+                  let contact = Contact(ckRecord: record) else {
+                return completion(.notFoundError)
             }
+            
+            self.contacts.append(contact)
+            return completion(nil)
         }
     }
     

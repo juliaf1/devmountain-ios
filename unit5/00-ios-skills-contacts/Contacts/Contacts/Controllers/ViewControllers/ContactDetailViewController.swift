@@ -33,10 +33,24 @@ class ContactDetailViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func didPressSaveContactButton(_ sender: UIButton) {
+        guard let name = contactNameTextField.text,
+              !name.isEmpty else {
+            return presentErrorToUser(.missingRequiredParam("contact name"))
+        }
+        
+        saveContactButton.isEnabled = false
+        
+        let phone = contactPhoneTextField.text
+        let email = contactEmailTextField.text
+        
         if let contact = contact {
-            // update contact
+            ContactController.shared.update(contact, name: name, phone: phone, email: email, photo: nil) { error in
+                self.handleResponse(error: error)
+            }
         } else {
-            // create contact
+            ContactController.shared.createContact(name: name, phone: phone, email: email, photo: nil) { error in
+                self.handleResponse(error: error)
+            }
         }
     }
     
@@ -57,6 +71,18 @@ class ContactDetailViewController: UIViewController {
         contactNameTextField.text = contact.name
         contactPhoneTextField.text = contact.phone
         contactEmailTextField.text = contact.email
+    }
+    
+    func handleResponse(error: ContactError?) {
+        DispatchQueue.main.async {
+            self.saveContactButton.isEnabled = true
+
+            if let error = error {
+                self.presentErrorToUser(error)
+            } else {
+                self.dismiss(animated: true)
+            }
+        }
     }
 
 }

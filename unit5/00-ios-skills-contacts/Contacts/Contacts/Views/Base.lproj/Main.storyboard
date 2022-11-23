@@ -27,39 +27,41 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="130"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Pe-Da-8b3">
-                                                    <rect key="frame" x="16" y="27" width="76" height="76"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="80" id="dgz-vu-E67"/>
-                                                        <constraint firstAttribute="width" secondItem="4Pe-Da-8b3" secondAttribute="height" multiplier="1:1" id="fWS-Ys-cR5"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="DQd-eJ-wCi">
-                                                    <rect key="frame" x="108" y="27" width="270" height="76"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="PsD-KH-Wb6">
+                                                    <rect key="frame" x="16" y="16" width="382" height="98"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yuD-3b-1xZ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="270" height="46.5"/>
-                                                            <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="22"/>
-                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+55 21 994806457" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9j4-CA-Byy">
-                                                            <rect key="frame" x="0.0" y="46.5" width="270" height="29.5"/>
-                                                            <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="14"/>
-                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Pe-Da-8b3">
+                                                            <rect key="frame" x="0.0" y="0.0" width="98" height="98"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="80" id="dgz-vu-E67"/>
+                                                                <constraint firstAttribute="width" secondItem="4Pe-Da-8b3" secondAttribute="height" multiplier="1:1" id="fWS-Ys-cR5"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="DQd-eJ-wCi">
+                                                            <rect key="frame" x="114" y="0.0" width="268" height="98"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yuD-3b-1xZ">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="268" height="60"/>
+                                                                    <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="22"/>
+                                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+55 21 994806457" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9j4-CA-Byy">
+                                                                    <rect key="frame" x="0.0" y="60" width="268" height="38"/>
+                                                                    <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="14"/>
+                                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="4Pe-Da-8b3" firstAttribute="top" secondItem="RV9-Uj-EZk" secondAttribute="topMargin" constant="16" id="54Z-rf-lc2"/>
-                                                <constraint firstItem="DQd-eJ-wCi" firstAttribute="leading" secondItem="4Pe-Da-8b3" secondAttribute="trailing" constant="16" id="NyS-2k-Uob"/>
-                                                <constraint firstItem="DQd-eJ-wCi" firstAttribute="top" secondItem="RV9-Uj-EZk" secondAttribute="topMargin" constant="16" id="SXN-TW-N03"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="DQd-eJ-wCi" secondAttribute="trailing" constant="16" id="bgG-Yx-vGT"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="DQd-eJ-wCi" secondAttribute="bottom" constant="16" id="eVe-yw-ul1"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="4Pe-Da-8b3" secondAttribute="bottom" constant="16" id="yfb-2F-uzI"/>
-                                                <constraint firstItem="4Pe-Da-8b3" firstAttribute="leading" secondItem="RV9-Uj-EZk" secondAttribute="leading" constant="16" id="ze8-iM-n5x"/>
+                                                <constraint firstAttribute="trailing" secondItem="PsD-KH-Wb6" secondAttribute="trailing" constant="16" id="0UB-C7-UCd"/>
+                                                <constraint firstItem="PsD-KH-Wb6" firstAttribute="top" secondItem="RV9-Uj-EZk" secondAttribute="top" constant="16" id="Xow-gM-F0m"/>
+                                                <constraint firstItem="PsD-KH-Wb6" firstAttribute="leading" secondItem="RV9-Uj-EZk" secondAttribute="leading" constant="16" id="eeH-ml-aSQ"/>
+                                                <constraint firstAttribute="bottom" secondItem="PsD-KH-Wb6" secondAttribute="bottom" constant="16" id="kut-P8-QNY"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
@@ -168,6 +170,7 @@
                             <constraint firstItem="Pic-d9-p20" firstAttribute="top" secondItem="xUd-K9-Iuf" secondAttribute="top" constant="40" id="kUb-Pk-RKC"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="L2x-0L-ack"/>
                     <connections>
                         <outlet property="contactEmailTextField" destination="tQl-2d-Cas" id="TEs-o2-m0o"/>
                         <outlet property="contactNameTextField" destination="eX9-hb-VDu" id="BNb-zH-e3N"/>
@@ -238,7 +241,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="TdU-kX-AgZ"/>
+        <segue reference="Bqf-Ua-fqb"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="person.fill" catalog="system" width="128" height="120"/>
