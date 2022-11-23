@@ -201,10 +201,10 @@
             </objects>
             <point key="canvasLocation" x="-128" y="66"/>
         </scene>
-        <!--View Controller-->
+        <!--Photo Picker View Controller-->
         <scene sceneID="mCf-FI-6ao">
             <objects>
-                <viewController id="ik7-YB-ZIy" sceneMemberID="viewController">
+                <viewController id="ik7-YB-ZIy" customClass="PhotoPickerViewController" customModule="Contacts" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PfK-Ef-48S">
                         <rect key="frame" x="0.0" y="0.0" width="207" height="207"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -219,6 +219,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Add Photo">
                                     <color key="baseForegroundColor" systemColor="systemPinkColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="didPressAddPhotoButton:" destination="ik7-YB-ZIy" eventType="touchUpInside" id="Fuf-dV-SSH"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CeG-pI-GeP"/>
@@ -234,6 +237,9 @@
                             <constraint firstAttribute="bottom" secondItem="uHw-lL-8JU" secondAttribute="bottom" id="w6F-oX-75K"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="photoImageView" destination="uHw-lL-8JU" id="nxs-aL-HEB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oos-iK-tef" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

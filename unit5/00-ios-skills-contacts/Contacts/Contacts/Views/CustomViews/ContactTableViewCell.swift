@@ -35,7 +35,7 @@ class ContactTableViewCell: UITableViewCell {
         self.selectionStyle = .none
         
         contactImageView.image = UIImage(systemName: "person.fill")
-        contactImageView.contentMode = .scaleAspectFit
+        contactImageView.contentMode = .scaleAspectFill
         contactImageView.backgroundColor = .systemGray5
         contactImageView.tintColor = .systemGray4
         contactImageView.layer.cornerRadius = contactImageView.frame.height / 2

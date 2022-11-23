@@ -13,6 +13,7 @@
 		320C9FCE292E7A2F00938972 /* ContactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320C9FCD292E7A2F00938972 /* ContactListViewController.swift */; };
 		320C9FD0292E7FFD00938972 /* ContactDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320C9FCF292E7FFD00938972 /* ContactDetailViewController.swift */; };
 		32A1E00D292E86240071AE0E /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A1E00C292E86240071AE0E /* UIViewControllerExtension.swift */; };
+		32A1E00F292EA0240071AE0E /* PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A1E00E292EA0240071AE0E /* PhotoPickerViewController.swift */; };
 		32C1444F292D9E5600CAD5E6 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C1444E292D9E5600CAD5E6 /* Contact.swift */; };
 		32DC1204292D2F3200469AB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DC1203292D2F3200469AB3 /* AppDelegate.swift */; };
 		32DC1206292D2F3200469AB3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DC1205292D2F3200469AB3 /* SceneDelegate.swift */; };
@@ -29,6 +30,7 @@
 		320C9FCD292E7A2F00938972 /* ContactListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListViewController.swift; sourceTree = "<group>"; };
 		320C9FCF292E7FFD00938972 /* ContactDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailViewController.swift; sourceTree = "<group>"; };
 		32A1E00C292E86240071AE0E /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		32A1E00E292EA0240071AE0E /* PhotoPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.swift; sourceTree = "<group>"; };
 		32C1444E292D9E5600CAD5E6 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		32DC1200292D2F3200469AB3 /* Contacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32DC1203292D2F3200469AB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			children = (
 				320C9FCD292E7A2F00938972 /* ContactListViewController.swift */,
 				320C9FCF292E7FFD00938972 /* ContactDetailViewController.swift */,
+				32A1E00E292EA0240071AE0E /* PhotoPickerViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				32A1E00D292E86240071AE0E /* UIViewControllerExtension.swift in Sources */,
 				320C9FC2292E6B7C00938972 /* ContactController.swift in Sources */,
 				320C9FCA292E77BC00938972 /* ContactTableViewCell.swift in Sources */,
+				32A1E00F292EA0240071AE0E /* PhotoPickerViewController.swift in Sources */,
 				32DC1204292D2F3200469AB3 /* AppDelegate.swift in Sources */,
 				320C9FCE292E7A2F00938972 /* ContactListViewController.swift in Sources */,
 				320C9FD0292E7FFD00938972 /* ContactDetailViewController.swift in Sources */,
