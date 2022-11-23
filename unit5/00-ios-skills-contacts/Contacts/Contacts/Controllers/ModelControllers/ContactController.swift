@@ -47,7 +47,19 @@ class ContactController {
     
     func createContact(name: String, phone: String?, email: String?, photo: UIImage?, completion: @escaping (Error?) -> Void) {
         let contact = Contact(name: name, phone: phone, email: email, photo: photo)
-//        let record = CKRecord()
+        let record = CKRecord(contact: contact)
+        
+        privateDB.save(record) { record, error in
+            if let error = error {
+                return completion(error)
+            }
+            
+            if let record = record {
+                guard let contact = Contact(ckRecord: record) else { return completion(nil) }
+                self.contacts.append(contact)
+                return completion(nil)
+            }
+        }
     }
     
     func delete(_ contact: Contact, completion: @escaping (Error?) -> Void) {
