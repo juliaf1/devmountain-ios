@@ -96,10 +96,10 @@
             </objects>
             <point key="canvasLocation" x="678" y="66"/>
         </scene>
-        <!--View Controller-->
+        <!--Contact Detail View Controller-->
         <scene sceneID="afh-5A-hRb">
             <objects>
-                <viewController id="hzm-sv-FAE" sceneMemberID="viewController">
+                <viewController id="hzm-sv-FAE" customClass="ContactDetailViewController" customModule="Contacts" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ztT-tX-kon">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -148,6 +148,9 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Save"/>
+                                <connections>
+                                    <action selector="didPressSaveContactButton:" destination="hzm-sv-FAE" eventType="touchUpInside" id="IGR-Du-6uF"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xUd-K9-Iuf"/>
@@ -164,6 +167,13 @@
                             <constraint firstItem="Pic-d9-p20" firstAttribute="top" secondItem="xUd-K9-Iuf" secondAttribute="top" constant="40" id="kUb-Pk-RKC"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="contactEmailTextField" destination="tQl-2d-Cas" id="TEs-o2-m0o"/>
+                        <outlet property="contactNameTextField" destination="eX9-hb-VDu" id="28L-e6-YF0"/>
+                        <outlet property="contactPhoneTextField" destination="Zrv-6t-ApS" id="ufb-Ex-aNy"/>
+                        <outlet property="imageContainerView" destination="Pic-d9-p20" id="coQ-Hw-o7Y"/>
+                        <outlet property="saveContactButton" destination="yXu-5R-bHs" id="fwf-T7-2yn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eS9-o2-Dys" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
