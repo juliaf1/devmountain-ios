@@ -30,6 +30,8 @@ class Post {
         }
     }
     
+    // MARK: - Initializer
+    
     init(photo: UIImage, caption: String, comments: [Comment], timestamp: Date = Date()) {
         self.caption = caption
         self.comments = comments
