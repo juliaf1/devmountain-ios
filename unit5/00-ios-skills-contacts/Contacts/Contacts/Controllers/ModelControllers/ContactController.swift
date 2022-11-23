@@ -14,7 +14,7 @@ class ContactController {
     
     static let shared = ContactController()
     
-    var contacts: [Contact] = []
+    var contacts: [Contact] = [Contact(name: "Julia", phone: "219945706457", email: nil, photo: nil)] // remove mock data!
     
     let privateDB = CKContainer.default().privateCloudDatabase
     

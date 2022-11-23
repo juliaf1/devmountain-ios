@@ -32,6 +32,8 @@ class ContactTableViewCell: UITableViewCell {
     // MARK: - Helpers
     
     func setupViews() {
+        self.selectionStyle = .none
+        
         contactImageView.image = UIImage(systemName: "person.fill")
         contactImageView.contentMode = .scaleAspectFit
         contactImageView.backgroundColor = .systemGray5
@@ -45,7 +47,7 @@ class ContactTableViewCell: UITableViewCell {
             return
         }
 
-        contactImageView.image = contact.photo
+        contactImageView.image = contact.photo ?? UIImage(systemName: "person.fill")
         contactNameLabel.text = contact.name
         
         if let phone = contact.phone {
