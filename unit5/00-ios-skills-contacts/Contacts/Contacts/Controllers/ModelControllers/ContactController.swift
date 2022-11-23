@@ -24,7 +24,7 @@ class ContactController {
     
     // MARK: - Helpers Methods
     
-    func fetchContacts(completion: @escaping (Error?) -> Void) {
+    func fetchContacts(completion: @escaping (ContactError?) -> Void) {
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: ContactKeys.recordType, predicate: predicate)
         
@@ -40,22 +40,22 @@ class ContactController {
 
                 return completion(nil)
             case .failure(let error):
-                return completion(error)
+                return completion(.thrownError(error))
             }
         }
     }
     
-    func createContact(name: String, phone: String?, email: String?, photo: UIImage?, completion: @escaping (Error?) -> Void) {
+    func createContact(name: String, phone: String?, email: String?, photo: UIImage?, completion: @escaping (ContactError?) -> Void) {
         let contact = Contact(name: name, phone: phone, email: email, photo: photo)
         let record = CKRecord(contact: contact)
         
         privateDB.save(record) { record, error in
             if let error = error {
-                return completion(error)
+                return completion(.thrownError(error))
             }
             
             if let record = record {
-                guard let contact = Contact(ckRecord: record) else { return completion(nil) }
+                guard let contact = Contact(ckRecord: record) else { return completion(.saveError) }
                 self.contacts.append(contact)
                 return completion(nil)
             }
