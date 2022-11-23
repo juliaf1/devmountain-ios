@@ -27,12 +27,8 @@ class ContactListViewController: UIViewController {
         setupViews()
         configureTableView()
         loadData()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         
-        tableView.reloadData()
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadView), name: contactsSetNotificationName, object: nil)
     }
     
     // MARK: - Helpers
@@ -59,9 +55,13 @@ class ContactListViewController: UIViewController {
         DispatchQueue.main.async {
             if let error = error {
                 self.presentErrorToUser(error)
-            } else {
-                self.tableView.reloadData()
             }
+        }
+    }
+    
+    @objc func reloadView() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
         }
     }
     

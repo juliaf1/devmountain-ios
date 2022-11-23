@@ -8,13 +8,19 @@
 import CloudKit
 import UIKit
 
+let contactsSetNotificationName = Notification.Name("contactsWereSet")
+
 class ContactController {
     
     // MARK: - Properties
     
     static let shared = ContactController()
     
-    var contacts: [Contact] = []
+    var contacts: [Contact] = [] {
+        didSet {
+            NotificationCenter.default.post(name: contactsSetNotificationName, object: self)
+        }
+    }
     
     let privateDB = CKContainer.default().privateCloudDatabase
     
@@ -28,16 +34,19 @@ class ContactController {
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: ContactKeys.recordType, predicate: predicate)
         
+        var fetchContacts: [Contact] = []
+        
         privateDB.fetch(withQuery: query) { result in
             switch result {
             case .success(let successResult):
                 successResult.matchResults.forEach { matchTuple in
                     if case .success(let record) = matchTuple.1 {
                         guard let contact = Contact(ckRecord: record) else { return }
-                        self.contacts.append(contact)
+                        fetchContacts.append(contact)
                     }
                 }
 
+                self.contacts = fetchContacts
                 return completion(nil)
             case .failure(let error):
                 return completion(.thrownError(error))
