@@ -12,6 +12,7 @@ class ContactDetailViewController: UIViewController {
     // MARK: - Properties
     
     var contact: Contact?
+    var profilePhoto: UIImage?
     
     // MARK: - Outlets
     
@@ -45,12 +46,12 @@ class ContactDetailViewController: UIViewController {
         
         if let contact = contact {
             Task {
-                await ContactController.shared.update(contact, name: name, phone: phone, email: email, photo: nil) { error in
+                await ContactController.shared.update(contact, name: name, phone: phone, email: email, photo: profilePhoto) { error in
                     self.handleResponse(error: error)
                 }
             }
         } else {
-            ContactController.shared.createContact(name: name, phone: phone, email: email, photo: nil) { error in
+            ContactController.shared.createContact(name: name, phone: phone, email: email, photo: profilePhoto) { error in
                 self.handleResponse(error: error)
             }
         }
@@ -86,5 +87,22 @@ class ContactDetailViewController: UIViewController {
             }
         }
     }
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toPhotoPicker",
+           let destination = segue.destination as? PhotoPickerViewController {
+            destination.delegate = self
+        }
+    }
 
+}
+
+extension ContactDetailViewController: PhotoPickerDelegate {
+    
+    func didSelectPhoto(image: UIImage) {
+        self.profilePhoto = image
+    }
+    
 }

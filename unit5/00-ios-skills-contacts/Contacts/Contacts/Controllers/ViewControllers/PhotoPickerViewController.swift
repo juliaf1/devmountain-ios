@@ -7,11 +7,17 @@
 
 import UIKit
 
+protocol PhotoPickerDelegate: AnyObject {
+    func didSelectPhoto(image: UIImage)
+}
+
 class PhotoPickerViewController: UIViewController {
     
     // MARK: - Properties
     
     let imagePicker = UIImagePickerController()
+    
+    var delegate: PhotoPickerDelegate?
     
     // MARK: - Outlets
     
@@ -83,10 +89,8 @@ class PhotoPickerViewController: UIViewController {
 extension PhotoPickerViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
-    
         if let image = info[.originalImage] as? UIImage {
-            //delegate?.didSelectPhotoPicker(image: image)
+            delegate?.didSelectPhoto(image: image)
             photoImageView.image = image
         }
 

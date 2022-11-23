@@ -38,7 +38,7 @@ class ContactTableViewCell: UITableViewCell {
         contactImageView.contentMode = .scaleAspectFill
         contactImageView.backgroundColor = .systemGray5
         contactImageView.tintColor = .systemGray4
-        contactImageView.layer.cornerRadius = contactImageView.frame.height / 2
+        contactImageView.layer.cornerRadius = contactImageView.frame.height / 2.5
         contactImageView.clipsToBounds = true
     }
     

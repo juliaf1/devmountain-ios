@@ -113,7 +113,7 @@
                                     <constraint firstAttribute="width" secondItem="Pic-d9-p20" secondAttribute="height" multiplier="1:1" id="nGd-gm-s2W"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="ik7-YB-ZIy" kind="embed" id="KTB-M2-QAC"/>
+                                    <segue destination="ik7-YB-ZIy" kind="embed" identifier="toPhotoPicker" id="KTB-M2-QAC"/>
                                 </connections>
                             </containerView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="bUf-ZO-Haj">
