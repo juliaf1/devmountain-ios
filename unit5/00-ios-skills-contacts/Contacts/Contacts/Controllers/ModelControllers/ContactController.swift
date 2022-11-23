@@ -82,8 +82,28 @@ class ContactController {
         privateDB.add(operation)
     }
     
-    func update(_ contact: Contact, name: String, phone: String?, email: String?, photo: UIImage?, completion: @escaping (Error?) -> Void) {
+    func update(_ contact: Contact, name: String, phone: String?, email: String?, photo: UIImage?, completion: @escaping (ContactError?) -> Void) {
+        contact.name = name
+        contact.phone = phone
+        contact.email = email
+        contact.photo = photo
         
+        let record = CKRecord(contact: contact) // creates a new ck record with a new record id? how does CK know its the same record that needs to update?
+        
+        let operation = CKModifyRecordsOperation(recordsToSave: [record], recordIDsToDelete: nil)
+        operation.savePolicy = .changedKeys
+        operation.qualityOfService = .userInteractive
+        
+        operation.modifyRecordsResultBlock = { result in
+            switch result {
+            case .success:
+                return completion(nil)
+            case .failure(let error):
+                return completion(.thrownError(error))
+            }
+        }
+        
+        privateDB.add(operation)
     }
     
     
