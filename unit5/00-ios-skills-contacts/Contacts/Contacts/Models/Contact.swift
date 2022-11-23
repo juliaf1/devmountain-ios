@@ -11,6 +11,7 @@ import UIKit
 struct ContactKeys {
     
     static let recordType = "Contact"
+    static let recordID = "recordID"
     fileprivate static let name = "name"
     fileprivate static let phone = "phone"
     fileprivate static let email = "email"
@@ -101,6 +102,24 @@ extension CKRecord {
     
     convenience init(contact: Contact) {
         self.init(recordType: ContactKeys.recordType)
+        
+        self.setValue(contact.name, forKey: ContactKeys.name)
+        
+        if let phone = contact.phone {
+            self.setValue(phone, forKey: ContactKeys.phone)
+        }
+        
+        if let email = contact.email {
+            self.setValue(email, forKey: ContactKeys.email)
+        }
+        
+        if let photoAsset = contact.photoAsset {
+            self.setValue(photoAsset, forKey: ContactKeys.photoAsset)
+        }
+    }
+    
+    func updateContactValues(contact: Contact) {
+        guard self.recordType == ContactKeys.recordType else { return }
         
         self.setValue(contact.name, forKey: ContactKeys.name)
         

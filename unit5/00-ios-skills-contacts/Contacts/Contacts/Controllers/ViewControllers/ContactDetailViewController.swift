@@ -44,8 +44,10 @@ class ContactDetailViewController: UIViewController {
         let email = contactEmailTextField.text
         
         if let contact = contact {
-            ContactController.shared.update(contact, name: name, phone: phone, email: email, photo: nil) { error in
-                self.handleResponse(error: error)
+            Task {
+                await ContactController.shared.update(contact, name: name, phone: phone, email: email, photo: nil) { error in
+                    self.handleResponse(error: error)
+                }
             }
         } else {
             ContactController.shared.createContact(name: name, phone: phone, email: email, photo: nil) { error in

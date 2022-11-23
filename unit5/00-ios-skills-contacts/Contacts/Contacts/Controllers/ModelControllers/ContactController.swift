@@ -64,11 +64,11 @@ class ContactController {
             }
             
             guard let record = record,
-                  let contact = Contact(ckRecord: record) else {
+                  let savedContact = Contact(ckRecord: record) else {
                 return completion(.notFoundError)
             }
             
-            self.contacts.append(contact)
+            self.contacts.append(savedContact)
             return completion(nil)
         }
     }
@@ -93,13 +93,38 @@ class ContactController {
         privateDB.add(operation)
     }
     
-    func update(_ contact: Contact, name: String, phone: String?, email: String?, photo: UIImage?, completion: @escaping (ContactError?) -> Void) {
+    func fetchRecord(with recordID: CKRecord.ID) async -> CKRecord? {
+        let predicate = NSPredicate(format: "%K == %@", argumentArray: [ContactKeys.recordID, recordID])
+        let query = CKQuery(recordType: ContactKeys.recordType, predicate: predicate)
+        
+        return await withCheckedContinuation { continuation in
+            privateDB.fetch(withQuery: query) { result in
+                switch result {
+                case .success(let successResult):
+                    let recordResult = successResult.matchResults.filter { $0.0 == recordID }
+                    
+                    if case .success(let record) = recordResult.first?.1 {
+                        return continuation.resume(returning: record)
+                    }
+                case .failure:
+                    return continuation.resume(returning: nil)
+                }
+            }
+        }
+    }
+    
+    func update(_ contact: Contact, name: String, phone: String?, email: String?, photo: UIImage?, completion: @escaping (ContactError?) -> Void) async {
+        let record = await fetchRecord(with: contact.recordID)
+        guard let record = record else {
+            return completion(.notFoundError)
+        }
+        
         contact.name = name
         contact.phone = phone
         contact.email = email
         contact.photo = photo
         
-        let record = CKRecord(contact: contact) // creates a new ck record with a new record id? how does CK know its the same record that needs to update?
+        record.updateContactValues(contact: contact)
         
         let operation = CKModifyRecordsOperation(recordsToSave: [record], recordIDsToDelete: nil)
         operation.savePolicy = .changedKeys
@@ -114,8 +139,7 @@ class ContactController {
             }
         }
         
-        privateDB.add(operation)
+        self.privateDB.add(operation)
     }
-    
-    
+
 }
