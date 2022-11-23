@@ -26,6 +26,13 @@ class ContactListViewController: UIViewController {
         
         setupViews()
         configureTableView()
+        loadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
     }
     
     // MARK: - Helpers
@@ -40,6 +47,22 @@ class ContactListViewController: UIViewController {
     func configureTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    func loadData() {
+        controller.fetchContacts { error in
+            self.handleResponse(error: error)
+        }
+    }
+    
+    func handleResponse(error: ContactError?) {
+        DispatchQueue.main.async {
+            if let error = error {
+                self.presentErrorToUser(error)
+            } else {
+                self.tableView.reloadData()
+            }
+        }
     }
     
     // MARK: - Navigation
