@@ -64,6 +64,10 @@ class Contact {
         self.photo = photo
     }
     
+}
+
+extension Contact {
+
     convenience init?(ckRecord: CKRecord) {
         guard let name = ckRecord[ContactKeys.name] as? String else { return nil }
         
@@ -81,6 +85,28 @@ class Contact {
         let email = ckRecord[ContactKeys.email] as? String
         
         self.init(name: name, phone: phone, email: email, photo: photo, recordID: ckRecord.recordID)
+    }
+
+}
+
+extension CKRecord {
+    
+    convenience init(contact: Contact) {
+        self.init(recordType: ContactKeys.recordType)
+        
+        self.setValue(contact.name, forKey: ContactKeys.name)
+        
+        if let phone = contact.phone {
+            self.setValue(phone, forKey: ContactKeys.phone)
+        }
+        
+        if let email = contact.email {
+            self.setValue(email, forKey: ContactKeys.email)
+        }
+        
+        if let photoAsset = contact.photoAsset {
+            self.setValue(photoAsset, forKey: ContactKeys.photoAsset)
+        }
     }
     
 }
