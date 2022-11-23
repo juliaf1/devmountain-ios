@@ -40,8 +40,8 @@ class ContactDetailViewController: UIViewController {
         
         saveContactButton.isEnabled = false
         
-        let phone = contactPhoneTextField.text
-        let email = contactEmailTextField.text
+        let phone = contactPhoneTextField.text?.isEmpty ?? true ? nil : contactPhoneTextField.text
+        let email = contactEmailTextField.text?.isEmpty ?? true ? nil : contactEmailTextField.text
         
         if let contact = contact {
             Task {
