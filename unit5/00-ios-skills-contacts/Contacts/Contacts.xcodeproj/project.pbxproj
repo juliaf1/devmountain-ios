@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		320C9FC2292E6B7C00938972 /* ContactController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320C9FC1292E6B7C00938972 /* ContactController.swift */; };
 		320C9FC7292E714E00938972 /* ContactError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320C9FC6292E714E00938972 /* ContactError.swift */; };
+		320C9FCA292E77BC00938972 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320C9FC9292E77BC00938972 /* ContactTableViewCell.swift */; };
 		32C1444F292D9E5600CAD5E6 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C1444E292D9E5600CAD5E6 /* Contact.swift */; };
 		32DC1204292D2F3200469AB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DC1203292D2F3200469AB3 /* AppDelegate.swift */; };
 		32DC1206292D2F3200469AB3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DC1205292D2F3200469AB3 /* SceneDelegate.swift */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		320C9FC1292E6B7C00938972 /* ContactController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactController.swift; sourceTree = "<group>"; };
 		320C9FC6292E714E00938972 /* ContactError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactError.swift; sourceTree = "<group>"; };
+		320C9FC9292E77BC00938972 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		32C1444E292D9E5600CAD5E6 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		32DC1200292D2F3200469AB3 /* Contacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32DC1203292D2F3200469AB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +55,14 @@
 				320C9FC6292E714E00938972 /* ContactError.swift */,
 			);
 			path = "Helpers+Resources";
+			sourceTree = "<group>";
+		};
+		320C9FC8292E77A100938972 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				320C9FC9292E77BC00938972 /* ContactTableViewCell.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		32DC11F7292D2F3200469AB3 = {
@@ -88,6 +98,7 @@
 		32DC1217292D2F4A00469AB3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				320C9FC8292E77A100938972 /* CustomViews */,
 				32DC1209292D2F3200469AB3 /* Main.storyboard */,
 				32DC120E292D2F3300469AB3 /* LaunchScreen.storyboard */,
 			);
@@ -221,6 +232,7 @@
 				320C9FC7292E714E00938972 /* ContactError.swift in Sources */,
 				32DC1208292D2F3200469AB3 /* ViewController.swift in Sources */,
 				320C9FC2292E6B7C00938972 /* ContactController.swift in Sources */,
+				320C9FCA292E77BC00938972 /* ContactTableViewCell.swift in Sources */,
 				32DC1204292D2F3200469AB3 /* AppDelegate.swift in Sources */,
 				32DC1206292D2F3200469AB3 /* SceneDelegate.swift in Sources */,
 			);
