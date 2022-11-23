@@ -27,6 +27,7 @@ class ContactDetailViewController: UIViewController {
         super.viewDidLoad()
         
         setupViews()
+        updateViews()
     }
     
     // MARK: - Actions
@@ -46,6 +47,16 @@ class ContactDetailViewController: UIViewController {
         imageContainerView.clipsToBounds = true
         saveContactButton.layer.cornerRadius = 4
         saveContactButton.clipsToBounds = true
+    }
+    
+    func updateViews() {
+        guard let contact = contact else {
+            return
+        }
+
+        contactNameTextField.text = contact.name
+        contactPhoneTextField.text = contact.phone
+        contactEmailTextField.text = contact.email
     }
 
 }

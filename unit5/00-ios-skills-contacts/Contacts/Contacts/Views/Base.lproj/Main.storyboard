@@ -67,6 +67,7 @@
                                             <outlet property="contactDetailLabel" destination="9j4-CA-Byy" id="eIy-ba-w8Q"/>
                                             <outlet property="contactImageView" destination="4Pe-Da-8b3" id="swv-bi-jGO"/>
                                             <outlet property="contactNameLabel" destination="yuD-3b-1xZ" id="b91-CE-ipf"/>
+                                            <segue destination="hzm-sv-FAE" kind="showDetail" identifier="toDetailVC" id="TdU-kX-AgZ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -169,7 +170,7 @@
                     </view>
                     <connections>
                         <outlet property="contactEmailTextField" destination="tQl-2d-Cas" id="TEs-o2-m0o"/>
-                        <outlet property="contactNameTextField" destination="eX9-hb-VDu" id="28L-e6-YF0"/>
+                        <outlet property="contactNameTextField" destination="eX9-hb-VDu" id="BNb-zH-e3N"/>
                         <outlet property="contactPhoneTextField" destination="Zrv-6t-ApS" id="ufb-Ex-aNy"/>
                         <outlet property="imageContainerView" destination="Pic-d9-p20" id="coQ-Hw-o7Y"/>
                         <outlet property="saveContactButton" destination="yXu-5R-bHs" id="fwf-T7-2yn"/>
@@ -217,6 +218,7 @@
                                 </buttonConfiguration>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="CeG-pI-GeP"/>
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="uHw-lL-8JU" secondAttribute="trailing" id="2iH-j0-6T3"/>
@@ -235,6 +237,9 @@
             <point key="canvasLocation" x="2241" y="-171"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="TdU-kX-AgZ"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <systemColor name="systemGray4Color">

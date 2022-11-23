@@ -45,6 +45,12 @@ class ContactListViewController: UIViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetailVC",
+           let destination = segue.destination as? ContactDetailViewController,
+           let indexPath = tableView.indexPathForSelectedRow {
+            let contact = contacts[indexPath.row]
+            destination.contact = contact
+        }
     }
 
 }
