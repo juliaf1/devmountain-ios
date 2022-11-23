@@ -97,4 +97,19 @@ extension ContactListViewController: UITableViewDelegate, UITableViewDataSource 
         return 112
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let contact = contacts[indexPath.row]
+            controller.delete(contact) { error in
+                DispatchQueue.main.async {
+                    if let error = error {
+                        self.presentErrorToUser(error)
+                    } else {
+                        self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                    }
+                }
+            }
+        }
+    }
+    
 }

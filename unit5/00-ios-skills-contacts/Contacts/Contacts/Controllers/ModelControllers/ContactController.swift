@@ -18,7 +18,10 @@ class ContactController {
     
     var contacts: [Contact] = [] {
         didSet {
-            NotificationCenter.default.post(name: contactsSetNotificationName, object: self)
+            if oldValue.count < contacts.count {
+                // adding a new contact
+                NotificationCenter.default.post(name: contactsSetNotificationName, object: self)
+            }
         }
     }
     
@@ -133,6 +136,7 @@ class ContactController {
         operation.modifyRecordsResultBlock = { result in
             switch result {
             case .success:
+                NotificationCenter.default.post(name: contactsSetNotificationName, object: self)
                 return completion(nil)
             case .failure(let error):
                 return completion(.thrownError(error))
