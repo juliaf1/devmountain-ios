@@ -62,8 +62,24 @@ class ContactController {
         }
     }
     
-    func delete(_ contact: Contact, completion: @escaping (Error?) -> Void) {
+    func delete(_ contact: Contact, completion: @escaping (ContactError?) -> Void) {
+        guard let index = contacts.firstIndex(of: contact) else { return completion(.notFoundError) }
         
+        let operation = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: [contact.recordID])
+        operation.savePolicy = .changedKeys
+        operation.qualityOfService = .userInteractive
+        
+        operation.modifyRecordsResultBlock = { result in
+            switch result {
+            case .success:
+                self.contacts.remove(at: index)
+                return completion(nil)
+            case .failure(let error):
+                return completion(.thrownError(error))
+            }
+        }
+        
+        privateDB.add(operation)
     }
     
     func update(_ contact: Contact, name: String, phone: String?, email: String?, photo: UIImage?, completion: @escaping (Error?) -> Void) {

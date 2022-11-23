@@ -66,6 +66,14 @@ class Contact {
     
 }
 
+extension Contact: Equatable {
+    
+    static func ==(lhs: Contact, rhs: Contact) -> Bool {
+        return lhs.recordID == rhs.recordID
+    }
+    
+}
+
 extension Contact {
 
     convenience init?(ckRecord: CKRecord) {
