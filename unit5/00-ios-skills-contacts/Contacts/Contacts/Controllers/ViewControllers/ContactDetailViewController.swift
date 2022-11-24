@@ -12,6 +12,7 @@ class ContactDetailViewController: UIViewController {
     // MARK: - Properties
     
     var contact: Contact?
+
     var profilePhoto: UIImage?
     
     // MARK: - Outlets
@@ -94,6 +95,7 @@ class ContactDetailViewController: UIViewController {
         if segue.identifier == "toPhotoPicker",
            let destination = segue.destination as? PhotoPickerViewController {
             destination.delegate = self
+            destination.contactPhoto = contact?.photo
         }
     }
 

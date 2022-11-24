@@ -17,6 +17,7 @@ class PhotoPickerViewController: UIViewController {
     
     let imagePicker = UIImagePickerController()
     
+    var contactPhoto: UIImage?
     var delegate: PhotoPickerDelegate?
     
     // MARK: - Outlets
@@ -42,6 +43,7 @@ class PhotoPickerViewController: UIViewController {
     func setupViews() {
         imagePicker.delegate = self
         photoImageView.contentMode = .scaleAspectFill
+        photoImageView.image = contactPhoto
     }
     
     func presentPhotoPickerAlert() {
