@@ -19,6 +19,12 @@ class PostTableViewCell: UITableViewCell {
 
     // MARK: - Properties
     
+    var post: Post? {
+        didSet {
+            updateViews()
+        }
+    }
+    
     // MARK: - Lifecycle
     
     // MARK: - Actions
@@ -36,5 +42,14 @@ class PostTableViewCell: UITableViewCell {
     }
 
     // MARK: - Helpers
+    
+    func updateViews() {
+        guard let post = post else { return }
+        let commentCount = post.comments.count
+        
+        postImageView.image = post.photo
+        captionLabel.text = post.caption
+        commentsLabel.text = commentCount == 0 ? "No comments yet" : "\(commentCount) comments"
+    }
     
 }
