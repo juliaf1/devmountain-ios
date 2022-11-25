@@ -11,7 +11,7 @@ class PostController {
     
     // MARK: - Properties
     
-    let shared = PostController()
+    static let shared = PostController()
     
     var posts: [Post] = []
     

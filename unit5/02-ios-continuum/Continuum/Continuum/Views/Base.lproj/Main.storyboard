@@ -150,7 +150,7 @@
                                     <outlet property="likeButton" destination="tPh-eq-W1T" id="Kyo-af-nLF"/>
                                     <outlet property="postImageView" destination="VUh-qp-tjq" id="IRI-bP-XVV"/>
                                     <outlet property="shareButton" destination="e5k-wR-dJf" id="ga5-Ge-tge"/>
-                                    <segue destination="WAr-jp-mPI" kind="showDetail" id="lcw-66-rC7"/>
+                                    <segue destination="WAr-jp-mPI" kind="showDetail" identifier="toPostDetail" id="lcw-66-rC7"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
