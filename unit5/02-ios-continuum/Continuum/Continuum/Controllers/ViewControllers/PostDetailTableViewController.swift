@@ -102,15 +102,15 @@ class PostDetailTableViewController: UITableViewController {
         return nil
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch PostDetailSection(rawValue: indexPath.section) {
-        case .postSection:
-            return 395
-        case .commentsSection:
-            return 60
-        case .none:
-            return 0
-        }
-    }
+//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        switch PostDetailSection(rawValue: indexPath.section) {
+//        case .postSection:
+//            return 395
+//        case .commentsSection:
+//            return 60
+//        case .none:
+//            return 0
+//        }
+//    }
 
 }
