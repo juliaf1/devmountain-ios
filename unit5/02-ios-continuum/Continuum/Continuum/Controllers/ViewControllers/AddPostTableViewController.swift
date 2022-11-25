@@ -11,7 +11,11 @@ class AddPostTableViewController: UITableViewController {
     
     // MARK: - Properties
     
-    var postPhoto: UIImage?
+    var postPhoto: UIImage? {
+        didSet {
+            postImageView.image = postPhoto
+        }
+    }
     
     // MARK: - Outlets
     
@@ -23,6 +27,12 @@ class AddPostTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        resetViews()
     }
     
     // MARK: - Actions
@@ -57,6 +67,13 @@ class AddPostTableViewController: UITableViewController {
                 }
             }
         }
+    }
+    
+    func resetViews() {
+        postPhoto = nil
+        postImageView.image = nil
+        uploadPhotoButton.setImage(UIImage(systemName: "camera.fill"), for: .normal)
+        captionTextField.text = ""
     }
 
 }
