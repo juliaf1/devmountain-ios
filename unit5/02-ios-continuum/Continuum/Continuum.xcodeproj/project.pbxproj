@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3263FB8229303A79008B94F2 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3263FB8129303A79008B94F2 /* PostTableViewCell.swift */; };
 		32A1E011292EC1740071AE0E /* PostListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A1E010292EC1740071AE0E /* PostListTableViewController.swift */; };
 		32A1E013292EC23C0071AE0E /* PostDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A1E012292EC23C0071AE0E /* PostDetailTableViewController.swift */; };
 		32A1E015292EC2A40071AE0E /* AddPostTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A1E014292EC2A40071AE0E /* AddPostTableViewController.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3263FB8129303A79008B94F2 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		32A1E010292EC1740071AE0E /* PostListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListTableViewController.swift; sourceTree = "<group>"; };
 		32A1E012292EC23C0071AE0E /* PostDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailTableViewController.swift; sourceTree = "<group>"; };
 		32A1E014292EC2A40071AE0E /* AddPostTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostTableViewController.swift; sourceTree = "<group>"; };
@@ -53,6 +55,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3263FB8029303A64008B94F2 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				3263FB8129303A79008B94F2 /* PostTableViewCell.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
 		32CE606F292D2CF400688B6C = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +96,7 @@
 		32CE608F292D2CFC00688B6C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3263FB8029303A64008B94F2 /* CustomViews */,
 				32CE6081292D2CF400688B6C /* Main.storyboard */,
 				32CE6086292D2CF500688B6C /* LaunchScreen.storyboard */,
 			);
@@ -233,6 +244,7 @@
 				32CE607C292D2CF400688B6C /* AppDelegate.swift in Sources */,
 				32A1E01B292EC7390071AE0E /* PostController.swift in Sources */,
 				32CE607E292D2CF400688B6C /* SceneDelegate.swift in Sources */,
+				3263FB8229303A79008B94F2 /* PostTableViewCell.swift in Sources */,
 				32A1E019292EC6DB0071AE0E /* Comment.swift in Sources */,
 				32A1E013292EC23C0071AE0E /* PostDetailTableViewController.swift in Sources */,
 			);
