@@ -32,6 +32,16 @@ class AddPostTableViewController: UITableViewController {
     }
     
     @IBAction func didPressAddPostButton(_ sender: UIButton) {
+        createPost()
+    }
+
+    @IBAction func didPressCancelButton(_ sender: UIBarButtonItem) {
+        self.tabBarController?.selectedIndex = NavigationBar.postList.rawValue
+    }
+
+    // MARK: - Helpers
+    
+    func createPost() {
         guard let photo = postPhoto,
               let caption = captionTextField.text,
               !caption.isEmpty else { return }
@@ -48,7 +58,5 @@ class AddPostTableViewController: UITableViewController {
             }
         }
     }
-
-    // MARK: - Helpers
 
 }

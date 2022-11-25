@@ -142,7 +142,14 @@
                             <outlet property="delegate" destination="3VF-hd-BGd" id="r2M-dS-FuK"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="3Cv-lP-qbq"/>
+                    <navigationItem key="navigationItem" id="3Cv-lP-qbq">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Fr5-Br-Od8">
+                            <color key="tintColor" systemColor="systemGrayColor"/>
+                            <connections>
+                                <action selector="didPressCancelButton:" destination="3VF-hd-BGd" id="GXh-oG-hYW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="captionTextField" destination="ad2-8e-PgZ" id="mZz-O5-07O"/>
                         <outlet property="postImageView" destination="jgv-eb-xAa" id="VDr-G4-bEv"/>
