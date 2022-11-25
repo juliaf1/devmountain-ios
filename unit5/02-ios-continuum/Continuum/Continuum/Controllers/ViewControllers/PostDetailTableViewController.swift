@@ -7,6 +7,11 @@
 
 import UIKit
 
+enum PostDetailSection: Int, CaseIterable {
+    case postSection
+    case commentsSection
+}
+
 class PostDetailTableViewController: UITableViewController {
     
     // MARK: - Properties
@@ -15,26 +20,66 @@ class PostDetailTableViewController: UITableViewController {
     
     // MARK: - Outlets
     
+    @IBOutlet weak var commentTextField: UITextField!
+
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+
     // MARK: - Actions
 
+    @IBAction func didPressAddCommentButton(_ sender: UIButton) {
+    }
+
     // MARK: - Table view data source
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return nil
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return PostDetailSection.allCases.count
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        switch PostDetailSection(rawValue: section) {
+        case .postSection:
+            return 1
+        case .commentsSection:
+            return post?.comments.count ?? 0
+        case .none:
+            return 0
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        guard let post = post else {
+            return UITableViewCell()
+        }
 
-        // Configure the cell...
-
-        return cell
+        
+        switch PostDetailSection(rawValue: indexPath.section) {
+        case .postSection:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as? PostTableViewCell else {
+                return UITableViewCell()
+            }
+            
+            cell.post = post
+            return cell
+        case .commentsSection:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath)
+            
+            let comment = post.comments[indexPath.row]
+            
+            cell.textLabel?.text = comment.text
+            cell.detailTextLabel?.text = "\(comment.timestamp)"
+            
+            return cell
+        case .none:
+            return UITableViewCell()
+        }
     }
 
 }

@@ -189,51 +189,68 @@
                                     <color key="tintColor" systemColor="systemGray6Color"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" title="Add comment"/>
+                                    <connections>
+                                        <action selector="didPressAddCommentButton:" destination="WAr-jp-mPI" eventType="touchUpInside" id="Pqv-AZ-3M1"/>
+                                    </connections>
                                 </button>
                             </subviews>
                         </stackView>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" rowHeight="395" id="K2H-hB-2ab">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" rowHeight="395" id="KYw-8y-02n" customClass="PostTableViewCell" customModule="Continuum" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="395"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="K2H-hB-2ab" id="Oqp-SM-qZH">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KYw-8y-02n" id="8T7-JD-jdn">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="395"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spaceEmptyState" translatesAutoresizingMaskIntoConstraints="NO" id="kqR-Fm-EMh">
-                                            <rect key="frame" x="16.5" y="0.0" width="381" height="286"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spaceEmptyState" translatesAutoresizingMaskIntoConstraints="NO" id="lHF-y5-ADt">
+                                            <rect key="frame" x="20.5" y="0.0" width="373" height="279.5"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="kqR-Fm-EMh" secondAttribute="height" multiplier="4:3" id="tdw-cF-npM"/>
+                                                <constraint firstAttribute="width" secondItem="lHF-y5-ADt" secondAttribute="height" multiplier="4:3" id="0q7-tl-00b"/>
                                             </constraints>
                                         </imageView>
-                                        <stackView opaque="NO" contentMode="right" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="UWe-wD-9Hy">
-                                            <rect key="frame" x="16.5" y="294" width="133.5" height="31"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p4U-oB-O1d">
+                                            <rect key="frame" x="20.5" y="0.0" width="373" height="279.5"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain"/>
+                                            <connections>
+                                                <action selector="didDoubleTapPhoto:forEvent:" destination="KYw-8y-02n" eventType="touchDownRepeat" id="T2L-aQ-2E3"/>
+                                            </connections>
+                                        </button>
+                                        <stackView opaque="NO" contentMode="right" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="iSK-v0-Bq5">
+                                            <rect key="frame" x="10.5" y="287.5" width="133.5" height="31"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W2C-5k-Lew">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dUa-nt-LzW">
                                                     <rect key="frame" x="0.0" y="0.0" width="45.5" height="31"/>
                                                     <color key="tintColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="0.63486708599999997" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system" title=""/>
+                                                    <connections>
+                                                        <action selector="didPressLikeButton:" destination="KYw-8y-02n" eventType="touchUpInside" id="IRq-qb-EPh"/>
+                                                    </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c3Y-Cz-cg0">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5fa-Fl-fG2">
                                                     <rect key="frame" x="49.5" y="0.0" width="84" height="31"/>
                                                     <color key="tintColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="0.63486708599999997" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="paperplane.fill" catalog="system" title="Share"/>
+                                                    <connections>
+                                                        <action selector="didPressShareButton:" destination="KYw-8y-02n" eventType="touchUpInside" id="49A-DF-XqJ"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="GDI-Zg-xpr">
-                                            <rect key="frame" x="16.5" y="333" width="381" height="49"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="QDP-zo-CVU">
+                                            <rect key="frame" x="20.5" y="326.5" width="373" height="49"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Space lesson is the coolest" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6bE-Va-Rw5">
-                                                    <rect key="frame" x="0.0" y="0.0" width="381" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Space lesson is the coolest" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dNt-Tv-FPS">
+                                                    <rect key="frame" x="0.0" y="0.0" width="373" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13 comments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFh-SG-bbi">
-                                                    <rect key="frame" x="0.0" y="28.5" width="381" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13 comments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jlo-No-txt">
+                                                    <rect key="frame" x="0.0" y="28.5" width="373" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" systemColor="systemGrayColor"/>
                                                     <nil key="highlightedColor"/>
@@ -242,17 +259,31 @@
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="kqR-Fm-EMh" firstAttribute="top" secondItem="Oqp-SM-qZH" secondAttribute="top" id="1VE-uW-YLn"/>
-                                        <constraint firstItem="GDI-Zg-xpr" firstAttribute="trailing" secondItem="kqR-Fm-EMh" secondAttribute="trailing" id="4sT-WD-8y6"/>
-                                        <constraint firstItem="UWe-wD-9Hy" firstAttribute="leading" secondItem="kqR-Fm-EMh" secondAttribute="leading" id="KaC-kb-1KZ"/>
-                                        <constraint firstItem="UWe-wD-9Hy" firstAttribute="top" secondItem="kqR-Fm-EMh" secondAttribute="bottom" constant="8" id="Mj1-Tk-IRL"/>
-                                        <constraint firstItem="GDI-Zg-xpr" firstAttribute="leading" secondItem="kqR-Fm-EMh" secondAttribute="leading" id="MyO-fh-7vL"/>
-                                        <constraint firstItem="kqR-Fm-EMh" firstAttribute="centerX" secondItem="Oqp-SM-qZH" secondAttribute="centerX" id="fLI-Xx-CM8"/>
-                                        <constraint firstItem="kqR-Fm-EMh" firstAttribute="width" secondItem="Oqp-SM-qZH" secondAttribute="width" multiplier="0.92029" id="h9x-oU-Ll5"/>
-                                        <constraint firstItem="GDI-Zg-xpr" firstAttribute="top" secondItem="UWe-wD-9Hy" secondAttribute="bottom" constant="8" id="mMs-Rs-ASR"/>
+                                        <constraint firstItem="p4U-oB-O1d" firstAttribute="top" secondItem="lHF-y5-ADt" secondAttribute="top" id="2x7-KI-M5g"/>
+                                        <constraint firstItem="p4U-oB-O1d" firstAttribute="width" secondItem="8T7-JD-jdn" secondAttribute="width" multiplier="0.9" id="4ZY-2C-KeE"/>
+                                        <constraint firstItem="iSK-v0-Bq5" firstAttribute="top" secondItem="lHF-y5-ADt" secondAttribute="bottom" constant="8" id="61X-Qq-aaC"/>
+                                        <constraint firstItem="QDP-zo-CVU" firstAttribute="trailing" secondItem="lHF-y5-ADt" secondAttribute="trailing" id="7sH-Ro-iXK"/>
+                                        <constraint firstItem="p4U-oB-O1d" firstAttribute="top" secondItem="lHF-y5-ADt" secondAttribute="top" id="Awa-H2-PiR"/>
+                                        <constraint firstItem="p4U-oB-O1d" firstAttribute="bottom" secondItem="lHF-y5-ADt" secondAttribute="bottom" id="Dbz-6F-Lab"/>
+                                        <constraint firstItem="lHF-y5-ADt" firstAttribute="top" secondItem="8T7-JD-jdn" secondAttribute="top" id="F0G-PX-Inh"/>
+                                        <constraint firstItem="lHF-y5-ADt" firstAttribute="centerX" secondItem="8T7-JD-jdn" secondAttribute="centerX" id="KEv-41-MVa"/>
+                                        <constraint firstItem="p4U-oB-O1d" firstAttribute="bottom" secondItem="lHF-y5-ADt" secondAttribute="bottom" id="L1y-XX-neE"/>
+                                        <constraint firstItem="lHF-y5-ADt" firstAttribute="width" secondItem="8T7-JD-jdn" secondAttribute="width" multiplier="0.9" id="OPm-u2-qr1"/>
+                                        <constraint firstItem="QDP-zo-CVU" firstAttribute="leading" secondItem="lHF-y5-ADt" secondAttribute="leading" id="RKg-Vq-B8O"/>
+                                        <constraint firstItem="p4U-oB-O1d" firstAttribute="top" secondItem="8T7-JD-jdn" secondAttribute="top" id="WIa-Rx-dyv"/>
+                                        <constraint firstItem="QDP-zo-CVU" firstAttribute="top" secondItem="iSK-v0-Bq5" secondAttribute="bottom" constant="8" id="hQJ-gx-hxC"/>
+                                        <constraint firstItem="p4U-oB-O1d" firstAttribute="centerX" secondItem="8T7-JD-jdn" secondAttribute="centerX" id="k2S-7w-2Cx"/>
+                                        <constraint firstItem="iSK-v0-Bq5" firstAttribute="leading" secondItem="lHF-y5-ADt" secondAttribute="leading" multiplier="0.5" id="zaM-qD-MjT"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <connections>
+                                    <outlet property="captionLabel" destination="dNt-Tv-FPS" id="wDB-TN-qdi"/>
+                                    <outlet property="commentsLabel" destination="jlo-No-txt" id="KXC-lS-YUk"/>
+                                    <outlet property="likeButton" destination="dUa-nt-LzW" id="EyA-Xs-1Cb"/>
+                                    <outlet property="postImageView" destination="lHF-y5-ADt" id="2hy-vu-f7Y"/>
+                                    <outlet property="shareButton" destination="5fa-Fl-fG2" id="gdY-L1-g2G"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="commentCell" textLabel="DYJ-cU-tcE" detailTextLabel="g48-dM-4ey" rowHeight="67" style="IBUITableViewCellStyleSubtitle" id="Pu1-m5-zvp">
                                 <rect key="frame" x="0.0" y="439.5" width="414" height="67"/>
@@ -287,6 +318,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="lYe-Cd-0dE"/>
+                    <connections>
+                        <outlet property="commentTextField" destination="G8E-Eg-VZC" id="y7s-jc-DOv"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wl8-m4-MaR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
