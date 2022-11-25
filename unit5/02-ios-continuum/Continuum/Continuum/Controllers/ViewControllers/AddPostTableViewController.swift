@@ -38,6 +38,7 @@ class AddPostTableViewController: UITableViewController {
     // MARK: - Actions
     
     @IBAction func didPressUploadPhotoButton(_ sender: UIButton) {
+        postImageView.image = UIImage(named: "spaceEmptyState")
         uploadPhotoButton.setImage(nil, for: .normal)
     }
     

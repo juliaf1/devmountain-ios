@@ -7,13 +7,19 @@
 
 import UIKit
 
+let postsWereSetNotificationName = Notification.Name("postsWereSet")
+
 class PostController {
     
     // MARK: - Properties
     
     static let shared = PostController()
     
-    var posts: [Post] = []
+    var posts: [Post] = [] {
+        didSet {
+            NotificationCenter.default.post(name: postsWereSetNotificationName, object: self)
+        }
+    }
     
     // MARK: - Initializer
     

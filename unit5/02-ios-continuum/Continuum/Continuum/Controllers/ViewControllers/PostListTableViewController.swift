@@ -21,6 +21,14 @@ class PostListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: postsWereSetNotificationName, object: nil)
+    }
+    
+    // MARK: - Helpers
+    
+    @objc func updateViews() {
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -39,10 +47,6 @@ class PostListTableViewController: UITableViewController {
         
         return cell
     }
-    
-//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 395
-//    }
 
     // MARK: - Navigation
 
