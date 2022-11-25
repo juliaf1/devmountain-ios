@@ -11,12 +11,6 @@ class AddPostTableViewController: UITableViewController {
     
     // MARK: - Properties
     
-    var postPhoto: UIImage? {
-        didSet {
-            postImageView.image = postPhoto
-        }
-    }
-    
     // MARK: - Outlets
     
     @IBOutlet weak var postImageView: UIImageView!
@@ -37,15 +31,15 @@ class AddPostTableViewController: UITableViewController {
     
     // MARK: - Actions
     
+    @IBAction func didPressAddPostButton(_ sender: UIButton) {
+        createPost()
+    }
+
     @IBAction func didPressUploadPhotoButton(_ sender: UIButton) {
         postImageView.image = UIImage(named: "spaceEmptyState")
         uploadPhotoButton.setImage(nil, for: .normal)
     }
     
-    @IBAction func didPressAddPostButton(_ sender: UIButton) {
-        createPost()
-    }
-
     @IBAction func didPressCancelButton(_ sender: UIBarButtonItem) {
         self.tabBarController?.selectedIndex = NavigationBar.postList.rawValue
     }
@@ -53,7 +47,7 @@ class AddPostTableViewController: UITableViewController {
     // MARK: - Helpers
     
     func createPost() {
-        guard let photo = postPhoto,
+        guard let photo = postImageView.image,
               let caption = captionTextField.text,
               !caption.isEmpty else { return }
         
@@ -71,7 +65,6 @@ class AddPostTableViewController: UITableViewController {
     }
     
     func resetViews() {
-        postPhoto = nil
         postImageView.image = nil
         uploadPhotoButton.setImage(UIImage(systemName: "camera.fill"), for: .normal)
         captionTextField.text = ""

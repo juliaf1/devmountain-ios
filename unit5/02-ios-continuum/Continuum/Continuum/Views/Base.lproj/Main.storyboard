@@ -36,7 +36,7 @@
                         <sections>
                             <tableViewSection id="Tg5-xS-oQA">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="imageCell" rowHeight="207" id="tgB-9a-jx3">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="imageCell" rowHeight="207" id="tgB-9a-jx3">
                                         <rect key="frame" x="0.0" y="18" width="414" height="207"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tgB-9a-jx3" id="xuR-3F-HVn">
@@ -59,7 +59,7 @@
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="camera.fill" catalog="system"/>
                                                     <connections>
-                                                        <action selector="didPressUploadPhotoButton:" destination="lOX-lk-bBc" eventType="touchUpInside" id="t1E-ot-lvZ"/>
+                                                        <action selector="didPressUploadPhotoButton:" destination="3VF-hd-BGd" eventType="touchUpInside" id="L3X-e1-yZn"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -80,25 +80,28 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Caption your post" id="wOo-kD-YYF">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="captionCell" id="HhI-Vp-Aj9">
-                                        <rect key="frame" x="0.0" y="275" width="414" height="50.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="captionCell" id="HhI-Vp-Aj9">
+                                        <rect key="frame" x="0.0" y="275" width="414" height="56.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HhI-Vp-Aj9" id="ZgQ-Ri-TLz">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="50.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="56.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Caption" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ad2-8e-PgZ">
-                                                    <rect key="frame" x="8" y="8" width="398" height="34.5"/>
+                                                    <rect key="frame" x="8" y="8" width="398" height="40.5"/>
                                                     <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="7fa-2q-UcA"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="ad2-8e-PgZ" firstAttribute="top" secondItem="ZgQ-Ri-TLz" secondAttribute="top" constant="8" id="ag1-ZD-4UC"/>
-                                                <constraint firstItem="ad2-8e-PgZ" firstAttribute="leading" secondItem="ZgQ-Ri-TLz" secondAttribute="leading" constant="8" id="jeJ-tM-yjK"/>
-                                                <constraint firstAttribute="trailing" secondItem="ad2-8e-PgZ" secondAttribute="trailing" constant="8" id="swT-Vd-Zia"/>
-                                                <constraint firstAttribute="bottom" secondItem="ad2-8e-PgZ" secondAttribute="bottom" constant="8" id="yZg-Dh-H34"/>
+                                                <constraint firstItem="ad2-8e-PgZ" firstAttribute="top" secondItem="ZgQ-Ri-TLz" secondAttribute="top" constant="8" id="2iF-S7-qM1"/>
+                                                <constraint firstAttribute="bottom" secondItem="ad2-8e-PgZ" secondAttribute="bottom" constant="8" id="9P5-cb-TzA"/>
+                                                <constraint firstAttribute="trailing" secondItem="ad2-8e-PgZ" secondAttribute="trailing" constant="8" id="ARU-zZ-580"/>
+                                                <constraint firstItem="ad2-8e-PgZ" firstAttribute="leading" secondItem="ZgQ-Ri-TLz" secondAttribute="leading" constant="8" id="UD6-3y-Z6N"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
@@ -107,8 +110,8 @@
                             </tableViewSection>
                             <tableViewSection id="rGw-Al-cvX">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="addButtonCell" id="DJS-VS-zLd">
-                                        <rect key="frame" x="0.0" y="361.5" width="414" height="47.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="addButtonCell" id="DJS-VS-zLd">
+                                        <rect key="frame" x="0.0" y="367.5" width="414" height="47.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DJS-VS-zLd" id="tAo-OV-4o6">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="47.5"/>
@@ -121,7 +124,7 @@
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="Add Post"/>
                                                     <connections>
-                                                        <action selector="didPressAddPostButton:" destination="lOX-lk-bBc" eventType="touchUpInside" id="Aiv-s1-KBq"/>
+                                                        <action selector="didPressAddPostButton:" destination="3VF-hd-BGd" eventType="touchUpInside" id="G46-MC-2jm"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -157,7 +160,6 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VZl-Mi-oer" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="lOX-lk-bBc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1478.2608695652175" y="302.00892857142856"/>
         </scene>

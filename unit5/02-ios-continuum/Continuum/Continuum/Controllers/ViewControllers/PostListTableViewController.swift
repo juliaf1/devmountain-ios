@@ -22,6 +22,9 @@ class PostListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        tableView.rowHeight = UITableView.automaticDimension;
+//        tableView.estimatedRowHeight = 395
+        
         NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: postsWereSetNotificationName, object: nil)
     }
     
