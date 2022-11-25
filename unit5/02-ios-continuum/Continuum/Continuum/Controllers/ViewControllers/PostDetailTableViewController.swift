@@ -55,10 +55,6 @@ class PostDetailTableViewController: UITableViewController {
 
     // MARK: - Table view data source
     
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return nil
-    }
-    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return PostDetailSection.allCases.count
     }
@@ -99,6 +95,21 @@ class PostDetailTableViewController: UITableViewController {
             return cell
         case .none:
             return UITableViewCell()
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return nil
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch PostDetailSection(rawValue: indexPath.section) {
+        case .postSection:
+            return 395
+        case .commentsSection:
+            return 60
+        case .none:
+            return 0
         }
     }
 
