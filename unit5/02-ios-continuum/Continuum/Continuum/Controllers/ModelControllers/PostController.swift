@@ -36,6 +36,7 @@ class PostController {
     func addComment(to post: Post, text: String, completion: @escaping (Result<Comment, PostError>) -> Void) {
         let comment = Comment(text: text)
         post.comments.append(comment)
+        NotificationCenter.default.post(name: postsWereSetNotificationName, object: self)
         return completion(.success(comment))
     }
     

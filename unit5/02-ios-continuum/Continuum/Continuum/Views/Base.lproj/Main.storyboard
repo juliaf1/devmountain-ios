@@ -15,6 +15,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="0.63486708599999997" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="0.63486708599999997" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="0.63486708599999997" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="IS1-CQ-YNU" kind="relationship" relationship="viewControllers" id="Ebr-zV-IBm"/>
@@ -339,7 +342,7 @@
                             <rect key="frame" x="0.0" y="512" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your comment" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G8E-Eg-VZC">
+                                <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your comment" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G8E-Eg-VZC">
                                     <rect key="frame" x="0.0" y="0.0" width="295.5" height="44"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -532,11 +535,13 @@
             </objects>
             <point key="canvasLocation" x="2350.7246376811595" y="-384.375"/>
         </scene>
-        <!--Item-->
+        <!--Feed-->
         <scene sceneID="BmN-5Q-4lb">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IS1-CQ-YNU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="ap7-am-8eu"/>
+                    <tabBarItem key="tabBarItem" title="Feed" image="heart.fill" catalog="system" springLoaded="YES" id="ap7-am-8eu">
+                        <color key="badgeColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="0.63486708599999997" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="OM2-vd-V4N">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -551,11 +556,13 @@
             </objects>
             <point key="canvasLocation" x="584" y="-384"/>
         </scene>
-        <!--Item-->
+        <!--Post-->
         <scene sceneID="3S3-cZ-oWu">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ehk-EC-mgd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="7fa-1F-bCw"/>
+                    <tabBarItem key="tabBarItem" title="Post" image="camera.fill" catalog="system" id="7fa-1F-bCw">
+                        <color key="badgeColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="0.63486708599999997" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JCf-fg-Oah">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -574,6 +581,7 @@
     <resources>
         <image name="camera.fill" catalog="system" width="128" height="94"/>
         <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="paperplane.fill" catalog="system" width="128" height="118"/>
         <image name="spaceEmptyState" width="1024" height="569"/>
         <systemColor name="systemBackgroundColor">

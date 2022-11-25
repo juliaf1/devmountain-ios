@@ -97,9 +97,5 @@ class PostDetailTableViewController: UITableViewController {
             return UITableViewCell()
         }
     }
-    
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return nil
-    }
 
 }
