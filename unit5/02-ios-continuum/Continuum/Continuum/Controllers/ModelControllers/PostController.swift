@@ -30,11 +30,13 @@ class PostController {
     func createPost(photo: UIImage, caption: String, completion: @escaping (Result<Post, PostError>) -> Void) {
         let post = Post(photo: photo, caption: caption)
         posts.append(post)
+        return completion(.success(post))
     }
     
     func addComment(to post: Post, text: String, completion: @escaping (Result<Comment, PostError>) -> Void) {
         let comment = Comment(text: text)
         post.comments.append(comment)
+        return completion(.success(comment))
     }
     
 }
