@@ -37,10 +37,10 @@ class PostTableViewCell: UITableViewCell {
 
     @IBAction func didPressLikeButton(_ sender: UIButton) {
     }
-    
+
     @IBAction func didPressShareButton(_ sender: UIButton) {
     }
-
+    
     // MARK: - Helpers
     
     func updateViews() {
