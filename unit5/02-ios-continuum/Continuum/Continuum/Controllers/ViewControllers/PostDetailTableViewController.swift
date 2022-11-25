@@ -16,7 +16,11 @@ class PostDetailTableViewController: UITableViewController {
     
     // MARK: - Properties
     
-    var post: Post?
+    var post: Post? {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
     // MARK: - Outlets
     
@@ -31,6 +35,22 @@ class PostDetailTableViewController: UITableViewController {
     // MARK: - Actions
 
     @IBAction func didPressAddCommentButton(_ sender: UIButton) {
+        guard let post = post,
+              let comment = commentTextField.text,
+              !comment.isEmpty else { return }
+        
+        PostController.shared.addComment(to: post, text: comment) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success:
+                    let newIndexPath = IndexPath(row: post.comments.count - 1, section: PostDetailSection.commentsSection.rawValue)
+                    self.tableView.insertRows(at: [newIndexPath], with: .automatic)
+                case .failure(let error):
+                    // todo: display alert with error
+                    print(error)
+                }
+            }
+        }
     }
 
     // MARK: - Table view data source
