@@ -25,19 +25,19 @@
             </objects>
             <point key="canvasLocation" x="-371" y="-189"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Add Post Table View Controller-->
         <scene sceneID="F95-iY-Gux">
             <objects>
-                <tableViewController id="3VF-hd-BGd" sceneMemberID="viewController">
+                <tableViewController id="3VF-hd-BGd" customClass="AddPostTableViewController" customModule="Continuum" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="pnp-3V-jlB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <sections>
-                            <tableViewSection headerTitle="Section-1" id="Tg5-xS-oQA">
+                            <tableViewSection id="Tg5-xS-oQA">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="imageCell" rowHeight="207" id="tgB-9a-jx3">
-                                        <rect key="frame" x="0.0" y="49.5" width="414" height="207"/>
+                                        <rect key="frame" x="0.0" y="18" width="414" height="207"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tgB-9a-jx3" id="xuR-3F-HVn">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="207"/>
@@ -55,9 +55,12 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="fKd-va-oo0" secondAttribute="height" multiplier="1:1" id="4QN-iq-Jmb"/>
                                                     </constraints>
-                                                    <color key="tintColor" systemColor="systemGray6Color"/>
+                                                    <color key="tintColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="0.56430093339999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="camera.fill" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="didPressUploadPhotoButton:" destination="lOX-lk-bBc" eventType="touchUpInside" id="t1E-ot-lvZ"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -75,10 +78,10 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Section-2" id="wOo-kD-YYF">
+                            <tableViewSection headerTitle="Caption your post" id="wOo-kD-YYF">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="captionCell" id="HhI-Vp-Aj9">
-                                        <rect key="frame" x="0.0" y="306.5" width="414" height="50.5"/>
+                                        <rect key="frame" x="0.0" y="275" width="414" height="50.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HhI-Vp-Aj9" id="ZgQ-Ri-TLz">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="50.5"/>
@@ -102,10 +105,10 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Section-3" id="rGw-Al-cvX">
+                            <tableViewSection id="rGw-Al-cvX">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="addButtonCell" id="DJS-VS-zLd">
-                                        <rect key="frame" x="0.0" y="407" width="414" height="47.5"/>
+                                        <rect key="frame" x="0.0" y="361.5" width="414" height="47.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DJS-VS-zLd" id="tAo-OV-4o6">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="47.5"/>
@@ -117,6 +120,9 @@
                                                     <color key="tintColor" systemColor="systemGray6Color"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="Add Post"/>
+                                                    <connections>
+                                                        <action selector="didPressAddPostButton:" destination="lOX-lk-bBc" eventType="touchUpInside" id="Aiv-s1-KBq"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -137,8 +143,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="3Cv-lP-qbq"/>
+                    <connections>
+                        <outlet property="captionTextField" destination="ad2-8e-PgZ" id="mZz-O5-07O"/>
+                        <outlet property="postImageView" destination="jgv-eb-xAa" id="VDr-G4-bEv"/>
+                        <outlet property="uploadPhotoButton" destination="fKd-va-oo0" id="QET-6g-cj1"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VZl-Mi-oer" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="lOX-lk-bBc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1478.2608695652175" y="302.00892857142856"/>
         </scene>
