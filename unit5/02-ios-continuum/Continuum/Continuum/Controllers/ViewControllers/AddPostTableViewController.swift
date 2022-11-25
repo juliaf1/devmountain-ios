@@ -37,7 +37,15 @@ class AddPostTableViewController: UITableViewController {
               !caption.isEmpty else { return }
         
         PostController.shared.createPost(photo: photo, caption: caption) { result in
-            // todo
+            DispatchQueue.main.async {
+                switch result {
+                case .success:
+                    self.tabBarController?.selectedIndex = NavigationBar.postList.rawValue
+                case .failure(let error):
+                    print(error)
+                    // todo: present error to user with alert
+                }
+            }
         }
     }
 
