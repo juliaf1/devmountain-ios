@@ -16,11 +16,14 @@ class AddPostTableViewController: UITableViewController {
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var uploadPhotoButton: UIButton!
     @IBOutlet weak var captionTextField: UITextField!
+    @IBOutlet weak var addPostButton: UIButton!
 
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        updateViews()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -62,6 +65,11 @@ class AddPostTableViewController: UITableViewController {
                 }
             }
         }
+    }
+    
+    func updateViews() {
+        addPostButton.layer.cornerRadius = 4
+        addPostButton.clipsToBounds = true
     }
     
     func resetViews() {

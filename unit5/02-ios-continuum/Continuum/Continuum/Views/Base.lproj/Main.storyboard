@@ -162,6 +162,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addPostButton" destination="kn6-kZ-ApK" id="E9v-NM-ffd"/>
                         <outlet property="captionTextField" destination="ad2-8e-PgZ" id="mZz-O5-07O"/>
                         <outlet property="postImageView" destination="jgv-eb-xAa" id="VDr-G4-bEv"/>
                         <outlet property="uploadPhotoButton" destination="fKd-va-oo0" id="QET-6g-cj1"/>
