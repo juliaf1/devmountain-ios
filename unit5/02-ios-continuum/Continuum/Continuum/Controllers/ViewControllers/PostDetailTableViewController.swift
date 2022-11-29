@@ -65,6 +65,7 @@ class PostDetailTableViewController: UITableViewController {
                     let newIndexPath = IndexPath(row: post.comments.count - 1, section: PostDetailSection.commentsSection.rawValue)
                     self.tableView.insertRows(at: [newIndexPath], with: .automatic)
                     self.commentTextField.text = ""
+                    self.commentTextField.resignFirstResponder()
                     self.updatePostCell()
                 case .failure(let error):
                     // todo: display alert with error
@@ -118,7 +119,7 @@ class PostDetailTableViewController: UITableViewController {
             let comment = post.comments[indexPath.row]
             
             cell.textLabel?.text = comment.text
-            cell.detailTextLabel?.text = "\(comment.timestamp)"
+            cell.detailTextLabel?.text = "\(comment.timestamp.toString())"
             
             return cell
         case .none:
