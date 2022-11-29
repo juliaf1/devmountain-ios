@@ -72,6 +72,27 @@ class Post {
         self.photo = photo
     }
     
+    convenience init?(photoData: Data, caption: String, comments: [Comment] = [], timestamp: Date = Date(), recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
+        guard let photo = UIImage(data: photoData) else { return nil }
+    
+        self.init(photo: photo, caption: caption, comments: comments, timestamp: timestamp, recordID: recordID)
+    }
+    
+    convenience init?(ckRecord: CKRecord) {
+        guard let timestamp = ckRecord[PostKeys.timestamp] as? Date,
+              let caption = ckRecord[PostKeys.caption] as? String,
+              let photoAsset = ckRecord[PostKeys.photoAsset] as? CKAsset,
+              let recordID = ckRecord[PostKeys.recordID] as? CKRecord.ID else { return nil }
+        
+        do {
+            let data = try Data(contentsOf: photoAsset.fileURL!)
+            self.init(photoData: data, caption: caption, timestamp: timestamp, recordID: recordID)
+        } catch {
+            return nil
+        }
+        
+    }
+    
 }
 
 extension Post: SearchableRecord {
