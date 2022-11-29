@@ -326,23 +326,24 @@
         <scene sceneID="6EO-pJ-aq8">
             <objects>
                 <tableViewController id="WAr-jp-mPI" customClass="PostDetailTableViewController" customModule="Continuum" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="eAv-0p-pxL">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="eAv-0p-pxL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <inset key="scrollIndicatorInsets" minX="0.0" minY="2" maxX="0.0" maxY="0.0"/>
+                        <inset key="separatorInset" minX="4" minY="0.0" maxX="4" maxY="0.0"/>
                         <stackView key="tableFooterView" opaque="NO" contentMode="scaleToFill" spacing="4" id="nco-DT-BZN">
                             <rect key="frame" x="0.0" y="539" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your comment" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G8E-Eg-VZC">
-                                    <rect key="frame" x="0.0" y="0.0" width="295.5" height="44"/>
+                                    <rect key="frame" x="8" y="8" width="279.5" height="36"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qKc-yN-2ft">
-                                    <rect key="frame" x="299.5" y="0.0" width="114.5" height="44"/>
+                                    <rect key="frame" x="291.5" y="8" width="114.5" height="36"/>
                                     <color key="backgroundColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="0.56430093339999998" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="tintColor" systemColor="systemGray6Color"/>
                                     <state key="normal" title="Button"/>
@@ -352,6 +353,7 @@
                                     </connections>
                                 </button>
                             </subviews>
+                            <edgeInsets key="layoutMargins" top="8" left="8" bottom="0.0" right="8"/>
                         </stackView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="postCell" rowHeight="405" id="1oU-hE-iou" customClass="PostTableViewCell" customModule="Continuum" customModuleProvider="target">
