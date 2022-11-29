@@ -39,22 +39,7 @@ class PostDetailTableViewController: UITableViewController {
     // MARK: - Actions
 
     @IBAction func didPressAddCommentButton(_ sender: UIButton) {
-        guard let post = post,
-              let comment = commentTextField.text,
-              !comment.isEmpty else { return }
-        
-        PostController.shared.addComment(to: post, text: comment) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success:
-                    let newIndexPath = IndexPath(row: post.comments.count - 1, section: PostDetailSection.commentsSection.rawValue)
-                    self.tableView.insertRows(at: [newIndexPath], with: .automatic)
-                case .failure(let error):
-                    // todo: display alert with error
-                    print(error)
-                }
-            }
-        }
+        addComment()
     }
     
     // MARK: - Helpers
@@ -66,6 +51,26 @@ class PostDetailTableViewController: UITableViewController {
     func updateViews() {
         addCommentButton.layer.cornerRadius = 4
         addCommentButton.clipsToBounds = true
+    }
+    
+    func addComment() {
+        guard let post = post,
+              let comment = commentTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
+              !comment.isEmpty else { return }
+        
+        PostController.shared.addComment(to: post, text: comment) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success:
+                    let newIndexPath = IndexPath(row: post.comments.count - 1, section: PostDetailSection.commentsSection.rawValue)
+                    self.tableView.insertRows(at: [newIndexPath], with: .automatic)
+                    self.commentTextField.text = ""
+                case .failure(let error):
+                    // todo: display alert with error
+                    print(error)
+                }
+            }
+        }
     }
 
     // MARK: - Table view data source
