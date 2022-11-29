@@ -8,6 +8,16 @@
 import UIKit
 import CloudKit
 
+struct PostKeys {
+    
+    static let recordType = "Post"
+    static let recordID = "recordID"
+    fileprivate static let timestamp = "timestamp"
+    fileprivate static let caption = "caption"
+    fileprivate static let photoAsset = "photoAsset"
+    
+}
+
 class Post {
 
     // MARK: - Stored Properties
@@ -68,6 +78,23 @@ extension Post: SearchableRecord {
     
     func matches(searchTerm: String) -> Bool {
         return self.caption.lowercased().contains(searchTerm.lowercased())
+    }
+    
+}
+
+extension CKRecord {
+ 
+    convenience init(post: Post) {
+        self.init(recordType: PostKeys.recordType)
+        
+        self.setValuesForKeys([
+            PostKeys.timestamp: post.timestamp,
+            PostKeys.caption: post.caption,
+        ])
+        
+        if let photoAsset = post.photoAsset {
+            self.setValue(photoAsset, forKey: PostKeys.photoAsset)
+        }
     }
     
 }
