@@ -65,12 +65,20 @@ class PostDetailTableViewController: UITableViewController {
                     let newIndexPath = IndexPath(row: post.comments.count - 1, section: PostDetailSection.commentsSection.rawValue)
                     self.tableView.insertRows(at: [newIndexPath], with: .automatic)
                     self.commentTextField.text = ""
+                    self.updatePostCell()
                 case .failure(let error):
                     // todo: display alert with error
                     print(error)
                 }
             }
         }
+    }
+    
+    func updatePostCell() {
+        let indexPath = IndexPath(row: 0, section: PostDetailSection.postSection.rawValue)
+        guard let cell = tableView.cellForRow(at: indexPath) as? PostTableViewCell else { return }
+
+        cell.updateCommentsLabel(with: post?.comments.count ?? 0)
     }
 
     // MARK: - Table view data source

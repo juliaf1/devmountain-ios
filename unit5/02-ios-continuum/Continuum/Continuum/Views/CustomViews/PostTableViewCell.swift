@@ -45,11 +45,16 @@ class PostTableViewCell: UITableViewCell {
     
     func updateViews() {
         guard let post = post else { return }
-        let commentCount = post.comments.count
         
         postImageView.image = post.photo
         captionLabel.text = post.caption
-        commentsLabel.text = commentCount == 0 ? "No comments yet" : "\(commentCount) comments"
+        
+        let commentCount = post.comments.count
+        updateCommentsLabel(with: commentCount)
+    }
+    
+    func updateCommentsLabel(with totalCount: Int) {
+        commentsLabel.text = totalCount == 0 ? "No comments yet" : "\(totalCount) comments"
     }
     
 }
