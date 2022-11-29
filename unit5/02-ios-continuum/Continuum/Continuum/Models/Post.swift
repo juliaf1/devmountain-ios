@@ -32,6 +32,26 @@ class Post {
         }
     }
     
+    var photoAsset: CKAsset? {
+        get {
+            guard let photoData = photoData else {
+                return nil
+            }
+            
+            let tempDirectory = NSTemporaryDirectory()
+            let tempDirectoryURL = URL(fileURLWithPath: tempDirectory)
+            let fileURL = tempDirectoryURL.appendingPathComponent(UUID().uuidString).appendingPathExtension("jpg")
+            
+            do {
+                try photoData.write(to: fileURL)
+            } catch {
+                print("Error in \(#function): \(error.localizedDescription)")
+            }
+            
+            return CKAsset(fileURL: fileURL)
+        }
+    }
+    
     // MARK: - Initializer
     
     init(photo: UIImage, caption: String, comments: [Comment] = [], timestamp: Date = Date(), recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
