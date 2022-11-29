@@ -37,7 +37,7 @@ class AddPostTableViewController: UITableViewController {
 
     @IBAction func didPressUploadPhotoButton(_ sender: UIButton) {
         postImageView.image = UIImage(named: "spaceEmptyState")
-        uploadPhotoButton.setImage(nil, for: .normal)
+        uploadPhotoButton.isHidden = true
     }
     
     @IBAction func didPressCancelButton(_ sender: UIBarButtonItem) {
@@ -66,7 +66,10 @@ class AddPostTableViewController: UITableViewController {
     
     func resetViews() {
         postImageView.image = nil
+
+        uploadPhotoButton.isHidden = false
         uploadPhotoButton.setImage(UIImage(systemName: "camera.fill"), for: .normal)
+
         captionTextField.text = ""
     }
 
