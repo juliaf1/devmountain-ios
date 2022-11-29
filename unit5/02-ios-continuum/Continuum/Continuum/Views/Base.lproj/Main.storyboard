@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -46,43 +47,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="280"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bvi-9W-pGs">
+                                                <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Gq-on-1Yr">
                                                     <rect key="frame" x="20.5" y="0.5" width="373" height="279"/>
-                                                    <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jgv-eb-xAa">
-                                                            <rect key="frame" x="0.0" y="0.0" width="373" height="279"/>
-                                                            <color key="backgroundColor" systemColor="systemGrayColor"/>
-                                                        </imageView>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKd-va-oo0">
-                                                            <rect key="frame" x="0.0" y="0.0" width="373" height="279"/>
-                                                            <color key="tintColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="0.56430093339999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <state key="normal" title="Button"/>
-                                                            <buttonConfiguration key="configuration" style="plain" image="camera.fill" catalog="system" title=""/>
-                                                            <connections>
-                                                                <action selector="didPressUploadPhotoButton:" destination="3VF-hd-BGd" eventType="touchUpInside" id="L3X-e1-yZn"/>
-                                                            </connections>
-                                                        </button>
-                                                    </subviews>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <color key="backgroundColor" systemColor="systemGray3Color"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="jgv-eb-xAa" secondAttribute="trailing" id="3Pm-4L-ZbA"/>
-                                                        <constraint firstItem="fKd-va-oo0" firstAttribute="height" secondItem="Bvi-9W-pGs" secondAttribute="height" id="E4z-Uw-Lgc"/>
-                                                        <constraint firstAttribute="bottom" secondItem="jgv-eb-xAa" secondAttribute="bottom" id="LZz-Qo-czf"/>
-                                                        <constraint firstAttribute="width" secondItem="Bvi-9W-pGs" secondAttribute="height" multiplier="4:3" id="P5d-kP-4Ve"/>
-                                                        <constraint firstItem="jgv-eb-xAa" firstAttribute="height" secondItem="Bvi-9W-pGs" secondAttribute="height" id="Rl4-xP-EsY"/>
-                                                        <constraint firstItem="fKd-va-oo0" firstAttribute="top" secondItem="Bvi-9W-pGs" secondAttribute="top" id="T1c-A0-Hch"/>
-                                                        <constraint firstAttribute="trailing" secondItem="fKd-va-oo0" secondAttribute="trailing" id="VJ3-SX-W7S"/>
-                                                        <constraint firstItem="jgv-eb-xAa" firstAttribute="leading" secondItem="Bvi-9W-pGs" secondAttribute="leading" id="kkU-va-LNG"/>
-                                                        <constraint firstItem="jgv-eb-xAa" firstAttribute="top" secondItem="Bvi-9W-pGs" secondAttribute="top" id="lvm-9s-5AU"/>
-                                                        <constraint firstItem="fKd-va-oo0" firstAttribute="leading" secondItem="Bvi-9W-pGs" secondAttribute="leading" id="p9d-Qd-tFQ"/>
-                                                        <constraint firstAttribute="bottom" secondItem="fKd-va-oo0" secondAttribute="bottom" id="xwi-Ez-dbz"/>
+                                                        <constraint firstAttribute="width" secondItem="8Gq-on-1Yr" secondAttribute="height" multiplier="4:3" id="WKJ-MA-xmy"/>
                                                     </constraints>
-                                                </view>
+                                                    <connections>
+                                                        <segue destination="wCd-eI-hSd" kind="embed" identifier="toPhotoPicker" id="0uU-jA-cPU"/>
+                                                    </connections>
+                                                </containerView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Bvi-9W-pGs" firstAttribute="centerY" secondItem="xuR-3F-HVn" secondAttribute="centerY" id="2eI-wG-qlf"/>
-                                                <constraint firstItem="Bvi-9W-pGs" firstAttribute="width" secondItem="xuR-3F-HVn" secondAttribute="width" multiplier="0.9" id="OKr-vy-X88"/>
-                                                <constraint firstItem="Bvi-9W-pGs" firstAttribute="centerX" secondItem="xuR-3F-HVn" secondAttribute="centerX" id="leD-vK-DUc"/>
+                                                <constraint firstItem="8Gq-on-1Yr" firstAttribute="width" secondItem="xuR-3F-HVn" secondAttribute="width" multiplier="0.9" id="3tf-7T-Ay3"/>
+                                                <constraint firstItem="8Gq-on-1Yr" firstAttribute="centerY" secondItem="xuR-3F-HVn" secondAttribute="centerY" id="VHD-e8-77k"/>
+                                                <constraint firstItem="8Gq-on-1Yr" firstAttribute="centerX" secondItem="xuR-3F-HVn" secondAttribute="centerX" id="kjw-8F-zwb"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
@@ -164,8 +143,6 @@
                     <connections>
                         <outlet property="addPostButton" destination="kn6-kZ-ApK" id="E9v-NM-ffd"/>
                         <outlet property="captionTextField" destination="ad2-8e-PgZ" id="mZz-O5-07O"/>
-                        <outlet property="postImageView" destination="jgv-eb-xAa" id="VDr-G4-bEv"/>
-                        <outlet property="uploadPhotoButton" destination="fKd-va-oo0" id="QET-6g-cj1"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VZl-Mi-oer" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -583,6 +560,44 @@
             </objects>
             <point key="canvasLocation" x="583" y="303"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="kgm-wh-DqV">
+            <objects>
+                <viewController id="wCd-eI-hSd" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PvZ-Ia-CgL">
+                        <rect key="frame" x="0.0" y="0.0" width="373" height="279"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Fb-na-Yha">
+                                <rect key="frame" x="0.0" y="0.0" width="373" height="279"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lWP-Nm-2SM">
+                                <rect key="frame" x="0.0" y="0.0" width="373" height="279"/>
+                                <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                <color key="tintColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="0.63486708599999997" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <imageReference key="image" image="camera.fill" catalog="system" symbolScale="large"/>
+                                </buttonConfiguration>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="9Fb-na-Yha" secondAttribute="trailing" id="BeW-7N-1l7"/>
+                            <constraint firstAttribute="trailing" secondItem="lWP-Nm-2SM" secondAttribute="trailing" id="DaN-cH-72M"/>
+                            <constraint firstItem="lWP-Nm-2SM" firstAttribute="leading" secondItem="PvZ-Ia-CgL" secondAttribute="leading" id="Ty9-wh-cmH"/>
+                            <constraint firstItem="lWP-Nm-2SM" firstAttribute="top" secondItem="PvZ-Ia-CgL" secondAttribute="top" id="Xue-En-okc"/>
+                            <constraint firstAttribute="bottom" secondItem="9Fb-na-Yha" secondAttribute="bottom" id="bFx-s2-a2f"/>
+                            <constraint firstItem="9Fb-na-Yha" firstAttribute="leading" secondItem="PvZ-Ia-CgL" secondAttribute="leading" id="iNM-fR-C6Y"/>
+                            <constraint firstAttribute="bottom" secondItem="lWP-Nm-2SM" secondAttribute="bottom" id="mqc-xQ-e7K"/>
+                            <constraint firstItem="9Fb-na-Yha" firstAttribute="top" secondItem="PvZ-Ia-CgL" secondAttribute="top" id="rrQ-p7-aix"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0ZY-hj-cwZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2245" y="123"/>
+        </scene>
     </scenes>
     <resources>
         <image name="camera.fill" catalog="system" width="128" height="94"/>
@@ -592,6 +607,9 @@
         <image name="spaceEmptyState" width="1024" height="569"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
