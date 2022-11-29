@@ -112,6 +112,7 @@ class PostDetailTableViewController: UITableViewController {
             }
             
             cell.post = post
+            cell.delegate = self
             return cell
         case .commentsSection:
             let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath)
@@ -133,6 +134,16 @@ extension PostDetailTableViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+    }
+    
+}
+
+extension PostDetailTableViewController: PostTableViewCellDelegate {
+    
+    func didPressShareButton(for post: Post) {
+        let activity = UIActivityViewController(activityItems: [post.photo!, post.caption], applicationActivities: [])
+        
+        present(activity, animated: true)
     }
     
 }

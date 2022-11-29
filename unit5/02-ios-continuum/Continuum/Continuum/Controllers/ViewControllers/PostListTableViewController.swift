@@ -60,6 +60,7 @@ class PostListTableViewController: UITableViewController {
         }
         
         cell.post = post
+        cell.delegate = self
         
         return cell
     }
@@ -106,6 +107,16 @@ extension PostListTableViewController: UISearchBarDelegate {
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         isSearching = false
+    }
+    
+}
+
+extension PostListTableViewController: PostTableViewCellDelegate {
+    
+    func didPressShareButton(for post: Post) {
+        let activity = UIActivityViewController(activityItems: [post.photo!, post.caption], applicationActivities: [])
+        
+        present(activity, animated: true)
     }
     
 }

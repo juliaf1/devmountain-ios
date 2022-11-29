@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol PostTableViewCellDelegate: AnyObject {
+    func didPressShareButton(for post: Post)
+}
+
 class PostTableViewCell: UITableViewCell {
 
     // MARK: - Outlets
@@ -24,6 +28,8 @@ class PostTableViewCell: UITableViewCell {
         }
     }
     
+    weak var delegate: PostTableViewCellDelegate?
+    
     // MARK: - Actions
     
     @IBAction func didPressPhotoButtonMultipleTimes(_ sender: UIButton, forEvent event: UIEvent) {
@@ -39,6 +45,11 @@ class PostTableViewCell: UITableViewCell {
     }
 
     @IBAction func didPressShareButton(_ sender: UIButton) {
+        guard let post = post else {
+            return
+        }
+
+        delegate?.didPressShareButton(for: post)
     }
     
     // MARK: - Helpers
