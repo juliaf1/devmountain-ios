@@ -48,7 +48,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Gq-on-1Yr">
-                                                    <rect key="frame" x="20.5" y="0.5" width="373" height="279"/>
+                                                    <rect key="frame" x="21" y="1" width="373" height="279"/>
                                                     <color key="backgroundColor" systemColor="systemGray3Color"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="8Gq-on-1Yr" secondAttribute="height" multiplier="4:3" id="WKJ-MA-xmy"/>
@@ -560,10 +560,10 @@
             </objects>
             <point key="canvasLocation" x="583" y="303"/>
         </scene>
-        <!--View Controller-->
+        <!--Photo Picker View Controller-->
         <scene sceneID="kgm-wh-DqV">
             <objects>
-                <viewController id="wCd-eI-hSd" sceneMemberID="viewController">
+                <viewController id="wCd-eI-hSd" customClass="PhotoPickerViewController" customModule="Continuum" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PvZ-Ia-CgL">
                         <rect key="frame" x="0.0" y="0.0" width="373" height="279"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -579,6 +579,9 @@
                                 <buttonConfiguration key="configuration" style="plain">
                                     <imageReference key="image" image="camera.fill" catalog="system" symbolScale="large"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="didPressUploadPhotoButton:" destination="wCd-eI-hSd" eventType="touchUpInside" id="eAP-WU-8SX"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -593,6 +596,10 @@
                             <constraint firstItem="9Fb-na-Yha" firstAttribute="top" secondItem="PvZ-Ia-CgL" secondAttribute="top" id="rrQ-p7-aix"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="photoImageView" destination="9Fb-na-Yha" id="bzV-Rc-WyY"/>
+                        <outlet property="uploadPhotoButton" destination="lWP-Nm-2SM" id="Egj-By-7s0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0ZY-hj-cwZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

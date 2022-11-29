@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3229D9F3293670CA0094630C /* SearchableRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3229D9F2293670CA0094630C /* SearchableRecord.swift */; };
 		3229D9F52936860A0094630C /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3229D9F42936860A0094630C /* Date+Extension.swift */; };
+		3229D9F729369A280094630C /* PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3229D9F629369A280094630C /* PhotoPickerViewController.swift */; };
 		3263FB8229303A79008B94F2 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3263FB8129303A79008B94F2 /* PostTableViewCell.swift */; };
 		3263FB8429304CB5008B94F2 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3263FB8329304CB4008B94F2 /* NavigationBar.swift */; };
 		32A1E011292EC1740071AE0E /* PostListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A1E010292EC1740071AE0E /* PostListTableViewController.swift */; };
@@ -29,6 +30,7 @@
 /* Begin PBXFileReference section */
 		3229D9F2293670CA0094630C /* SearchableRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchableRecord.swift; sourceTree = "<group>"; };
 		3229D9F42936860A0094630C /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		3229D9F629369A280094630C /* PhotoPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.swift; sourceTree = "<group>"; };
 		3263FB8129303A79008B94F2 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		3263FB8329304CB4008B94F2 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		32A1E010292EC1740071AE0E /* PostListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListTableViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				32A1E010292EC1740071AE0E /* PostListTableViewController.swift */,
 				32A1E012292EC23C0071AE0E /* PostDetailTableViewController.swift */,
 				32A1E014292EC2A40071AE0E /* AddPostTableViewController.swift */,
+				3229D9F629369A280094630C /* PhotoPickerViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				32A1E017292EC4BC0071AE0E /* Post.swift in Sources */,
 				32A1E011292EC1740071AE0E /* PostListTableViewController.swift in Sources */,
 				32CE607C292D2CF400688B6C /* AppDelegate.swift in Sources */,
+				3229D9F729369A280094630C /* PhotoPickerViewController.swift in Sources */,
 				3263FB8429304CB5008B94F2 /* NavigationBar.swift in Sources */,
 				32A1E01B292EC7390071AE0E /* PostController.swift in Sources */,
 				32CE607E292D2CF400688B6C /* SceneDelegate.swift in Sources */,
