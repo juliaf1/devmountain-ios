@@ -19,11 +19,7 @@ class PostListTableViewController: UITableViewController {
     
     let controller = PostController.shared
     
-    var posts: [Post] {
-        return controller.posts
-    }
-    
-    var dataSource: [SearchableRecord] {
+    var posts: [SearchableRecord] {
         return isSearching ? resultsArray : controller.posts
     }
     
@@ -50,11 +46,11 @@ class PostListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as? PostTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as? PostTableViewCell,
+              let post = posts[indexPath.row] as? Post else {
             return UITableViewCell()
         }
         
-        let post = posts[indexPath.row]
         cell.post = post
         
         return cell
@@ -65,9 +61,9 @@ class PostListTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "toPostDetail",
               let destination = segue.destination as? PostDetailTableViewController,
-              let indexPath = tableView.indexPathForSelectedRow else { return }
-        
-        let post = posts[indexPath.row]
+              let indexPath = tableView.indexPathForSelectedRow,
+              let post = posts[indexPath.row] as? Post else { return }
+
         destination.post = post
     }
 
