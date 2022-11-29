@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CloudKit
 
 class Post {
 
@@ -14,6 +15,7 @@ class Post {
     let timestamp: Date
     let caption: String
     var comments: [Comment]
+    var recordID: CKRecord.ID
     
     var photoData: Data?
 
@@ -32,10 +34,11 @@ class Post {
     
     // MARK: - Initializer
     
-    init(photo: UIImage, caption: String, comments: [Comment] = [], timestamp: Date = Date()) {
+    init(photo: UIImage, caption: String, comments: [Comment] = [], timestamp: Date = Date(), recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
         self.caption = caption
         self.comments = comments
         self.timestamp = timestamp
+        self.recordID = recordID
         self.photo = photo
     }
     
