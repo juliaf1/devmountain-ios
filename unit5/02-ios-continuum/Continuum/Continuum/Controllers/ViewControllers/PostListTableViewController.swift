@@ -9,6 +9,10 @@ import UIKit
 
 class PostListTableViewController: UITableViewController {
     
+    // MARK: - Outlets
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     // MARK: - Properties
     
     let controller = PostController.shared
@@ -16,6 +20,8 @@ class PostListTableViewController: UITableViewController {
     var posts: [Post] {
         return controller.posts
     }
+    
+    var resultsArray = [SearchableRecord]()
     
     // MARK: - Lifecycle
 

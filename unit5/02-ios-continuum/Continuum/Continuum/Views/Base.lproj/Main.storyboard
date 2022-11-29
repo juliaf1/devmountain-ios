@@ -326,6 +326,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Posts" id="Qz6-pC-bgu"/>
+                    <connections>
+                        <outlet property="searchBar" destination="RCP-q4-utx" id="vFN-gN-gfh"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gi0-1e-FQ1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
