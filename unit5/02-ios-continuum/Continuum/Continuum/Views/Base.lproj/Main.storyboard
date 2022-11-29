@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="0.63486708599999997" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="0.63486708599999997" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" systemColor="systemGray6Color"/>
                         <color key="selectedImageTintColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="0.63486708599999997" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
@@ -546,6 +546,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="OM2-vd-V4N">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" systemColor="systemGray6Color"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -567,6 +568,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JCf-fg-Oah">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" systemColor="systemGray6Color"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
