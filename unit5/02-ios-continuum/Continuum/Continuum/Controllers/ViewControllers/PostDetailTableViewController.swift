@@ -25,11 +25,14 @@ class PostDetailTableViewController: UITableViewController {
     // MARK: - Outlets
     
     @IBOutlet weak var commentTextField: UITextField!
-
+    @IBOutlet weak var addCommentButton: UIButton!
+    
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        updateViews()
     }
 
     // MARK: - Actions
@@ -51,6 +54,13 @@ class PostDetailTableViewController: UITableViewController {
                 }
             }
         }
+    }
+    
+    // MARK: - Helpers
+    
+    func updateViews() {
+        addCommentButton.layer.cornerRadius = 4
+        addCommentButton.clipsToBounds = true
     }
 
     // MARK: - Table view data source

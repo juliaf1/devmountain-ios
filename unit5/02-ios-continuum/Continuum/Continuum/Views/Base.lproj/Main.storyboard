@@ -520,6 +520,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="lYe-Cd-0dE"/>
                     <connections>
+                        <outlet property="addCommentButton" destination="qKc-yN-2ft" id="M2C-nG-Uq2"/>
                         <outlet property="commentTextField" destination="G8E-Eg-VZC" id="y7s-jc-DOv"/>
                     </connections>
                 </tableViewController>
