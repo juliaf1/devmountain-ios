@@ -23,6 +23,7 @@ class AddPostTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureViews()
         updateViews()
     }
     
@@ -51,7 +52,7 @@ class AddPostTableViewController: UITableViewController {
     
     func createPost() {
         guard let photo = postImageView.image,
-              let caption = captionTextField.text,
+              let caption = captionTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
               !caption.isEmpty else { return }
         
         PostController.shared.createPost(photo: photo, caption: caption) { result in
@@ -65,6 +66,10 @@ class AddPostTableViewController: UITableViewController {
                 }
             }
         }
+    }
+    
+    func configureViews() {
+        captionTextField.delegate = self
     }
     
     func updateViews() {
@@ -81,4 +86,12 @@ class AddPostTableViewController: UITableViewController {
         captionTextField.text = ""
     }
 
+}
+
+extension AddPostTableViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+    }
+    
 }
