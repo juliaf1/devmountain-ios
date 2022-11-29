@@ -13,7 +13,6 @@ class PostTableViewCell: UITableViewCell {
     
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var likeButton: UIButton!
-    @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var commentsLabel: UILabel!
 
@@ -25,17 +24,18 @@ class PostTableViewCell: UITableViewCell {
         }
     }
     
-    // MARK: - Lifecycle
-    
     // MARK: - Actions
-
-    @IBAction func didDoubleTapPhoto(_ sender: UIButton, forEvent event: UIEvent) {
-        guard event.allTouches?.count ?? 0 >= 2 else { return }
+    
+    @IBAction func didPressPhotoButtonMultipleTimes(_ sender: UIButton, forEvent event: UIEvent) {
+        guard let touch = event.allTouches?.first else { return }
         
-        // todo: like photo
+        if touch.tapCount >= 2 {
+            likePhoto()
+        }
     }
-
+    
     @IBAction func didPressLikeButton(_ sender: UIButton) {
+        likePhoto()
     }
 
     @IBAction func didPressShareButton(_ sender: UIButton) {
@@ -55,6 +55,10 @@ class PostTableViewCell: UITableViewCell {
     
     func updateCommentsLabel(with totalCount: Int) {
         commentsLabel.text = totalCount == 0 ? "No comments yet" : "\(totalCount) comments"
+    }
+    
+    func likePhoto() {
+        likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
     }
     
 }
