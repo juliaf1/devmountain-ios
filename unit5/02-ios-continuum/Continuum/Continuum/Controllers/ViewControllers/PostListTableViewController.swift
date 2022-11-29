@@ -15,10 +15,16 @@ class PostListTableViewController: UITableViewController {
     
     // MARK: - Properties
     
+    let isSearching = false
+    
     let controller = PostController.shared
     
     var posts: [Post] {
         return controller.posts
+    }
+    
+    var dataSource: [SearchableRecord] {
+        return isSearching ? resultsArray : controller.posts
     }
     
     var resultsArray = [SearchableRecord]()
