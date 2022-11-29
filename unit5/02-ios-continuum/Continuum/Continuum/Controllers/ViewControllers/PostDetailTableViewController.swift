@@ -32,6 +32,7 @@ class PostDetailTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureViews()
         updateViews()
     }
 
@@ -57,6 +58,10 @@ class PostDetailTableViewController: UITableViewController {
     }
     
     // MARK: - Helpers
+    
+    func configureViews() {
+        commentTextField.delegate = self
+    }
     
     func updateViews() {
         addCommentButton.layer.cornerRadius = 4
@@ -108,4 +113,12 @@ class PostDetailTableViewController: UITableViewController {
         }
     }
 
+}
+
+extension PostDetailTableViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+    }
+    
 }
