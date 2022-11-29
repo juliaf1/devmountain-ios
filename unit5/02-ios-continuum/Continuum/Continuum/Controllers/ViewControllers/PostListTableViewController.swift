@@ -15,7 +15,7 @@ class PostListTableViewController: UITableViewController {
     
     // MARK: - Properties
     
-    let isSearching = false
+    var isSearching = false
     
     let controller = PostController.shared
     
@@ -31,6 +31,14 @@ class PostListTableViewController: UITableViewController {
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: postsWereSetNotificationName, object: nil)
+        
+        searchBar.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        resultsArray = controller.posts
     }
     
     // MARK: - Helpers
@@ -67,4 +75,37 @@ class PostListTableViewController: UITableViewController {
         destination.post = post
     }
 
+}
+
+extension PostListTableViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            resultsArray = controller.posts
+        } else {
+            resultsArray = controller.posts.filter { $0.matches(searchTerm: searchText) }
+        }
+
+        tableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+        resultsArray = controller.posts
+        tableView.reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        isSearching = true
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        isSearching = false
+    }
+    
 }
