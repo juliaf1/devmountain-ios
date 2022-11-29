@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol PhotoPickerViewControllerDelegate: AnyObject {
+    func didSelectPhoto(image: UIImage)
+}
+
 class PhotoPickerViewController: UIViewController {
     
     // MARK: - Outlets
@@ -17,6 +21,8 @@ class PhotoPickerViewController: UIViewController {
     // MARK: - Properties
     
     let imagePicker = UIImagePickerController()
+    
+    weak var delegate: PhotoPickerViewControllerDelegate?
 
     // MARK: - Lifecycle
 
@@ -92,6 +98,7 @@ extension PhotoPickerViewController: UIImagePickerControllerDelegate, UINavigati
         if let image = info[.originalImage] as? UIImage {
             photoImageView.image = image
             uploadPhotoButton.isHidden = true
+            delegate?.didSelectPhoto(image: image)
         }
         
         picker.dismiss(animated: true)
