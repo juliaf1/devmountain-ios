@@ -9,12 +9,14 @@ import UIKit
 
 class AddPostTableViewController: UITableViewController {
     
-    // MARK: - Properties
-    
     // MARK: - Outlets
 
     @IBOutlet weak var captionTextField: UITextField!
     @IBOutlet weak var addPostButton: UIButton!
+    
+    // MARK: - Properties
+    
+    var postPhoto: UIImage?
 
     // MARK: - Lifecycle
 
@@ -44,9 +46,7 @@ class AddPostTableViewController: UITableViewController {
     // MARK: - Helpers
     
     func createPost() {
-        /*
-         TODO: Refactor using protocol and delegate pattern
-        guard let photo = postImageView.image,
+        guard let photo = postPhoto,
               let caption = captionTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
               !caption.isEmpty else { return }
         
@@ -61,7 +61,6 @@ class AddPostTableViewController: UITableViewController {
                 }
             }
         }
-         */
     }
     
     func configureViews() {
@@ -76,6 +75,15 @@ class AddPostTableViewController: UITableViewController {
     func resetViews() {
         captionTextField.text = ""
     }
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toPhotoPicker",
+           let destination = segue.destination as? PhotoPickerViewController {
+            destination.delegate = self
+        }
+    }
 
 }
 
@@ -85,4 +93,12 @@ extension AddPostTableViewController: UITextFieldDelegate {
         textField.resignFirstResponder()
     }
     
+}
+
+extension AddPostTableViewController: PhotoPickerViewControllerDelegate {
+    
+    func didSelectPhoto(image: UIImage) {
+        postPhoto = image
+    }
+
 }
