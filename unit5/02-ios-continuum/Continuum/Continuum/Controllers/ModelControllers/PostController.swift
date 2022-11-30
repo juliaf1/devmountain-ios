@@ -163,6 +163,17 @@ class PostController {
         
     }
     
+    func removeCommentsSubcription(from post: Post, completion: @escaping (Bool, Error?) -> Void) {
+        publicDB.delete(withSubscriptionID: post.recordID.recordName) { _, error in
+            if let error = error {
+                print("Error in \(#function): \(error.localizedDescription)")
+                return completion(false, error)
+            }
+            
+            return completion(true, nil)
+        }
+    }
+    
     private func subscribeToNewPosts(completion: @escaping (Bool, Error?) -> Void) {
         let predicate = NSPredicate(value: true)
         let subscription = CKQuerySubscription(recordType: PostKeys.recordType, predicate: predicate, subscriptionID: "allPosts", options: .firesOnRecordCreation)
