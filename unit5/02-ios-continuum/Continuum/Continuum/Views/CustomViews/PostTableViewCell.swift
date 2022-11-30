@@ -82,6 +82,7 @@ class PostTableViewCell: UITableViewCell {
         updateCommentsLabel(with: commentCount)
         
         Task {
+            updateLikesButton(for: post)
             updateSubscriptionButton(for: post)
         }
     }
@@ -95,12 +96,41 @@ class PostTableViewCell: UITableViewCell {
         }
     }
     
+    func updateLikesButton(for post: Post) {
+        PostController.shared.checkIfUserLiked(post: post) { likeExists, _ in
+            DispatchQueue.main.async {
+                if likeExists {
+                    self.likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                } else {
+                    self.likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
+                }
+            }
+        }
+    }
+    
     func updateCommentsLabel(with totalCount: Int) {
         commentsLabel.text = totalCount == 0 ? "No comments yet" : "\(totalCount) comments"
     }
     
     func likePhoto() {
-        likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        guard let post = post else {
+            return
+        }
+
+        PostController.shared.toggleLike(for: post) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let like):
+                    if let _ = like {
+                        self.likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                    } else {
+                        self.likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
+                    }
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
     }
     
 }

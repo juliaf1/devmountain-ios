@@ -38,6 +38,14 @@ class Like {
     
 }
 
+extension Like: Equatable {
+    
+    static func ==(lhs: Like, rhs: Like) -> Bool {
+        return lhs.recordID == rhs.recordID
+    }
+    
+}
+
 extension CKRecord {
     
     convenience init(like: Like) {

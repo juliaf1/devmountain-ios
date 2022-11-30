@@ -56,6 +56,10 @@ class PostController {
                     if case .success(let record) = matchTuple.1 {
                         guard let post = Post(ckRecord: record) else { return }
                         fetchPosts.append(post)
+                        
+                        Task {
+                            self.fetchLikes(for: post) { _ in }
+                        }
                     }
                 }
 
@@ -227,6 +231,8 @@ extension PostController {
                     }
                 }
                 
+                NotificationCenter.default.post(name: postsWereSetNotificationName, object: self)
+                
                 return completion(.success(post.likes))
             case .failure(let error):
                 return completion(.failure(.thrownError(error)))
@@ -234,23 +240,33 @@ extension PostController {
         }
     }
 
-    func toggleLike(for post: Post, completion: @escaping (Result<Like, PostError>) -> Void) {
+    func toggleLike(for post: Post, completion: @escaping (Result<Like?, PostError>) -> Void) {
         checkIfUserLiked(post: post) { likeExists, error in
             if let error = error {
                 return completion(.failure(.thrownError(error)))
             }
             
             if likeExists {
-                self.unlike(post: post)
-            } else {
-                self.like(post: post) { result in
+                self.unlike(post: post) { error in
+                    if let error = error {
+                        return completion(.failure(error))
+                    }
                     
+                    return completion(.success(nil))
+                }
+            } else {
+                self.like(post: post) { like, error in
+                    if let error = error {
+                        return completion(.failure(error))
+                    }
+
+                    return completion(.success(like))
                 }
             }
         }
     }
     
-    private func like(post: Post, completion: @escaping (Result<Like, PostError>) -> Void) {
+    private func like(post: Post, completion: @escaping (Like?, PostError?) -> Void) {
         guard let currentUserReference = currentUserReference else {
             return
         }
@@ -262,12 +278,12 @@ extension PostController {
         
         publicDB.save(record) { record, error in
             if let error = error {
-                return completion(.failure(.thrownError(error)))
+                return completion(nil, .thrownError(error))
             }
             
             guard let record = record,
                   let like = Like(ckRecord: record) else {
-                return completion(.failure(.recordError))
+                return completion(nil, .recordError)
             }
             
             post.likes.append(like)
@@ -277,15 +293,43 @@ extension PostController {
                 await self.updateLikesCount(with: post.likesCount + 1, post: post)
             }
 
-            return completion(.success(like))
+            return completion(like, nil)
         }
     }
     
-    private func unlike(post: Post) {
+    private func unlike(post: Post, completion: @escaping (PostError?) -> Void) {
+        guard let currentUserReference = currentUserReference else { return }
         
+        let likes = post.likes.filter { $0.userReference == currentUserReference }
+        
+        guard let like = likes.first,
+              let index = post.likes.firstIndex(of: like) else { return }
+        
+        let operation = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: [like.recordID])
+        
+        operation.savePolicy = .changedKeys
+        operation.qualityOfService = .userInteractive
+        
+        operation.modifyRecordsResultBlock = { result in
+            switch result {
+            case .success:
+                post.likes.remove(at: index)
+                
+                Task {
+                    // Deincrement likeCount by 1
+                    await self.updateLikesCount(with: post.likesCount - 1, post: post)
+                }
+                
+                return completion(nil)
+            case .failure(let error):
+                return completion(.thrownError(error))
+            }
+        }
+        
+        publicDB.add(operation)
     }
     
-    private func checkIfUserLiked(post: Post, completion: @escaping (Bool, PostError?) -> Void) {
+    func checkIfUserLiked(post: Post, completion: @escaping (Bool, PostError?) -> Void) {
         guard let currentUserReference = currentUserReference else {
             return completion(false, .userNotFound)
         }
