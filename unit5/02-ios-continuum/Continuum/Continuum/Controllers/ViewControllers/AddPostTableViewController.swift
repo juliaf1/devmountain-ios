@@ -17,6 +17,8 @@ class AddPostTableViewController: UITableViewController {
     // MARK: - Properties
     
     var postPhoto: UIImage?
+    
+    let spinner = SpinnerViewController()
 
     // MARK: - Lifecycle
 
@@ -50,6 +52,8 @@ class AddPostTableViewController: UITableViewController {
               let caption = captionTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
               !caption.isEmpty else { return }
         
+        presentLoading()
+        
         PostController.shared.createPost(photo: photo, caption: caption) { result in
             DispatchQueue.main.async {
                 switch result {
@@ -58,6 +62,8 @@ class AddPostTableViewController: UITableViewController {
                 case .failure(let error):
                     self.presentAlert(title: "Ops, couldn't add post.", message: error.description)
                 }
+                
+                self.removeLoading()
             }
         }
     }
@@ -73,6 +79,24 @@ class AddPostTableViewController: UITableViewController {
     
     func resetViews() {
         captionTextField.text = ""
+    }
+    
+    func presentLoading() {
+        self.addChild(spinner)
+        
+        spinner.view.frame = view.frame
+        self.view.addSubview(spinner.view)
+        spinner.didMove(toParent: self)
+        
+        addPostButton.isEnabled = false
+    }
+    
+    func removeLoading() {
+        spinner.willMove(toParent: nil)
+        spinner.view.removeFromSuperview()
+        spinner.removeFromParent()
+        
+        addPostButton.isEnabled = true
     }
     
     // MARK: - Navigation
