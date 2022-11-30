@@ -140,21 +140,43 @@ class PostController {
         }
     }
     
-    func toggleCommentsSubscription(for post: Post, completion: @escaping (Bool, Error?) -> Void) {
+    func toggleCommentsSubscription(for post: Post, completion: @escaping (Bool, PostError?) -> Void) {
         checkCommentsSubscription(for: post) { subscriptionExists in
             if subscriptionExists {
-                self.removeCommentsSubcription(from: post) { success, _ in
-                    print("Successfully subscribed to new comments")
+                self.removeCommentsSubcription(from: post) { success, error in
+                    if let error = error {
+                        return completion(false, .thrownError(error))
+                    }
+                    
+                    return completion(true, nil)
                 }
             } else {
-                self.subscribeToNewComments(from: post) { success, _ in
-                    print("Successfully unsubscribed to new comments")
+                self.subscribeToNewComments(from: post) { success, error in
+                    if let error = error {
+                        return completion(false, .thrownError(error))
+                    }
+                    
+                    return completion(true, nil)
                 }
             }
         }
     }
     
-    private func subscribeToNewComments(from post: Post, completion: @escaping (Bool, Error?) -> Void) {
+    func checkCommentsSubscription(for post: Post, completion: @escaping (Bool) -> Void) {
+        publicDB.fetch(withSubscriptionID: post.recordID.recordName) { subscription, error in
+            if let error = error {
+                print("Error in \(#function): \(error.localizedDescription)")
+            }
+            
+            if let _ = subscription {
+                return completion(true)
+            } else {
+                return completion(false)
+            }
+        }
+    }
+    
+    private func subscribeToNewComments(from post: Post, completion: @escaping (Bool, PostError?) -> Void) {
         let predicate = NSPredicate(format: "%K == %@", CommentKeys.postReference, post.recordID)
         let subscription = CKQuerySubscription(recordType: CommentKeys.recordType, predicate: predicate, subscriptionID: post.recordID.recordName, options: .firesOnRecordCreation)
         
@@ -169,7 +191,7 @@ class PostController {
         publicDB.save(subscription) { subscription, error in
             if let error = error {
                 print("Error in \(#function): \(error.localizedDescription)")
-                return completion(false, error)
+                return completion(false, .thrownError(error))
             }
             
             return completion(true, nil)
@@ -177,32 +199,18 @@ class PostController {
         
     }
     
-    private func removeCommentsSubcription(from post: Post, completion: @escaping (Bool?, Error?) -> Void) {
+    private func removeCommentsSubcription(from post: Post, completion: @escaping (Bool, PostError?) -> Void) {
         publicDB.delete(withSubscriptionID: post.recordID.recordName) { _, error in
             if let error = error {
                 print("Error in \(#function): \(error.localizedDescription)")
-                return completion(false, error)
+                return completion(false, .thrownError(error))
             }
             
             return completion(true, nil)
         }
     }
     
-    private func checkCommentsSubscription(for post: Post, completion: @escaping (Bool) -> Void) {
-        publicDB.fetch(withSubscriptionID: post.recordID.recordName) { subscription, error in
-            if let error = error {
-                print("Error in \(#function): \(error.localizedDescription)")
-            }
-            
-            if let _ = subscription {
-                return completion(true)
-            } else {
-                return completion(false)
-            }
-        }
-    }
-    
-    private func subscribeToNewPosts(completion: @escaping (Bool, Error?) -> Void) {
+    private func subscribeToNewPosts(completion: @escaping (Bool, PostError?) -> Void) {
         let predicate = NSPredicate(value: true)
         let subscription = CKQuerySubscription(recordType: PostKeys.recordType, predicate: predicate, subscriptionID: "allPosts", options: .firesOnRecordCreation)
         
@@ -215,7 +223,7 @@ class PostController {
         publicDB.save(subscription) { subscription, error in
             if let error = error {
                 print("Error in \(#function): \(error.localizedDescription)")
-                return completion(false, error)
+                return completion(false, .thrownError(error))
             }
             
             return completion(true, nil)
