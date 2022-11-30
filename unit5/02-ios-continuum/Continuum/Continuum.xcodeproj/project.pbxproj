@@ -12,6 +12,7 @@
 		3229D9F729369A280094630C /* PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3229D9F629369A280094630C /* PhotoPickerViewController.swift */; };
 		3229D9FB2936DE230094630C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3229D9FA2936DE230094630C /* UIViewController+Extension.swift */; };
 		3229D9FD2936EA2F0094630C /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3229D9FC2936EA2F0094630C /* SpinnerViewController.swift */; };
+		32619D1E2937D167006E1284 /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32619D1D2937D167006E1284 /* Like.swift */; };
 		3263FB8229303A79008B94F2 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3263FB8129303A79008B94F2 /* PostTableViewCell.swift */; };
 		3263FB8429304CB5008B94F2 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3263FB8329304CB4008B94F2 /* NavigationBar.swift */; };
 		32A1E011292EC1740071AE0E /* PostListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A1E010292EC1740071AE0E /* PostListTableViewController.swift */; };
@@ -35,6 +36,7 @@
 		3229D9F629369A280094630C /* PhotoPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.swift; sourceTree = "<group>"; };
 		3229D9FA2936DE230094630C /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		3229D9FC2936EA2F0094630C /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
+		32619D1D2937D167006E1284 /* Like.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Like.swift; sourceTree = "<group>"; };
 		3263FB8129303A79008B94F2 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		3263FB8329304CB4008B94F2 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		32A1E010292EC1740071AE0E /* PostListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListTableViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			children = (
 				32A1E016292EC4BC0071AE0E /* Post.swift */,
 				32A1E018292EC6DB0071AE0E /* Comment.swift */,
+				32619D1D2937D167006E1284 /* Like.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				32A1E01D292EC79D0071AE0E /* PostError.swift in Sources */,
 				3229D9F52936860A0094630C /* Date+Extension.swift in Sources */,
 				3229D9FB2936DE230094630C /* UIViewController+Extension.swift in Sources */,
+				32619D1E2937D167006E1284 /* Like.swift in Sources */,
 				3229D9FD2936EA2F0094630C /* SpinnerViewController.swift in Sources */,
 				3229D9F3293670CA0094630C /* SearchableRecord.swift in Sources */,
 				32A1E017292EC4BC0071AE0E /* Post.swift in Sources */,
