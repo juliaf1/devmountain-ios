@@ -9,6 +9,16 @@ import Foundation
 
 enum PostError: LocalizedError {
     
+    case thrownError(Error)
+    case recordError
     
+    var description: String {
+        switch self {
+        case .thrownError(let error):
+            return error.localizedDescription
+        case .recordError:
+            return "There was an error handling your database records."
+        }
+    }
     
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CloudKit
 
 let postsWereSetNotificationName = Notification.Name("postsWereSet")
 
@@ -21,6 +22,8 @@ class PostController {
         }
     }
     
+    let publicDB = CKContainer.default().publicCloudDatabase
+    
     // MARK: - Initializer
     
     private init() {}
@@ -29,8 +32,21 @@ class PostController {
     
     func createPost(photo: UIImage, caption: String, completion: @escaping (Result<Post, PostError>) -> Void) {
         let post = Post(photo: photo, caption: caption)
-        posts.append(post)
-        return completion(.success(post))
+        let record = CKRecord(post: post)
+        
+        publicDB.save(record) { record, error in
+            if let error = error {
+                return completion(.failure(.thrownError(error)))
+            }
+            
+            guard let record = record,
+                  let post = Post(ckRecord: record) else {
+                return completion(.failure(.recordError))
+            }
+            
+            self.posts.append(post)
+            return completion(.success(post))
+        }
     }
     
     func addComment(to post: Post, text: String, completion: @escaping (Result<Comment, PostError>) -> Void) {

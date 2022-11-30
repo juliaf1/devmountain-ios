@@ -56,8 +56,7 @@ class AddPostTableViewController: UITableViewController {
                 case .success:
                     self.tabBarController?.selectedIndex = NavigationBar.postList.rawValue
                 case .failure(let error):
-                    print(error)
-                    // todo: present error to user with alert
+                    self.presentAlert(title: "Ops, couldn't add post.", message: error.description)
                 }
             }
         }

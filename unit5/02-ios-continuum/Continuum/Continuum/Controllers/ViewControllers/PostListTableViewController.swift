@@ -44,7 +44,9 @@ class PostListTableViewController: UITableViewController {
     // MARK: - Helpers
     
     @objc func updateViews() {
-        tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 
     // MARK: - Table view data source
