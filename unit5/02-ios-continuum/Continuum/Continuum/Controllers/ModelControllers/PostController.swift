@@ -23,6 +23,8 @@ class PostController {
         }
     }
     
+    var currentUserReference: CKRecord.Reference?
+    
     let publicDB = CKContainer.default().publicCloudDatabase
     
     // MARK: - Initializer
@@ -30,6 +32,12 @@ class PostController {
     private init() {
         subscribeToNewPosts { success, _ in
             if success { print("Successfully subscribed to new posts.") }
+        }
+        
+        UserController.fetchAppleUserReference { reference in
+            if let reference = reference {
+                self.currentUserReference = reference
+            }
         }
     }
     
@@ -173,6 +181,125 @@ class PostController {
         }
     }
     
+    func toggleLike(for post: Post, completion: @escaping (Result<Like, PostError>) -> Void) {
+        checkIfUserLiked(post: post) { likeExists, error in
+            if let error = error {
+                return completion(.failure(.thrownError(error)))
+            }
+            
+            if likeExists {
+                self.unlike(post: post)
+            } else {
+                self.like(post: post) { result in
+                    
+                }
+            }
+        }
+    }
+    
+    private func like(post: Post, completion: @escaping (Result<Like, PostError>) -> Void) {
+        guard let currentUserReference = currentUserReference else {
+            return
+        }
+        
+        let postReference = CKRecord.Reference(recordID: post.recordID, action: .deleteSelf)
+        let like = Like(postReference: postReference, userReference: currentUserReference)
+        
+        let record = CKRecord(like: like)
+        
+        publicDB.save(record) { record, error in
+            if let error = error {
+                return completion(.failure(.thrownError(error)))
+            }
+            
+            guard let record = record,
+                  let like = Like(ckRecord: record) else {
+                return completion(.failure(.recordError))
+            }
+            
+            post.likes.append(like)
+            
+            Task {
+                // Increment likesCount by 1
+                await self.updateLikesCount(with: post.likesCount + 1, post: post)
+            }
+
+            return completion(.success(like))
+        }
+    }
+    
+    private func unlike(post: Post) {
+        
+    }
+    
+    func fetchLikes(for post: Post, completion: @escaping (Result<[Like], PostError>) -> Void) {
+        let predicate = NSPredicate(format: "%K == %@", LikeKeys.postReference, post.recordID)
+        let query = CKQuery(recordType: LikeKeys.recordType, predicate: predicate)
+
+        publicDB.fetch(withQuery: query) { result in
+            switch result {
+            case .success(let successResult):
+                successResult.matchResults.forEach { matchTuple in
+                    if case .success(let record) = matchTuple.1 {
+                        guard let like = Like(ckRecord: record) else { return }
+                        post.likes.append(like)
+                    }
+                }
+                
+                Task {
+                    if post.likesCount != post.likes.count {
+                        // Fixes likesCount if value saved on post record is different than the total amount of likes
+                        await self.updateLikesCount(with: post.likes.count, post: post)
+                    }
+                }
+                
+                return completion(.success(post.likes))
+            case .failure(let error):
+                return completion(.failure(.thrownError(error)))
+            }
+        }
+    }
+    
+    private func checkIfUserLiked(post: Post, completion: @escaping (Bool, PostError?) -> Void) {
+        guard let currentUserReference = currentUserReference else {
+            return completion(false, .userNotFound)
+        }
+        
+        let userLike = post.likes.filter { $0.userReference == currentUserReference }
+        
+        if userLike.isEmpty {
+            return completion(false, nil)
+        } else {
+            return completion(true, nil)
+        }
+    }
+    
+    private func updateLikesCount(with newCount: Int, post: Post) async {
+        let postRecord = await fetchPostRecord(with: post.recordID)
+
+        guard let postRecord = postRecord else {
+            return print("Error in \(#function): couldn't find CKRecord for \(post)")
+        }
+
+        post.likesCount = newCount
+        postRecord.update(post: post)
+        
+        let operation = CKModifyRecordsOperation(recordsToSave: [postRecord], recordIDsToDelete: nil)
+        operation.qualityOfService = .userInteractive
+        operation.savePolicy = .changedKeys
+        
+        operation.modifyRecordsResultBlock = { result in
+            switch result {
+            case .success:
+                NotificationCenter.default.post(name: postsWereSetNotificationName, object: self)
+            case .failure(let error):
+                print("Error in \(#function): \(error.localizedDescription)")
+            }
+        }
+        
+        publicDB.add(operation)
+    }
+    
     private func subscribeToNewComments(from post: Post, completion: @escaping (Bool, PostError?) -> Void) {
         let predicate = NSPredicate(format: "%K == %@", CommentKeys.postReference, post.recordID)
         let subscription = CKQuerySubscription(recordType: CommentKeys.recordType, predicate: predicate, subscriptionID: post.recordID.recordName, options: .firesOnRecordCreation)
@@ -246,7 +373,6 @@ class PostController {
             case .success:
                 NotificationCenter.default.post(name: postsWereSetNotificationName, object: self)
             case .failure(let error):
-                post.commentsCount -= 1
                 print("Error in \(#function): \(error.localizedDescription)")
             }
         }

@@ -26,9 +26,13 @@ class Post {
 
     let timestamp: Date
     let caption: String
-    var comments: [Comment]
+
+    var comments: [Comment] = []
     var commentsCount: Int
+
+    var likes: [Like] = []
     var likesCount: Int
+
     let recordID: CKRecord.ID
     
     var photoData: Data?
@@ -68,9 +72,8 @@ class Post {
     
     // MARK: - Initializer
     
-    init(photo: UIImage, caption: String, comments: [Comment] = [], timestamp: Date = Date(), commentsCount: Int = 0, likesCount: Int = 0, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
+    init(photo: UIImage, caption: String, timestamp: Date = Date(), commentsCount: Int = 0, likesCount: Int = 0, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
         self.caption = caption
-        self.comments = comments
         self.timestamp = timestamp
         self.recordID = recordID
         self.commentsCount = commentsCount

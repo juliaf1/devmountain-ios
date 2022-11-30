@@ -12,8 +12,8 @@ struct LikeKeys {
     
     static let recordType = "PostLikes"
     static let recordID = "recordID"
-    fileprivate static let postReference = "postReference"
-    fileprivate static let userReference = "userReference"
+    static let postReference = "postReference"
+    static let userReference = "userReference"
     
 }
 
