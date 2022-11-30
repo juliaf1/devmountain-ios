@@ -29,7 +29,7 @@ class Comment {
     
     // MARK: - Initializer
     
-    init(text: String, timestamp: Date = Date(), postReference: CKRecord.Reference? = nil, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
+    init(text: String, timestamp: Date = Date(), postReference: CKRecord.Reference, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
         self.text = text
         self.timestamp = timestamp
         self.postReference = postReference
@@ -39,10 +39,9 @@ class Comment {
     convenience init?(ckRecord: CKRecord) {
         guard let text = ckRecord[CommentKeys.text] as? String,
               let timestamp = ckRecord[CommentKeys.timestamp] as? Date,
-              let recordID = ckRecord[CommentKeys.recordID] as? CKRecord.ID,
               let postReference = ckRecord[CommentKeys.postReference] as? CKRecord.Reference else { return nil }
         
-        self.init(text: text, timestamp: timestamp, postReference: postReference, recordID: recordID)
+        self.init(text: text, timestamp: timestamp, postReference: postReference, recordID: ckRecord.recordID)
     }
     
 }
@@ -55,6 +54,7 @@ extension CKRecord {
         self.setValuesForKeys([
             CommentKeys.text: comment.text,
             CommentKeys.timestamp: comment.timestamp,
+            CommentKeys.postReference: comment.postReference!,
         ])
     }
     

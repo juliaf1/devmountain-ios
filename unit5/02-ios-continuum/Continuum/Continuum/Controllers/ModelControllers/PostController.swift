@@ -50,10 +50,24 @@ class PostController {
     }
     
     func addComment(to post: Post, text: String, completion: @escaping (Result<Comment, PostError>) -> Void) {
-        let comment = Comment(text: text)
-        post.comments.append(comment)
-        NotificationCenter.default.post(name: postsWereSetNotificationName, object: self)
-        return completion(.success(comment))
+        let comment = Comment(text: text, postReference: CKRecord.Reference(recordID: post.recordID, action: .deleteSelf))
+        let record = CKRecord(comment: comment)
+        
+        publicDB.save(record) { record, error in
+            if let error = error {
+                return completion(.failure(.thrownError(error)))
+            }
+            
+            guard let record = record,
+                  let comment = Comment(ckRecord: record) else {
+                return completion(.failure(.recordError))
+            }
+            
+            post.comments.append(comment)
+            NotificationCenter.default.post(name: postsWereSetNotificationName, object: self)
+
+            return completion(.success(comment))
+        }
     }
     
 }

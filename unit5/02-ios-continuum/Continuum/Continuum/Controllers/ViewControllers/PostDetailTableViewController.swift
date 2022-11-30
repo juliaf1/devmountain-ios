@@ -58,6 +58,8 @@ class PostDetailTableViewController: UITableViewController {
               let comment = commentTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
               !comment.isEmpty else { return }
         
+        addCommentButton.isEnabled = false
+        
         PostController.shared.addComment(to: post, text: comment) { result in
             DispatchQueue.main.async {
                 switch result {
@@ -68,9 +70,10 @@ class PostDetailTableViewController: UITableViewController {
                     self.commentTextField.resignFirstResponder()
                     self.updatePostCell()
                 case .failure(let error):
-                    // todo: display alert with error
-                    print(error)
+                    self.presentAlert(title: "Error creating comment", message: error.description)
                 }
+                
+                self.addCommentButton.isEnabled = true
             }
         }
     }
