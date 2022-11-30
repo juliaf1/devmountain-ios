@@ -132,7 +132,7 @@ extension PostListTableViewController: UISearchBarDelegate {
 extension PostListTableViewController: PostTableViewCellDelegate {
     
     func didPressShareButton(for post: Post) {
-        let activity = UIActivityViewController(activityItems: [post.photo!, post.caption], applicationActivities: [])
+        let activity = UIActivityViewController(activityItems: [post.photo!, "Check out this cool post @ Continuum: \(post.caption)"], applicationActivities: [])
         
         present(activity, animated: true)
     }
