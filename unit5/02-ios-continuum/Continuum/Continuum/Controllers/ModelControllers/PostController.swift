@@ -30,6 +30,34 @@ class PostController {
     
     // MARK: - Methods
     
+    func fetchComments(for post: Post, completion: @escaping (Result<[Comment], PostError>) -> Void) {
+        
+    }
+    
+    func fetchPosts(completion: @escaping (Result<[Post], PostError>) -> Void) {
+        let predicate = NSPredicate(value: true)
+        let query = CKQuery(recordType: PostKeys.recordType, predicate: predicate)
+        
+        var fetchPosts: [Post] = []
+        
+        publicDB.fetch(withQuery: query) { result in
+            switch result {
+            case .success(let successResult):
+                successResult.matchResults.forEach { matchTuple in
+                    if case .success(let record) = matchTuple.1 {
+                        guard let post = Post(ckRecord: record) else { return }
+                        fetchPosts.append(post)
+                    }
+                }
+
+                self.posts = fetchPosts
+                return completion(.success(fetchPosts))
+            case .failure(let error):
+                return completion(.failure(.thrownError(error)))
+            }
+        }
+    }
+    
     func createPost(photo: UIImage, caption: String, completion: @escaping (Result<Post, PostError>) -> Void) {
         let post = Post(photo: photo, caption: caption)
         let record = CKRecord(post: post)
