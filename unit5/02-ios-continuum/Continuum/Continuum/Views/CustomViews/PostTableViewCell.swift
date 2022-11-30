@@ -19,6 +19,7 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var commentsLabel: UILabel!
+    @IBOutlet weak var subscriptionButton: UIButton!
 
     // MARK: - Properties
     
@@ -50,6 +51,9 @@ class PostTableViewCell: UITableViewCell {
         }
 
         delegate?.didPressShareButton(for: post)
+    }
+    
+    @IBAction func didPressSubscriptionButton(_ sender: UIButton) {
     }
     
     // MARK: - Helpers
