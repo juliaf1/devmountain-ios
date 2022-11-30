@@ -15,6 +15,8 @@ struct PostKeys {
     fileprivate static let timestamp = "timestamp"
     fileprivate static let caption = "caption"
     fileprivate static let photoAsset = "photoAsset"
+    fileprivate static let commentsCount = "commentsCount"
+    fileprivate static let likesCount = "likesCount"
     
 }
 
@@ -25,7 +27,9 @@ class Post {
     let timestamp: Date
     let caption: String
     var comments: [Comment]
-    var recordID: CKRecord.ID
+    var commentsCount: Int
+    var likesCount: Int
+    let recordID: CKRecord.ID
     
     var photoData: Data?
 
@@ -64,23 +68,27 @@ class Post {
     
     // MARK: - Initializer
     
-    init(photo: UIImage, caption: String, comments: [Comment] = [], timestamp: Date = Date(), recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
+    init(photo: UIImage, caption: String, comments: [Comment] = [], timestamp: Date = Date(), commentsCount: Int = 0, likesCount: Int = 0, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
         self.caption = caption
         self.comments = comments
         self.timestamp = timestamp
         self.recordID = recordID
+        self.commentsCount = commentsCount
+        self.likesCount = likesCount
         self.photo = photo
     }
 
     convenience init?(ckRecord: CKRecord) {
         guard let timestamp = ckRecord[PostKeys.timestamp] as? Date,
               let caption = ckRecord[PostKeys.caption] as? String,
-              let photoAsset = ckRecord[PostKeys.photoAsset] as? CKAsset else { return nil }
+              let photoAsset = ckRecord[PostKeys.photoAsset] as? CKAsset,
+              let commentsCount = ckRecord[PostKeys.commentsCount] as? Int,
+              let likesCount = ckRecord[PostKeys.likesCount] as? Int else { return nil }
         
         do {
             let data = try Data(contentsOf: photoAsset.fileURL!)
             guard let photo = UIImage(data: data) else { return nil }
-            self.init(photo: photo, caption: caption, timestamp: timestamp, recordID: ckRecord.recordID)
+            self.init(photo: photo, caption: caption, timestamp: timestamp, commentsCount: commentsCount, likesCount: likesCount, recordID: ckRecord.recordID)
         } catch {
             return nil
         }
@@ -105,6 +113,8 @@ extension CKRecord {
         self.setValuesForKeys([
             PostKeys.timestamp: post.timestamp,
             PostKeys.caption: post.caption,
+            PostKeys.commentsCount: post.commentsCount,
+            PostKeys.likesCount: post.likesCount,
         ])
         
         if let photoAsset = post.photoAsset {
