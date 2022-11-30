@@ -29,7 +29,7 @@ class Comment {
     
     // MARK: - Initializer
     
-    init(text: String, timestamp: Date = Date(), postReference: CKRecord.Reference?, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
+    init(text: String, timestamp: Date = Date(), postReference: CKRecord.Reference? = nil, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) {
         self.text = text
         self.timestamp = timestamp
         self.postReference = postReference
