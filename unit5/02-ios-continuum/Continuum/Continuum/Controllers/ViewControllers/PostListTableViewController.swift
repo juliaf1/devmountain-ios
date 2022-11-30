@@ -33,6 +33,8 @@ class PostListTableViewController: UITableViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: postsWereSetNotificationName, object: nil)
         
         searchBar.delegate = self
+        
+        loadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,6 +48,19 @@ class PostListTableViewController: UITableViewController {
     @objc func updateViews() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
+        }
+    }
+    
+    func loadData() {
+        controller.fetchPosts { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success:
+                    break
+                case .failure(let error):
+                    self.presentAlert(title: "Error loading posts", message: error.description)
+                }
+            }
         }
     }
 
