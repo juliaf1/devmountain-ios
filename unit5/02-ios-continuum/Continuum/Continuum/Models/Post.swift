@@ -15,7 +15,7 @@ struct PostKeys {
     fileprivate static let timestamp = "timestamp"
     fileprivate static let caption = "caption"
     fileprivate static let photoAsset = "photoAsset"
-    fileprivate static let commentsCount = "commentsCount"
+    static let commentsCount = "commentsCount"
     fileprivate static let likesCount = "likesCount"
     
 }

@@ -52,6 +52,14 @@ class PostController {
                         NotificationCenter.default.post(name: commentsWereSetNotificationName, object: self)
                     }
                 }
+                
+                Task {
+                    if post.commentsCount != post.comments.count {
+                        // Fixes commentsCount if value saved on post record is different than the total amount of comments
+                        await self.updateCommentsCount(with: post.comments.count, post: post)
+                    }
+                }
+                
                 return completion(.success(post.comments))
             case .failure(let error):
                 return completion(.failure(.thrownError(error)))
@@ -76,6 +84,7 @@ class PostController {
                 }
 
                 self.posts = fetchPosts
+
                 return completion(.success(fetchPosts))
             case .failure(let error):
                 return completion(.failure(.thrownError(error)))
@@ -119,21 +128,22 @@ class PostController {
             post.comments.append(comment)
             
             Task {
-                await self.incrementCommentsCount(for: post)
+                // Increment commentsCount by 1
+                await self.updateCommentsCount(with: post.commentsCount + 1, post: post)
             }
 
             return completion(.success(comment))
         }
     }
-    
-    private func incrementCommentsCount(for post: Post) async {
+
+    private func updateCommentsCount(with newCount: Int, post: Post) async {
         let postRecord = await fetchPostRecord(with: post.recordID)
 
         guard let postRecord = postRecord else {
             return print("Error in \(#function): couldn't find CKRecord for \(post)")
         }
 
-        post.commentsCount += 1
+        post.commentsCount = newCount
         postRecord.update(post: post)
         
         let operation = CKModifyRecordsOperation(recordsToSave: [postRecord], recordIDsToDelete: nil)
