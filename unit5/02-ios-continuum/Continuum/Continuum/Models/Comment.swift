@@ -13,7 +13,7 @@ struct CommentKeys {
     static let recordType = "Comment"
     static let recordID = "recordID"
     static let postReference = "postReference"
-    fileprivate static let text = "text"
+    static let text = "text"
     fileprivate static let timestamp = "timestamp"
     
 }

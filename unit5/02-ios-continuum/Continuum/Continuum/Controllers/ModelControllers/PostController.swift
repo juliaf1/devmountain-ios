@@ -28,7 +28,9 @@ class PostController {
     // MARK: - Initializer
     
     private init() {
-        subscribeToNewPosts(completion: nil)
+        subscribeToNewPosts { success, _ in
+            if success { print("Successfully subscribed to new posts.") }
+        }
     }
     
     // MARK: - Methods
@@ -138,20 +140,46 @@ class PostController {
         }
     }
     
-    private func subscribeToNewPosts(completion: ((Bool, Error?) -> Void)?) {
-        let predicate = NSPredicate(value: true)
-        let subscription = CKQuerySubscription(recordType: PostKeys.recordType, predicate: predicate, options: .firesOnRecordCreation)
+    func subscribeToNewComments(from post: Post, completion: @escaping (Bool, Error?) -> Void) {
+        let predicate = NSPredicate(format: "%K == %@", CommentKeys.postReference, post.recordID)
+        let subscription = CKQuerySubscription(recordType: CommentKeys.recordType, predicate: predicate, subscriptionID: post.recordID.recordName, options: .firesOnRecordCreation)
         
         let notificationInfo = CKSubscription.NotificationInfo()
-        notificationInfo.title = "UEPA"
+        notificationInfo.title = "New comment 🧵"
+        notificationInfo.alertBody = "Someone just commented on a post you're following: \(post.caption)"
+        notificationInfo.desiredKeys = [CommentKeys.text]
+        notificationInfo.shouldSendContentAvailable = true
+        
+        subscription.notificationInfo = notificationInfo
+        
+        publicDB.save(subscription) { subscription, error in
+            if let error = error {
+                print("Error in \(#function): \(error.localizedDescription)")
+                return completion(false, error)
+            }
+            
+            return completion(true, nil)
+        }
+        
+    }
+    
+    private func subscribeToNewPosts(completion: @escaping (Bool, Error?) -> Void) {
+        let predicate = NSPredicate(value: true)
+        let subscription = CKQuerySubscription(recordType: PostKeys.recordType, predicate: predicate, subscriptionID: "allPosts", options: .firesOnRecordCreation)
+        
+        let notificationInfo = CKSubscription.NotificationInfo()
+        notificationInfo.title = "New post 🌞"
         notificationInfo.alertBody = "Don't miss out on your friends latest posts."
         
         subscription.notificationInfo = notificationInfo
         
         publicDB.save(subscription) { subscription, error in
             if let error = error {
-                return print("Error in \(#function): \(error.localizedDescription)")
+                print("Error in \(#function): \(error.localizedDescription)")
+                return completion(false, error)
             }
+            
+            return completion(true, nil)
         }
     }
 
