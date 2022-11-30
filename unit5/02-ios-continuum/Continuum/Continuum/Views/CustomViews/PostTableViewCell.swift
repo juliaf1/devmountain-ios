@@ -9,6 +9,7 @@ import UIKit
 
 protocol PostTableViewCellDelegate: AnyObject {
     func didPressShareButton(for post: Post)
+    func didReceiveSubscriptionError(_ error: PostError)
 }
 
 class PostTableViewCell: UITableViewCell {
@@ -54,6 +55,19 @@ class PostTableViewCell: UITableViewCell {
     }
     
     @IBAction func didPressSubscriptionButton(_ sender: UIButton) {
+        guard let post = post else {
+            return
+        }
+
+        PostController.shared.toggleCommentsSubscription(for: post) { success, error in
+            if let error = error {
+                self.delegate?.didReceiveSubscriptionError(error)
+            }
+            
+            if success {
+                self.updateSubscriptionButton(for: post)
+            }
+        }
     }
     
     // MARK: - Helpers
@@ -66,6 +80,19 @@ class PostTableViewCell: UITableViewCell {
         
         let commentCount = post.commentsCount
         updateCommentsLabel(with: commentCount)
+        
+        Task {
+            updateSubscriptionButton(for: post)
+        }
+    }
+    
+    func updateSubscriptionButton(for post: Post) {
+        PostController.shared.checkCommentsSubscription(for: post) { subscriptionExists in
+            DispatchQueue.main.async {
+                let title = subscriptionExists ? "Unfollow" : "Follow"
+                self.subscriptionButton.setTitle(title, for: .normal)
+            }
+        }
     }
     
     func updateCommentsLabel(with totalCount: Int) {

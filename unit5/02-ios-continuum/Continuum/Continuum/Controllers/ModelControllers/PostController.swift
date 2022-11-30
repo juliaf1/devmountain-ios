@@ -156,6 +156,7 @@ class PostController {
                         return completion(false, .thrownError(error))
                     }
                     
+                    NotificationCenter.default.post(name: postsWereSetNotificationName, object: self)
                     return completion(true, nil)
                 }
             }
@@ -163,11 +164,7 @@ class PostController {
     }
     
     func checkCommentsSubscription(for post: Post, completion: @escaping (Bool) -> Void) {
-        publicDB.fetch(withSubscriptionID: post.recordID.recordName) { subscription, error in
-            if let error = error {
-                print("Error in \(#function): \(error.localizedDescription)")
-            }
-            
+        publicDB.fetch(withSubscriptionID: post.recordID.recordName) { subscription, _ in
             if let _ = subscription {
                 return completion(true)
             } else {

@@ -180,4 +180,10 @@ extension PostDetailTableViewController: PostTableViewCellDelegate {
         present(activity, animated: true)
     }
     
+    func didReceiveSubscriptionError(_ error: PostError) {
+        DispatchQueue.main.async {
+            self.presentAlert(title: "Error subscribing to post", message: error.description)
+        }
+    }
+    
 }
