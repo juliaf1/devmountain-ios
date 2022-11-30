@@ -140,7 +140,21 @@ class PostController {
         }
     }
     
-    func subscribeToNewComments(from post: Post, completion: @escaping (Bool, Error?) -> Void) {
+    func toggleCommentsSubscription(for post: Post, completion: @escaping (Bool, Error?) -> Void) {
+        checkCommentsSubscription(for: post) { subscriptionExists in
+            if subscriptionExists {
+                self.removeCommentsSubcription(from: post) { success, _ in
+                    print("Successfully subscribed to new comments")
+                }
+            } else {
+                self.subscribeToNewComments(from: post) { success, _ in
+                    print("Successfully unsubscribed to new comments")
+                }
+            }
+        }
+    }
+    
+    private func subscribeToNewComments(from post: Post, completion: @escaping (Bool, Error?) -> Void) {
         let predicate = NSPredicate(format: "%K == %@", CommentKeys.postReference, post.recordID)
         let subscription = CKQuerySubscription(recordType: CommentKeys.recordType, predicate: predicate, subscriptionID: post.recordID.recordName, options: .firesOnRecordCreation)
         
@@ -163,7 +177,7 @@ class PostController {
         
     }
     
-    func removeCommentsSubcription(from post: Post, completion: @escaping (Bool, Error?) -> Void) {
+    private func removeCommentsSubcription(from post: Post, completion: @escaping (Bool?, Error?) -> Void) {
         publicDB.delete(withSubscriptionID: post.recordID.recordName) { _, error in
             if let error = error {
                 print("Error in \(#function): \(error.localizedDescription)")
@@ -171,6 +185,20 @@ class PostController {
             }
             
             return completion(true, nil)
+        }
+    }
+    
+    private func checkCommentsSubscription(for post: Post, completion: @escaping (Bool) -> Void) {
+        publicDB.fetch(withSubscriptionID: post.recordID.recordName) { subscription, error in
+            if let error = error {
+                print("Error in \(#function): \(error.localizedDescription)")
+            }
+            
+            if let _ = subscription {
+                return completion(true)
+            } else {
+                return completion(false)
+            }
         }
     }
     
