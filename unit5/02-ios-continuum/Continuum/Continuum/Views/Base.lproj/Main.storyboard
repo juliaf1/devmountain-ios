@@ -189,18 +189,18 @@
                                             </connections>
                                         </button>
                                         <stackView opaque="NO" contentMode="right" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="pvj-EV-gdk">
-                                            <rect key="frame" x="20.5" y="303.5" width="54" height="25"/>
+                                            <rect key="frame" x="20.5" y="303.5" width="114.5" height="25"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kQL-t7-nBp">
                                                     <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="un9-kh-5We">
                                                             <rect key="frame" x="0.0" y="1.5" width="25" height="22.5"/>
-                                                            <color key="tintColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="0.63486708599999997" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="tintColor" red="0.91764706370000004" green="0.53725492949999998" blue="0.61568629740000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </imageView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tPh-eq-W1T">
                                                             <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
-                                                            <color key="tintColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="0.63486708599999997" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="tintColor" red="0.91764706370000004" green="0.53725492949999998" blue="0.61568629740000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <state key="normal" title="Button"/>
                                                             <buttonConfiguration key="configuration" style="plain" title=""/>
                                                             <connections>
@@ -227,11 +227,11 @@
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paperplane.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="pWE-nn-J6B">
                                                             <rect key="frame" x="0.0" y="0.5" width="25" height="24.5"/>
-                                                            <color key="tintColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="0.63486708599999997" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="tintColor" red="0.91764706370000004" green="0.53725492949999998" blue="0.61568629740000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </imageView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hQ-XB-Btc">
                                                             <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
-                                                            <color key="tintColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="0.63486708599999997" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="tintColor" red="0.91764706370000004" green="0.53725492949999998" blue="0.61568629740000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <state key="normal" title="Button"/>
                                                             <buttonConfiguration key="configuration" style="plain" title=""/>
                                                             <connections>
@@ -253,6 +253,19 @@
                                                         <constraint firstAttribute="trailing" secondItem="7hQ-XB-Btc" secondAttribute="trailing" id="yFo-Pe-eio"/>
                                                     </constraints>
                                                 </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4P7-9I-ba6">
+                                                    <rect key="frame" x="58" y="0.0" width="56.5" height="25"/>
+                                                    <color key="backgroundColor" red="0.91764706370000004" green="0.53725492949999998" blue="0.61568629740000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="Follow" buttonSize="mini"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="4"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </button>
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="YmV-od-w93">
@@ -368,18 +381,18 @@
                                             </connections>
                                         </button>
                                         <stackView opaque="NO" contentMode="right" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="BC7-S8-6C6">
-                                            <rect key="frame" x="20.5" y="303.5" width="54" height="25"/>
+                                            <rect key="frame" x="20.5" y="303.5" width="114.5" height="25"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5QI-ua-eOM">
                                                     <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="tvW-zZ-mmj">
                                                             <rect key="frame" x="0.0" y="1.5" width="25" height="22.5"/>
-                                                            <color key="tintColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="0.63486708599999997" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="tintColor" red="0.91764706370000004" green="0.53725492949999998" blue="0.61568629740000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </imageView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lnB-K5-zQf">
                                                             <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
-                                                            <color key="tintColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="0.63486708599999997" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="tintColor" red="0.91764706370000004" green="0.53725492949999998" blue="0.61568629740000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <state key="normal" title="Button"/>
                                                             <buttonConfiguration key="configuration" style="plain" title=""/>
                                                             <connections>
@@ -406,11 +419,11 @@
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paperplane.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="b5p-Tq-p7D">
                                                             <rect key="frame" x="0.0" y="0.5" width="25" height="24.5"/>
-                                                            <color key="tintColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="0.63486708599999997" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="tintColor" red="0.91764706370000004" green="0.53725492949999998" blue="0.61568629740000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </imageView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ndA-G9-juO">
                                                             <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
-                                                            <color key="tintColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="0.63486708599999997" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="tintColor" red="0.91764706370000004" green="0.53725492949999998" blue="0.61568629740000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <state key="normal" title="Button"/>
                                                             <buttonConfiguration key="configuration" style="plain" title=""/>
                                                             <connections>
@@ -432,6 +445,19 @@
                                                         <constraint firstItem="ndA-G9-juO" firstAttribute="bottom" secondItem="b5p-Tq-p7D" secondAttribute="bottom" id="yFf-pj-Tev"/>
                                                     </constraints>
                                                 </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WBl-tJ-wMo">
+                                                    <rect key="frame" x="58" y="0.0" width="56.5" height="25"/>
+                                                    <color key="backgroundColor" red="0.91764706370000004" green="0.53725492949999998" blue="0.61568629740000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="Follow" buttonSize="mini"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="4"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </button>
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="IMP-Sa-CL7">
