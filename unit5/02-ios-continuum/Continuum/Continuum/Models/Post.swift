@@ -122,4 +122,19 @@ extension CKRecord {
         }
     }
     
+    func update(post: Post) {
+        guard self.recordType == PostKeys.recordType else { return }
+        
+        self.setValuesForKeys([
+            PostKeys.timestamp: post.timestamp,
+            PostKeys.caption: post.caption,
+            PostKeys.commentsCount: post.commentsCount,
+            PostKeys.likesCount: post.likesCount,
+        ])
+
+        if let photoAsset = post.photoAsset {
+            self.setValue(photoAsset, forKey: PostKeys.photoAsset)
+        }
+    }
+    
 }

@@ -60,7 +60,7 @@ class PostTableViewCell: UITableViewCell {
         postImageView.image = post.photo
         captionLabel.text = post.caption
         
-        let commentCount = post.comments.count
+        let commentCount = post.commentsCount
         updateCommentsLabel(with: commentCount)
     }
     

@@ -117,9 +117,59 @@ class PostController {
             }
             
             post.comments.append(comment)
-            NotificationCenter.default.post(name: postsWereSetNotificationName, object: self)
+            
+            Task {
+                await self.incrementCommentsCount(for: post)
+            }
 
             return completion(.success(comment))
+        }
+    }
+    
+    private func incrementCommentsCount(for post: Post) async {
+        let postRecord = await fetchPostRecord(with: post.recordID)
+
+        guard let postRecord = postRecord else {
+            return print("Error in \(#function): couldn't find CKRecord for \(post)")
+        }
+
+        post.commentsCount += 1
+        postRecord.update(post: post)
+        
+        let operation = CKModifyRecordsOperation(recordsToSave: [postRecord], recordIDsToDelete: nil)
+        operation.qualityOfService = .userInteractive
+        operation.savePolicy = .changedKeys
+        
+        operation.modifyRecordsResultBlock = { result in
+            switch result {
+            case .success:
+                NotificationCenter.default.post(name: postsWereSetNotificationName, object: self)
+            case .failure(let error):
+                post.commentsCount -= 1
+                print("Error in \(#function): \(error.localizedDescription)")
+            }
+        }
+        
+        publicDB.add(operation)
+    }
+    
+    private func fetchPostRecord(with recordID: CKRecord.ID) async -> CKRecord? {
+        let predicate = NSPredicate(format: "%K == %@", argumentArray: [PostKeys.recordID, recordID])
+        let query = CKQuery(recordType: PostKeys.recordType, predicate: predicate)
+        
+        return await withCheckedContinuation { continuation in
+            publicDB.fetch(withQuery: query) { result in
+                switch result {
+                case .success(let successResult):
+                    let recordResult = successResult.matchResults.filter { $0.0 == recordID }
+                    
+                    if case .success(let record) = recordResult.first?.1 {
+                        return continuation.resume(returning: record)
+                    }
+                case .failure:
+                    return continuation.resume(returning: nil)
+                }
+            }
         }
     }
     
