@@ -31,6 +31,7 @@ class PostListTableViewController: UITableViewController {
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: postsWereSetNotificationName, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: commentsWereSetNotificationName, object: nil)
         
         searchBar.delegate = self
         

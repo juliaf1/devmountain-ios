@@ -28,12 +28,20 @@ class PostDetailTableViewController: UITableViewController {
     @IBOutlet weak var addCommentButton: UIButton!
     
     // MARK: - Lifecycle
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: commentsWereSetNotificationName, object: nil)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadViews), name: commentsWereSetNotificationName, object: nil)
+        
         configureViews()
         updateViews()
+        
+        loadData()
     }
 
     // MARK: - Actions
@@ -51,6 +59,29 @@ class PostDetailTableViewController: UITableViewController {
     func updateViews() {
         addCommentButton.layer.cornerRadius = 4
         addCommentButton.clipsToBounds = true
+    }
+    
+    @objc func reloadViews() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
+    func loadData() {
+        guard let post = post else {
+            return
+        }
+
+        PostController.shared.fetchComments(for: post) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success:
+                    break
+                case .failure(let error):
+                    self.presentAlert(title: "Error fetching comments", message: error.description)
+                }
+            }
+        }
     }
     
     func addComment() {

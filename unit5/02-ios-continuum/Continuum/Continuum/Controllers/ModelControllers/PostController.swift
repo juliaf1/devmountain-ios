@@ -9,6 +9,7 @@ import UIKit
 import CloudKit
 
 let postsWereSetNotificationName = Notification.Name("postsWereSet")
+let commentsWereSetNotificationName = Notification.Name("commentsWereSet")
 
 class PostController {
     
@@ -31,7 +32,31 @@ class PostController {
     // MARK: - Methods
     
     func fetchComments(for post: Post, completion: @escaping (Result<[Comment], PostError>) -> Void) {
+        let postRefence = post.recordID
+        let postReferencePredicate = NSPredicate(format: "%K == %@", CommentKeys.postReference, postRefence)
+    
+        let commentIDs = post.comments.compactMap({$0.recordID})
+        let alreadyFetchedCommentsPredicate = NSPredicate(format: "NOT(recordID IN %@)", commentIDs)
+    
+        let predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [postReferencePredicate, alreadyFetchedCommentsPredicate])
+    
+        let query = CKQuery(recordType: CommentKeys.recordType, predicate: predicate)
         
+        publicDB.fetch(withQuery: query) { result in
+            switch result {
+            case .success(let successResult):
+                successResult.matchResults.forEach { matchTuple in
+                    if case .success(let record) = matchTuple.1 {
+                        guard let comment = Comment(ckRecord: record) else { return }
+                        post.comments.append(comment)
+                        NotificationCenter.default.post(name: commentsWereSetNotificationName, object: self)
+                    }
+                }
+                return completion(.success(post.comments))
+            case .failure(let error):
+                return completion(.failure(.thrownError(error)))
+            }
+        }
     }
     
     func fetchPosts(completion: @escaping (Result<[Post], PostError>) -> Void) {
