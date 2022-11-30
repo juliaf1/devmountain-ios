@@ -27,7 +27,9 @@ class PostController {
     
     // MARK: - Initializer
     
-    private init() {}
+    private init() {
+        subscribeToNewPosts(completion: nil)
+    }
     
     // MARK: - Methods
     
@@ -133,6 +135,23 @@ class PostController {
             }
 
             return completion(.success(comment))
+        }
+    }
+    
+    private func subscribeToNewPosts(completion: ((Bool, Error?) -> Void)?) {
+        let predicate = NSPredicate(value: true)
+        let subscription = CKQuerySubscription(recordType: PostKeys.recordType, predicate: predicate, options: .firesOnRecordCreation)
+        
+        let notificationInfo = CKSubscription.NotificationInfo()
+        notificationInfo.title = "UEPA"
+        notificationInfo.alertBody = "Don't miss out on your friends latest posts."
+        
+        subscription.notificationInfo = notificationInfo
+        
+        publicDB.save(subscription) { subscription, error in
+            if let error = error {
+                return print("Error in \(#function): \(error.localizedDescription)")
+            }
         }
     }
 
